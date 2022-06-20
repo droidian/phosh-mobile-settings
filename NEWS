@@ -1,0 +1,8 @@
+phosh-mobile-settings 0.0.1
+----------------------------
+Released: June 2022
+This is an alpha release
+* Panel for compositor settings (scale-to-fit)
+* Panel for feedback settings
+* Panel for a lock screen stetting (keypad shuffle)
+* Allows for per device plugins and ships a Librem 5 plugin

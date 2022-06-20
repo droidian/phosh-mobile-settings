@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/sigxcpu/MobileSettings">
+    <file>ui/mobile-settings-window.ui</file>
+    <file>ui/ms-compositor-panel.ui</file>
+    <file>ui/ms-feedback-panel.ui</file>
+    <file>ui/ms-feedback-row.ui</file>
+    <file>ui/ms-lockscreen-panel.ui</file>
+    <file>ui/ms-panel-switcher.ui</file>
+    <file>ui/ms-scale-to-fit-row.ui</file>
+    <file>gtk/help-overlay.ui</file>
+  </gresource>
+  <gresource prefix="/org/sigxcpu/MobileSettings/icons/scalable/status/">
+    <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
+    <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
+    <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
+  </gresource>
+</gresources>

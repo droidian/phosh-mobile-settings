@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Mobile Settings
+Exec=phosh-mobile-settings
+Icon=org.sigxcpu.MobileSettings
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Settings;
+StartupNotify=true
+Keywords=Mobile;Preferences;MobileSettings;
+X-Purism-FormFactor=Workstation;Mobile;

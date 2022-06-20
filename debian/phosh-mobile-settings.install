@@ -1,0 +1,5 @@
+usr/bin/phosh-mobile-settings
+usr/share/applications/org.sigxcpu.MobileSettings.desktop
+usr/share/icons/hicolor/scalable/apps/org.sigxcpu.MobileSettings.svg
+usr/share/icons/hicolor/symbolic/apps/org.sigxcpu.MobileSettings-symbolic.svg
+usr/share/metainfo/org.sigxcpu.MobileSettings.appdata.xml

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsLockscreenPanel" parent="AdwBin">
+    <child>
+      <object class ="AdwClamp">
+	<child>
+	  <object class="GtkBox">
+	    <property name="orientation">vertical</property>
+	    <child>
+	      <object class="AdwPreferencesGroup">
+		<child>
+		  <object class="AdwActionRow">
+		    <property name="title" translatable="yes">Shuffle keypad</property>
+		    <property name="subtitle" translatable="yes">Whether to shuffle the numbers on the keypad</property>
+                    <property name="use-underline">true</property>
+                    <child>
+                      <object class="GtkSwitch" id="shuffle_switch">
+			<property name="valign">center</property>
+			<accessibility>
+			  <property name="label" translatable="yes">Enabled</property>
+			</accessibility>
+                      </object>
+                    </child>
+		  </object>
+		</child>
+	      </object>
+	    </child>
+	  </object>
+	</child>
+      </object>
+    </child>
+  </template>
+</interface>

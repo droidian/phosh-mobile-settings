@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsPluginLibrem5Panel" parent="MsPluginPanel">
+    <property name="title">Librem 5</property>
+    <child>
+      <object class="AdwClamp">
+        <child>
+	  <object class="GtkScrolledWindow">
+	    <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  
+	          <object class="AdwPreferencesGroup">
+                    <property name="title">Librem 5</property>
+	            <child>
+	              <object class="AdwActionRow">
+		        <property name="title">U-Boot</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="uboot_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	          </object>
+	        </child>
+
+	        <child>
+	          <object class="AdwPreferencesGroup">
+                    <property name="title">Temperatures</property>
+	            <child>
+	              <object class="AdwActionRow" id="cpu_temp_row">
+		        <property name="title">CPU</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="cpu_temp_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	            <child>
+	              <object class="AdwActionRow" id="gpu_temp_row">
+		        <property name="title">GPU</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="gpu_temp_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	            <child>
+	              <object class="AdwActionRow" id="vpu_temp_row">
+		        <property name="title">VPU</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="vpu_temp_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	            <child>
+	              <object class="AdwActionRow" id="charger_temp_row">
+		        <property name="title">Charger</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="charger_temp_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	            <child>
+	              <object class="AdwActionRow" id="battery_temp_row">
+		        <property name="title">Battery</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkLabel" id="battery_temp_label">
+		            <property name="ellipsize">middle</property>
+		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	          </object>
+	        </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

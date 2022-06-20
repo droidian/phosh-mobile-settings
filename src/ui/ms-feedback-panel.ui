@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsFeedbackPanel" parent="AdwBin">
+    <child>
+      <object class ="AdwClamp">
+        <child>
+
+          <object class="GtkScrolledWindow">
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwComboRow">
+                        <property name="title" translatable="yes">Feedback profile</property>
+                        <property name="subtitle" translatable="yes">The global maximum feedback profile</property>
+                        <property name="model">
+                          <object class="AdwEnumListModel">
+                            <property name="enum-type">MsFeedbackProfile</property>
+                          </object>
+                        </property>
+                        <property name="expression">
+                          <closure type="gchararray" function="item_feedback_profile_name"/>
+                        </property>
+                        <property name="selected" bind-source="MsFeedbackPanel" bind-property="feedback-profile" bind-flags="sync-create|bidirectional"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Per Application settings</property>
+                    <child>
+                      <object class="GtkListBox" id="app_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

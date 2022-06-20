@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsFeedbackRow" parent="AdwComboRow">
+    <property name="model">
+      <object class="AdwEnumListModel">
+        <property name="enum-type">MsFeedbackProfile</property>
+      </object>
+    </property>
+    <property name="expression">
+      <closure type="gchararray" function="item_feedback_profile_name"/>
+    </property>
+    <property name="selected" bind-source="MsFeedbackRow" bind-property="feedback-profile" bind-flags="sync-create|bidirectional"/>
+  </template>
+</interface>

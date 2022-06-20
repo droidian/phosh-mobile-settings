@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsCompositorPanel" parent="AdwBin">
+    <child>
+      <object class ="AdwClamp">
+        <child>
+          <object class="GtkScrolledWindow">
+            <child>
+
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Scale to fit</property>
+                        <property name="subtitle" translatable="yes">Scale all apps down to fit the screen</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkSwitch" id="scale_to_fit_switch">
+                            <property name="valign">center</property>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enabled</property>
+                            </accessibility>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Scaling down of running applications</property>
+                        <property name="sensitive" bind-source="scale_to_fit_switch" bind-property="active" bind-flags="sync-create|invert-boolean"/>
+                        <child>
+                          <object class="GtkListBox" id="running_apps_listbox">
+                            <style>
+                              <class name="boxed-list"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

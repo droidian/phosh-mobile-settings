@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsScaleToFitRow" parent="AdwActionRow">
+    <property name="title">Application</property>
+    <property name="use-underline">true</property>
+    <child>
+      <object class="GtkSwitch" id="scale_to_fit_switch">
+        <property name="valign">center</property>
+        <accessibility>
+          <property name="label" translatable="yes">Enabled</property>
+        </accessibility>
+      </object>
+    </child>
+  </template>
+</interface>
