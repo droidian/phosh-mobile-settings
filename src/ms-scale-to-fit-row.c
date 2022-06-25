@@ -138,7 +138,7 @@ ms_scale_to_fit_row_finalize (GObject *object)
 {
   MsScaleToFitRow *self = MS_SCALE_TO_FIT_ROW (object);
 
-  g_clear_object (&self->app_id);
+  g_clear_pointer (&self->app_id, g_free);
   g_clear_object (&self->settings);
 
   G_OBJECT_CLASS (ms_scale_to_fit_row_parent_class)->finalize (object);
