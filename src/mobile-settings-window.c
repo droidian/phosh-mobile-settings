@@ -45,6 +45,23 @@ on_switcher_row_activated (MobileSettingsWindow *self)
   adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_FORWARD);
 }
 
+static char *
+stack_child_to_tile (gpointer target, GtkStack *stack, GtkWidget *child)
+{
+  const char *title;
+  GtkStackPage *page;
+
+  g_assert (GTK_IS_STACK (stack));
+  g_assert (GTK_IS_WIDGET (child));
+
+  page = gtk_stack_get_page (stack, child);
+  title = gtk_stack_page_get_title (page);
+  if (title == NULL)
+    title = gtk_stack_page_get_name (page);
+
+  return g_strdup (title);
+}
+
 
 static void
 ms_settings_window_realized (GtkWidget *widget)
@@ -92,6 +109,7 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_switcher_row_activated);
   gtk_widget_class_bind_template_callback (widget_class, on_visible_child_changed);
   gtk_widget_class_bind_template_callback (widget_class, on_back_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, stack_child_to_tile);
 }
 
 static void
