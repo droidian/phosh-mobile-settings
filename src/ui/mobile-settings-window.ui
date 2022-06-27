@@ -56,7 +56,15 @@
               <object class="AdwHeaderBar">
                 <property name="show-start-title-buttons" bind-source="main_leaflet" bind-property="folded" bind-flags="sync-create"/>
                 <property name="title-widget">
-                  <object class="GtkBox"/>
+                  <object class="AdwWindowTitle">
+                    <property name="visible" bind-source="main_leaflet" bind-property="folded" bind-flags="sync-create"/>
+                    <binding name="title">
+                      <closure type='gchararray' function='stack_child_to_tile'>
+                        <constant>stack</constant>
+                        <lookup name="visible-child">stack</lookup>
+                      </closure>
+                    </binding>
+                  </object>
                 </property>
                 <child type="start">
                   <object class="GtkButton" id="back">
