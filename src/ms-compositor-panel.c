@@ -100,7 +100,7 @@ on_toplevel_tracker_changed (MsCompositorPanel *self, GParamSpec *spec, MobileSe
   app_ids = ms_toplevel_tracker_get_app_ids (self->tracker);
 
   for (int i = 0; i < g_strv_length(app_ids); i++) {
-    g_warning ("app_id: %s", app_ids[i]);
+    g_debug ("app-id: %s", app_ids[i]);
     add_application_row (self, app_ids[i]);
   }
 }
