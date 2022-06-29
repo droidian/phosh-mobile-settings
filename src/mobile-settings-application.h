@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "ms-head-tracker.h"
 #include "ms-toplevel-tracker.h"
 
 #include <adwaita.h>
@@ -22,5 +23,5 @@ MobileSettingsApplication *mobile_settings_application_new (gchar *application_i
                                                             GApplicationFlags flags);
 GtkWidget *mobile_settings_application_get_device_panel  (MobileSettingsApplication *self);
 MsToplevelTracker *mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *self);
-
+MsHeadTracker     *mobile_settings_application_get_head_tracker (MobileSettingsApplication *self);
 G_END_DECLS

@@ -8,6 +8,7 @@ wayland_scanner = find_program('wayland-scanner')
 
 wl_protos = [
   ['wlr-foreign-toplevel-management-unstable-v1.xml'],
+  ['wlr-output-management-unstable-v1.xml'],
 ]
 
 wl_proto_sources = []

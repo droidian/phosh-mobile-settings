@@ -3,6 +3,7 @@
   <gresource prefix="/org/sigxcpu/MobileSettings">
     <file>ui/mobile-settings-window.ui</file>
     <file>ui/ms-compositor-panel.ui</file>
+    <file>ui/ms-convergence-panel.ui</file>
     <file>ui/ms-feedback-panel.ui</file>
     <file>ui/ms-feedback-row.ui</file>
     <file>ui/ms-lockscreen-panel.ui</file>
