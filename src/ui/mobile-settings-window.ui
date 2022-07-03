@@ -95,7 +95,7 @@
                     <property name="icon-name">starred-symbolic</property>
                     <property name="child">
                       <object class="AdwStatusPage">
-                        <property name="icon-name">phone-symbolic</property>
+                        <property name="icon-name">org.sigxcpu.MobileSettings-symbolic</property>
                         <property name="title" translatable="yes">Welcome to Mobile Settings</property>
                         <property name="description" translatable="yes">Tweak advanced mobile settings</property>
                       </object>
