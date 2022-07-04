@@ -1,3 +1,5 @@
+subdir('dbus')
+
 librem5_plugin_deps = [
   adwaita_dep,
   glib_dep,
@@ -16,7 +18,7 @@ librem5_plugin_sources = files(
   'ms-plugin-librem5.c',
   'ms-plugin-librem5-panel.h',
   'ms-plugin-librem5-panel.c',
-) + librem5_plugin_resources
+) + librem5_plugin_resources + l5_plugin_dbus_sources
 
 linrem5_plugin = shared_module(
   'ms-plugin-librem5',
