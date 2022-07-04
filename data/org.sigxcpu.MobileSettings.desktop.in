@@ -1,10 +1,13 @@
 [Desktop Entry]
 Name=Mobile Settings
 Exec=phosh-mobile-settings
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)
 Icon=org.sigxcpu.MobileSettings
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Settings;
 StartupNotify=true
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 Keywords=Mobile;Preferences;MobileSettings;
+OnlyShowIn=Phosh;
 X-Purism-FormFactor=Workstation;Mobile;
