@@ -7,4 +7,5 @@ Type=Application
 Categories=GNOME;GTK;Settings;
 StartupNotify=true
 Keywords=Mobile;Preferences;MobileSettings;
+OnlyShowIn=Phosh;
 X-Purism-FormFactor=Workstation;Mobile;
