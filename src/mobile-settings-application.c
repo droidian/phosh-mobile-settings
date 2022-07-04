@@ -13,8 +13,10 @@
 #include "mobile-settings-plugin.h"
 #include "ms-plugin-loader.h"
 #include "ms-toplevel-tracker.h"
+#include "ms-head-tracker.h"
 
 #include "protocols/wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
+#include "protocols/wlr-output-management-unstable-v1-client-protocol.h"
 
 #include <gdk/wayland/gdkwayland.h>
 #include <glib/gi18n.h>
@@ -22,6 +24,7 @@
 enum {
   PROP_0,
   PROP_TOPLEVEL_TRACKER,
+  PROP_HEAD_TRACKER,
   PROP_LAST_PROP
 };
 static GParamSpec *props[PROP_LAST_PROP];
@@ -36,7 +39,9 @@ struct _MobileSettingsApplication {
   struct wl_display  *wl_display;
   struct wl_registry *wl_registry;
   struct zwlr_foreign_toplevel_manager_v1 *foreign_toplevel_manager;
+  struct zwlr_output_manager_v1 *output_manager;
   MsToplevelTracker  *toplevel_tracker;
+  MsHeadTracker     *head_tracker;
 };
 
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
@@ -53,6 +58,9 @@ mobile_settings_application_get_property (GObject    *object,
   switch (property_id) {
   case PROP_TOPLEVEL_TRACKER:
     g_value_set_object (value, self->toplevel_tracker);
+    break;
+  case PROP_HEAD_TRACKER:
+    g_value_set_object (value, self->head_tracker);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -74,12 +82,20 @@ registry_handle_global (void               *data,
   if (strcmp (interface, zwlr_foreign_toplevel_manager_v1_interface.name) == 0) {
     self->foreign_toplevel_manager =
       wl_registry_bind (registry, name, &zwlr_foreign_toplevel_manager_v1_interface, 1);
+  } else if (strcmp (interface, zwlr_output_manager_v1_interface.name) == 0) {
+    self->output_manager =
+      wl_registry_bind (registry, name, &zwlr_output_manager_v1_interface, 2);
   }
 
-  if (self->foreign_toplevel_manager && self->toplevel_tracker == NULL) {
-    self->toplevel_tracker = ms_toplevel_tracker_new (self->foreign_toplevel_manager);
+  if (self->foreign_toplevel_manager && self->output_manager &&
+      self->toplevel_tracker == NULL) {
     g_debug ("Found all wayland protocols. Creating listeners.");
+
+    self->toplevel_tracker = ms_toplevel_tracker_new (self->foreign_toplevel_manager);
     g_object_notify_by_pspec (G_OBJECT (self), props[PROP_TOPLEVEL_TRACKER]);
+
+    self->head_tracker = ms_head_tracker_new (self->output_manager);
+    g_object_notify_by_pspec (G_OBJECT (self), props[PROP_HEAD_TRACKER]);
   }
 }
 
@@ -152,6 +168,11 @@ mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
   props[PROP_TOPLEVEL_TRACKER] =
     g_param_spec_object ("toplevel-tracker", "", "",
                          MS_TYPE_TOPLEVEL_TRACKER,
+                         G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY);
+
+  props[PROP_HEAD_TRACKER] =
+    g_param_spec_object ("head-tracker", "", "",
+                         MS_TYPE_HEAD_TRACKER,
                          G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY);
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
@@ -228,4 +249,13 @@ mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *sel
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
   return self->toplevel_tracker;
+}
+
+
+MsHeadTracker *
+mobile_settings_application_get_head_tracker (MobileSettingsApplication *self)
+{
+  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+
+  return self->head_tracker;
 }

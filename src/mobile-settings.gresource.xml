@@ -3,6 +3,7 @@
   <gresource prefix="/org/sigxcpu/MobileSettings">
     <file>ui/mobile-settings-window.ui</file>
     <file>ui/ms-compositor-panel.ui</file>
+    <file>ui/ms-convergence-panel.ui</file>
     <file>ui/ms-feedback-panel.ui</file>
     <file>ui/ms-feedback-row.ui</file>
     <file>ui/ms-lockscreen-panel.ui</file>
@@ -14,5 +15,6 @@
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
     <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
+    <file alias="phonelink2-symbolic.svg">../data/icons/phonelink2-symbolic.svg</file>
   </gresource>
 </gresources>
