@@ -4,6 +4,7 @@ data/org.sigxcpu.MobileSettings.metainfo.xml.in
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
 src/gtk/help-overlay.ui
 src/main.c
+src/mobile-settings-application.c
 src/mobile-settings-window.c
 src/ms-util.c
 src/ui/mobile-settings-window.ui
