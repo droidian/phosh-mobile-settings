@@ -17,6 +17,14 @@ ms_plugin_check_device_support (const char * const *supported)
   const gchar *comp;
   g_autoptr (GError) err = NULL;
   g_autofree gchar *compatibles = NULL;
+  const char *assume_device;
+
+  assume_device = g_getenv("MOBILE_SETTINGS_ASSUME_DEVICE");
+  g_debug ("Assuming device %s", assume_device);
+
+  /* ALlow to override detected device for debugging */
+  if (assume_device && g_strv_contains (supported, assume_device))
+    return TRUE;
 
   if (g_file_test (DEVICE_TREE_COMPATIBLE_PATH, (G_FILE_TEST_EXISTS)) == FALSE)
     return FALSE;

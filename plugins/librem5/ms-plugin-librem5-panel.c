@@ -9,12 +9,17 @@
 #include "ms-plugin-librem5-panel.h"
 #include "ms-util.h"
 
+#include "dbus/login1-manager-dbus.h"
+
 #include <sensors/sensors.h>
 
 #include <glib/gi18n.h>
 
 #define CMDLINE_PATH "/proc/cmdline"
 #define CMDLINE_MAX  1024
+
+#define LOGIN_BUS_NAME "org.freedesktop.login1"
+#define LOGIN_OBJECT_PATH "/org/freedesktop/login1"
 
 static uint sensors_inited;
 
@@ -55,9 +60,90 @@ struct _MsPluginLibrem5Panel {
 
   MsSensor       temp_sensors[MS_TEMP_SENSOR_LAST + 1];
   guint          update_timeout_id;
+
+  GtkWidget                       *suspend_button;
+  GCancellable                    *cancel;
+  MsPluginLibrem5DBusLoginManager *logind_manager_proxy;
 };
 
 G_DEFINE_TYPE (MsPluginLibrem5Panel, ms_plugin_librem5_panel, MS_TYPE_PLUGIN_PANEL)
+
+
+static void
+on_suspend_finish (GObject              *object,
+                   GAsyncResult         *res,
+                   MsPluginLibrem5Panel *self)
+{
+  g_autoptr (GError) err = NULL;
+
+  if (ms_plugin_librem5_dbus_login_manager_call_suspend_finish (
+        MS_PLUGIN_LIBREM5_DBUS_LOGIN_MANAGER (object),
+        res,
+        &err) == FALSE) {
+    g_warning ("Failed to suspend: %s", err->message);
+  }
+}
+
+
+static void
+on_suspend_clicked (MsPluginLibrem5Panel *self)
+{
+  ms_plugin_librem5_dbus_login_manager_call_suspend (
+    self->logind_manager_proxy,
+    TRUE,
+    self->cancel,
+    (GAsyncReadyCallback)on_suspend_finish,
+    self);
+}
+
+
+static void
+on_can_suspend_finish (GObject              *object,
+                       GAsyncResult         *res,
+                       MsPluginLibrem5Panel *self)
+{
+  g_autoptr (GError) err = NULL;
+  g_autofree char *out = NULL;
+
+  if (ms_plugin_librem5_dbus_login_manager_call_can_suspend_finish (
+        MS_PLUGIN_LIBREM5_DBUS_LOGIN_MANAGER (object),
+        &out,
+        res,
+        &err) == FALSE) {
+    g_warning ("Failed to check suspend capabilities: %s", err->message);
+    return;
+  }
+
+  g_debug ("CanSuspend: %s", out);
+
+  if (g_strcmp0 (out, "yes"))
+      gtk_widget_set_sensitive (self->suspend_button, TRUE);
+}
+
+
+static void
+on_logind_manager_proxy_new_for_bus_finish (GObject              *object,
+                                            GAsyncResult         *res,
+                                            MsPluginLibrem5Panel *self)
+{
+  g_autoptr (GError) err = NULL;
+  MsPluginLibrem5DBusLoginManager *manager;
+
+  manager = ms_plugin_librem5_dbus_login_manager_proxy_new_for_bus_finish (res, &err);
+  if (manager == NULL) {
+    g_warning ("Failed to get login1 session proxy: %s", err->message);
+    return;
+  }
+
+  self->logind_manager_proxy = manager;
+
+  ms_plugin_librem5_dbus_login_manager_call_can_suspend (
+    self->logind_manager_proxy,
+    self->cancel,
+    (GAsyncReadyCallback) on_can_suspend_finish,
+    self);
+}
+
 
 static gboolean
 parse_uboot_version (MsPluginLibrem5Panel *self)
@@ -224,12 +310,18 @@ ms_plugin_librem5_panel_unrealize (GtkWidget *widget)
 static void
 ms_plugin_librem5_panel_finalize (GObject *object)
 {
+  MsPluginLibrem5Panel *self = MS_PLUGIN_LIBREM5_PANEL (object);
+
   if (sensors_inited) {
     if (sensors_inited == 1)
       sensors_cleanup();
 
     sensors_inited--;
   }
+
+  g_cancellable_cancel (self->cancel);
+  g_clear_object (&self->cancel);
+  g_clear_object (&self->logind_manager_proxy);
 
   G_OBJECT_CLASS (ms_plugin_librem5_panel_parent_class)->finalize (object);
 }
@@ -261,6 +353,8 @@ ms_plugin_librem5_panel_class_init (MsPluginLibrem5PanelClass *klass)
                                                FALSE,
                                                G_STRUCT_OFFSET(MsPluginLibrem5Panel, temp_sensors[i].row));
   }
+
+  gtk_widget_class_bind_template_callback (widget_class, on_suspend_clicked);
 }
 
 
@@ -272,6 +366,16 @@ ms_plugin_librem5_panel_init (MsPluginLibrem5Panel *self)
   parse_uboot_version (self);
 
   init_sensors (self);
+
+  self->cancel = g_cancellable_new ();
+  ms_plugin_librem5_dbus_login_manager_proxy_new_for_bus (
+    G_BUS_TYPE_SYSTEM,
+    G_DBUS_PROXY_FLAGS_NONE,
+    LOGIN_BUS_NAME,
+    LOGIN_OBJECT_PATH,
+    self->cancel,
+    (GAsyncReadyCallback) on_logind_manager_proxy_new_for_bus_finish,
+    self);
 }
 
 

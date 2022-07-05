@@ -11,7 +11,7 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                  
+
 	          <object class="AdwPreferencesGroup">
                     <property name="title">Librem 5</property>
 	            <child>
@@ -22,6 +22,23 @@
                           <object class="GtkLabel" id="uboot_label">
 		            <property name="ellipsize">middle</property>
 		            <property name="valign">center</property>
+                          </object>
+                        </child>
+	              </object>
+	            </child>
+	            <child>
+	              <object class="AdwActionRow">
+		        <property name="title">Suspend device</property>
+                        <property name="use-underline">true</property>
+                        <property name="subtitle">Suspend is experimental</property>
+                        <child>
+                          <object class="GtkButton" id="suspend_button">
+		            <property name="label">suspend now</property>
+		            <property name="valign">center</property>
+                            <signal name="clicked" handler="on_suspend_clicked" swapped="yes"/>
+                            <style>
+                              <class name="destructive-action"/>
+                            </style>
                           </object>
                         </child>
 	              </object>
