@@ -1,3 +1,15 @@
+phosh-mobile-settings 0.20.0~beta1
+----------------------------------
+Released: July 2022
+This is a beta release
+* Align with phosh's version numbering
+* Add application icon
+* Add convergence panel
+* Multiple fixes
+* Contributors:
+	Guido Günther
+	Sam Hewitt
+
 phosh-mobile-settings 0.0.1
 ----------------------------
 Released: June 2022

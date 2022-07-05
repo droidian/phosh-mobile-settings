@@ -1,3 +1,24 @@
+phosh-mobile-settings (0.20.0~beta1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * scale-to-fit-row: Use the correct cleanup function.
+    This fixes a crash when closing the application.
+  * settings-window: Print page title when folded
+  * compositor-panel: Make it more obvious that scale-to-fit is a workaround.
+  * compositor-panel: Use g_debug.
+  * ui: Use application icon on welcome page
+  * desktop-file: Only show in Phosh.
+  * desktop-file: Add translator notes
+  * po: Add translatable files
+  * application: Make about dialog more useful
+  * Ease configuration for touch mappings with known docks
+  * librem5-plugin: Add suspend button
+
+  [ Sam Hewitt ]
+  * New app icon
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 04 Jul 2022 16:47:35 +0200
+
 phosh-mobile-settings (0.0.1) experimental; urgency=medium
 
   * Initial release
