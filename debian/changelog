@@ -1,26 +1,7 @@
-phosh-mobile-settings (0.20.0~beta1) experimental; urgency=medium
+phosh-mobile-settings (0.20.0~beta1-1) experimental; urgency=medium
 
-  [ Guido Günther ]
-  * scale-to-fit-row: Use the correct cleanup function.
-    This fixes a crash when closing the application.
-  * settings-window: Print page title when folded
-  * compositor-panel: Make it more obvious that scale-to-fit is a workaround.
-  * compositor-panel: Use g_debug.
-  * ui: Use application icon on welcome page
-  * desktop-file: Only show in Phosh.
-  * desktop-file: Add translator notes
-  * po: Add translatable files
-  * application: Make about dialog more useful
-  * Ease configuration for touch mappings with known docks
-  * librem5-plugin: Add suspend button
-
-  [ Sam Hewitt ]
-  * New app icon
+  * Upload to experimental as matching phosh and phoc are in
+    experimental too.
+  * Initial Debian release (Closes: #1013799)
 
  -- Guido Günther <agx@sigxcpu.org>  Mon, 04 Jul 2022 16:47:35 +0200
-
-phosh-mobile-settings (0.0.1) experimental; urgency=medium
-
-  * Initial release
-
- -- Guido Günther <agx@sigxcpu.org>  Wed, 15 Jun 2022 17:28:21 +0200
