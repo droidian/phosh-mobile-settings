@@ -86,11 +86,11 @@
 	              </object>
 	            </child>
 	            <child>
-	              <object class="AdwActionRow" id="charger_temp_row">
-		        <property name="title">Charger</property>
+	              <object class="AdwActionRow" id="fuelgauge_temp_row">
+		        <property name="title">Fuel Gauge</property>
                         <property name="use-underline">true</property>
                         <child>
-                          <object class="GtkLabel" id="charger_temp_label">
+                          <object class="GtkLabel" id="fuelgauge_temp_label">
 		            <property name="ellipsize">middle</property>
 		            <property name="valign">center</property>
                           </object>
