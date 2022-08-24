@@ -45,6 +45,7 @@ mobile_settings_sources = [
 
 mobile_settings_deps = [
   gio_dep,
+  gio_unix_dep,
   glib_dep,
   gmodule_dep,
   gtk_dep,

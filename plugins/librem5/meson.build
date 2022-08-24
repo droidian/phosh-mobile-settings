@@ -2,6 +2,8 @@ subdir('dbus')
 
 librem5_plugin_deps = [
   adwaita_dep,
+  gio_dep,
+  gio_unix_dep,
   glib_dep,
   gtk_dep,
   mobile_settings_plugin_dep,
