@@ -31,6 +31,8 @@ mobile_settings_sources = [
   'ms-plugin-loader.h',
   'ms-plugin-loader.c',
   'ms-plugin-loader.h',
+  'ms-plugin-row.c',
+  'ms-plugin-row.h',
   'ms-scale-to-fit-row.c',
   'ms-scale-to-fit-row.h',
   'ms-toplevel-tracker.c',

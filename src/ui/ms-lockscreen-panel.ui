@@ -7,8 +7,10 @@
 	<child>
 	  <object class="GtkBox">
 	    <property name="orientation">vertical</property>
+            <property name="spacing">12</property>
 	    <child>
 	      <object class="AdwPreferencesGroup">
+		<property name="title" translatable="yes">Unlocking</property>
 		<child>
 		  <object class="AdwActionRow">
 		    <property name="title" translatable="yes">Shuffle keypad</property>
@@ -26,6 +28,21 @@
 		</child>
 	      </object>
 	    </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="plugins_group">
+                <property name="title" translatable="yes">Widgets</property>
+                <property name="description" translatable="yes">Additional widgets for the lock screen</property>
+                <child>
+                  <object class="GtkListBox" id="plugins_listbox">
+                  <style>
+                    <class name="boxed-list"/>
+                  </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+
 	  </object>
 	</child>
       </object>
