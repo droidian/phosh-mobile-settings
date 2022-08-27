@@ -29,5 +29,5 @@ linrem5_plugin = shared_module(
   c_args : ['-DG_LOG_DOMAIN="ms-plugin-librem5"'],
   include_directories: ms_plugin_inc,
   install: true,
-  install_dir: plugins_dir,
+  install_dir: ms_plugins_dir,
 )

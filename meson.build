@@ -9,7 +9,7 @@ project('phosh-mobile-settings', 'c',
 
 prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
-plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
+ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 
 glib_ver = '>= 2.62'
 glib_dep = dependency('glib-2.0', version: glib_ver)
@@ -84,7 +84,7 @@ config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'mobile-settings')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
-config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', plugins_dir)
+config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,
