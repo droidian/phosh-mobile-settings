@@ -8,6 +8,7 @@ project('phosh-mobile-settings', 'c',
 )
 
 prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 phosh_plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')

@@ -22,8 +22,8 @@
 #define LOCKSCREEN_PLUGINS_SCHEMA_ID "sm.puri.phosh.plugins"
 #define LOCKSCREEN_PLUGINS_KEY "lock-screen"
 
-#define PLUGIN_PREFIX "libphosh-plugin-"
-#define PLUGIN_SUFFIX ".so"
+#define PLUGIN_PREFIX ""
+#define PLUGIN_SUFFIX ".plugin"
 
 struct _MsLockscreenPanel {
   AdwBin      parent;
@@ -98,25 +98,6 @@ create_plugins_row (gpointer object, gpointer user_data)
 }
 
 
-static char *
-str_copy_part (const char *str, guint start, guint end)
-{
-  guint len;
-  char *out;
-
-  g_return_val_if_fail (str, NULL);
-  g_return_val_if_fail (end <= strlen (str), NULL);
-
-  len = strlen (str) - start - end;
-
-  out = g_new0 (char, len);
-  for (int i = 0; i < len; i++)
-    out[i] = str[start + i];
-
-  return out;
-}
-
-
 static void
 ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
 {
@@ -134,16 +115,48 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
   enabled_plugins = g_settings_get_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY);
   while ((filename = g_dir_read_name (dir))) {
     GtkWidget *row;
-    g_autofree char *name = NULL;
     gboolean enabled;
+    g_autofree char *name = NULL;
+    g_autofree char *title = NULL;
+    g_autofree char *description = NULL;
+    g_autofree char *path = NULL;
+    g_autofree char *plugin_path = NULL;
+    g_autoptr (GError) error = NULL;
+    g_autoptr (GKeyFile) keyfile = g_key_file_new ();
 
     if (!g_str_has_prefix (filename, PLUGIN_PREFIX) || !g_str_has_suffix (filename, PLUGIN_SUFFIX))
       continue;
 
-    name = str_copy_part (filename, strlen (PLUGIN_PREFIX), strlen (PLUGIN_SUFFIX));
+    path = g_build_filename (MOBILE_SETTINGS_PHOSH_PLUGINS_DIR, filename, NULL);
+    if (g_key_file_load_from_file (keyfile, path, G_KEY_FILE_NONE, &error) == FALSE) {
+      g_warning ("Failed to load plugin info '%s': %s", filename, error->message);
+      continue;
+    }
+
+    name = g_key_file_get_string (keyfile, "Plugin", "Id", NULL);
+    if (name == NULL)
+      continue;
+
+    plugin_path = g_key_file_get_string (keyfile, "Plugin", "Plugin", NULL);
+    if (plugin_path == NULL)
+      continue;
+
+    if (g_file_test (plugin_path, G_FILE_TEST_EXISTS) == FALSE) {
+      g_warning ("Plugin at %s does not exist", plugin_path);
+      continue;
+    }
+
+    title = g_key_file_get_locale_string (keyfile, "Plugin", "Name", NULL, NULL);
+    description = g_key_file_get_locale_string (keyfile, "Plugin", "Comment", NULL, NULL);
+
     enabled = g_strv_contains ((const gchar * const*)enabled_plugins, name);
     g_debug ("Found plugin %s, name %s, enabled: %d", filename, name, enabled);
-    row = g_object_new (MS_TYPE_PLUGIN_ROW, "plugin-name", name, "enabled", enabled, NULL);
+    row = g_object_new (MS_TYPE_PLUGIN_ROW,
+                        "plugin-name", name,
+                        "title", title,
+                        "subtitle", description,
+                        "enabled", enabled,
+                        NULL);
     g_signal_connect_object (row,
                              "notify::enabled",
                              G_CALLBACK (on_plugin_activated),
