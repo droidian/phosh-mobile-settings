@@ -8,6 +8,7 @@
     <file>ui/ms-feedback-row.ui</file>
     <file>ui/ms-lockscreen-panel.ui</file>
     <file>ui/ms-panel-switcher.ui</file>
+    <file>ui/ms-plugin-row.ui</file>
     <file>ui/ms-scale-to-fit-row.ui</file>
     <file>gtk/help-overlay.ui</file>
   </gresource>
