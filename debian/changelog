@@ -1,3 +1,28 @@
+phosh-mobile-settings (0.21.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ci: Use newer Debian Bookworm image.
+    This lets the builds pass again.
+  * build: Plugin uses gio bits.
+    Add a proper dependency
+  * data: Update the appstream release information
+  * Move plugins to phosh-mobile-settings/ folder
+  * Allow to enable and disable lockscreen plugins (Closes: #12)
+  * lockscreen-panel: Use plugin info.
+    Don't just rely on the plugin path but rather parse the available
+    information so we can have translated descriptions, etc.
+  * lockscreen-panel: Don't try to read from inexistent dir
+  * lockscreen-panel: Mark additional widgets as experimental
+
+  [ Sebastian Krzyszkowiak ]
+  * librem5-plugin: Adjust sensor mappings for temperatures.
+    On the Librem 5, bq25890_charger driver reports the temperature
+    as monitored by the thermisor inside the battery, while the
+    max170xx_battery driver reports the internal temperature of
+    the fuel gauge chip. Adjust sensor descriptions to match that.
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 31 Aug 2022 10:01:14 +0200
+
 phosh-mobile-settings (0.20.0) experimental; urgency=medium
 
   * Release 0.20.0
