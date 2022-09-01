@@ -27,7 +27,7 @@ typedef enum {
   MS_TEMP_SENSOR_CPU = 0,
   MS_TEMP_SENSOR_GPU,
   MS_TEMP_SENSOR_VPU,
-  MS_TEMP_SENSOR_CHARGER,
+  MS_TEMP_SENSOR_FUEL_GAUGE,
   MS_TEMP_SENSOR_BATTERY,
   MS_TEMP_SENSOR_LAST = MS_TEMP_SENSOR_BATTERY,
 } MsTempSensor;
@@ -49,8 +49,8 @@ static const MsSensorMapping temp_sensor_mapping[] = {
   { "cpu_thermal", "cpu" },
   { "gpu_thermal", "gpu" },
   { "vpu_thermal", "vpu" },
-  { "bq25890_charger", "charger"},
-  { "max170xx_battery", "battery"},
+  { "bq25890_charger", "battery"},
+  { "max170xx_battery", "fuelgauge"},
 };
 
 struct _MsPluginLibrem5Panel {
