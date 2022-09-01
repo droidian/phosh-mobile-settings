@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.20.0',
+          version: '0.21.0',
     meson_version: '>= 0.56.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -8,12 +8,15 @@ project('phosh-mobile-settings', 'c',
 )
 
 prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
-plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
+ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
+phosh_plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
 
 glib_ver = '>= 2.62'
 glib_dep = dependency('glib-2.0', version: glib_ver)
 gio_dep = dependency('gio-2.0', version: glib_ver)
+gio_unix_dep =  dependency('gio-unix-2.0', version: '>=2.62')
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver)
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
@@ -83,7 +86,8 @@ config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'mobile-settings')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
-config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', plugins_dir)
+config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
+config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR', phosh_plugins_dir)
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,

@@ -21,8 +21,8 @@ default:
 
 variables:
   # For ci-fairy
-  FDO_UPSTREAM_REPO: guidog/phosh-osk-stub
-  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.20220218
+  FDO_UPSTREAM_REPO: guidog/phosh-mobile-settings
+  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.20220824
   COMMON_BUILD_OPTS: --werror
 
 .bookworm_vars: &bookworm_vars
