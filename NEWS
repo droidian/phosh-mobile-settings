@@ -1,3 +1,12 @@
+phosh-mobile-settings 0.21.0
+----------------------------
+Released: September 2022
+* Allow to enable/disable lockscreen widgets
+* Fix Librem 5 sensor names
+* Contributors:
+	Guido Günther
+	Sebastian Krzyszkowiak
+
 phosh-mobile-settings 0.20.0
 ----------------------------
 Released: August 2022
