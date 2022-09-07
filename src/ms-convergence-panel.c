@@ -82,6 +82,19 @@ static const MsDock docks[] = {
     .touch_usb_vendor = 0x27c0,
     .touch_usb_id = 0x0819,
   },
+  {
+    /*
+     * Manufacturer: YUK
+     * Model: 4353
+     *                */
+    .name = "UPERFECT X Mini",
+    .make = "Unknown",
+    .model = "uperfect",
+    .serial = "8R33926O00QS",
+
+    .touch_usb_vendor = 0x27c6,
+    .touch_usb_id = 0x0818,
+  },
   /* more docks go here */
 };
 
