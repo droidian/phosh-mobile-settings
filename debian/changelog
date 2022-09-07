@@ -1,3 +1,13 @@
+phosh-mobile-settings (0.21.0-2) unstable; urgency=medium
+
+  * d/gbp.conf: Enable pristine-tar.
+    Make sure this is on for everyone importing sources
+  * Revert "lockscreen-panel: Mark additional widgets as experimental"
+    This works around the overflow of the main window on small
+    displays.
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 07 Sep 2022 13:34:43 +0200
+
 phosh-mobile-settings (0.21.0-1) unstable; urgency=medium
 
   * New upstream release

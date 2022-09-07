@@ -1,0 +1,25 @@
+From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
+Date: Wed, 7 Sep 2022 12:26:50 +0200
+Subject: Revert "lockscreen-panel: Mark additional widgets as experimental"
+
+This currently makes the window overflow (although it should be word
+wrapped)
+
+This reverts commit ef5b1d969757add37e48165f020d0952df6aad83.
+---
+ src/ui/ms-lockscreen-panel.ui | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ui/ms-lockscreen-panel.ui b/src/ui/ms-lockscreen-panel.ui
+index 1115e91..9e4d44d 100644
+--- a/src/ui/ms-lockscreen-panel.ui
++++ b/src/ui/ms-lockscreen-panel.ui
+@@ -32,7 +32,7 @@
+             <child>
+               <object class="AdwPreferencesGroup" id="plugins_group">
+                 <property name="title" translatable="yes">Widgets</property>
+-                <property name="description" translatable="yes">Additional widgets for the lock screen. This feature is experimental.</property>
++                <property name="description" translatable="yes">Additional widgets for the lock screen</property>
+                 <child>
+                   <object class="GtkListBox" id="plugins_listbox">
+                   <style>
