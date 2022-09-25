@@ -49,6 +49,10 @@
   </screenshots>
 
   <releases>
+    <release version="0.21.1" date="2022-09-28">
+      <description>Bug fixes release</description>
+    </release>
+
     <release version="0.21.0" date="2022-09-01">
       <description>Allow to enable/disable lockscreen widgets and bug fixes</description>
     </release>
