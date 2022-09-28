@@ -14,6 +14,15 @@
 
   <content_rating type="oars-1.1"/>
 
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+
   <custom>
     <value key="Purism::form_factor">workstation</value>
     <value key="Purism::form_factor">mobile</value>
@@ -22,10 +31,20 @@
   <url type="homepage">https://gitlab.gnome.org//guidog/phosh-mobile-settings</url>
   <url type="bugtracker">https://gitlab.gnome.org//guidog/phosh-mobile-settings/issues</url>
 
+  <launchable type="desktop-id">org.sigxcpu.MobileSettings.desktop</launchable>
+
   <screenshots>
     <screenshot type="default">
-      <caption>Full screen landscape mode</caption>
-      <image>https://gitlab.gnome.org//guidog/phosh-mobile-settings/-/raw/main/screenshots/welcome.png?inline=false</image>
+      <caption>Available panels</caption>
+      <image>https://gitlab.gnome.org//guidog/phosh-mobile-settings/-/raw/main/screenshots/panels.png?inline=false</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Compositor panel</caption>
+      <image>https://gitlab.gnome.org//guidog/phosh-mobile-settings/-/raw/main/screenshots/compositor.png?inline=false</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Feedback panel</caption>
+      <image>https://gitlab.gnome.org//guidog/phosh-mobile-settings/-/raw/main/screenshots/feedback.png?inline=false</image>
     </screenshot>
   </screenshots>
 
@@ -33,7 +52,7 @@
     <release version="0.21.0" date="2022-09-01">
       <description>Allow to enable/disable lockscreen widgets and bug fixes</description>
     </release>
-    
+
     <release version="0.20.0" date="2022-08-08">
       <description>Initial release</description>
     </release>
