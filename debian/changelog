@@ -1,8 +1,9 @@
-phosh-mobile-settings (0.21.1-1) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.21.1-1) unstable; urgency=medium
 
   * New upstream release
+  * Drop all patches, applied upstream
 
- -- Guido Günther <agx@sigxcpu.org>  Wed, 28 Sep 2022 11:33:53 +0200
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 28 Sep 2022 12:03:34 +0200
 
 phosh-mobile-settings (0.21.0-2) unstable; urgency=medium
 
