@@ -1,3 +1,18 @@
+phosh-mobile-settings (0.21.1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ms-convergence-panel: Explain how to fetch the values for adding new docks
+  * Revert "lockscreen-panel: Mark additional widgets as experimental"
+    This currently makes the window overflow (although it should be word
+    wrapped)
+
+  [ Kyle Rankin ]
+  * Add support for UPERFECT X Mini lapdock.
+    This adds convergence panel support for the UPERFECT X Mini lapdock:
+    https://www.uperfectmonitor.com/products/uperfect-x-mini-lapdock-11-6
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 25 Sep 2022 12:53:07 +0200
+
 phosh-mobile-settings (0.21.0) experimental; urgency=medium
 
   [ Guido Günther ]
