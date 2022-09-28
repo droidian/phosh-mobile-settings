@@ -1,3 +1,12 @@
+phosh-mobile-settings 0.21.1
+----------------------------
+Released: September 2022
+* Work around UI overflow
+* Add UPERFECT X Mini lapdock to detected docks
+* Contributors:
+       Guido Günther
+       Kyle Rankin
+
 phosh-mobile-settings 0.21.0
 ----------------------------
 Released: September 2022

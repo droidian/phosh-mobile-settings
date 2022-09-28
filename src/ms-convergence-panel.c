@@ -51,16 +51,49 @@ struct _MsConvergencePanel {
 G_DEFINE_TYPE (MsConvergencePanel, ms_convergence_panel, ADW_TYPE_BIN)
 
 
+/*
+ * This table lists dock outputs and their touch controllers.
+ * The edid information can be queried like:
+ *
+ *  edid-decode /sys/devices/platform/soc@0/32c00000.bus/32e00000.display-controller/drm/card2/card2-DP-1/edid
+ *
+ * To locate the edid blob in /sys you can use
+ *
+ *  find /sys/devices | grep /edid
+ *
+ * Note that current phoc/wlroots provides the information from the "Detailed Timing Descriptors" if available
+ * (not "Vendor & Product Identification"). However we list the bits from the "Vendor & Product Identification"
+ * in the comment as well.
+ *
+ * To figure out the touch controller:
+ *  lsusb -t  -v
+ */
 static const MsDock docks[] = {
   {
+    /*
+     * Manufacturer: YUK
+     * Model: 16628
+     */
     .name = "Nexdock 360",
     .make = "Unknown",
     .model = "NexDock",
-    /* Nexdock has identical serial for all devices */
     .serial = "8R33926O00Q",
 
     .touch_usb_vendor = 0x27c0,
     .touch_usb_id = 0x0819,
+  },
+  {
+    /*
+     * Manufacturer: YUK
+     * Model: 4353
+     *                */
+    .name = "UPERFECT X Mini",
+    .make = "Unknown",
+    .model = "uperfect",
+    .serial = "8R33926O00QS",
+
+    .touch_usb_vendor = 0x27c6,
+    .touch_usb_id = 0x0818,
   },
   /* more docks go here */
 };
