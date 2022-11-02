@@ -38,8 +38,7 @@ main (int   argc,
    * application windows, integration with the window manager/compositor, and
    * desktop features such as file opening and single-instance applications.
    */
-
-  app = mobile_settings_application_new ("org.sigxcpu.MobileSettings",
+  app = mobile_settings_application_new (MOBILE_SETTINGS_APP_ID,
 #if GLIB_CHECK_VERSION(2,74,0)
                                          G_APPLICATION_DEFAULT_FLAGS);
 #else
