@@ -86,9 +86,6 @@ ms_settings_window_realized (GtkWidget *widget)
       gtk_stack_page_set_icon_name (page, "phone-symbolic");
     }
   }
-
-  /* Move forward so the welcome page is shown */
-  adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_FORWARD);
 }
 
 
