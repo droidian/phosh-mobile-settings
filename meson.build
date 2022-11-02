@@ -20,7 +20,7 @@ gio_unix_dep =  dependency('gio-unix-2.0', version: '>=2.62')
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver)
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
-adwaita_dep = dependency('libadwaita-1', version: '>= 1.1')
+adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 
