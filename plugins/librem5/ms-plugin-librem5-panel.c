@@ -340,6 +340,7 @@ ms_plugin_librem5_panel_class_init (MsPluginLibrem5PanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/org/sigxcpu/MobileSettings/plugins/librem5/ui/ms-plugin-librem5-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPluginLibrem5Panel, uboot_label);
+  gtk_widget_class_bind_template_child (widget_class, MsPluginLibrem5Panel, suspend_button);
 
   for (int i = 0; i <= MS_TEMP_SENSOR_LAST; i++) {
     g_autofree char *name_label = g_strdup_printf ("%s_temp_label", temp_sensor_mapping[i].pretty);
