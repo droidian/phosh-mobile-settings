@@ -185,23 +185,24 @@ mobile_settings_application_show_about (GSimpleAction *action,
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   GtkWindow *window = NULL;
-  const gchar *authors[] = {"Guido Günther", NULL};
+  const gchar *developers[] = {"Guido Günther", NULL};
   const gchar *artists[] = {"Sam Hewitt ", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 
   window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
-  gtk_show_about_dialog (window,
-                         "artists", artists,
-                         "authors", authors,
-                         "license-type", GTK_LICENSE_GPL_3_0,
-                         "logo-icon-name", "org.sigxcpu.MobileSettings",
-                         "program-name", "Mobile Settings",
-                         "title", _("About Mobile Settings"),
-                         "translator-credits", _("translator-credits"),
+  adw_show_about_window (window,
+                         "application-name", _("Mobile Settings"),
+                         "application-icon", MOBILE_SETTINGS_APP_ID,
                          "version", MOBILE_SETTINGS_VERSION,
+                         "copyright", "Copyright (C) 2022 Guido Günther",
                          "website", "https://gitlab.gnome.org/guidog/phosh-mobile-settings",
+                         "issue-url", "https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/new",
+                         "license-type", GTK_LICENSE_GPL_3_0,
+                         "developers", developers,
+                         "artists", artists,
+                         "translator-credits", _("translator-credits"),
                          NULL);
 }
 
