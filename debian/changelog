@@ -1,3 +1,32 @@
+phosh-mobile-settings (0.22.0) experimental; urgency=medium
+
+  * l5-panel: Don't forget to bind the suspend button.
+    Otherwise we can't make it (un)sensitive
+  * window: Don't forward to welcome page.
+    This createes unneeded flicker and adds one additional tap
+    every use to go back to the panel.
+  * window: Move device panel addition to constructed.
+    As pointed out by exalm doing this in realize is a bad idea.
+    We had it there as we wanted to access GApplication but that wasn't set
+    as prop yet but we can simply use g_application_get_default()
+  * main: Use G_APPLICATION_DEFAULT_FLAGS to avoid depreation warning.
+    Provide a fallback for older glib until we can enforce 2.74.
+  * build: Add and use app id
+  * app: Use AdwAboutDialog.
+    In contrast to GtkAboutDialog it's adaptive and fits phone screens.
+    For that we need to bump the adwaita dependency to 1.2.
+  * l5-panel: Don't forget to bind the suspend button.
+    Otherwise we can't make it (un)sensitive
+  * window: Don't forward to welcome page.
+    This createes unneeded flicker and adds one additional tap
+    every use to go back to the panel.
+  * window: Move device panel addition to constructed.
+    As pointed out by exalm doing this in realize is a bad idea.
+    We had it there as we wanted to access GApplication but that wasn't set
+    as prop yet but we can simply use g_application_get_default()
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 02 Nov 2022 11:18:16 +0100
+
 phosh-mobile-settings (0.21.1) experimental; urgency=medium
 
   [ Guido Günther ]
