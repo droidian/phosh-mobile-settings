@@ -1,3 +1,12 @@
+phosh-mobile-settings 0.22.0
+----------------------------
+Released: September 2022
+* Avoid flicker on startup
+* Minor fixes
+* Sync version with phosh
+* Contributors:
+       Guido Günther
+
 phosh-mobile-settings 0.21.1
 ----------------------------
 Released: September 2022
