@@ -64,18 +64,17 @@ stack_child_to_tile (gpointer target, GtkStack *stack, GtkWidget *child)
 
 
 static void
-ms_settings_window_realized (GtkWidget *widget)
+ms_settings_window_constructed (GObject *object)
 {
-  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (widget);
-  MobileSettingsApplication *app;
+  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (object);
+  MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
   GtkWidget *device_panel;
 
-  GTK_WIDGET_CLASS (mobile_settings_window_parent_class)->realize (widget);
+  G_OBJECT_CLASS (mobile_settings_window_parent_class)->constructed (object);
 
   if (gtk_stack_get_child_by_name (self->stack, "device") == NULL) {
     const char *title;
 
-    g_object_get (self, "application", &app, NULL);
     g_assert (GTK_IS_APPLICATION (app));
     device_panel = mobile_settings_application_get_device_panel (app);
     if (device_panel) {
@@ -86,18 +85,16 @@ ms_settings_window_realized (GtkWidget *widget)
       gtk_stack_page_set_icon_name (page, "phone-symbolic");
     }
   }
-
-  /* Move forward so the welcome page is shown */
-  adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_FORWARD);
 }
 
 
 static void
 mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 {
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-  widget_class->realize = ms_settings_window_realized;
+  object_class->constructed = ms_settings_window_constructed;
 
   g_type_ensure (MS_TYPE_COMPOSITOR_PANEL);
   g_type_ensure (MS_TYPE_FEEDBACK_PANEL);
