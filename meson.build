@@ -109,8 +109,7 @@ subdir('po')
 
 # Older meson can't handle gnome.post_install but that only
 # matters for distro backports:
-m_ver = meson.version().split('.')
-if m_ver[0].to_int() > 0 or m_ver[1].to_int() > 58
+if meson.version().version_compare('>=0.59.0')
   gnome.post_install(
     glib_compile_schemas: true,
     gtk_update_icon_cache: true,
