@@ -13,11 +13,14 @@ libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 phosh_plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
 
-glib_ver = '>= 2.62'
-glib_dep = dependency('glib-2.0', version: glib_ver)
-gio_dep = dependency('gio-2.0', version: glib_ver)
-gio_unix_dep =  dependency('gio-unix-2.0', version: '>=2.62')
-gmodule_dep = dependency('gmodule-2.0', version: glib_ver)
+glib_ver = '2.62'
+glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
+glib_ver_cmp = '>=@0@'.format(glib_ver)
+
+glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
+gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
+gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
+gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
 adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
