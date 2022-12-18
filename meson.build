@@ -11,7 +11,6 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
-phosh_plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
 
 glib_ver = '2.62'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
@@ -24,6 +23,7 @@ gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
 adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
+phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.22.0')
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 
@@ -91,7 +91,8 @@ config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('lo
 config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'org.sigxcpu.MobileSettings')
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
 config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
-config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR', phosh_plugins_dir)
+config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
+		    phosh_plugins_dep.get_pkgconfig_variable('lockscreen_plugins_dir'))
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,
