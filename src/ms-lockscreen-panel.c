@@ -15,7 +15,7 @@
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
-/* Verbatim from lockscreen */
+/* Verbatim from phosh */
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
 #define LOCKSCREEN_KEY_SCALE_TO_FIT "shuffle-keypad"
 
