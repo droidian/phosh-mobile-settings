@@ -15,9 +15,13 @@
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
-#include <phosh-plugin.h>
+#ifdef MOBILE_SETTINGS_HAVE_PHOSH_DEV
+# include <phosh-plugin.h>
+#else
+# define PHOSH_PLUGIN_EXTENSION_POINT_LOCKSCREEN_WIDGET_PREFS "phosh-lockscreen-widget-prefs"
+#endif
 
-/* Verbatim from phosh */ 
+/* Verbatim from phosh */
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
 #define LOCKSCREEN_KEY_SCALE_TO_FIT "shuffle-keypad"
 
