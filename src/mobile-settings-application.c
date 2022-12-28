@@ -31,7 +31,7 @@ static GParamSpec *props[PROP_LAST_PROP];
 
 
 struct _MobileSettingsApplication {
-  GtkApplication  parent_instance;
+  AdwApplication  parent_instance;
 
   MsPluginLoader *device_plugin_loader;
   GtkWidget      *device_panel;

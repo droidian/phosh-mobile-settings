@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.22.0',
+          version: '0.23.0',
     meson_version: '>= 0.56.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -11,16 +11,19 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
-phosh_plugins_dir = join_paths(prefix, libdir, 'phosh', 'plugins')
 
-glib_ver = '>= 2.62'
-glib_dep = dependency('glib-2.0', version: glib_ver)
-gio_dep = dependency('gio-2.0', version: glib_ver)
-gio_unix_dep =  dependency('gio-unix-2.0', version: '>=2.62')
-gmodule_dep = dependency('gmodule-2.0', version: glib_ver)
+glib_ver = '2.62'
+glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
+glib_ver_cmp = '>=@0@'.format(glib_ver)
+
+glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
+gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
+gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
+gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
 adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
+phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0', required: false)
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 
@@ -88,7 +91,19 @@ config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('lo
 config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'org.sigxcpu.MobileSettings')
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
 config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
-config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR', phosh_plugins_dir)
+
+if phosh_plugins_dep.found()
+  config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
+		      phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_plugins_dir'))
+  config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
+		      phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'))
+  config_h.set('MOBILE_SETTINGS_HAVE_PHOSH_DEV', 1)
+else
+  config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
+		      libdir / 'phosh' / 'plugins')
+  config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
+		      libdir / 'phosh' / 'plugins' / 'prefs')
+endif
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,
@@ -106,8 +121,7 @@ subdir('po')
 
 # Older meson can't handle gnome.post_install but that only
 # matters for distro backports:
-m_ver = meson.version().split('.')
-if m_ver[0].to_int() > 0 or m_ver[1].to_int() > 58
+if meson.version().version_compare('>=0.59.0')
   gnome.post_install(
     glib_compile_schemas: true,
     gtk_update_icon_cache: true,
