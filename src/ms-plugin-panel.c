@@ -19,7 +19,7 @@ static GParamSpec *props[PROP_LAST_PROP];
  * MsPluginPanel:
  *
  * Base class for panel plugins. Panel implementations from loadable modules
- * need to drive from this class.
+ * need to derive from this class.
  */
 typedef struct _MsPluginPanelPrivate {
   char *title;

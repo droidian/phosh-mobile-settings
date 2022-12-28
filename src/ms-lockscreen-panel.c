@@ -15,7 +15,13 @@
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
-/* Verbatim from lockscreen */
+#ifdef MOBILE_SETTINGS_HAVE_PHOSH_DEV
+# include <phosh-plugin.h>
+#else
+# define PHOSH_PLUGIN_EXTENSION_POINT_LOCKSCREEN_WIDGET_PREFS "phosh-lockscreen-widget-prefs"
+#endif
+
+/* Verbatim from phosh */
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
 #define LOCKSCREEN_KEY_SCALE_TO_FIT "shuffle-keypad"
 
@@ -34,9 +40,61 @@ struct _MsLockscreenPanel {
   GSettings  *plugins_settings;
   GtkListBox *plugins_listbox;
   GListStore *plugins_store;
+
+  GSimpleActionGroup *action_group;
 };
 
 G_DEFINE_TYPE (MsLockscreenPanel, ms_lockscreen_panel, ADW_TYPE_BIN)
+
+
+static AdwPreferencesWindow *
+load_prefs_window (const char *name)
+{
+  GIOExtensionPoint *ep;
+  GIOExtension *ext;
+  GType type;
+
+  ep = g_io_extension_point_lookup (PHOSH_PLUGIN_EXTENSION_POINT_LOCKSCREEN_WIDGET_PREFS);
+  g_return_val_if_fail (ep, NULL);
+
+  ext = g_io_extension_point_get_extension_by_name (ep, name);
+
+  g_debug ("Loading plugin %s", name);
+  type = g_io_extension_get_type (ext);
+  return g_object_new (type, NULL);
+}
+
+
+static void
+open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointer data)
+{
+  AdwPreferencesWindow *prefs;
+  GtkWindow*parent;
+  g_autoptr (GError) error = NULL;
+  g_autoptr (GKeyFile) keyfile = g_key_file_new ();
+  g_autofree char *name = NULL;
+  const char *filename;
+
+  g_variant_get (parameter, "&s", &filename);
+  g_assert (filename);
+  g_debug ("Prefs for'%s' activated", filename);
+
+  if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, &error) == FALSE) {
+    g_warning ("Failed to load plugin info '%s': %s", filename, error->message);
+    return;
+  }
+
+  name = g_key_file_get_string (keyfile, "Prefs", "Id", NULL);
+  parent = gtk_application_get_active_window (
+    GTK_APPLICATION (g_application_get_default ()));
+  g_assert (parent);
+
+  prefs = load_prefs_window (name);
+  g_return_if_fail (prefs);
+
+  gtk_window_set_transient_for (GTK_WINDOW (prefs), parent);
+  gtk_window_present (GTK_WINDOW (prefs));
+}
 
 
 static GStrv
@@ -122,6 +180,7 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
     g_autofree char *description = NULL;
     g_autofree char *path = NULL;
     g_autofree char *plugin_path = NULL;
+    g_autofree char *prefs_path = NULL;
     g_autoptr (GError) error = NULL;
     g_autoptr (GKeyFile) keyfile = g_key_file_new ();
 
@@ -147,6 +206,8 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
       continue;
     }
 
+    prefs_path = g_key_file_get_string (keyfile, "Prefs", "Plugin", NULL);
+
     title = g_key_file_get_locale_string (keyfile, "Plugin", "Name", NULL, NULL);
     description = g_key_file_get_locale_string (keyfile, "Plugin", "Comment", NULL, NULL);
 
@@ -157,6 +218,8 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
                         "title", title,
                         "subtitle", description,
                         "enabled", enabled,
+                        "has-prefs", !!prefs_path,
+                        "filename", path,
                         NULL);
     g_signal_connect_object (row,
                              "notify::enabled",
@@ -176,6 +239,7 @@ ms_lockscreen_panel_finalize (GObject *object)
   g_clear_object (&self->settings);
   g_clear_object (&self->plugins_settings);
   g_clear_object (&self->plugins_store);
+  g_clear_object (&self->action_group);
 
   G_OBJECT_CLASS (ms_lockscreen_panel_parent_class)->finalize (object);
 }
@@ -196,9 +260,17 @@ ms_lockscreen_panel_class_init (MsLockscreenPanelClass *klass)
 }
 
 
+static GActionEntry entries[] =
+{
+  { .name = "open-plugin-prefs", .parameter_type = "s", .activate = open_plugin_prefs_activated },
+};
+
 static void
 ms_lockscreen_panel_init (MsLockscreenPanel *self)
 {
+  /* Scan prefs plugins */
+  g_io_modules_scan_all_in_directory (MOBILE_SETTINGS_PHOSH_PREFS_DIR);
+
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->settings = g_settings_new (LOCKSCREEN_SCHEMA_ID);
@@ -215,6 +287,16 @@ ms_lockscreen_panel_init (MsLockscreenPanel *self)
                            create_plugins_row,
                            self, NULL);
   ms_lockscreen_panel_scan_phosh_lockscreen_plugins (self);
+
+  self->action_group = g_simple_action_group_new ();
+  g_action_map_add_action_entries (G_ACTION_MAP (self->action_group),
+                                   entries,
+                                   G_N_ELEMENTS (entries),
+                                   self);
+  gtk_widget_insert_action_group (GTK_WIDGET (self),
+                                  "lockscreen-panel",
+                                  G_ACTION_GROUP (self->action_group));
+
 }
 
 
