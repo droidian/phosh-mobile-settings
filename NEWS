@@ -1,3 +1,8 @@
+phosh-mobile-settings 0.23.0
+----------------------------
+Released: December 2022
+* Allow lockscreen plugins to have preferences
+
 phosh-mobile-settings 0.22.0
 ----------------------------
 Released: September 2022
