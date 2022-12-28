@@ -1,8 +1,10 @@
-phosh-mobile-settings (0.23.0-1) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.23.0-1) unstable; urgency=medium
 
   * New upstream release
+  * Drop `Purism::form_factor` as it trips up metainfo
+    validation and is superfluous nowadays anyway.
 
- -- Guido Günther <agx@sigxcpu.org>  Wed, 28 Dec 2022 16:22:47 +0100
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 28 Dec 2022 16:25:32 +0100
 
 phosh-mobile-settings (0.22.0-1) unstable; urgency=medium
 
