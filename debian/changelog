@@ -1,3 +1,22 @@
+phosh-mobile-settings (0.23.0) experimental; urgency=medium
+
+  * main: Use SPDX-License-Identifier
+  * application: Fix parent class
+  * build: Avoid deprecated get_pkgconfig_variable
+  * build: Bump glib dependency to 2.66
+  * README: Use meson consistently
+  * build: Use meson's version_compare.
+    This avoids a warning as meson now knows we're excluding
+    code base on it's version
+  * build: Depend on phosh-plugins
+  * plugin-panel: Fix typo
+  * lockscreen-panel: Fix typo
+  * lockscreen-panel: Allow plugins to have preferences
+  * build: Make phosh-dev dependency optional for the moment.
+    This allows us to build until phosh-dev ends up in distros.
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 23 Dec 2022 15:02:55 +0100
+
 phosh-mobile-settings (0.22.0) experimental; urgency=medium
 
   * l5-panel: Don't forget to bind the suspend button.
