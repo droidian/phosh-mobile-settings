@@ -1,3 +1,18 @@
+phosh-mobile-settings (0.23.1) experimental; urgency=medium
+
+  * metainfo: Add releases
+  * metainfo: Drop Purism::form_factor.
+    The duplicate key (rightfully) tips up metainfo validation
+    and we also have `display_length` set as well.
+  * Revert "build: Make phosh-dev dependency optional for the moment"
+    There's now a release shipping the pkg-config files so let's drop this
+    to avoid inconistencies between builds that use pkg-config and those
+    that use hardcoded paths.
+  * ms-plugin-row: Don't overwrite plugin name with file name.
+    (Fixes: #22)
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 04 Jan 2023 11:39:29 +0100
+
 phosh-mobile-settings (0.23.0) experimental; urgency=medium
 
   * main: Use SPDX-License-Identifier
