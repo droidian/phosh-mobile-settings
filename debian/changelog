@@ -2,7 +2,7 @@ phosh-mobile-settings (0.23.1-1) unstable; urgency=medium
 
   * New upstream release
   * Drop all patches.  Applied upstream
-  * Depend on phoc-dev
+  * Depend on phosh-dev
 
  -- Guido Günther <agx@sigxcpu.org>  Wed, 04 Jan 2023 16:48:26 +0100
 
