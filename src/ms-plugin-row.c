@@ -68,7 +68,7 @@ ms_plugin_row_set_property (GObject      *object,
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (self), self->name);
     break;
   case PROP_FILENAME:
-    self->name = g_value_dup_string (value);
+    self->filename = g_value_dup_string (value);
     break;
   case PROP_ENABLED:
     self->enabled = g_value_get_boolean (value);
