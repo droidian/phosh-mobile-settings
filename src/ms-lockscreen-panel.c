@@ -93,13 +93,37 @@ open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointe
 }
 
 
+static gboolean
+is_plugin_name_valid (const char *name)
+{
+  if (name == NULL)
+    return FALSE;
+
+  if (name[0] == '\0')
+    return FALSE;
+
+  /* Absolute path is not allowed */
+  if (name[0] == '/')
+    return FALSE;
+
+  return TRUE;
+}
+
+
 static GStrv
 plugin_append (const char *const *plugins, const char *plugin)
 {
   g_autoptr (GPtrArray) array = g_ptr_array_new_with_free_func (g_free);
 
-  for (int i = 0; i < g_strv_length ((GStrv)plugins); i++)
-    g_ptr_array_add (array, g_strdup (plugins[i]));
+  for (int i = 0; i < g_strv_length ((GStrv)plugins); i++) {
+    const char *name = plugins[i];
+
+    if (!is_plugin_name_valid (name)) {
+      g_warning ("Plugin name '%s' invalid, dropping", name);
+      continue;
+    }
+    g_ptr_array_add (array, g_strdup (name));
+  }
 
   g_ptr_array_add (array, g_strdup (plugin));
   g_ptr_array_add (array, NULL);
@@ -114,8 +138,14 @@ plugin_remove (const char *const *plugins, const char *plugin)
   g_autoptr (GPtrArray) array = g_ptr_array_new_with_free_func (g_free);
 
   for (int i = 0; i < g_strv_length ((GStrv)plugins); i++) {
-    if (g_strcmp0 (plugins[i], plugin) == 0)
+    const char *name = plugins[i];
+
+    if (g_strcmp0 (name, plugin) == 0)
       continue;
+    if (!is_plugin_name_valid (name)) {
+      g_warning ("Plugin name '%s' invalid, dropping", name);
+      continue;
+    }
     g_ptr_array_add (array, g_strdup (plugins[i]));
   }
   g_ptr_array_add (array, NULL);
