@@ -1,6 +1,15 @@
+phosh-mobile-settings 0.24.0
+----------------------------
+Released: Jaunary 2023
+* Make plugin window scrollable
+* Tidy plugin list
+* Contributors:
+       Andrey Skvortsov
+       Guido Günther
+
 phosh-mobile-settings 0.23.1
 ----------------------------
-Released: Junary 2023
+Released: January 2023
 * Fix enabling plugins
 
 phosh-mobile-settings 0.23.0
