@@ -1,3 +1,16 @@
+phosh-mobile-settings (0.24.0) experimental; urgency=medium
+
+  [ Andrey Skvortsov ]
+  * lockscreen-panel: Make panel scrollable.
+    It's necessary epsecially in landscape orientation
+
+  [ Guido Günther ]
+  * lockscreen-panels: Drop plugins that start with '/'
+    This clears out plugins that were accidentally added with the full path.
+    Fixes: 26b2f1c88f3dc9078d24df43167761dc1e01c632
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 30 Jan 2023 17:06:49 +0100
+
 phosh-mobile-settings (0.23.1) experimental; urgency=medium
 
   * metainfo: Add releases
