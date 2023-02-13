@@ -76,7 +76,7 @@ open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointe
   g_debug ("Prefs for'%s' activated", filename);
 
   if (g_key_file_load_from_file (keyfile, filename, G_KEY_FILE_NONE, &error) == FALSE) {
-    g_warning ("Failed to load plugin info '%s': %s", filename, error->message);
+    g_warning ("Failed to load prefs plugin info '%s': %s", filename, error->message);
     return;
   }
 
