@@ -8,6 +8,7 @@ vgdump
 .\#*
 .vscode/
 *.gcov
+po/phosh-mobile-settings.pot
 debian/files
 debian/*.substvars
 debian/*debhelper*
