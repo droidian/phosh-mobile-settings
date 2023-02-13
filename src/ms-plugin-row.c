@@ -49,7 +49,7 @@ open_prefs_activated (GSimpleAction *action,
 
   gtk_widget_activate_action (GTK_WIDGET (self),
                               "lockscreen-panel.open-plugin-prefs",
-                              "s", self->name);
+                              "s", self->filename);
 }
 
 
