@@ -1,3 +1,13 @@
+phosh-mobile-settings (0.24.1) experimental; urgency=medium
+
+  * plugins-row: Use full path to open prefs plugin
+  * lockscreen-panel: Mention in error message that it's a prefs plugin.
+    This makes it simpler to distinguish lockscreen plugin and prefs
+    plugin info load failures
+  * NEWS: fix typo
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 13 Feb 2023 11:07:15 +0100
+
 phosh-mobile-settings (0.24.0) experimental; urgency=medium
 
   [ Andrey Skvortsov ]

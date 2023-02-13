@@ -1,3 +1,8 @@
+phosh-mobile-settings 0.24.1
+----------------------------
+Released: February 2023
+* Fix failure to open lockscreen plugin prefs
+
 phosh-mobile-settings 0.24.0
 ----------------------------
 Released: January 2023
