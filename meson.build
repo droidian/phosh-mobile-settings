@@ -1,6 +1,6 @@
 project('phosh-mobile-settings', 'c',
           version: '0.24.1',
-    meson_version: '>= 0.56.0',
+    meson_version: '>= 0.58.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
                      'c_std=gnu11',
@@ -12,7 +12,7 @@ datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 
-glib_ver = '2.62'
+glib_ver = '2.66'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
