@@ -18,7 +18,8 @@ G_BEGIN_DECLS
 
 gchar            *ms_munge_app_id (const gchar *app_id);
 GDesktopAppInfo  *ms_get_desktop_app_info_for_app_id (const char *app_id);
-MsFeedbackProfile ms_feedback_profile_from_name (const char *name);
-char             *ms_feedback_profile_to_name (MsFeedbackProfile profile);
+MsFeedbackProfile ms_feedback_profile_from_setting (const char *name);
+char             *ms_feedback_profile_to_setting (MsFeedbackProfile profile);
+char             *ms_feedback_profile_to_label (MsFeedbackProfile profile);
 
 G_END_DECLS

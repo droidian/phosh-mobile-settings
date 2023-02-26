@@ -86,7 +86,7 @@ add_project_arguments(
 
 config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
-config_h.set_quoted('GETTEXT_PACKAGE', 'mobile-settings')
+config_h.set_quoted('GETTEXT_PACKAGE', 'phosh-mobile-settings')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'org.sigxcpu.MobileSettings')
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())

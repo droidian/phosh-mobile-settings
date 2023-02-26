@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-13 20:12+0100\n"
+"PO-Revision-Date: 2023-02-13 20:12+0100\n"
+"Last-Translator: Guido Günther <agx@sigxcpu.org>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/org.sigxcpu.MobileSettings.desktop.in:3
+#: src/mobile-settings-application.c:196 src/ui/mobile-settings-window.ui:5
+msgid "Mobile Settings"
+msgstr "Einstellungen für Mobilgeräte"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/org.sigxcpu.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Mobil,Einstellungen;MobileSettings;"
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:33
+msgid "Available panels"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:37
+msgid "Compositor panel"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:41
+msgid "Feedback panel"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:48
+msgid "Bugfix release"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:52
+msgid "Allow plugins to have preferences"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:56
+msgid "Support UPERFECT X Mini lapdock"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:60
+msgid "Bug fixes release"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:64
+msgid "Allow to enable/disable lockscreen widgets and bug fixes"
+msgstr ""
+
+#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:68
+msgid "Initial release"
+msgstr ""
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:213
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Allgemein"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/mobile-settings-application.c:205
+msgid "translator-credits"
+msgstr ""
+
+#: src/mobile-settings-window.c:84
+msgid "Device"
+msgstr "Gerät"
+
+#: src/ms-util.c:149
+msgid "Full"
+msgstr "Voll"
+
+#: src/ms-util.c:151
+msgid "Quiet"
+msgstr "Leise"
+
+#: src/ms-util.c:153
+msgid "Silent"
+msgstr "Lautlos"
+
+#: src/ui/mobile-settings-window.ui:72
+msgid "Back"
+msgstr "Zurück"
+
+#: src/ui/mobile-settings-window.ui:93
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: src/ui/mobile-settings-window.ui:99
+msgid "Welcome to Mobile Settings"
+msgstr "Willkommen zu Mobile Settings"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Tweak advanced mobile settings"
+msgstr "Einstellungen für Mobilegeräte anpassen"
+
+#: src/ui/mobile-settings-window.ui:108
+msgid "Feedback"
+msgstr "Feedback"
+
+#: src/ui/mobile-settings-window.ui:119
+msgid "Compositor"
+msgstr "Kompositor"
+
+#: src/ui/mobile-settings-window.ui:130
+msgid "Lockscreen"
+msgstr "Sperrbildschirm"
+
+#: src/ui/mobile-settings-window.ui:141
+msgid "Convergence"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:161
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:165
+msgid "_About Mobile Settings"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:16
+msgid "Scaling down of running applications:"
+msgstr "Verkleinern laufender Anwendungen"
+
+#: src/ui/ms-compositor-panel.ui:17
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "Aktivieren Sie diese Option nur für defekte Apps, die nicht auf den Bildschirm passen"
+
+#: src/ui/ms-compositor-panel.ui:30
+msgid "Scale down all applications"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:31
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr "Erzwingt die Verkleinerung aller Anwendungen. Verwenden Sie dies nur als letzten Ausweg."
+
+#: src/ui/ms-compositor-panel.ui:34
+msgid "Scale down all apps"
+msgstr "Alle Apps verkleinern"
+
+#: src/ui/ms-compositor-panel.ui:40 src/ui/ms-convergence-panel.ui:40
+#: src/ui/ms-lockscreen-panel.ui:25 src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/ui/ms-convergence-panel.ui:20
+msgid "No known docks detected"
+msgstr ""
+
+#: src/ui/ms-convergence-panel.ui:34
+msgid "Map built-in touch screen"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "Feedback profile"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:18
+msgid "The global maximum feedback profile"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:34
+msgid "Per Application settings"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Unlocking"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:18
+msgid "Shuffle keypad"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:19
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:36
+msgid "Widgets"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:37
+msgid "Additional widgets for the lock screen"
+msgstr ""
+
+#~ msgid "full"
+#~ msgstr "alles"
