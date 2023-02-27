@@ -26,6 +26,8 @@ mobile_settings_sources = [
   'ms-head-tracker.h',
   'ms-lockscreen-panel.c',
   'ms-lockscreen-panel.h',
+  'ms-osk-panel.c',
+  'ms-osk-panel.h',
   'ms-panel-switcher.c',
   'ms-panel-switcher.h',
   'ms-plugin-loader.h',
