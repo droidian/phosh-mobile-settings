@@ -44,6 +44,23 @@
   </screenshots>
 
   <releases>
+    <release version="0.25.0" date="2023-02-28">
+      <description>
+        <ul>
+          <li>New OSK panel</li>
+          <li>Fix translations</li>
+        </ul>
+      </description>
+    </release>
+
+    <release version="0.24.1" date="2023-02-13">
+      <description>Lockscreen Plugin panel bug fixes</description>
+    </release>
+
+    <release version="0.24.0" date="2023-01-30">
+      <description>Lockscreen Plugin panel bug fixes</description>
+    </release>
+
     <release version="0.23.1" date="2022-01-04">
       <description>Bugfix release</description>
     </release>

@@ -111,7 +111,7 @@ ms_get_desktop_app_info_for_app_id (const char *app_id)
 
 
 MsFeedbackProfile
-ms_feedback_profile_from_name (const char *name)
+ms_feedback_profile_from_setting (const char *name)
 {
   if (g_strcmp0 (name, "full") == 0) {
     return MS_FEEDBACK_PROFILE_FULL;
@@ -126,15 +126,31 @@ ms_feedback_profile_from_name (const char *name)
 
 
 char *
-ms_feedback_profile_to_name (MsFeedbackProfile profile)
+ms_feedback_profile_to_setting (MsFeedbackProfile profile)
 {
   switch (profile) {
   case MS_FEEDBACK_PROFILE_FULL:
-    return g_strdup (_ ("full"));
+    return g_strdup ("full");
   case MS_FEEDBACK_PROFILE_QUIET:
-    return g_strdup (_ ("quiet"));
+    return g_strdup ("quiet");
   case MS_FEEDBACK_PROFILE_SILENT:
-    return g_strdup (_ ("silent"));
+    return g_strdup ("silent");
+  default:
+    g_return_val_if_reached (NULL);
+  }
+}
+
+
+char *
+ms_feedback_profile_to_label (MsFeedbackProfile profile)
+{
+  switch (profile) {
+  case MS_FEEDBACK_PROFILE_FULL:
+    return g_strdup (_("Full"));
+  case MS_FEEDBACK_PROFILE_QUIET:
+    return g_strdup (_("Quiet"));
+  case MS_FEEDBACK_PROFILE_SILENT:
+    return g_strdup (_("Silent"));
   default:
     g_return_val_if_reached (NULL);
   }

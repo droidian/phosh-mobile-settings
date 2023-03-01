@@ -1,3 +1,28 @@
+phosh-mobile-settings (0.25.0) experimental; urgency=medium
+
+  [ Evangelos Ribeiro Tzaras ]
+  * build: Bump glib dependency to 2.66.
+    Fixes c31f81f3476ac9903916c105ac01aa1594067bc5
+  * build: Bump meson dependency to 0.58.0
+    str.replace() (used for glib_ver_str) is only available since 0.58.
+
+  [ Guido Günther ]
+  * window: Use a larger default size.
+    This makes things less fiddly on larger screens
+  * gitignore: Ignore generated pot file
+  * build: Fix gettext name.
+    This allows translations to be found
+  * feedback-panel: Separate feedback settings from setting their labels.
+    We want the labels to be translatable while the stings uses for
+    settings should be untranslaged.
+  * po: Translate some DE strings.
+    This allows to test i18n.
+  * Add osk panel.
+    This allows to toggle OSK usage on and off and (if phosh-osk-stub is
+    used) to configure the word competion mode.
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 28 Feb 2023 11:10:32 +0100
+
 phosh-mobile-settings (0.24.1) experimental; urgency=medium
 
   * plugins-row: Use full path to open prefs plugin
