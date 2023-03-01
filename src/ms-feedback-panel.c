@@ -66,7 +66,7 @@ static char *
 item_feedback_profile_name (AdwEnumListItem   *item,
                             gpointer user_data G_GNUC_UNUSED)
 {
-  return ms_feedback_profile_to_name (adw_enum_list_item_get_value (item));
+  return ms_feedback_profile_to_label (adw_enum_list_item_get_value (item));
 }
 
 
@@ -77,7 +77,7 @@ settings_name_to_profile (GValue *value, GVariant *variant, gpointer user_data)
 
   name = g_variant_get_string (variant, NULL);
 
-  g_value_set_enum (value, ms_feedback_profile_from_name (name));
+  g_value_set_enum (value, ms_feedback_profile_from_setting (name));
 
   return TRUE;
 }
@@ -92,7 +92,7 @@ settings_profile_to_name (const GValue       *value,
 
   profile = g_value_get_enum (value);
 
-  return g_variant_new_take_string (ms_feedback_profile_to_name (profile));
+  return g_variant_new_take_string (ms_feedback_profile_to_setting (profile));
 }
 
 
