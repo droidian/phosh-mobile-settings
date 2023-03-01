@@ -34,7 +34,7 @@ static char *
 item_feedback_profile_name (AdwEnumListItem   *item,
                             gpointer user_data G_GNUC_UNUSED)
 {
-  return ms_feedback_profile_to_name (adw_enum_list_item_get_value (item));
+  return ms_feedback_profile_to_label (adw_enum_list_item_get_value (item));
 }
 
 
