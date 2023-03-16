@@ -7,10 +7,7 @@
         <child>
           <object class="GtkScrolledWindow">
             <child>
-
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="spacing">12</property>
+              <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Scaling down of running applications:</property>

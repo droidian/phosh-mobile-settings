@@ -8,8 +8,7 @@
 
           <object class="GtkScrolledWindow">
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
+              <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
