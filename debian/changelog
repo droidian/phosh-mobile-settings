@@ -14,12 +14,12 @@ phosh-mobile-settings (0.25.0) experimental; urgency=medium
     This allows translations to be found
   * feedback-panel: Separate feedback settings from setting their labels.
     We want the labels to be translatable while the stings uses for
-    settings should be untranslaged.
+    settings should be untranslated.
   * po: Translate some DE strings.
     This allows to test i18n.
   * Add osk panel.
     This allows to toggle OSK usage on and off and (if phosh-osk-stub is
-    used) to configure the word competion mode.
+    used) to configure the word completion mode.
 
  -- Guido Günther <agx@sigxcpu.org>  Tue, 28 Feb 2023 11:10:32 +0100
 
