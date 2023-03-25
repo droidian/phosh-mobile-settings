@@ -37,6 +37,7 @@ typedef struct {
   const sensors_subfeature *subfeature_temp;
   const sensors_subfeature *subfeature_temp_crit;
   GtkLabel *label;
+  GtkImage *icon;
   AdwActionRow *row;
 } MsSensor;
 
@@ -193,7 +194,7 @@ on_update_timeout (gpointer user_data)
   for (MsTempSensor i = 0; i <= MS_TEMP_SENSOR_LAST; i++) {
     g_autofree char *temp_msg = NULL;
     g_autofree char *crit_msg = NULL;
-    const char *icon = NULL;
+    gboolean icon_visible = FALSE;
 
     if (self->temp_sensors[i].name == NULL)
       continue;
@@ -215,9 +216,9 @@ on_update_timeout (gpointer user_data)
     }
 
     if (temp >= crit * 0.9)
-      icon = "dialog-warning-symbolic";
+      icon_visible = TRUE;
 
-    adw_action_row_set_icon_name(self->temp_sensors[i].row, icon);
+    gtk_widget_set_visible (GTK_WIDGET (self->temp_sensors[i].icon), icon_visible);
   }
 
   return TRUE;
@@ -344,11 +345,16 @@ ms_plugin_librem5_panel_class_init (MsPluginLibrem5PanelClass *klass)
 
   for (int i = 0; i <= MS_TEMP_SENSOR_LAST; i++) {
     g_autofree char *name_label = g_strdup_printf ("%s_temp_label", temp_sensor_mapping[i].pretty);
+    g_autofree char *name_icon = g_strdup_printf ("%s_temp_icon", temp_sensor_mapping[i].pretty);
     g_autofree char *name_row = g_strdup_printf ("%s_temp_row", temp_sensor_mapping[i].pretty);
     gtk_widget_class_bind_template_child_full (widget_class,
                                                name_label,
                                                FALSE,
                                                G_STRUCT_OFFSET(MsPluginLibrem5Panel, temp_sensors[i].label));
+    gtk_widget_class_bind_template_child_full (widget_class,
+                                               name_icon,
+                                               FALSE,
+                                               G_STRUCT_OFFSET(MsPluginLibrem5Panel, temp_sensors[i].icon));
     gtk_widget_class_bind_template_child_full (widget_class,
                                                name_row,
                                                FALSE,
