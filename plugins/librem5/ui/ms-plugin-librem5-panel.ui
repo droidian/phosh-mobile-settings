@@ -8,8 +8,7 @@
         <child>
 	  <object class="GtkScrolledWindow">
 	    <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
+              <object class="AdwPreferencesPage">
                 <child>
 
 	          <object class="AdwPreferencesGroup">
@@ -53,6 +52,12 @@
 	              <object class="AdwActionRow" id="cpu_temp_row">
 		        <property name="title">CPU</property>
                         <property name="use-underline">true</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="cpu_temp_icon">
+                            <property name="visible">False</property>
+                            <property name="icon-name">dialog-warning-symbolic</property>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="cpu_temp_label">
 		            <property name="ellipsize">middle</property>
@@ -65,6 +70,12 @@
 	              <object class="AdwActionRow" id="gpu_temp_row">
 		        <property name="title">GPU</property>
                         <property name="use-underline">true</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="gpu_temp_icon">
+                            <property name="visible">False</property>
+                            <property name="icon-name">dialog-warning-symbolic</property>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="gpu_temp_label">
 		            <property name="ellipsize">middle</property>
@@ -77,6 +88,12 @@
 	              <object class="AdwActionRow" id="vpu_temp_row">
 		        <property name="title">VPU</property>
                         <property name="use-underline">true</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="vpu_temp_icon">
+                            <property name="visible">False</property>
+                            <property name="icon-name">dialog-warning-symbolic</property>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="vpu_temp_label">
 		            <property name="ellipsize">middle</property>
@@ -89,6 +106,12 @@
 	              <object class="AdwActionRow" id="fuelgauge_temp_row">
 		        <property name="title">Fuel Gauge</property>
                         <property name="use-underline">true</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="fuelgauge_temp_icon">
+                            <property name="visible">False</property>
+                            <property name="icon-name">dialog-warning-symbolic</property>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="fuelgauge_temp_label">
 		            <property name="ellipsize">middle</property>
@@ -101,6 +124,12 @@
 	              <object class="AdwActionRow" id="battery_temp_row">
 		        <property name="title">Battery</property>
                         <property name="use-underline">true</property>
+                        <child type="prefix">
+                          <object class="GtkImage" id="battery_temp_icon">
+                            <property name="visible">False</property>
+                            <property name="icon-name">dialog-warning-symbolic</property>
+                          </object>
+                        </child>
                         <child>
                           <object class="GtkLabel" id="battery_temp_label">
 		            <property name="ellipsize">middle</property>

@@ -1,3 +1,10 @@
+phosh-mobile-settings (0.26.0-1) experimental; urgency=medium
+
+  * Upload to experimental
+  * New upstream release
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 30 Mar 2023 18:13:05 +0200
+
 phosh-mobile-settings (0.25.0-1) experimental; urgency=medium
 
   * Upload to experimental
