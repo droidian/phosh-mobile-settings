@@ -3,13 +3,12 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsOskPanel" parent="AdwBin">
     <child>
-      <object class ="AdwClamp">
+      <object class="AdwClamp">
         <child>
 
           <object class="GtkScrolledWindow">
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
+              <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
