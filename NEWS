@@ -1,6 +1,6 @@
 phosh-mobile-settings 0.26.0
 ----------------------------
-Released: April 2023
+Released: March 2023
 * Fix Listbox styling
 * Fix deprecations with Libadwaita 1.3
 * Avoid deprecations with GTK 4.10
