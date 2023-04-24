@@ -8,6 +8,8 @@ vgdump
 .\#*
 .vscode/
 *.gcov
+po/messages.mo
+po/missing
 po/phosh-mobile-settings.pot
 debian/files
 debian/*.substvars
