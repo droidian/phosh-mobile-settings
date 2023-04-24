@@ -11,6 +11,7 @@
     <file>ui/ms-panel-switcher.ui</file>
     <file>ui/ms-plugin-row.ui</file>
     <file>ui/ms-scale-to-fit-row.ui</file>
+    <file>ui/ms-sound-row.ui</file>
     <file>gtk/help-overlay.ui</file>
   </gresource>
   <gresource prefix="/org/sigxcpu/MobileSettings/icons/scalable/status/">
