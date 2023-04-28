@@ -13,4 +13,5 @@ src/ui/ms-compositor-panel.ui
 src/ui/ms-convergence-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
+src/ui/ms-osk-panel.ui
 src/ui/ms-scale-to-fit-row.ui
