@@ -7,6 +7,7 @@ Build-Depends:
  debhelper-compat (= 13),
  desktop-file-utils,
  libadwaita-1-dev,
+ libgsound-dev,
  libgtk-4-dev,
  libsensors-dev,
  meson,
