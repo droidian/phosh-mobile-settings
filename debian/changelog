@@ -1,3 +1,16 @@
+phosh-mobile-settings (0.27.0) experimental; urgency=medium
+
+  * metainfo: Add recent release
+  * feedback-panel: Avoid deprecated gtk_style_context_add_class
+  * plugins: Avoid deprecated gtk_style_context_add_class
+  * gitignore: Add generated files in po
+  * d/control: Add libsound-dev
+  * po: Add ms-osk-sound-panel.
+    Fixes 8ad8781938585fa0b09c13cf2a0268276888ba9d
+  * Allow to configure ring tone and sms sounds
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 30 Apr 2023 14:36:11 +0200
+
 phosh-mobile-settings (0.26.0) experimental; urgency=medium
 
   * panels: Use AdwPreferences page.
