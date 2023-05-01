@@ -44,6 +44,12 @@
   </screenshots>
 
   <releases>
+    <release version="0.27.0" date="2023-04-30">
+      <description>
+        <p>Allow to configure sounds for ring tone, SMS and instant messages</p>
+      </description>
+    </release>
+
     <release version="0.26.0" date="2023-03-30">
       <description>
         <ul>
@@ -62,35 +68,35 @@
     </release>
 
     <release version="0.24.1" date="2023-02-13">
-      <description>Lockscreen Plugin panel bug fixes</description>
+      <description><p>Lockscreen Plugin panel bug fixes</p></description>
     </release>
 
     <release version="0.24.0" date="2023-01-30">
-      <description>Lockscreen Plugin panel bug fixes</description>
+      <description><p>Lockscreen Plugin panel bug fixes</p></description>
     </release>
 
     <release version="0.23.1" date="2022-01-04">
-      <description>Bugfix release</description>
+      <description><p>Bugfix release</p></description>
     </release>
 
     <release version="0.23.0" date="2022-12-28">
-      <description>Allow plugins to have preferences</description>
+      <description><p>Allow plugins to have preferences</p></description>
     </release>
 
     <release version="0.22.0" date="2022-11-02">
-      <description>Support UPERFECT X Mini lapdock</description>
+      <description><p>Support UPERFECT X Mini lapdock</p></description>
     </release>
 
     <release version="0.21.1" date="2022-09-28">
-      <description>Bug fixes release</description>
+      <description><p>Bug fixes release</p></description>
     </release>
 
     <release version="0.21.0" date="2022-09-01">
-      <description>Allow to enable/disable lockscreen widgets and bug fixes</description>
+      <description><p>Allow to enable/disable lockscreen widgets and bug fixes</p></description>
     </release>
 
     <release version="0.20.0" date="2022-08-08">
-      <description>Initial release</description>
+      <description><p>Initial release</p></description>
     </release>
   </releases>
 </component>
