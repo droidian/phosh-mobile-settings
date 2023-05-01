@@ -46,9 +46,104 @@ struct _MsFeedbackPanel {
 
   GSettings        *settings;
   MsFeedbackProfile profile;
+
+  GSoundContext    *sound_context;
+  GCancellable     *sound_cancel;
+
+  AdwToastOverlay  *toast_overlay;
+  AdwToast         *toast;
 };
 
 G_DEFINE_TYPE (MsFeedbackPanel, ms_feedback_panel, ADW_TYPE_BIN)
+
+
+static void
+stop_playback (MsFeedbackPanel *self)
+{
+  g_cancellable_cancel (self->sound_cancel);
+  g_clear_object (&self->sound_cancel);
+  if (self->toast)
+    adw_toast_dismiss (self->toast);
+}
+
+
+static void
+on_toast_dismissed  (AdwToast *toast,  MsFeedbackPanel *self)
+{
+  g_assert (MS_IS_FEEDBACK_PANEL (self));
+  g_debug ("Stopping sound playback");
+
+  stop_playback (self);
+}
+
+
+static void
+stop_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *parameter)
+
+{
+  MsFeedbackPanel *self = MS_FEEDBACK_PANEL (widget);
+
+  g_assert (MS_IS_FEEDBACK_PANEL (self));
+  stop_playback (self);
+}
+
+
+static void
+on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user_data)
+{
+  gboolean success;
+  g_autoptr (GError) err = NULL;
+  MsFeedbackPanel *self;
+
+  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
+  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+      g_warning ("Failed to play sound: %s", err->message);
+
+  self = MS_FEEDBACK_PANEL (user_data);
+  g_assert (MS_IS_FEEDBACK_PANEL (self));
+
+  /* Clear cancellable if unused, if used it's cleared in stop_playback */
+  if (success || !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+    g_clear_object (&self->sound_cancel);
+}
+
+
+static void
+play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *parameter)
+
+{
+  MsFeedbackPanel *self = MS_FEEDBACK_PANEL (widget);
+  const char *path = NULL;
+  g_autofree char *basename = NULL;
+  g_autofree char *title = NULL;
+
+  path = g_variant_get_string (parameter, NULL);
+  g_return_if_fail (!STR_IS_NULL_OR_EMPTY (path));
+  g_return_if_fail (GSOUND_IS_CONTEXT (self->sound_context));
+
+  stop_playback (self);
+
+  g_debug ("Playing sound file '%s'", path);
+  basename = g_path_get_basename (path);
+
+  if (self->toast == NULL) {
+    self->toast = adw_toast_new ("");
+    g_signal_connect_object (self->toast, "dismissed", G_CALLBACK (on_toast_dismissed), self, 0);
+    adw_toast_set_timeout (self->toast, 0);
+  }
+
+  title = g_strdup_printf (_("Playing %s"), basename);
+  adw_toast_set_title (self->toast, title);
+  adw_toast_overlay_add_toast (self->toast_overlay, g_object_ref (self->toast));
+
+  self->sound_cancel = g_cancellable_new ();
+  gsound_context_play_full (self->sound_context,
+                            self->sound_cancel,
+                            on_sound_play_finished,
+                            self,
+                            GSOUND_ATTR_MEDIA_FILENAME, path,
+                            NULL);
+}
 
 
 static void
@@ -130,9 +225,7 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   gtk_list_box_append (self->app_listbox, GTK_WIDGET (row));
 
   w = gtk_image_new_from_gicon (icon);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  gtk_style_context_add_class (gtk_widget_get_style_context (w), "lowres-icon");
-G_GNUC_END_IGNORE_DEPRECATIONS
+  gtk_widget_add_css_class (w, "lowres-icon");
   gtk_image_set_icon_size (GTK_IMAGE (w), GTK_ICON_SIZE_LARGE);
   adw_action_row_add_prefix (ADW_ACTION_ROW (row), w);
 
@@ -254,6 +347,9 @@ ms_feedback_panel_dispose (GObject *object)
 {
   MsFeedbackPanel *self = MS_FEEDBACK_PANEL (object);
 
+  g_clear_object (&self->sound_cancel);
+
+  g_clear_object (&self->sound_context);
   g_clear_object (&self->settings);
   g_clear_pointer (&self->known_applications, g_hash_table_unref);
 
@@ -284,17 +380,28 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/org/sigxcpu/MobileSettings/ui/ms-feedback-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
+
+  gtk_widget_class_install_action (widget_class, "sound-player.play", "s",
+                                   play_sound_activated);
+  gtk_widget_class_install_action (widget_class, "sound-player.stop", NULL, stop_sound_activated);
 }
 
 
 static void
 ms_feedback_panel_init (MsFeedbackPanel *self)
 {
+  g_autoptr (GError) error = NULL;
+
   self->known_applications = g_hash_table_new_full (g_str_hash, g_str_equal,
                                                     NULL, g_free);
 
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  self->sound_context = gsound_context_new (NULL, &error);
+  if (self->sound_context == NULL)
+    g_warning ("Failed to make sound context: %s", error->message);
 }
 
 

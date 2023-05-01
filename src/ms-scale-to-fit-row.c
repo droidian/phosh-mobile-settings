@@ -119,9 +119,7 @@ ms_scale_to_fit_row_constructed (GObject *object)
     g_object_ref (icon);
 
   w = gtk_image_new_from_gicon (icon);
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  gtk_style_context_add_class (gtk_widget_get_style_context (w), "lowres-icon");
-G_GNUC_END_IGNORE_DEPRECATIONS
+  gtk_widget_add_css_class (w, "lowres-icon");
   gtk_image_set_icon_size (GTK_IMAGE (w), GTK_ICON_SIZE_LARGE);
   adw_action_row_add_prefix (ADW_ACTION_ROW (self), w);
 

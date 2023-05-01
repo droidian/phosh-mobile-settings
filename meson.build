@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.26.0',
+          version: '0.27.0',
     meson_version: '>= 0.58.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -20,6 +20,7 @@ glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
+gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
 adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
