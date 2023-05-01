@@ -1,8 +1,9 @@
-phosh-mobile-settings (0.27.0-1) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.27.0-1) experimental; urgency=medium
 
   * New upstream release
+  * Add libgsound-dev build dependency
 
- -- Guido Günther <agx@sigxcpu.org>  Mon, 01 May 2023 11:32:58 +0200
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 01 May 2023 11:53:16 +0200
 
 phosh-mobile-settings (0.26.0-1) experimental; urgency=medium
 
