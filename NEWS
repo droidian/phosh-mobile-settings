@@ -1,6 +1,12 @@
-phosh-mobile-settings 0.26.0
+phosh-mobile-settings 0.27.0
 ----------------------------
 Released: April 2023
+* Allow to configure feedback sounds for ring tone,
+  SMS and instant messages
+
+phosh-mobile-settings 0.26.0
+----------------------------
+Released: March 2023
 * Fix Listbox styling
 * Fix deprecations with Libadwaita 1.3
 * Avoid deprecations with GTK 4.10
