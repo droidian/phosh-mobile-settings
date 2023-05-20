@@ -179,9 +179,11 @@ on_sensor_claimed (GObject      *source_object,
   g_autoptr (GError) error = NULL;
   Sensor *sensor = user_data;
   MsDBusSensorProxy *proxy = MS_DBUS_SENSOR_PROXY (source_object);
-  gboolean ok = sensor->claim_finish_func (proxy, res, &error);
+  gboolean ok;
 
+  ok = sensor->claim_finish_func (proxy, res, &error);
   g_debug ("%s sensor claimed %ssuccesfully", sensor->name, ok ? "" : "un");
+
   if (!ok) {
     if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
       g_debug ("Cancelled claming %s sensor", sensor->name);
@@ -215,9 +217,11 @@ on_sensor_released (GObject      *source_object,
   g_autoptr (GError) error = NULL;
   Sensor *sensor = user_data;
   MsDBusSensorProxy *proxy = MS_DBUS_SENSOR_PROXY (source_object);
-  gboolean ok = sensor->release_finish_func (proxy, res, &error);
+  gboolean ok;
 
+  ok = sensor->release_finish_func (proxy, res, &error);
   g_debug ("%s sensor released %ssucessfully", sensor->name, ok ? "" : "un");
+
   if (!ok) {
     if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
       g_debug ("Cancelled releasing %s sensor", sensor->name);
