@@ -21,6 +21,7 @@ Architecture: any
 Depends:
  feedbackd,
  phoc,
+ phosh (>= 0.27.0),
  ${misc:Depends},
  ${shlibs:Depends},
 Description: Phosh and related settings for mobile
