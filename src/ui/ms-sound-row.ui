@@ -50,7 +50,7 @@
   </template>
 
   <object class="GtkFileFilter" id="sound_filter">
-    <property name="name" translatable="yes">Sound files</property>
+    <property name="name" translatable="yes">Sound files (ogg)</property>
     <suffixes>
       <suffix>ogg</suffix>
     </suffixes>
