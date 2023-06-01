@@ -1,3 +1,26 @@
+phosh-mobile-settings (0.28.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ms-sound-row: Add a hint which sound files are supported.  We currently
+    look for *.ogg.
+  * metainfo: Fix release date of 0.23.1
+  * packaging: Add phosh dependency.
+    We'll need phosh's gsetting schema for the features panel
+  * Add panel for experimental features.
+    This panel is meant for features that will be enabled by default in the
+    future. For now we put the emergency call support there.
+    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/25
+
+  [ Sam Hewitt ]
+  * Fix issue with invisible element in app icon
+
+  [ Evangelos Ribeiro Tzaras ]
+  * osk-panel: Bail early when there is no on screen keyboard.
+    When p-m-s is run without on screen keyboard
+    (e.g. not under a phosh session)
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 31 May 2023 16:31:13 +0200
+
 phosh-mobile-settings (0.27.0) experimental; urgency=medium
 
   * metainfo: Add recent release

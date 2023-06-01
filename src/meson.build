@@ -18,6 +18,8 @@ mobile_settings_sources = [
   'ms-compositor-panel.h',
   'ms-convergence-panel.c',
   'ms-convergence-panel.h',
+  'ms-features-panel.c',
+  'ms-features-panel.h',
   'ms-feedback-row.c',
   'ms-feedback-row.h',
   'ms-feedback-panel.c',
