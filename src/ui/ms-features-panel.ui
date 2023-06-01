@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsFeaturesPanel" parent="AdwBin">
+    <child>
+      <object class="AdwClamp">
+        <child>
+          <object class="GtkScrolledWindow">
+            <child>
+              <object class="AdwPreferencesPage">
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Experimental Features</property>
+                    <property name="description" translatable="yes">Features not yet deemed fully stable</property>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Emergency Calls</property>
+                        <property name="subtitle" translatable="yes">Enable emergency calls. Please only enable this if you safely can ensure that it's working with your provider.</property>
+                        <property name="use-underline">true</property>
+                        <child>
+                          <object class="GtkSwitch" id="emergency_calls_enabled_switch">
+                            <property name="valign">center</property>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enabled</property>
+                            </accessibility>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

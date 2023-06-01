@@ -1,3 +1,13 @@
+phosh-mobile-settings 0.28.0
+----------------------------
+Released: May 2023
+* Add panel for experimental features
+* Robustness fixes
+* Contributors:
+    * Evangelos Ribeiro Tzaras
+    * Guido Günther
+    * Sam Hewitt
+
 phosh-mobile-settings 0.27.0
 ----------------------------
 Released: April 2023

@@ -44,6 +44,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.28.0" date="2023-05-31">
+      <description>
+        <ul>
+          <li>New panel to enable experimental features</li>
+          <li>Robustness fixes</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.27.0" date="2023-04-30">
       <description>
         <p>Allow to configure sounds for ring tone, SMS and instant messages</p>
@@ -75,7 +84,7 @@
       <description><p>Lockscreen Plugin panel bug fixes</p></description>
     </release>
 
-    <release version="0.23.1" date="2022-01-04">
+    <release version="0.23.1" date="2023-01-04">
       <description><p>Bugfix release</p></description>
     </release>
 
