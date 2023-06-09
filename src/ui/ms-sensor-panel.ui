@@ -85,7 +85,8 @@
                               </child>
                               <child>
                                 <object class="AdwActionRow">
-                                  <property name="title" translatable="yes">Threshold</property>
+                                  <property name="title" translatable="yes">Light intensity threshold</property>
+                                  <property name="subtitle" translatable="yes">Theme will switch to high contrast above the threshold</property>
                                   <child>
                                     <object class="GtkScale" id="automatic_hc_scale">
                                       <property name="sensitive">false</property>
