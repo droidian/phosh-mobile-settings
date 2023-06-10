@@ -8,6 +8,7 @@ src/main.c
 src/mobile-settings-application.c
 src/mobile-settings-window.c
 src/ms-feedback-panel.c
+src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c
 src/ui/mobile-settings-window.ui
@@ -17,4 +18,5 @@ src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-panel.ui
 src/ui/ms-scale-to-fit-row.ui
+src/ui/ms-sensor-panel.ui
 src/ui/ms-sound-row.ui
