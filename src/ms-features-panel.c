@@ -16,7 +16,9 @@ struct _MsFeaturesPanel {
   AdwBin            parent;
 
   GSettings        *emergency_calls_settings;
+  GSettings        *phosh_settings;
   GtkWidget        *emergency_calls_enabled_switch;
+  GtkWidget        *manual_suspend_switch;
 };
 
 G_DEFINE_TYPE (MsFeaturesPanel, ms_features_panel, ADW_TYPE_BIN)
@@ -28,6 +30,7 @@ ms_features_panel_finalize (GObject *object)
   MsFeaturesPanel *self = MS_FEATURES_PANEL (object);
 
   g_clear_object (&self->emergency_calls_settings);
+  g_clear_object (&self->phosh_settings);
 
   G_OBJECT_CLASS (ms_features_panel_parent_class)->finalize (object);
 }
@@ -46,6 +49,9 @@ ms_features_panel_class_init (MsFeaturesPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class,
                                         MsFeaturesPanel,
                                         emergency_calls_enabled_switch);
+  gtk_widget_class_bind_template_child (widget_class,
+                                        MsFeaturesPanel,
+                                        manual_suspend_switch);
 }
 
 
@@ -57,6 +63,10 @@ ms_features_panel_init (MsFeaturesPanel *self)
   self->emergency_calls_settings = g_settings_new ("sm.puri.phosh.emergency-calls");
   g_settings_bind (self->emergency_calls_settings, "enabled",
                    self->emergency_calls_enabled_switch, "active",
+                   G_SETTINGS_BIND_DEFAULT);
+  self->phosh_settings = g_settings_new ("sm.puri.phosh");
+  g_settings_bind (self->phosh_settings, "enable-suspend",
+                   self->manual_suspend_switch, "active",
                    G_SETTINGS_BIND_DEFAULT);
 }
 
