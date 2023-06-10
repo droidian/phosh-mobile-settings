@@ -14,6 +14,7 @@ src/ms-util.c
 src/ui/mobile-settings-window.ui
 src/ui/ms-compositor-panel.ui
 src/ui/ms-convergence-panel.ui
+src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-panel.ui
