@@ -1,3 +1,5 @@
+subdir('dbus')
+
 mobile_settings_enum_sources = gnome.mkenums_simple('ms-enum-types',
      sources : files('mobile-settings-enums.h'))
 
@@ -39,12 +41,15 @@ mobile_settings_sources = [
   'ms-plugin-row.h',
   'ms-scale-to-fit-row.c',
   'ms-scale-to-fit-row.h',
+  'ms-sensor-panel.c',
+  'ms-sensor-panel.h',
   'ms-sound-row.c',
   'ms-sound-row.h',
   'ms-toplevel-tracker.c',
   'ms-toplevel-tracker.h',
   'ms-util.c',
   'ms-util.h',
+  generated_dbus_sources,
   mobile_settings_enum_sources,
   mobile_settings_plugin_sources,
   wl_proto_headers,
@@ -85,9 +90,9 @@ ms_plugin_deps = [
 ]
 mobile_settings_plugin_lib = static_library('mobile-settings-plugin',
   mobile_settings_plugin_sources,
-  include_directories: ms_plugin_inc,
+  include_directories: [ms_plugin_inc, dbus_inc],
   dependencies: ms_plugin_deps)
 mobile_settings_plugin_dep = declare_dependency(
-  include_directories: ms_plugin_inc,
+  include_directories: [ms_plugin_inc, dbus_inc],
   link_with: mobile_settings_plugin_lib,
   dependencies: ms_plugin_deps)

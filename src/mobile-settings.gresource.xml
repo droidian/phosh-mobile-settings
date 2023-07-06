@@ -12,10 +12,12 @@
     <file>ui/ms-panel-switcher.ui</file>
     <file>ui/ms-plugin-row.ui</file>
     <file>ui/ms-scale-to-fit-row.ui</file>
+    <file>ui/ms-sensor-panel.ui</file>
     <file>ui/ms-sound-row.ui</file>
     <file>gtk/help-overlay.ui</file>
   </gresource>
   <gresource prefix="/org/sigxcpu/MobileSettings/icons/scalable/status/">
+    <file alias="computer-chip-symbolic.svg">../data/icons/computer-chip-symbolic.svg</file>
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
     <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
