@@ -28,6 +28,24 @@
                         </child>
                       </object>
                     </child>
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Enable suspend via the system menu</property>
+                        <property name="use-underline">true</property>
+                        <property name="subtitle">Please only enable this if you're aware of the limitations like data connection loss or missed alarms</property>
+                        <child>
+                          <object class="GtkSwitch" id="manual_suspend_switch">
+                            <property name="valign">center</property>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enabled</property>
+                            </accessibility>
+                            <style>
+                              <class name="destructive-action"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
 
                   </object>
                 </child>

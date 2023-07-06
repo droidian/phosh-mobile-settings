@@ -1,3 +1,11 @@
+phosh-mobile-settings (0.29.0-1) experimental; urgency=medium
+
+  * New upstream release
+  * d/control: Bump phosh dependency.
+    We want the new settings schema for suspend toggle
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 06 Jul 2023 10:39:38 +0200
+
 phosh-mobile-settings (0.28.0-1) experimental; urgency=medium
 
   * New upstream release
