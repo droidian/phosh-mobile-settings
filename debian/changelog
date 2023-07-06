@@ -1,3 +1,23 @@
+phosh-mobile-settings (0.29.0) experimental; urgency=medium
+
+  [ Evangelos Ribeiro Tzaras ]
+  * panel-switcher: Fix indentation
+  * Add sensor panel.
+    Shows sensor readings and allows setting automatic high contrast and
+    the associated sensor threshold. Sensors get claimed only when the
+    panel is mapped (and released if unmapped).
+  * settings-window: Add sensor panel
+
+  [ undef ]
+  * d/control: depend on Phosh 0.29 with new gsettings schema.
+  * features-panel: Add manual suspend switch to experimental settings.
+    This enables configuring the Phosh suspend button in the system menu.
+
+  [ Guido Günther ]
+  * features-panel: Add to translatable files
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 02 Jul 2023 17:28:39 +0200
+
 phosh-mobile-settings (0.28.0) experimental; urgency=medium
 
   [ Guido Günther ]
