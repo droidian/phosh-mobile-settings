@@ -1,3 +1,14 @@
+phosh-mobile-settings 0.29.0
+----------------------------
+Released: July 2023
+* New sensors panel with sensor readings and configuration
+  for automatic high-contrast
+* Allow to enable phosh's suspend button in the system menu
+* Contributors:
+    * Evangelos Ribeiro Tzaras
+    * Guido Günther
+    * undef
+
 phosh-mobile-settings 0.28.0
 ----------------------------
 Released: May 2023

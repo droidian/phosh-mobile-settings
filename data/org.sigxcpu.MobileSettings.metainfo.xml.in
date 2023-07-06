@@ -44,6 +44,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.29.0" date="2023-07-05">
+      <description>
+        <ul>
+          <li>New panel for sensor readings</li>
+          <li>Allow to enable suspend button in phosh</li>
+        </ul>
+      </description>
+    </release>
+    
     <release version="0.28.0" date="2023-05-31">
       <description>
         <ul>
