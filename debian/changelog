@@ -1,3 +1,9 @@
+phosh-mobile-settings (0.29.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 06 Jul 2023 10:34:20 +0200
+
 phosh-mobile-settings (0.28.0-1) experimental; urgency=medium
 
   * New upstream release
