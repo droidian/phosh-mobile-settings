@@ -1,4 +1,4 @@
-phosh-mobile-settings (0.29.0-1) experimental; urgency=medium
+phosh-mobile-settings (0.29.0-1) unstable; urgency=medium
 
   * New upstream release
   * d/control: Bump phosh dependency.
