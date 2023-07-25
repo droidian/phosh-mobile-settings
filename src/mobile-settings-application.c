@@ -14,12 +14,17 @@
 #include "ms-plugin-loader.h"
 #include "ms-toplevel-tracker.h"
 #include "ms-head-tracker.h"
+#include "mobile-settings-debug-info.h"
 
 #include "protocols/wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
 #include "protocols/wlr-output-management-unstable-v1-client-protocol.h"
 
 #include <gdk/wayland/gdkwayland.h>
+#include <wayland-client.h>
 #include <glib/gi18n.h>
+
+#define PHOC_LAYER_SHELL_EFFECTS_PROTOCOL_NAME "zphoc_layer_shell_effects_v1"
+#define PHOSH_PRIVATE_PROTOCOL_NAME "phosh_private"
 
 enum {
   PROP_0,
@@ -40,6 +45,8 @@ struct _MobileSettingsApplication {
   struct wl_registry *wl_registry;
   struct zwlr_foreign_toplevel_manager_v1 *foreign_toplevel_manager;
   struct zwlr_output_manager_v1 *output_manager;
+  uint32_t    phoc_layer_shell_effects_version;
+  uint32_t    phosh_private_version;
   MsToplevelTracker  *toplevel_tracker;
   MsHeadTracker     *head_tracker;
 };
@@ -85,6 +92,10 @@ registry_handle_global (void               *data,
   } else if (strcmp (interface, zwlr_output_manager_v1_interface.name) == 0) {
     self->output_manager =
       wl_registry_bind (registry, name, &zwlr_output_manager_v1_interface, 2);
+  } else if (strcmp (interface, PHOC_LAYER_SHELL_EFFECTS_PROTOCOL_NAME) == 0) {
+    self->phoc_layer_shell_effects_version = version;
+  } else if (strcmp (interface, PHOSH_PRIVATE_PROTOCOL_NAME) == 0) {
+    self->phosh_private_version = version;
   }
 
   if (self->foreign_toplevel_manager && self->output_manager &&
@@ -199,6 +210,7 @@ mobile_settings_application_show_about (GSimpleAction *action,
                          "copyright", "Copyright (C) 2022 Guido Günther",
                          "website", "https://gitlab.gnome.org/guidog/phosh-mobile-settings",
                          "issue-url", "https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/new",
+                         "debug-info", mobile_settings_generate_debug_info (),
                          "license-type", GTK_LICENSE_GPL_3_0,
                          "developers", developers,
                          "artists", artists,
@@ -259,4 +271,19 @@ mobile_settings_application_get_head_tracker (MobileSettingsApplication *self)
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
   return self->head_tracker;
+}
+
+uint32_t
+mobile_settings_application_get_phoc_layer_shell_effects_version (MobileSettingsApplication *self)
+{
+  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+
+  return self->phoc_layer_shell_effects_version;
+}
+
+uint32_t
+mobile_settings_application_get_phosh_private_version (MobileSettingsApplication *self){
+  g_assert (MOBILE_SETTINGS_APPLICATION (self));
+
+  return self->phosh_private_version;
 }
