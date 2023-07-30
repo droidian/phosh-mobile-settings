@@ -190,6 +190,9 @@ mobile_settings_generate_debug_info (void)
       g_string_append_printf (string, "- ADW_DISABLE_PORTAL: %s\n", adw_disable_portal);
   }
 
+#if GLIB_CHECK_VERSION(2, 76, 0)
   return g_string_free_and_steal (string);
+#else
+  return g_string_free (string, FALSE);
+#endif
 }
-
