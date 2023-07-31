@@ -1,3 +1,17 @@
+phosh-mobile-settings (0.30.0) experimental; urgency=medium
+
+  [ Gotam Gorabh ]
+  * Add Troubleshooting Tab.
+    These changes will add a troubleshooting tab in posh-mobile-settings.
+    This troubleshooting tab will contain debug information required
+    while reporting issues against this application.
+    Fixes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/30
+
+  [ Guido Günther ]
+  * debug-info: Allow to build with glib < 2.76.0
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 31 Jul 2023 12:03:51 +0200
+
 phosh-mobile-settings (0.29.0) experimental; urgency=medium
 
   [ Evangelos Ribeiro Tzaras ]

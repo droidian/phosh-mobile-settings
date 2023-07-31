@@ -44,6 +44,14 @@
   </screenshots>
 
   <releases>
+    <release version="0.30.0" date="2023-08-02">
+      <description>
+        <ul>
+          <li>Add troubleshooting tab to about dialog</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.29.0" date="2023-07-05">
       <description>
         <ul>
