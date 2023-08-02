@@ -1,3 +1,14 @@
+phosh-mobile-settings 0.30.0
+----------------------------
+Released: August 2023
+* Add troubleshooting tab to about dialog
+  This eases providing debug information
+* Issues fixed:
+    * https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/30
+* Contributors:
+    * Gotam Gorabh
+    * Guido Günther
+
 phosh-mobile-settings 0.29.0
 ----------------------------
 Released: July 2023
