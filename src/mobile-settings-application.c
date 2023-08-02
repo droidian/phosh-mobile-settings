@@ -45,10 +45,10 @@ struct _MobileSettingsApplication {
   struct wl_registry *wl_registry;
   struct zwlr_foreign_toplevel_manager_v1 *foreign_toplevel_manager;
   struct zwlr_output_manager_v1 *output_manager;
-  uint32_t    phoc_layer_shell_effects_version;
-  uint32_t    phosh_private_version;
   MsToplevelTracker  *toplevel_tracker;
   MsHeadTracker     *head_tracker;
+
+  GHashTable        *wayland_protocols;
 };
 
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
@@ -92,10 +92,6 @@ registry_handle_global (void               *data,
   } else if (strcmp (interface, zwlr_output_manager_v1_interface.name) == 0) {
     self->output_manager =
       wl_registry_bind (registry, name, &zwlr_output_manager_v1_interface, 2);
-  } else if (strcmp (interface, PHOC_LAYER_SHELL_EFFECTS_PROTOCOL_NAME) == 0) {
-    self->phoc_layer_shell_effects_version = version;
-  } else if (strcmp (interface, PHOSH_PRIVATE_PROTOCOL_NAME) == 0) {
-    self->phosh_private_version = version;
   }
 
   if (self->foreign_toplevel_manager && self->output_manager &&
@@ -108,6 +104,8 @@ registry_handle_global (void               *data,
     self->head_tracker = ms_head_tracker_new (self->output_manager);
     g_object_notify_by_pspec (G_OBJECT (self), props[PROP_HEAD_TRACKER]);
   }
+
+  g_hash_table_insert (self->wayland_protocols, g_strdup (interface), GUINT_TO_POINTER(version));
 }
 
 
@@ -172,6 +170,7 @@ mobile_settings_application_finalize (GObject *object)
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (object);
 
   g_clear_object (&self->device_plugin_loader);
+  g_clear_pointer (&self->wayland_protocols, g_hash_table_destroy);
 
   G_OBJECT_CLASS (mobile_settings_application_parent_class)->finalize (object);
 }
@@ -254,6 +253,10 @@ mobile_settings_application_init (MobileSettingsApplication *self)
   });
 
   self->device_plugin_loader = ms_plugin_loader_new (plugin_dirs, MS_EXTENSION_POINT_DEVICE_PANEL);
+  self->wayland_protocols = g_hash_table_new_full (g_str_hash,
+                                                   g_str_equal,
+                                                   g_free,
+                                                   NULL);
 }
 
 
@@ -285,17 +288,36 @@ mobile_settings_application_get_head_tracker (MobileSettingsApplication *self)
   return self->head_tracker;
 }
 
-uint32_t
-mobile_settings_application_get_phoc_layer_shell_effects_version (MobileSettingsApplication *self)
+
+GStrv
+mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *self)
 {
+  g_autoptr (GList) keys = NULL;
+  g_autoptr (GPtrArray) protocols = g_ptr_array_new_with_free_func (g_free);
+
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
-  return self->phoc_layer_shell_effects_version;
+  keys = g_hash_table_get_keys (self->wayland_protocols);
+  if (keys == NULL)
+    return NULL;
+
+  for (GList *l = keys; l; l = l->next)
+    g_ptr_array_add (protocols, l->data);
+  g_ptr_array_add (protocols, NULL);
+
+  return (GStrv) g_ptr_array_steal (protocols, NULL);
 }
 
-uint32_t
-mobile_settings_application_get_phosh_private_version (MobileSettingsApplication *self){
+
+guint32
+mobile_settings_application_get_wayland_protocol_version (MobileSettingsApplication *self,
+                                                          const char                *protocol)
+{
+  gpointer *version;
+
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
-  return self->phosh_private_version;
+  version = g_hash_table_lookup (self->wayland_protocols, protocol);
+
+  return GPOINTER_TO_UINT (version);
 }

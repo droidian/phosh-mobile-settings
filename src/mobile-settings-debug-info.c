@@ -75,18 +75,6 @@ mobile_settings_generate_debug_info (void)
   gboolean flatpak = g_file_test ("/.flatpak-info", G_FILE_TEST_EXISTS);
 #endif
 
-  g_string_append_printf (string, "Wayland Protocols\n", MOBILE_SETTINGS_VERSION);
-  /*Adding Wayland Protocol*/
-  {
-    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
-
-    g_string_append_printf (string, "- phoc-layer-shell-effects: %d\n",
-                            mobile_settings_application_get_phoc_layer_shell_effects_version (app));
-    g_string_append_printf (string, "- phosh-private: %d\n",
-                            mobile_settings_application_get_phosh_private_version (app));
-  }
-  g_string_append (string, "\n");
-
   g_string_append_printf (string, "Mobile Settings: %s\n", MOBILE_SETTINGS_VERSION);
   g_string_append (string, "Compiled against:\n");
   g_string_append_printf (string, "- GLib: %d.%d.%d\n", GLIB_MAJOR_VERSION,
@@ -189,6 +177,22 @@ mobile_settings_generate_debug_info (void)
       g_string_append_printf (string, "- ADW_DEBUG_HIGH_CONTRAST: %s\n", adw_debug_high_contrast);
     if (adw_disable_portal)
       g_string_append_printf (string, "- ADW_DISABLE_PORTAL: %s\n", adw_disable_portal);
+  }
+  g_string_append (string, "\n");
+
+  g_string_append_printf (string, "Wayland Protocols\n");
+  {
+    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+    g_auto (GStrv) wayland_protcols = NULL;
+
+    wayland_protcols = mobile_settings_application_get_wayland_protocols (app);
+    for (int i = 0; wayland_protcols[i]; i++) {
+      const char *protocol = wayland_protcols[i];
+      guint32 version;
+
+      version = mobile_settings_application_get_wayland_protocol_version (app, protocol);
+      g_string_append_printf (string, "- %s: %d\n", protocol, version);
+    }
   }
   g_string_append (string, "\n");
 
