@@ -167,11 +167,23 @@ mobile_settings_application_activate (GApplication *app)
 
 
 static void
+mobile_settings_application_finalize (GObject *object)
+{
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (object);
+
+  g_clear_object (&self->device_plugin_loader);
+
+  G_OBJECT_CLASS (mobile_settings_application_parent_class)->finalize (object);
+}
+
+
+static void
 mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GApplicationClass *app_class = G_APPLICATION_CLASS (klass);
 
+  object_class->finalize = mobile_settings_application_finalize;
   object_class->get_property = mobile_settings_application_get_property;
 
   app_class->activate = mobile_settings_application_activate;
