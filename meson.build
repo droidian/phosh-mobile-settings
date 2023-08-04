@@ -85,6 +85,13 @@ add_project_arguments(
   language: 'c'
 )
 
+run_data = configuration_data()
+run_data.set('ABS_BUILDDIR', meson.current_build_dir())
+configure_file(
+  input: 'run.in',
+  output: 'run',
+  configuration: run_data)
+
 config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'phosh-mobile-settings')
