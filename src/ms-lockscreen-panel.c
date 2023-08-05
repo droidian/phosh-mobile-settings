@@ -110,68 +110,31 @@ is_plugin_name_valid (const char *name)
 }
 
 
-static GStrv
-plugin_append (const char *const *plugins, const char *plugin)
-{
-  g_autoptr (GPtrArray) array = g_ptr_array_new_with_free_func (g_free);
-
-  for (int i = 0; i < g_strv_length ((GStrv)plugins); i++) {
-    const char *name = plugins[i];
-
-    if (!is_plugin_name_valid (name)) {
-      g_warning ("Plugin name '%s' invalid, dropping", name);
-      continue;
-    }
-    g_ptr_array_add (array, g_strdup (name));
-  }
-
-  g_ptr_array_add (array, g_strdup (plugin));
-  g_ptr_array_add (array, NULL);
-
-  return (GStrv) g_ptr_array_steal (array, NULL);
-}
-
-
-static GStrv
-plugin_remove (const char *const *plugins, const char *plugin)
-{
-  g_autoptr (GPtrArray) array = g_ptr_array_new_with_free_func (g_free);
-
-  for (int i = 0; i < g_strv_length ((GStrv)plugins); i++) {
-    const char *name = plugins[i];
-
-    if (g_strcmp0 (name, plugin) == 0)
-      continue;
-    if (!is_plugin_name_valid (name)) {
-      g_warning ("Plugin name '%s' invalid, dropping", name);
-      continue;
-    }
-    g_ptr_array_add (array, g_strdup (plugins[i]));
-  }
-  g_ptr_array_add (array, NULL);
-
-  return (GStrv) g_ptr_array_steal (array, NULL);
-}
-
-
 static void
 on_plugin_activated (MsLockscreenPanel *self, GParamSpec *pspec, MsPluginRow *row)
 {
-  gboolean enabled = ms_plugin_row_get_enabled (row);
-  const char *name = ms_plugin_row_get_name (row);
+  g_auto (GStrv) ret = NULL;
+  g_autoptr (GStrvBuilder) builder = g_strv_builder_new ();
 
-  g_auto (GStrv) enabled_plugins = NULL;
-  g_auto (GStrv) e = NULL;
+  guint n_plugins = g_list_model_get_n_items (G_LIST_MODEL (self->plugins_store));
 
-  g_debug ("Plugin: %s: %d", name, enabled);
-  enabled_plugins = g_settings_get_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY);
+  for (guint i = 0; i < n_plugins; i++) {
+    MsPluginRow *plugin_row = MS_PLUGIN_ROW (g_list_model_get_item (G_LIST_MODEL (self->plugins_store), i));
+    gboolean enabled = ms_plugin_row_get_enabled (plugin_row);
+    const char *name = ms_plugin_row_get_name (plugin_row);
 
-  if (enabled)
-    e = plugin_append ((const char * const *) enabled_plugins, name);
-  else
-    e = plugin_remove ((const char * const *) enabled_plugins, name);
+    g_debug ("Plugin: %s: %d", name, enabled);
 
-  g_settings_set_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY, (const char * const *)e);
+    if (enabled) {
+      if (!is_plugin_name_valid (name)) {
+        g_warning ("Plugin name '%s' invalid, dropping", name);
+        continue;
+      }
+      g_strv_builder_add (builder, name);
+    }
+  }
+  ret = g_strv_builder_end (builder);
+  g_settings_set_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY, (const gchar * const *)ret);
 }
 
 
@@ -179,6 +142,26 @@ static GtkWidget *
 create_plugins_row (gpointer object, gpointer user_data)
 {
   return GTK_WIDGET (object);
+}
+
+
+ /* update the plugins_store to match the order on the lock-screen */
+static void
+sort_plugins_store (MsLockscreenPanel *self)
+{
+  g_auto (GStrv) plugins_order = g_settings_get_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY);
+
+  for (int i = 0; i < g_strv_length (plugins_order); i++) {
+    for (int j = 0; j < g_list_model_get_n_items (G_LIST_MODEL (self->plugins_store)); j++) {
+      MsPluginRow *plugin_row = g_list_model_get_item (G_LIST_MODEL (self->plugins_store), j);
+
+      if (g_strcmp0 (plugins_order[i], ms_plugin_row_get_name (plugin_row)) == 0) {
+        g_list_store_remove (self->plugins_store, j);
+        g_list_store_insert (self->plugins_store, i, plugin_row);
+        break;
+      }
+    }
+  }
 }
 
 
@@ -255,6 +238,7 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
 
     g_list_store_append (self->plugins_store, row);
   }
+  sort_plugins_store (self);
 }
 
 static void
