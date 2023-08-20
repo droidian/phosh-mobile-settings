@@ -37,6 +37,8 @@ struct _MsLockscreenPanel {
   GtkListBox *plugins_listbox;
   GListStore *plugins_store;
 
+  MsPluginRow *selected_row;
+
   GSimpleActionGroup *action_group;
 };
 
@@ -111,7 +113,7 @@ is_plugin_name_valid (const char *name)
 
 
 static void
-on_plugin_activated (MsLockscreenPanel *self, GParamSpec *pspec, MsPluginRow *row)
+save_plugin_store (MsLockscreenPanel *self)
 {
   g_auto (GStrv) ret = NULL;
   g_autoptr (GStrvBuilder) builder = g_strv_builder_new ();
@@ -119,7 +121,7 @@ on_plugin_activated (MsLockscreenPanel *self, GParamSpec *pspec, MsPluginRow *ro
   guint n_plugins = g_list_model_get_n_items (G_LIST_MODEL (self->plugins_store));
 
   for (guint i = 0; i < n_plugins; i++) {
-    MsPluginRow *plugin_row = MS_PLUGIN_ROW (g_list_model_get_item (G_LIST_MODEL (self->plugins_store), i));
+    MsPluginRow *plugin_row = g_list_model_get_item (G_LIST_MODEL (self->plugins_store), i);
     gboolean enabled = ms_plugin_row_get_enabled (plugin_row);
     const char *name = ms_plugin_row_get_name (plugin_row);
 
@@ -135,6 +137,71 @@ on_plugin_activated (MsLockscreenPanel *self, GParamSpec *pspec, MsPluginRow *ro
   }
   ret = g_strv_builder_end (builder);
   g_settings_set_strv (self->plugins_settings, LOCKSCREEN_PLUGINS_KEY, (const gchar * const *)ret);
+}
+
+
+static void
+lockscreen_panel_update_enabled_move_actions (MsLockscreenPanel *self)
+{
+  GtkWidget *child;
+
+  for (child = gtk_widget_get_first_child (GTK_WIDGET (self->plugins_listbox));
+       child != NULL;
+       child = gtk_widget_get_next_sibling (child)) {
+        gint row_idx;
+
+        if (!MS_IS_PLUGIN_ROW (child))
+          continue;
+
+        row_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (child));
+        gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-up", row_idx != 0);
+        gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-down",
+                                       gtk_widget_get_next_sibling (GTK_WIDGET (child)) != NULL);
+       }
+}
+
+
+static void
+lockscreen_panel_move_selected (MsLockscreenPanel *self,
+                                gboolean           down)
+{
+  gint selected_idx, dest_idx;
+  MsPluginRow *plugin_row = NULL;
+
+  selected_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self->selected_row));
+  dest_idx = down ? selected_idx + 1 : selected_idx - 1;
+
+  plugin_row = g_list_model_get_item (G_LIST_MODEL (self->plugins_store), selected_idx);
+  g_list_store_remove (self->plugins_store, selected_idx);
+  g_list_store_insert (self->plugins_store, dest_idx, plugin_row);
+
+  lockscreen_panel_update_enabled_move_actions (self);
+}
+
+
+static void
+on_row_moved (MsLockscreenPanel  *self,
+              MsPluginRow        *dest_row,
+              MsPluginRow        *row)
+{
+  gint source_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (row));
+  gint dest_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (dest_row));
+  gboolean down;
+
+  self->selected_row = row;
+
+  down = (source_idx - dest_idx) < 0;
+  for (int i = 0; i < ABS (source_idx - dest_idx); i++)
+    lockscreen_panel_move_selected (self, down);
+
+  save_plugin_store (self);
+}
+
+
+static void
+on_plugin_activated (MsLockscreenPanel *self, GParamSpec *pspec, MsPluginRow *row)
+{
+  save_plugin_store (self);
 }
 
 
@@ -237,6 +304,10 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
                              G_CONNECT_SWAPPED);
 
     g_list_store_append (self->plugins_store, row);
+
+    g_signal_connect_object (row, "move-row",
+                             G_CALLBACK (on_row_moved), self,
+                             G_CONNECT_SWAPPED);
   }
   sort_plugins_store (self);
 }
