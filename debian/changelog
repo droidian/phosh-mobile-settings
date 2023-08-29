@@ -1,3 +1,23 @@
+phosh-mobile-settings (0.31.0) experimental; urgency=medium
+
+  [ Arun Mani J ]
+  * Add run script to launch p-m-s from the source tree.
+
+  [ Guido Günther ]
+  * Add gmobile as subproject
+  * debug-info: Add device tree information
+  * mobile-settings-application: Add finalize
+  * debug-info: Add versions of all wayland protocols
+  * convergence-panel: Fix EDID information for NexDock 360.
+    With wlroots 0.16 we get the correct vendor.
+  * d/control: Bump phoc dependency.
+
+  [ Suraj Kumar Mahto ]
+  * feedback-panel: add option to select which type of notification urgency
+    light up the screen
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 29 Aug 2023 12:31:11 +0200
+
 phosh-mobile-settings (0.30.0) experimental; urgency=medium
 
   [ Gotam Gorabh ]

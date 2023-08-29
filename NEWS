@@ -1,6 +1,17 @@
 phosh-mobile-settings 0.30.0
 ----------------------------
 Released: August 2023
+* Allow to configure notification priority that triggers screen wakup
+* Make it easier to run from source tree
+* Improved debug info
+* Contributors:
+    * Arun Mani J
+    * Guido Günther
+    * Suraj Kumar Mahto
+
+phosh-mobile-settings 0.30.0
+----------------------------
+Released: August 2023
 * Add troubleshooting tab to about dialog
   This eases providing debug information
 * Issues fixed:
