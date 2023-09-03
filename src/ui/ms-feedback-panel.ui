@@ -75,6 +75,27 @@
                       </object>
                     </child>
 
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Screen Wakeup</property>
+                        <child>
+                          <object class="AdwComboRow" id="notificationssettings_row">
+                            <property name="title" translatable="yes">Notification urgency that lights up the screen</property>
+                            <property name="use_underline">True</property>
+                            <signal name="notify::selected-item" handler="change_notifications_settings" object="MsFeedbackPanel" swapped="yes"/>
+                            <property name="model">
+                              <object class="AdwEnumListModel">
+                                <property name="enum-type">MsPhoshNotificationUrgency</property>
+                              </object>
+                            </property>
+                            <property name="expression">
+                              <closure type="gchararray" function="on_notifications_urgency"/>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
                   </object>
                 </child>
               </object>

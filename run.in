@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+ABS_BUILDDIR='@ABS_BUILDDIR@'
+
+# We assume that if not given, then the sibling directory has Phosh
+[ -n "${PHOSH_BUILD_DIR}" ] || PHOSH_BUILD_DIR="../phosh/_build"
+
+# PSM needs schema from Phosh, which otherwise would be loaded from standard path
+GSETTINGS_SCHEMA_DIR="${PHOSH_BUILD_DIR}/data:${GSETTINGS_SCHEMA_DIR}"
+export GSETTINGS_SCHEMA_DIR
+
+# Log DEBUG messages of all domains by default
+[ -n "${G_MESSAGES_DEBUG}" ] || G_MESSAGES_DEBUG=all
+export G_MESSAGES_DEBUG
+
+# Let settings be saved only to memory to avoid modifying system's settings
+[ -n "${GSETTINGS_BACKEND}" ] || GSETTINGS_BACKEND=memory
+export GSETTINGS_BACKEND
+
+set -x
+exec "${ABS_BUILDDIR}/src/phosh-mobile-settings" $@

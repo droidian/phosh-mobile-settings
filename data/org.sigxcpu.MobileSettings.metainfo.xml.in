@@ -44,6 +44,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.31.0" date="2023-08-29">
+      <description>
+        <ul>
+          <li>Allow to configure notification priority that triggers screen wakup</li>
+          <li>More troubleshooting information</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.30.0" date="2023-08-02">
       <description>
         <ul>

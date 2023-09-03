@@ -24,6 +24,8 @@ MobileSettingsApplication *mobile_settings_application_new (gchar *application_i
 GtkWidget *mobile_settings_application_get_device_panel  (MobileSettingsApplication *self);
 MsToplevelTracker *mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *self);
 MsHeadTracker     *mobile_settings_application_get_head_tracker (MobileSettingsApplication *self);
-uint32_t mobile_settings_application_get_phoc_layer_shell_effects_version (MobileSettingsApplication *self);
-uint32_t mobile_settings_application_get_phosh_private_version (MobileSettingsApplication *self);
+GStrv mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *self);
+guint32 mobile_settings_application_get_wayland_protocol_version (MobileSettingsApplication *self,
+                                                                  const char *protocol);
+
 G_END_DECLS

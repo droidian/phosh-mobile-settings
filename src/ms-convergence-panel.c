@@ -75,7 +75,7 @@ static const MsDock docks[] = {
      * Model: 16628
      */
     .name = "Nexdock 360",
-    .make = "Unknown",
+    .make = "YUK",
     .model = "NexDock",
     .serial = "8R33926O00Q",
 
