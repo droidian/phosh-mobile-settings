@@ -1,9 +1,10 @@
-phosh-mobile-settings (0.31.0-1) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.31.0-1) unstable; urgency=medium
 
   * New upstream release
   * Fetch signed upstream tarballs
+  * Build-dep on json-glib. Needed for gmobile
 
- -- Guido Günther <agx@sigxcpu.org>  Sun, 03 Sep 2023 13:44:06 +0200
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 03 Sep 2023 14:07:29 +0200
 
 phosh-mobile-settings (0.30.0-1) unstable; urgency=medium
 
