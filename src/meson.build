@@ -62,6 +62,7 @@ mobile_settings_deps = [
   gio_dep,
   gio_unix_dep,
   glib_dep,
+  gmobile_dep,
   gmodule_dep,
   gsound_dep,
   gtk_dep,
