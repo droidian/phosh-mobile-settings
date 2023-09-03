@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.30.0',
+          version: '0.31.0',
     meson_version: '>= 0.58.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -20,6 +20,13 @@ glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
+gmobile = subproject('gmobile',
+  default_options: [
+    'examples=false',
+    'gtk_doc=false',
+    'tests=false',
+  ])
+gmobile_dep = gmobile.get_variable('gmobile_dep')
 gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
@@ -84,6 +91,13 @@ add_project_arguments(
   global_c_args,
   language: 'c'
 )
+
+run_data = configuration_data()
+run_data.set('ABS_BUILDDIR', meson.current_build_dir())
+configure_file(
+  input: 'run.in',
+  output: 'run',
+  configuration: run_data)
 
 config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())

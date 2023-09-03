@@ -9,6 +9,9 @@
 #include "mobile-settings-application.h"
 #include "mobile-settings-debug-info.h"
 
+#define GMOBILE_USE_UNSTABLE_API
+#include <gmobile.h>
+
 /* Copied and adapted from gtk/inspector/general.c */
 static void
 get_gtk_info (const char **backend,
@@ -73,20 +76,6 @@ mobile_settings_generate_debug_info (void)
 #endif
 
   g_string_append_printf (string, "Mobile Settings: %s\n", MOBILE_SETTINGS_VERSION);
-  /*Adding Wayland Protocol*/
-  {
-    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
-
-    g_string_append (string, "\n");
-    g_string_append (string, "Wayland Protocols:\n");
-    g_string_append_printf (string, "- phoc-layer-shell-effects: %d\n",
-                            mobile_settings_application_get_phoc_layer_shell_effects_version (app));
-    g_string_append_printf (string, "- phosh-private: %d\n",
-                            mobile_settings_application_get_phosh_private_version (app));
-  }
-
-  g_string_append (string, "\n");
-
   g_string_append (string, "Compiled against:\n");
   g_string_append_printf (string, "- GLib: %d.%d.%d\n", GLIB_MAJOR_VERSION,
                                                         GLIB_MINOR_VERSION,
@@ -188,6 +177,38 @@ mobile_settings_generate_debug_info (void)
       g_string_append_printf (string, "- ADW_DEBUG_HIGH_CONTRAST: %s\n", adw_debug_high_contrast);
     if (adw_disable_portal)
       g_string_append_printf (string, "- ADW_DISABLE_PORTAL: %s\n", adw_disable_portal);
+  }
+  g_string_append (string, "\n");
+
+  g_string_append_printf (string, "Wayland Protocols\n");
+  {
+    MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());
+    g_auto (GStrv) wayland_protcols = NULL;
+
+    wayland_protcols = mobile_settings_application_get_wayland_protocols (app);
+    for (int i = 0; wayland_protcols[i]; i++) {
+      const char *protocol = wayland_protcols[i];
+      guint32 version;
+
+      version = mobile_settings_application_get_wayland_protocol_version (app, protocol);
+      g_string_append_printf (string, "- %s: %d\n", protocol, version);
+    }
+  }
+  g_string_append (string, "\n");
+
+  g_string_append_printf (string, "Hardware Information:\n");
+  {
+    g_autoptr (GError) err = NULL;
+    g_auto (GStrv) compatibles = gm_device_tree_get_compatibles (NULL, &err);
+
+    if (compatibles && compatibles[0]) {
+      g_autofree char *compatible_str = g_strjoinv(" ", compatibles);
+
+      g_string_append_printf (string, "- DT compatibles: %s\n", compatible_str);
+    } else {
+      g_debug ("Couldn't get device tree information: %s", err->message);
+      g_string_append (string, "Not a device tree device\n");
+    }
   }
 
 #if GLIB_CHECK_VERSION(2, 76, 0)

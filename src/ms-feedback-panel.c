@@ -25,6 +25,11 @@
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
 #define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
 
+#define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
+#define NOTIFICATIONS_URGENCY_ENUM "sm.puri.phosh.NotificationUrgency"
+#define NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY "wakeup-screen-triggers"
+#define NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY "wakeup-screen-urgency"
+
 enum {
   PROP_0,
   PROP_FEEDBACK_PROFILE,
@@ -39,19 +44,23 @@ typedef struct {
 } MsFbdApplication;
 
 struct _MsFeedbackPanel {
-  AdwBin            parent;
+  AdwBin                     parent;
 
-  GtkListBox       *app_listbox;
-  GHashTable       *known_applications;
+  GtkListBox                *app_listbox;
+  GHashTable                *known_applications;
 
-  GSettings        *settings;
-  MsFeedbackProfile profile;
+  GSettings                 *settings;
+  MsFeedbackProfile          profile;
 
-  GSoundContext    *sound_context;
-  GCancellable     *sound_cancel;
+  GSoundContext             *sound_context;
+  GCancellable              *sound_cancel;
 
-  AdwToastOverlay  *toast_overlay;
-  AdwToast         *toast;
+  AdwToastOverlay           *toast_overlay;
+  AdwToast                  *toast;
+
+  AdwComboRow               *notificationssettings_row;
+  GSettings                 *notifications_settings;
+  MsPhoshNotificationUrgency notifications_urgency;
 };
 
 G_DEFINE_TYPE (MsFeedbackPanel, ms_feedback_panel, ADW_TYPE_BIN)
@@ -92,12 +101,13 @@ static void
 on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user_data)
 {
   gboolean success;
+
   g_autoptr (GError) err = NULL;
   MsFeedbackPanel *self;
 
   success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
   if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-      g_warning ("Failed to play sound: %s", err->message);
+    g_warning ("Failed to play sound: %s", err->message);
 
   self = MS_FEEDBACK_PANEL (user_data);
   g_assert (MS_IS_FEEDBACK_PANEL (self));
@@ -285,6 +295,99 @@ load_apps (MsFeedbackPanel *self)
 }
 
 
+static char *
+on_notifications_urgency (AdwEnumListItem *item,
+                          gpointer         user_data)
+{
+  switch (adw_enum_list_item_get_value (item)) {
+  case MS_PHOSH_NOTIFICATION_NONE:
+    return g_strdup (_("none"));
+  case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
+    return g_strdup (_("low"));
+  case MS_PHOSH_NOTIFICATION_URGENCY_NORMAL:
+    return g_strdup (_("normal"));
+  case MS_PHOSH_NOTIFICATION_URGENCY_CRITICAL:
+    return g_strdup (_("critical"));
+  default:
+    return g_strdup (_("none"));
+  }
+}
+
+/* Update the wakeup-screen-triggers type based on the notification urgency */
+static void
+update_wakeup_screen_triggers (MsFeedbackPanel *self)
+{
+  gboolean wants_urgency;
+  MsPhoshNotifyScreenWakeupFlags flags, new_flags;
+
+  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
+  switch (self->notifications_urgency) {
+  case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
+  case MS_PHOSH_NOTIFICATION_URGENCY_NORMAL:
+  case MS_PHOSH_NOTIFICATION_URGENCY_CRITICAL:
+    wants_urgency = TRUE;
+    break;
+  case MS_PHOSH_NOTIFICATION_NONE:
+  default:
+    wants_urgency = FALSE;
+  }
+
+  /* Update the wakeup-screen-triggers key in phosh notifications */
+  new_flags = flags ^ MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
+  if (wants_urgency)
+    new_flags |= MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
+
+  if (flags == new_flags)
+    return;
+
+  g_settings_set_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY, new_flags);
+}
+
+
+static guint
+notifications_urgency_to_combo_pos (MsPhoshNotificationUrgency urgency)
+{
+  return urgency + 1;
+}
+
+
+static MsPhoshNotificationUrgency
+combo_pos_to_notifications_urgency (guint pos)
+{
+  return pos - 1;
+}
+
+
+static void
+on_notifications_settings_changed (MsFeedbackPanel *self, gchar *key)
+{
+  MsPhoshNotificationUrgency urgency;
+
+  urgency = g_settings_get_enum (self->notifications_settings, key);
+  adw_combo_row_set_selected (self->notificationssettings_row, notifications_urgency_to_combo_pos (urgency));
+}
+
+
+static void
+change_notifications_settings (MsFeedbackPanel *self)
+{
+  guint pos;
+  MsPhoshNotificationUrgency urgency;
+
+  pos = adw_combo_row_get_selected (self->notificationssettings_row);
+  urgency = combo_pos_to_notifications_urgency (pos);
+
+  if (urgency == self->notifications_urgency)
+    return;
+  self->notifications_urgency = urgency;
+
+  if (urgency != MS_PHOSH_NOTIFICATION_NONE)
+    g_settings_set_enum (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY, urgency);
+
+  update_wakeup_screen_triggers (self);
+}
+
+
 static void
 ms_feedback_panel_set_property (GObject      *object,
                                 guint         property_id,
@@ -351,6 +454,7 @@ ms_feedback_panel_dispose (GObject *object)
 
   g_clear_object (&self->sound_context);
   g_clear_object (&self->settings);
+  g_clear_object (&self->notifications_settings);
   g_clear_pointer (&self->known_applications, g_hash_table_unref);
 
   G_OBJECT_CLASS (ms_feedback_panel_parent_class)->dispose (object);
@@ -383,6 +487,10 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
 
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, notificationssettings_row);
+  gtk_widget_class_bind_template_callback (widget_class, on_notifications_urgency);
+  gtk_widget_class_bind_template_callback (widget_class, change_notifications_settings);
+
   gtk_widget_class_install_action (widget_class, "sound-player.play", "s",
                                    play_sound_activated);
   gtk_widget_class_install_action (widget_class, "sound-player.stop", NULL, stop_sound_activated);
@@ -394,10 +502,19 @@ ms_feedback_panel_init (MsFeedbackPanel *self)
 {
   g_autoptr (GError) error = NULL;
 
+  gtk_widget_init_template (GTK_WIDGET (self));
+
+  /* Notifications settings */
+  self->notifications_settings = g_settings_new (NOTIFICATIONS_SCHEMA);
+
+  g_signal_connect_object (self->notifications_settings, "changed::" NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY,
+                           G_CALLBACK (on_notifications_settings_changed), self, G_CONNECT_SWAPPED);
+  on_notifications_settings_changed (self, NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY);
+
+  update_wakeup_screen_triggers (self);
+
   self->known_applications = g_hash_table_new_full (g_str_hash, g_str_equal,
                                                     NULL, g_free);
-
-  gtk_widget_init_template (GTK_WIDGET (self));
 
   self->sound_context = gsound_context_new (NULL, &error);
   if (self->sound_context == NULL)
