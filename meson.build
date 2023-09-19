@@ -30,10 +30,20 @@ gmobile_dep = gmobile.get_variable('gmobile_dep')
 gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: '>= 4.4')
 gtk_wayland_dep = dependency('gtk4-wayland', version: '>= 4.4')
-adwaita_dep = dependency('libadwaita-1', version: '>= 1.2')
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
+
+adwaita_dep = dependency(
+  'libadwaita-1',
+  version: '>= 1.4.alpha',
+  fallback: ['libadwaita', 'adwaita_dep'],
+  default_options: [
+    'examples=false',
+    'introspection=disabled',
+    'tests=false',
+  ],
+)
 
 i18n = import('i18n')
 
