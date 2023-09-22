@@ -296,8 +296,7 @@ ms_plugin_row_init (MsPluginRow *self)
                                   G_ACTION_GROUP (self->action_group));
 
   action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
-  g_object_bind_property (self, "has-prefs", action, "enabled",
-                          G_BINDING_SYNC_CREATE);
+  g_object_bind_property (self, "has-prefs", action, "enabled", G_BINDING_SYNC_CREATE);
 
   g_action_map_add_action_entries (G_ACTION_MAP (self->action_group),
                                    entries,
