@@ -268,8 +268,8 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
 static GActionEntry entries[] =
 {
   { .name = "open-prefs", .activate = open_prefs_activated },
-  { "move-up", move_up_activated, NULL, NULL, NULL, { 0 }  },
-  { "move-down", move_down_activated, NULL, NULL, NULL, { 0 } }
+  { .name = "move-up", .activate = move_up_activated },
+  { .name = "move-down", .activate = move_down_activated },
 };
 
 
