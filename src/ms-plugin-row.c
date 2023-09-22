@@ -131,9 +131,11 @@ update_move_actions_after_row_moved_up (MsPluginRow *self)
   }
 
   gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-up", TRUE);
-  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down", gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
+  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down",
+                                 gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", TRUE);
 }
+
 
 static void
 update_move_actions_after_row_moved_down (MsPluginRow *self)
@@ -150,6 +152,7 @@ update_move_actions_after_row_moved_down (MsPluginRow *self)
   gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-down", TRUE);
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", TRUE);
 }
+
 
 static void
 move_up_activated (GSimpleAction *action,
@@ -268,6 +271,7 @@ static GActionEntry entries[] =
   { "move-up", move_up_activated, NULL, NULL, NULL, { 0 }  },
   { "move-down", move_down_activated, NULL, NULL, NULL, { 0 } }
 };
+
 
 static void
 ms_plugin_row_init (MsPluginRow *self)
