@@ -131,9 +131,11 @@ update_move_actions_after_row_moved_up (MsPluginRow *self)
   }
 
   gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-up", TRUE);
-  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down", gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
+  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down",
+                                 gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", TRUE);
 }
+
 
 static void
 update_move_actions_after_row_moved_down (MsPluginRow *self)
@@ -150,6 +152,7 @@ update_move_actions_after_row_moved_down (MsPluginRow *self)
   gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-down", TRUE);
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", TRUE);
 }
+
 
 static void
 move_up_activated (GSimpleAction *action,
@@ -265,9 +268,10 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
 static GActionEntry entries[] =
 {
   { .name = "open-prefs", .activate = open_prefs_activated },
-  { "move-up", move_up_activated, NULL, NULL, NULL, { 0 }  },
-  { "move-down", move_down_activated, NULL, NULL, NULL, { 0 } }
+  { .name = "move-up", .activate = move_up_activated },
+  { .name = "move-down", .activate = move_down_activated },
 };
+
 
 static void
 ms_plugin_row_init (MsPluginRow *self)
@@ -292,14 +296,7 @@ ms_plugin_row_init (MsPluginRow *self)
                                   G_ACTION_GROUP (self->action_group));
 
   action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
-  g_object_bind_property (self, "has-prefs", action, "enabled",
-                          G_BINDING_SYNC_CREATE);
-
-  g_action_map_add_action_entries (G_ACTION_MAP (self->action_group),
-                                   entries,
-                                   G_N_ELEMENTS (entries),
-                                   self);
-  gtk_widget_insert_action_group (GTK_WIDGET (self), "row", G_ACTION_GROUP (self->action_group));
+  g_object_bind_property (self, "has-prefs", action, "enabled", G_BINDING_SYNC_CREATE);
 }
 
 

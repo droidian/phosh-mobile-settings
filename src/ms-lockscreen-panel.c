@@ -288,7 +288,7 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
     description = g_key_file_get_locale_string (keyfile, "Plugin", "Comment", NULL, NULL);
 
     enabled = g_strv_contains ((const gchar * const*)enabled_plugins, name);
-    g_debug ("Found plugin %s, name %s, enabled: %d", filename, name, enabled);
+    g_debug ("Found plugin %s, name %s, enabled: %d, prefs: %d", filename, name, enabled, !!prefs_path);
     row = g_object_new (MS_TYPE_PLUGIN_ROW,
                         "plugin-name", name,
                         "title", title,
