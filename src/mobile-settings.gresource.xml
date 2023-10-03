@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/sigxcpu/MobileSettings">
+  <gresource prefix="/mobi/phosh/MobileSettings">
     <file>ui/mobile-settings-window.ui</file>
     <file>ui/ms-compositor-panel.ui</file>
     <file>ui/ms-convergence-panel.ui</file>
@@ -16,7 +16,7 @@
     <file>ui/ms-sound-row.ui</file>
     <file>gtk/help-overlay.ui</file>
   </gresource>
-  <gresource prefix="/org/sigxcpu/MobileSettings/icons/scalable/status/">
+  <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
     <file alias="computer-chip-symbolic.svg">../data/icons/computer-chip-symbolic.svg</file>
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>

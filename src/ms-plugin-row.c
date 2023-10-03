@@ -249,7 +249,7 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-plugin-row.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-plugin-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, prefs);
 

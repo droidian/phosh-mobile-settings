@@ -278,7 +278,7 @@ ms_convergence_panel_class_init (MsConvergencePanelClass *klass)
   object_class->finalize = ms_convergence_panel_finalize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-convergence-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-convergence-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsConvergencePanel, dock_pref_group);
   gtk_widget_class_bind_template_child (widget_class, MsConvergencePanel, dock_stack);
   gtk_widget_class_bind_template_child (widget_class, MsConvergencePanel, map_touch_screen_row);

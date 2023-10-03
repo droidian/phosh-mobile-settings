@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'org.sigxcpu.MobileSettings.desktop.in',
-  output: 'org.sigxcpu.MobileSettings.desktop',
+  input: 'mobi.phosh.MobileSettings.desktop.in',
+  output: 'mobi.phosh.MobileSettings.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -8,8 +8,8 @@ desktop_file = i18n.merge_file(
 )
 
 appstream_file = i18n.merge_file(
-  input: 'org.sigxcpu.MobileSettings.metainfo.xml.in',
-  output: 'org.sigxcpu.MobileSettings.metainfo.xml',
+  input: 'mobi.phosh.MobileSettings.metainfo.xml.in',
+  output: 'mobi.phosh.MobileSettings.metainfo.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo')

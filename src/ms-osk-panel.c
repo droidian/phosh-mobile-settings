@@ -194,7 +194,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   object_class->finalize = ms_osk_panel_finalize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-osk-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-osk-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
 
   /* Completion group */
