@@ -11,6 +11,9 @@
     </p>
   </description>
   <summary>Advanced settings for Mobile devices using Phosh</summary>
+  <replaces>
+      <id>org.sigxcpu.MobileSettings</id>
+  </replaces>
 
   <content_rating type="oars-1.1"/>
 
