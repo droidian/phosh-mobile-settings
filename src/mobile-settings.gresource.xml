@@ -19,6 +19,7 @@
   <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
     <file alias="computer-chip-symbolic.svg">../data/icons/computer-chip-symbolic.svg</file>
     <file alias="feedback-quiet-symbolic.svg">../data/icons/feedback-quiet-symbolic.svg</file>
+    <file alias="mobi.phosh.MobileSettings.svg">../data/icons/hicolor/scalable/apps/mobi.phosh.MobileSettings.svg</file>
     <file alias="padlock-symbolic.svg">../data/icons/padlock-symbolic.svg</file>
     <file alias="phone-docked-symbolic.svg">../data/icons/phone-docked-symbolic.svg</file>
     <file alias="phonelink2-symbolic.svg">../data/icons/phonelink2-symbolic.svg</file>
