@@ -320,7 +320,6 @@ update_wakeup_screen_triggers (MsFeedbackPanel *self)
   gboolean wants_urgency;
   MsPhoshNotifyScreenWakeupFlags flags, new_flags;
 
-  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
   switch (self->notifications_urgency) {
   case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
   case MS_PHOSH_NOTIFICATION_URGENCY_NORMAL:
@@ -332,7 +331,7 @@ update_wakeup_screen_triggers (MsFeedbackPanel *self)
     wants_urgency = FALSE;
   }
 
-  /* Update the wakeup-screen-triggers key in phosh notifications */
+  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
   new_flags = flags ^ MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
   if (wants_urgency)
     new_flags |= MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
