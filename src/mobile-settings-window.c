@@ -20,8 +20,8 @@
 struct _MobileSettingsWindow {
   AdwApplicationWindow parent_instance;
 
-  AdwLeaflet          *main_leaflet;
-  GtkStack            *stack;
+  AdwNavigationSplitView  *split_view;
+  GtkStack                *stack;
 };
 
 G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -30,20 +30,9 @@ G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATIO
 static void
 on_visible_child_changed (MobileSettingsWindow *self)
 {
-  adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_FORWARD);
+  adw_navigation_split_view_set_show_content (self->split_view, TRUE);
 }
 
-static void
-on_back_clicked (MobileSettingsWindow *self)
-{
-  adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_BACK);
-}
-
-static void
-on_switcher_row_activated (MobileSettingsWindow *self)
-{
-  adw_leaflet_navigate (self->main_leaflet, ADW_NAVIGATION_DIRECTION_FORWARD);
-}
 
 static char *
 stack_child_to_tile (gpointer target, GtkStack *stack, GtkWidget *child)
@@ -101,11 +90,9 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/org/sigxcpu/MobileSettings/ui/mobile-settings-window.ui");
-  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, main_leaflet);
+  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, split_view);
   gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, stack);
-  gtk_widget_class_bind_template_callback (widget_class, on_switcher_row_activated);
   gtk_widget_class_bind_template_callback (widget_class, on_visible_child_changed);
-  gtk_widget_class_bind_template_callback (widget_class, on_back_clicked);
   gtk_widget_class_bind_template_callback (widget_class, stack_child_to_tile);
 }
 
@@ -113,4 +100,5 @@ static void
 mobile_settings_window_init (MobileSettingsWindow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
+  on_visible_child_changed (self);
 }
