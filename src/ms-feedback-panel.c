@@ -320,7 +320,6 @@ update_wakeup_screen_triggers (MsFeedbackPanel *self)
   gboolean wants_urgency;
   MsPhoshNotifyScreenWakeupFlags flags, new_flags;
 
-  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
   switch (self->notifications_urgency) {
   case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
   case MS_PHOSH_NOTIFICATION_URGENCY_NORMAL:
@@ -332,7 +331,7 @@ update_wakeup_screen_triggers (MsFeedbackPanel *self)
     wants_urgency = FALSE;
   }
 
-  /* Update the wakeup-screen-triggers key in phosh notifications */
+  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
   new_flags = flags ^ MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
   if (wants_urgency)
     new_flags |= MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
@@ -359,11 +358,17 @@ combo_pos_to_notifications_urgency (guint pos)
 
 
 static void
-on_notifications_settings_changed (MsFeedbackPanel *self, gchar *key)
+on_notifications_settings_changed (MsFeedbackPanel *self)
 {
   MsPhoshNotificationUrgency urgency;
+  MsPhoshNotifyScreenWakeupFlags flags;
 
-  urgency = g_settings_get_enum (self->notifications_settings, key);
+  urgency = g_settings_get_enum (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY);
+  flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
+
+  if (!(flags & MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY))
+    urgency = MS_PHOSH_NOTIFICATION_NONE;
+
   adw_combo_row_set_selected (self->notificationssettings_row, notifications_urgency_to_combo_pos (urgency));
 }
 
@@ -509,9 +514,9 @@ ms_feedback_panel_init (MsFeedbackPanel *self)
 
   g_signal_connect_object (self->notifications_settings, "changed::" NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY,
                            G_CALLBACK (on_notifications_settings_changed), self, G_CONNECT_SWAPPED);
-  on_notifications_settings_changed (self, NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY);
-
-  update_wakeup_screen_triggers (self);
+  g_signal_connect_object (self->notifications_settings, "changed::" NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY,
+                           G_CALLBACK (on_notifications_settings_changed), self, G_CONNECT_SWAPPED);
+  on_notifications_settings_changed (self);
 
   self->known_applications = g_hash_table_new_full (g_str_hash, g_str_equal,
                                                     NULL, g_free);
