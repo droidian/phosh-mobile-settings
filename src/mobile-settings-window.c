@@ -89,7 +89,7 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
   g_type_ensure (MS_TYPE_FEEDBACK_PANEL);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/mobile-settings-window.ui");
+                                               "/mobi/phosh/MobileSettings/ui/mobile-settings-window.ui");
   gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, split_view);
   gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, stack);
   gtk_widget_class_bind_template_callback (widget_class, on_visible_child_changed);

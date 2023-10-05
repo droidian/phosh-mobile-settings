@@ -2,7 +2,7 @@
 Name=Mobile Settings
 Exec=phosh-mobile-settings
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)
-Icon=org.sigxcpu.MobileSettings
+Icon=mobi.phosh.MobileSettings
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Settings;

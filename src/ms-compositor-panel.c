@@ -128,7 +128,7 @@ ms_compositor_panel_class_init (MsCompositorPanelClass *klass)
   object_class->finalize = ms_compositor_panel_finalize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-compositor-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-compositor-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsCompositorPanel, scale_to_fit_switch);
   gtk_widget_class_bind_template_child (widget_class, MsCompositorPanel, running_apps_listbox);
 }

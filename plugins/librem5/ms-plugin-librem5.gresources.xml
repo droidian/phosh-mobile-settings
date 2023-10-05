@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/sigxcpu/MobileSettings/plugins/librem5">
+  <gresource prefix="/mobi/phosh/MobileSettings/plugins/librem5">
     <file preprocess="xml-stripblanks">ui/ms-plugin-librem5-panel.ui</file>
   </gresource>
 </gresources>

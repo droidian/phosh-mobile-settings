@@ -354,7 +354,7 @@ ms_sound_row_class_init (MsSoundRowClass *klass)
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-sound-row.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-sound-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsSoundRow, filename_label);
   gtk_widget_class_bind_template_child (widget_class, MsSoundRow, sound_filter);
 
