@@ -16,3 +16,5 @@ debian/*.substvars
 debian/*debhelper*
 debian/phosh-mobile-settings/
 debian/tmp/
+subprojects/gmobile/
+subprojects/libadwaita/

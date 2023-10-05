@@ -1,3 +1,29 @@
+phosh-mobile-settings (0.32.0) experimental; urgency=medium
+
+  [ Gotam Gorabh ]
+  * window: Switch to AdwNavigationSplitView.
+    AdwLeaflet will be deprecated in libadwaita 1.4
+    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/33
+  * build: Add libadwaita as subproject
+  * lockscreen-panel: Make plugin order match listbox order.
+  * lockscreen-panel: Allow to reorder the plugins.
+    For that add a popover with "move up" and "move down" buttons to each
+    plugin row.
+    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/17
+
+  [ Guido Günther ]
+  * lockscreen-panel: Log prefs state too. Simplify debugging a bit
+  * plugin-row: Don't insert actions twice.
+    This unbreaks setting the plugin prefs
+    Fixes: b5ed64cc841d64be26731e6f4e39e091df28163b
+  * feedback-panel: Move flag getting and setting closer together
+  * feedback-panel: Don't overwrite a disabled wakeup trigger.
+    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/34
+  * window: Set a title. This avoids a warning when switching tabs.
+  * gitignore subprojects
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 02 Oct 2023 14:34:17 +0200
+
 phosh-mobile-settings (0.31.0) experimental; urgency=medium
 
   [ Arun Mani J ]
