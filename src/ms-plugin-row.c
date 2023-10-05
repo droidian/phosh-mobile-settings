@@ -24,10 +24,18 @@ enum {
 };
 static GParamSpec *props[PROP_LAST_PROP];
 
+enum
+{
+  SIGNAL_MOVE_ROW,
+  SIGNAL_LAST
+};
+static guint signals[SIGNAL_LAST] = { 0, };
+
+
 struct _MsPluginRow {
   AdwActionRow parent;
 
-  GtkWidget   *toggle;
+  GtkSwitch   *toggle;
   GtkWidget   *prefs;
 
   char        *name;
@@ -112,6 +120,84 @@ ms_plugin_row_get_property (GObject    *object,
 
 
 static void
+update_move_actions_after_row_moved_up (MsPluginRow *self)
+{
+  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
+  gint previous_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) - 1;
+  GtkListBoxRow *previous_row = gtk_list_box_get_row_at_index (list_box, previous_idx);
+
+  if (gtk_list_box_get_row_at_index (list_box, previous_idx - 1) == NULL) {
+    gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", FALSE);
+  }
+
+  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-up", TRUE);
+  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down",
+                                 gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
+  gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", TRUE);
+}
+
+
+static void
+update_move_actions_after_row_moved_down (MsPluginRow *self)
+{
+  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
+  gint next_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) + 1;
+  GtkListBoxRow *next_row = gtk_list_box_get_row_at_index (list_box, next_idx);
+
+  if (gtk_widget_get_next_sibling (GTK_WIDGET (next_row)) == NULL) {
+    gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", FALSE);
+  }
+
+  gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-up", next_idx-1 != 0);
+  gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-down", TRUE);
+  gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", TRUE);
+}
+
+
+static void
+move_up_activated (GSimpleAction *action,
+                   GVariant      *parameter,
+                   gpointer       user_data)
+{
+  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
+  gint previous_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) - 1;
+  GtkListBoxRow *previous_row = gtk_list_box_get_row_at_index (list_box, previous_idx);
+
+  if (previous_row == NULL)
+    return;
+
+  update_move_actions_after_row_moved_up (self);
+
+  g_signal_emit (self,
+                 signals[SIGNAL_MOVE_ROW],
+                 0,
+                 previous_row);
+}
+
+static void
+move_down_activated (GSimpleAction *action,
+                     GVariant      *parameter,
+                     gpointer       user_data)
+{
+  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
+  gint next_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) + 1;
+  GtkListBoxRow *next_row = gtk_list_box_get_row_at_index (list_box, next_idx);
+
+  if (next_row == NULL)
+    return;
+
+  update_move_actions_after_row_moved_down (self);
+
+  g_signal_emit (next_row,
+                 signals[SIGNAL_MOVE_ROW],
+                 0,
+                 self);
+}
+
+
+static void
 ms_plugin_row_finalize (GObject *object)
 {
   MsPluginRow *self = MS_PLUGIN_ROW (object);
@@ -166,13 +252,26 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
                                                "/org/sigxcpu/MobileSettings/ui/ms-plugin-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, prefs);
+
+  signals[SIGNAL_MOVE_ROW] =
+    g_signal_new ("move-row",
+                  G_TYPE_FROM_CLASS (object_class),
+                  G_SIGNAL_RUN_LAST,
+                  0,
+                  NULL, NULL,
+                  NULL,
+                  G_TYPE_NONE,
+                  1, MS_TYPE_PLUGIN_ROW);
 }
 
 
 static GActionEntry entries[] =
 {
   { .name = "open-prefs", .activate = open_prefs_activated },
+  { .name = "move-up", .activate = move_up_activated },
+  { .name = "move-down", .activate = move_down_activated },
 };
+
 
 static void
 ms_plugin_row_init (MsPluginRow *self)
@@ -197,9 +296,7 @@ ms_plugin_row_init (MsPluginRow *self)
                                   G_ACTION_GROUP (self->action_group));
 
   action = g_action_map_lookup_action (G_ACTION_MAP (self->action_group), "open-prefs");
-  g_object_bind_property (self, "has-prefs",
-                          action, "enabled",
-                          G_BINDING_SYNC_CREATE);
+  g_object_bind_property (self, "has-prefs", action, "enabled", G_BINDING_SYNC_CREATE);
 }
 
 
