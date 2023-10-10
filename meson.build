@@ -12,7 +12,7 @@ datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 
-glib_ver = '2.66'
+glib_ver = '2.68'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
