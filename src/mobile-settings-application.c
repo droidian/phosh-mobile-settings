@@ -302,7 +302,7 @@ mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *se
     return NULL;
 
   for (GList *l = keys; l; l = l->next)
-    g_ptr_array_add (protocols, l->data);
+    g_ptr_array_add (protocols, g_strdup (l->data));
   g_ptr_array_add (protocols, NULL);
 
   return (GStrv) g_ptr_array_steal (protocols, NULL);
