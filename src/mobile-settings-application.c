@@ -293,7 +293,7 @@ GStrv
 mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *self)
 {
   g_autoptr (GList) keys = NULL;
-  g_autoptr (GPtrArray) protocols = g_ptr_array_new_with_free_func (g_free);
+  g_autoptr (GStrvBuilder) protocols = g_strv_builder_new ();
 
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
@@ -302,10 +302,9 @@ mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *se
     return NULL;
 
   for (GList *l = keys; l; l = l->next)
-    g_ptr_array_add (protocols, l->data);
-  g_ptr_array_add (protocols, NULL);
+    g_strv_builder_add (protocols, l->data);
 
-  return (GStrv) g_ptr_array_steal (protocols, NULL);
+  return g_strv_builder_end (protocols);
 }
 
 
