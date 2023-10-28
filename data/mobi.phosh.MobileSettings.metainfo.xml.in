@@ -47,6 +47,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.33.0" date="2023-10-28">
+      <description>
+        <ul>
+          <li>Add more information to trouble shooting tab</li>
+          <li>Avoid out of place scrollbars on larger screens</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.32.0" date="2023-10-02">
       <description>
         <ul>
