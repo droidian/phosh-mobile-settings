@@ -3,52 +3,48 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsFeaturesPanel" parent="AdwBin">
     <child>
-      <object class="AdwClamp">
+      <object class="GtkScrolledWindow">
         <child>
-          <object class="GtkScrolledWindow">
+          <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Experimental Features</property>
+                <property name="description" translatable="yes">Features not yet deemed fully stable</property>
+
                 <child>
-                  <object class="AdwPreferencesGroup">
-                    <property name="title" translatable="yes">Experimental Features</property>
-                    <property name="description" translatable="yes">Features not yet deemed fully stable</property>
-
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Emergency Calls</property>
+                    <property name="subtitle" translatable="yes">Enable emergency calls. Please only enable this if you safely can ensure that it's working with your provider.</property>
+                    <property name="use-underline">true</property>
                     <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Emergency Calls</property>
-                        <property name="subtitle" translatable="yes">Enable emergency calls. Please only enable this if you safely can ensure that it's working with your provider.</property>
-                        <property name="use-underline">true</property>
-                        <child>
-                          <object class="GtkSwitch" id="emergency_calls_enabled_switch">
-                            <property name="valign">center</property>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                          </object>
-                        </child>
+                      <object class="GtkSwitch" id="emergency_calls_enabled_switch">
+                        <property name="valign">center</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
                       </object>
                     </child>
-                    <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Enable suspend via the system menu</property>
-                        <property name="use-underline">true</property>
-                        <property name="subtitle">Please only enable this if you're aware of the limitations like data connection loss or missed alarms</property>
-                        <child>
-                          <object class="GtkSwitch" id="manual_suspend_switch">
-                            <property name="valign">center</property>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                            <style>
-                              <class name="destructive-action"/>
-                            </style>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-
                   </object>
                 </child>
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Enable suspend via the system menu</property>
+                    <property name="use-underline">true</property>
+                    <property name="subtitle">Please only enable this if you're aware of the limitations like data connection loss or missed alarms</property>
+                    <child>
+                      <object class="GtkSwitch" id="manual_suspend_switch">
+                        <property name="valign">center</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
+                        <style>
+                          <class name="destructive-action"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
               </object>
             </child>
           </object>
