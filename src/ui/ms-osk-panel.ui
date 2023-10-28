@@ -3,89 +3,84 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsOskPanel" parent="AdwBin">
     <child>
-      <object class="AdwClamp">
+      <object class="GtkScrolledWindow">
         <child>
-
-          <object class="GtkScrolledWindow">
+          <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="AdwPreferencesGroup">
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Enable _On Screen Keyboard</property>
+                    <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when needed</property>
+                    <property name="use-underline">true</property>
                     <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Enable _On Screen Keyboard</property>
-                        <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when needed</property>
-                        <property name="use-underline">true</property>
-                        <child>
-                          <object class="GtkSwitch" id="osk_enable_switch">
-                            <property name="valign">center</property>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                          </object>
-                        </child>
+                      <object class="GtkSwitch" id="osk_enable_switch">
+                        <property name="valign">center</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
                       </object>
                     </child>
                   </object>
                 </child>
-
-                <child>
-                  <object class="AdwPreferencesGroup" id="completion_group">
-                    <property name="visible">False</property>
-                    <property name="title" translatable="yes">Text Completion</property>
-                    <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Opportunistic word completion</property>
-                        <property name="subtitle" translatable="yes">Enable word completion when the app indicates it is useful</property>
-                        <property name="use-underline">true</property>
-                        <child>
-                          <object class="GtkSwitch" id="app_completion_switch">
-                            <property name="valign">center</property>
-                            <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Toggle via OSK menu</property>
-                        <property name="subtitle" translatable="yes">Allow to toggle word completion via the keyboard's menu button</property>
-                        <property name="use-underline">true</property>
-                        <child>
-                          <object class="GtkSwitch" id="menu_completion_switch">
-                            <property name="valign">center</property>
-                            <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-
-                <child>
-                  <object class="AdwPreferencesGroup" id="terminal_layout_group">
-                    <property name="title" translatable="yes">Terminal Layout</property>
-                    <property name="visible">False</property>
-                    <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Shortcuts</property>
-                        <property name="subtitle" translatable="yes">The shortcuts available in the shortcuts bar</property>
-                        <child>
-                          <object class="GtkFlowBox" id="shortcuts_box"/>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-
               </object>
             </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="completion_group">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">Text Completion</property>
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Opportunistic word completion</property>
+                    <property name="subtitle" translatable="yes">Enable word completion when the app indicates it is useful</property>
+                    <property name="use-underline">true</property>
+                    <child>
+                      <object class="GtkSwitch" id="app_completion_switch">
+                        <property name="valign">center</property>
+                        <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Toggle via OSK menu</property>
+                    <property name="subtitle" translatable="yes">Allow to toggle word completion via the keyboard's menu button</property>
+                    <property name="use-underline">true</property>
+                    <child>
+                      <object class="GtkSwitch" id="menu_completion_switch">
+                        <property name="valign">center</property>
+                        <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="terminal_layout_group">
+                <property name="title" translatable="yes">Terminal Layout</property>
+                <property name="visible">False</property>
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Shortcuts</property>
+                    <property name="subtitle" translatable="yes">The shortcuts available in the shortcuts bar</property>
+                    <child>
+                      <object class="GtkFlowBox" id="shortcuts_box"/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+
           </object>
         </child>
       </object>
