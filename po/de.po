@@ -17,63 +17,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/org.sigxcpu.MobileSettings.desktop.in:3
+#: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/mobile-settings-application.c:196 src/ui/mobile-settings-window.ui:5
 msgid "Mobile Settings"
 msgstr "Einstellungen für Mobilgeräte"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/org.sigxcpu.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobil,Einstellungen;MobileSettings;"
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:4
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:8
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
 msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:13
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:33
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:33
 msgid "Available panels"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:37
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:37
 msgid "Compositor panel"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:41
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:41
 msgid "Feedback panel"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:48
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
 msgid "Bugfix release"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:52
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:52
 msgid "Allow plugins to have preferences"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:56
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:56
 msgid "Support UPERFECT X Mini lapdock"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:60
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:60
 msgid "Bug fixes release"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:64
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:64
 msgid "Allow to enable/disable lockscreen widgets and bug fixes"
 msgstr ""
 
-#: data/org.sigxcpu.MobileSettings.metainfo.xml.in:68
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:68
 msgid "Initial release"
 msgstr ""
 

@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.32.0',
+          version: '0.33.0',
     meson_version: '>= 0.58.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -12,7 +12,7 @@ datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 ms_plugins_dir = join_paths(prefix, libdir, 'phosh-mobile-settings', 'plugins')
 
-glib_ver = '2.66'
+glib_ver = '2.68'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
@@ -113,7 +113,7 @@ config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'phosh-mobile-settings')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'org.sigxcpu.MobileSettings')
+config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'mobi.phosh.MobileSettings')
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
 config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',

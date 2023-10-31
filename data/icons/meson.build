@@ -1,4 +1,4 @@
-application_id = 'org.sigxcpu.MobileSettings'
+application_id = 'mobi.phosh.MobileSettings'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

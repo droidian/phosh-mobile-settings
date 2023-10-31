@@ -3,41 +3,37 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsCompositorPanel" parent="AdwBin">
     <child>
-      <object class="AdwClamp">
+      <object class="GtkScrolledWindow">
         <child>
-          <object class="GtkScrolledWindow">
+          <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Scaling down of running applications:</property>
+                <property name="description" translatable="yes">Only enable this for broken apps that don't fit the screen</property>
+                <property name="sensitive" bind-source="scale_to_fit_switch" bind-property="active" bind-flags="sync-create|invert-boolean"/>
                 <child>
-                  <object class="AdwPreferencesGroup">
-                    <property name="title" translatable="yes">Scaling down of running applications:</property>
-                    <property name="description" translatable="yes">Only enable this for broken apps that don't fit the screen</property>
-                    <property name="sensitive" bind-source="scale_to_fit_switch" bind-property="active" bind-flags="sync-create|invert-boolean"/>
-                    <child>
-                      <object class="GtkListBox" id="running_apps_listbox">
-                        <style>
-                          <class name="boxed-list"/>
-                        </style>
-                      </object>
-                    </child>
+                  <object class="GtkListBox" id="running_apps_listbox">
+                    <style>
+                      <class name="boxed-list"/>
+                    </style>
                   </object>
                 </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Scale down all applications</property>
+                <property name="description" translatable="yes">Forcibly scale down all applications. Only use this as a last resort.</property>
                 <child>
-                  <object class="AdwPreferencesGroup">
-                    <property name="title" translatable="yes">Scale down all applications</property>
-                    <property name="description" translatable="yes">Forcibly scale down all applications. Only use this as a last resort.</property>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Scale down all apps</property>
+                    <property name="use-underline">true</property>
                     <child>
-                      <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Scale down all apps</property>
-                        <property name="use-underline">true</property>
-                        <child>
-                          <object class="GtkSwitch" id="scale_to_fit_switch">
-                            <property name="valign">center</property>
-                            <accessibility>
-                              <property name="label" translatable="yes">Enabled</property>
-                            </accessibility>
-                          </object>
-                        </child>
+                      <object class="GtkSwitch" id="scale_to_fit_switch">
+                        <property name="valign">center</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Enabled</property>
+                        </accessibility>
                       </object>
                     </child>
                   </object>

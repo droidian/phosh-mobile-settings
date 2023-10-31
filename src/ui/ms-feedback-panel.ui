@@ -5,102 +5,98 @@
     <child>
       <object class="AdwToastOverlay" id="toast_overlay">
         <child>
-          <object class="AdwClamp">
-            <child>
 
-              <object class="GtkScrolledWindow">
-                <child>
-                  <object class="AdwPreferencesPage">
-                    <child>
-                      <object class="AdwPreferencesGroup">
-                        <child>
-                          <object class="AdwComboRow">
-                            <property name="title" translatable="yes">Feedback profile</property>
-                            <property name="subtitle" translatable="yes">The global maximum feedback profile</property>
-                            <property name="model">
-                              <object class="AdwEnumListModel">
-                                <property name="enum-type">MsFeedbackProfile</property>
-                              </object>
-                            </property>
-                            <property name="expression">
-                              <closure type="gchararray" function="item_feedback_profile_name"/>
-                            </property>
-                            <property name="selected" bind-source="MsFeedbackPanel" bind-property="feedback-profile" bind-flags="sync-create|bidirectional"/>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="AdwPreferencesGroup">
-                        <property name="title" translatable="yes">Per Application settings</property>
-                        <child>
-                          <object class="GtkListBox" id="app_listbox">
-                            <style>
-                              <class name="boxed-list"/>
-                            </style>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+           <object class="GtkScrolledWindow">
+             <child>
+               <object class="AdwPreferencesPage">
+                 <child>
+                   <object class="AdwPreferencesGroup">
+                     <child>
+                       <object class="AdwComboRow">
+                         <property name="title" translatable="yes">Feedback profile</property>
+                         <property name="subtitle" translatable="yes">The global maximum feedback profile</property>
+                         <property name="model">
+                           <object class="AdwEnumListModel">
+                             <property name="enum-type">MsFeedbackProfile</property>
+                           </object>
+                         </property>
+                         <property name="expression">
+                           <closure type="gchararray" function="item_feedback_profile_name"/>
+                         </property>
+                         <property name="selected" bind-source="MsFeedbackPanel" bind-property="feedback-profile" bind-flags="sync-create|bidirectional"/>
+                       </object>
+                     </child>
+                   </object>
+                 </child>
+                 <child>
+                   <object class="AdwPreferencesGroup">
+                     <property name="title" translatable="yes">Per Application settings</property>
+                     <child>
+                       <object class="GtkListBox" id="app_listbox">
+                         <style>
+                           <class name="boxed-list"/>
+                         </style>
+                       </object>
+                     </child>
+                   </object>
+                 </child>
 
-                    <child>
-                      <object class="AdwPreferencesGroup">
-                        <property name="title" translatable="yes">Sounds</property>
-                        <property name="description" translatable="yes">The sound to use for certain events</property>
-                        <child>
-                          <object class="GtkListBox" id="sounds_listbox">
-                            <style>
-                              <class name="boxed-list"/>
-                            </style>
-                            <child>
-                              <object class="MsSoundRow">
-                                <property name="title" translatable="yes">Phone Calls</property>
-                                <property name="effect-name">phone-incoming-call</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="MsSoundRow">
-                                <property name="title" translatable="yes">SMS</property>
-                                <property name="effect-name">message-new-sms</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="MsSoundRow">
-                                <property name="title" translatable="yes">Instant messages</property>
-                                <property name="effect-name">message-new-instant</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+                 <child>
+                   <object class="AdwPreferencesGroup">
+                     <property name="title" translatable="yes">Sounds</property>
+                     <property name="description" translatable="yes">The sound to use for certain events</property>
+                     <child>
+                       <object class="GtkListBox" id="sounds_listbox">
+                         <style>
+                           <class name="boxed-list"/>
+                         </style>
+                         <child>
+                           <object class="MsSoundRow">
+                             <property name="title" translatable="yes">Phone Calls</property>
+                             <property name="effect-name">phone-incoming-call</property>
+                           </object>
+                         </child>
+                         <child>
+                           <object class="MsSoundRow">
+                             <property name="title" translatable="yes">SMS</property>
+                             <property name="effect-name">message-new-sms</property>
+                           </object>
+                         </child>
+                         <child>
+                           <object class="MsSoundRow">
+                             <property name="title" translatable="yes">Instant messages</property>
+                             <property name="effect-name">message-new-instant</property>
+                           </object>
+                         </child>
+                       </object>
+                     </child>
+                   </object>
+                 </child>
 
-                    <child>
-                      <object class="AdwPreferencesGroup">
-                        <property name="title" translatable="yes">Screen Wakeup</property>
-                        <child>
-                          <object class="AdwComboRow" id="notificationssettings_row">
-                            <property name="title" translatable="yes">Notification urgency that lights up the screen</property>
-                            <property name="use_underline">True</property>
-                            <signal name="notify::selected-item" handler="change_notifications_settings" object="MsFeedbackPanel" swapped="yes"/>
-                            <property name="model">
-                              <object class="AdwEnumListModel">
-                                <property name="enum-type">MsPhoshNotificationUrgency</property>
-                              </object>
-                            </property>
-                            <property name="expression">
-                              <closure type="gchararray" function="on_notifications_urgency"/>
-                            </property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+                 <child>
+                   <object class="AdwPreferencesGroup">
+                     <property name="title" translatable="yes">Screen Wakeup</property>
+                     <child>
+                       <object class="AdwComboRow" id="notificationssettings_row">
+                         <property name="title" translatable="yes">Notification urgency that lights up the screen</property>
+                         <property name="use_underline">True</property>
+                         <signal name="notify::selected-item" handler="change_notifications_settings" object="MsFeedbackPanel" swapped="yes"/>
+                         <property name="model">
+                           <object class="AdwEnumListModel">
+                             <property name="enum-type">MsPhoshNotificationUrgency</property>
+                           </object>
+                         </property>
+                         <property name="expression">
+                           <closure type="gchararray" function="on_notifications_urgency"/>
+                         </property>
+                       </object>
+                     </child>
+                   </object>
+                 </child>
 
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
+               </object>
+             </child>
+           </object>
         </child>
       </object>
     </child>
