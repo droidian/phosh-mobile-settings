@@ -420,7 +420,7 @@ ms_sensor_panel_class_init (MsSensorPanelClass *klass)
   object_class->finalize = ms_sensor_panel_finalize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-sensor-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-sensor-panel.ui");
 
   gtk_widget_class_bind_template_child (widget_class, MsSensorPanel, accelerometer_label);
   gtk_widget_class_bind_template_child (widget_class, MsSensorPanel, light_label);

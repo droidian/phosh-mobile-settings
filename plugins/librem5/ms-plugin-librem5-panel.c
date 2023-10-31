@@ -339,7 +339,7 @@ ms_plugin_librem5_panel_class_init (MsPluginLibrem5PanelClass *klass)
   widget_class->unrealize = ms_plugin_librem5_panel_unrealize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/plugins/librem5/ui/ms-plugin-librem5-panel.ui");
+                                               "/mobi/phosh/MobileSettings/plugins/librem5/ui/ms-plugin-librem5-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPluginLibrem5Panel, uboot_label);
   gtk_widget_class_bind_template_child (widget_class, MsPluginLibrem5Panel, suspend_button);
 

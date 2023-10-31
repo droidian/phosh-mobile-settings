@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>org.sigxcpu.MobileSettings.desktop</id>
+  <id>mobi.phosh.MobileSettings.desktop</id>
   <name>Phosh Mobile Settings</name>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
@@ -11,6 +11,9 @@
     </p>
   </description>
   <summary>Advanced settings for Mobile devices using Phosh</summary>
+  <replaces>
+      <id>org.sigxcpu.MobileSettings</id>
+  </replaces>
 
   <content_rating type="oars-1.1"/>
 
@@ -26,7 +29,7 @@
   <url type="homepage">https://gitlab.gnome.org//guidog/phosh-mobile-settings</url>
   <url type="bugtracker">https://gitlab.gnome.org//guidog/phosh-mobile-settings/issues</url>
 
-  <launchable type="desktop-id">org.sigxcpu.MobileSettings.desktop</launchable>
+  <launchable type="desktop-id">mobi.phosh.MobileSettings.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">
@@ -44,6 +47,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.33.0" date="2023-10-28">
+      <description>
+        <ul>
+          <li>Add more information to trouble shooting tab</li>
+          <li>Avoid out of place scrollbars on larger screens</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.32.0" date="2023-10-02">
       <description>
         <ul>

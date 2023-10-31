@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'org.sigxcpu.MobileSettings.desktop.in',
-  output: 'org.sigxcpu.MobileSettings.desktop',
+  input: 'mobi.phosh.MobileSettings.desktop.in',
+  output: 'mobi.phosh.MobileSettings.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -8,8 +8,8 @@ desktop_file = i18n.merge_file(
 )
 
 appstream_file = i18n.merge_file(
-  input: 'org.sigxcpu.MobileSettings.metainfo.xml.in',
-  output: 'org.sigxcpu.MobileSettings.metainfo.xml',
+  input: 'mobi.phosh.MobileSettings.metainfo.xml.in',
+  output: 'mobi.phosh.MobileSettings.metainfo.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo')
@@ -19,17 +19,6 @@ appstream_util = find_program('appstreamcli', required: false)
 if appstream_util.found()
   test('Validate appstream file', appstream_util,
     args: ['validate', '--no-net', appstream_file]
-  )
-endif
-
-install_data('org.sigxcpu.MobileSettings.gschema.xml',
-  install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
-)
-
-compile_schemas = find_program('glib-compile-schemas', required: false)
-if compile_schemas.found()
-  test('Validate schema file', compile_schemas,
-    args: ['--strict', '--dry-run', meson.current_source_dir()]
   )
 endif
 

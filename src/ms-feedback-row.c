@@ -95,7 +95,7 @@ ms_feedback_row_class_init (MsFeedbackRowClass *klass)
 
   g_type_ensure (MS_TYPE_FEEDBACK_PROFILE);
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-feedback-row.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-feedback-row.ui");
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
 }
 

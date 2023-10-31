@@ -1,7 +1,9 @@
 /*
- * Copyright 2023 Gotam Gorabh <gautamy672@gmail.com>
+ * Copyright (C) 2023 Tether Operations Limited
  *
- * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Author: Gotam Gorabh <gautamy672@gmail.com>
  */
 
 #include "mobile-settings-config.h"
@@ -67,6 +69,35 @@ get_flatpak_info (const char *group,
 }
 #endif
 
+static char *
+get_phosh_session_version (void)
+{
+  g_autoptr(GSubprocess) subprocess = NULL;
+  GInputStream *stdout_stream = NULL;
+  g_autoptr(GDataInputStream) data_input_stream = NULL;
+  g_autofree char *version = NULL;
+  g_autoptr(GError) error = NULL;
+
+  subprocess = g_subprocess_new (G_SUBPROCESS_FLAGS_STDOUT_PIPE, &error,
+                                 "phosh-session", "--version", NULL);
+
+  if (subprocess == NULL) {
+    g_warning ("Failed to read version: %s", error->message);
+    return NULL;
+  }
+
+  stdout_stream = g_subprocess_get_stdout_pipe (subprocess);
+  data_input_stream = g_data_input_stream_new (G_INPUT_STREAM (stdout_stream));
+  version = g_data_input_stream_read_line (data_input_stream, NULL, NULL, &error);
+
+  if (version == NULL) {
+    g_warning ("Failed to read version: %s", error->message);
+    return NULL;
+  }
+
+  return g_steal_pointer (&version);
+}
+
 char *
 mobile_settings_generate_debug_info (void)
 {
@@ -105,10 +136,12 @@ mobile_settings_generate_debug_info (void)
   {
     g_autofree char *os_name = g_get_os_info (G_OS_INFO_KEY_NAME);
     g_autofree char *os_version = g_get_os_info (G_OS_INFO_KEY_VERSION);
+    g_autofree char *phosh_session_version = get_phosh_session_version ();
 
     g_string_append (string, "System:\n");
     g_string_append_printf (string, "- Name: %s\n", os_name);
     g_string_append_printf (string, "- Version: %s\n", os_version);
+    g_string_append_printf (string, "- Phosh-session: %s\n", phosh_session_version);
     g_string_append (string, "\n");
   }
 
@@ -143,18 +176,16 @@ mobile_settings_generate_debug_info (void)
 #endif
 
   {
-    const char *phoc_debug = g_getenv("PHOC_DEBUG");
-    const char *phosh_debug = g_getenv("PHOSH_DEBUG");
     const char *desktop = g_getenv ("XDG_CURRENT_DESKTOP");
     const char *session_desktop = g_getenv ("XDG_SESSION_DESKTOP");
     const char *session_type = g_getenv ("XDG_SESSION_TYPE");
     const char *lang = g_getenv ("LANG");
     const char *builder = g_getenv ("INSIDE_GNOME_BUILDER");
-    const char *gtk_debug = g_getenv ("GTK_DEBUG");
-    const char *gtk_theme = g_getenv ("GTK_THEME");
-    const char *adw_debug_color_scheme = g_getenv ("ADW_DEBUG_COLOR_SCHEME");
-    const char *adw_debug_high_contrast = g_getenv ("ADW_DEBUG_HIGH_CONTRAST");
-    const char *adw_disable_portal = g_getenv ("ADW_DISABLE_PORTAL");
+
+    const char * const env_vars[] = { "PHOC_DEBUG", "PHOSH_DEBUG", "GTK_DEBUG", "GTK_THEME",
+                                      "ADW_DEBUG_COLOR_SCHEME", "ADW_DEBUG_HIGH_CONTRAST",
+                                      "ADW_DISABLE_PORTAL", "WAYLAND_DEBUG", "WAYLAND_DISPLAY",
+                                      "WAYLAND_SOCKET", "XDG_RUNTIME_DIR", "WLR_BACKENDS", NULL };
 
     g_string_append (string, "Environment:\n");
     g_string_append_printf (string, "- Desktop: %s\n", desktop);
@@ -163,20 +194,11 @@ mobile_settings_generate_debug_info (void)
     g_string_append_printf (string, "- Language: %s\n", lang);
     g_string_append_printf (string, "- Running inside Builder: %s\n", builder ? "yes" : "no");
 
-    if (phoc_debug)
-      g_string_append_printf (string, "- PHOC_DEBUG: %s\n", phoc_debug);
-    if (phosh_debug)
-      g_string_append_printf (string, "- PHOSH_DEBUG: %s\n", phosh_debug);
-    if (gtk_debug)
-      g_string_append_printf (string, "- GTK_DEBUG: %s\n", gtk_debug);
-    if (gtk_theme)
-      g_string_append_printf (string, "- GTK_THEME: %s\n", gtk_theme);
-    if (adw_debug_color_scheme)
-      g_string_append_printf (string, "- ADW_DEBUG_COLOR_SCHEME: %s\n", adw_debug_color_scheme);
-    if (adw_debug_high_contrast)
-      g_string_append_printf (string, "- ADW_DEBUG_HIGH_CONTRAST: %s\n", adw_debug_high_contrast);
-    if (adw_disable_portal)
-      g_string_append_printf (string, "- ADW_DISABLE_PORTAL: %s\n", adw_disable_portal);
+    for (int i = 0; env_vars[i] != NULL; i++) {
+      const char *env_var = g_getenv (env_vars[i]);
+      if (env_var)
+        g_string_append_printf (string, "- %s: %s\n", env_vars[i], env_var);
+    }
   }
   g_string_append (string, "\n");
 
