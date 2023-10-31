@@ -1,3 +1,45 @@
+phosh-mobile-settings (0.33.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * data: Remove unused schema
+  * gmobile: Switch to 0.0.3.
+    Also move to the canonical upstream repo location
+  * treewide: Move to mobi.phosh prefix
+  * resources: Add the application icon.
+    This makes sure it's found even when the app is not installed
+    (e.g. when running from the source tree)
+  * metainfo: Add replaces for old app-id
+  * application: Don't forget to dup the data.
+    We return a GStrv so we need to duplicate the data added to the GStrv as
+    we'd otherwise free the data of the strings in the hash map.
+    Fixes: 3cea964a43db75645f6970c3c7a0782679b16f62
+  * build: Require newer glib.
+    This allows us to e.g. use g_strv_builder and we need newer libadwaita
+    anyway already.
+  * application: Use g_strv_builder.
+    More failsafe than using a g_ptr_array.
+  * compositor-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+  * features-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+  * osk-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+  * sensors-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+  * convergence-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+
+  [ Gotam Gorabh ]
+  * debug-info: Troubleshooting tab enhancements.
+
+  [ Abhijith PA ]
+  * feedback-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+  * lockscreen-panel: Drop unneeded clamp.
+    This avoids having the scroll bar in the middle of the window
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 28 Oct 2023 18:02:33 +0200
+
 phosh-mobile-settings (0.32.0) experimental; urgency=medium
 
   [ Gotam Gorabh ]
