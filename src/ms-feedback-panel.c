@@ -23,7 +23,7 @@
 #define FEEDBACKD_KEY_PROFILE "profile"
 #define FEEDBACKD_THEME_VAR "FEEDBACK_THEME"
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
-#define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
+#define APP_PREFIX "/mobi/phosh/feedbackd/application/"
 
 #define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
 #define NOTIFICATIONS_URGENCY_ENUM "sm.puri.phosh.NotificationUrgency"
@@ -487,7 +487,7 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
 
   g_type_ensure (MS_TYPE_FEEDBACK_PROFILE);
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-feedback-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-feedback-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);

@@ -1,3 +1,17 @@
+phosh-mobile-settings 0.33.0
+----------------------------
+Released: October 2023
+* Add more environment vars and version information to trouble
+  shooting tab
+* Avoid out of place scrollbars on larger screens
+* Switch to gmobile 0.0.3
+* Issues fixed:
+  https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/32
+* Contributors:
+    * Abhijith PA
+    * Gotam Gorabh
+    * Guido Günther
+
 phosh-mobile-settings 0.32.0
 ----------------------------
 Released: October 2023
@@ -10,7 +24,6 @@ Released: October 2023
 * Contributors:
     * Gotam Gorabh
     * Guido Günther
-
 
 phosh-mobile-settings 0.31.0
 ----------------------------

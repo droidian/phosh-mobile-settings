@@ -1,6 +1,6 @@
-data/org.sigxcpu.MobileSettings.desktop.in
-data/org.sigxcpu.MobileSettings.gschema.xml
-data/org.sigxcpu.MobileSettings.metainfo.xml.in
+data/mobi.phosh.MobileSettings.desktop.in
+data/mobi.phosh.MobileSettings.gschema.xml
+data/mobi.phosh.MobileSettings.metainfo.xml.in
 plugins/librem5/ms-plugin-librem5-panel.c
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
 src/gtk/help-overlay.ui

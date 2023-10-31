@@ -169,7 +169,7 @@ ms_scale_to_fit_row_class_init (MsScaleToFitRowClass *klass)
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-scale-to-fit-row.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-scale-to-fit-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsScaleToFitRow, scale_to_fit_switch);
 }
 

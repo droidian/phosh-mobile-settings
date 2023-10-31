@@ -154,7 +154,7 @@ ms_panel_switcher_class_init (MsPanelSwitcherClass *klass)
                                          G_TYPE_NONE, 0);
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-panel-switcher.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-panel-switcher.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPanelSwitcher, panels_listbox);
   gtk_widget_class_bind_template_callback (widget_class, on_row_activated);
 }

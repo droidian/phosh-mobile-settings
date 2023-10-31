@@ -3,49 +3,45 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsConvergencePanel" parent="AdwBin">
     <child>
-      <object class="AdwClamp">
+      <object class="GtkScrolledWindow">
         <child>
-          <object class="GtkScrolledWindow">
+          <object class="GtkStack" id="dock_stack">
             <child>
-              <object class="GtkStack" id="dock_stack">
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">empty</property>
-                    <property name="child">
-                      <object class="AdwStatusPage">
-                        <property name="icon-name">phonelink2-symbolic</property>
-                        <property name="description" translatable="yes">No known docks detected</property>
-                      </object>
-                    </property>
+              <object class="GtkStackPage">
+                <property name="name">empty</property>
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="icon-name">phonelink2-symbolic</property>
+                    <property name="description" translatable="yes">No known docks detected</property>
                   </object>
-                </child>
-                <child>
-                  <object class="GtkStackPage">
-                    <property name="name">dock</property>
-                    <property name="child">
-                      <object class="AdwPreferencesPage">
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">dock</property>
+                <property name="child">
+                  <object class="AdwPreferencesPage">
+                    <child>
+                      <object class="AdwPreferencesGroup" id="dock_pref_group">
                         <child>
-                          <object class="AdwPreferencesGroup" id="dock_pref_group">
+                          <object class="AdwActionRow" id="map_touch_screen_row">
+                            <property name="title" translatable="yes">Map built-in touch screen</property>
+                            <property name="use-underline">true</property>
                             <child>
-                              <object class="AdwActionRow" id="map_touch_screen_row">
-                                <property name="title" translatable="yes">Map built-in touch screen</property>
-                                <property name="use-underline">true</property>
-                                <child>
-                                  <object class="GtkSwitch" id="map_touch_screen_switch">
-                                    <property name="valign">center</property>
-                                    <accessibility>
-                                      <property name="label" translatable="yes">Enabled</property>
-                                    </accessibility>
-                                  </object>
-                                </child>
+                              <object class="GtkSwitch" id="map_touch_screen_switch">
+                                <property name="valign">center</property>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Enabled</property>
+                                </accessibility>
                               </object>
                             </child>
                           </object>
                         </child>
                       </object>
-                    </property>
+                    </child>
                   </object>
-                </child>
+                </property>
               </object>
             </child>
           </object>
