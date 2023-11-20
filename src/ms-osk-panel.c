@@ -52,16 +52,105 @@ struct _MsOskPanel {
   GtkWidget        *terminal_layout_group;
   GtkWidget        *shortcuts_box;
   GListStore       *shortcuts;
+  gboolean          shortcuts_updating;
 };
 
 G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, ADW_TYPE_BIN)
 
 
+static void
+sync_settings (MsOskPanel *self)
+{
+  g_auto (GStrv) settings = NULL;
+  g_autoptr (GStrvBuilder) builder = g_strv_builder_new ();
+  GListModel *model = G_LIST_MODEL (self->shortcuts);
+
+  self->shortcuts_updating = TRUE;
+
+  for (int i = 0; i < g_list_model_get_n_items (model); i++) {
+    g_autoptr (GtkStringObject) string = g_list_model_get_item (model, i);
+
+    g_strv_builder_add (builder, gtk_string_object_get_string (string));
+  }
+
+  settings = g_strv_builder_end (builder);
+  g_settings_set_strv (self->pos_terminal_settings, SHORTCUTS_KEY, (const char *const *)settings);
+
+  self->shortcuts_updating = FALSE;
+}
+
+
+static void
+on_drag_begin (GtkDragSource *source, GdkDrag *drag, GtkWidget *shortcut)
+{
+  GdkPaintable *paintable = gtk_widget_paintable_new (GTK_WIDGET (shortcut));
+
+  gtk_drag_source_set_icon (source, paintable,
+                            gtk_widget_get_width (shortcut) / 2,
+                            gtk_widget_get_height (shortcut) / 2);
+  g_object_unref (paintable);
+}
+
+
+static gboolean
+on_drop (GtkDropTarget *drop_target, const GValue  *value, double x, double y, gpointer data)
+{
+  MsOskPanel *self = MS_OSK_PANEL (data);
+  g_autoptr (GtkStringObject) dropped = NULL;
+  GtkStringObject *target;
+  const char *dropped_accel, *target_accel;
+  guint dropped_index, target_index;
+  gboolean success;
+
+  g_assert (MS_IS_OSK_PANEL (self));
+
+  if (!G_VALUE_HOLDS (value, GTK_TYPE_STRING_OBJECT)) {
+    g_warning ("Dropped unhandled type");
+    return FALSE;
+  }
+
+  target = g_object_get_data (G_OBJECT (drop_target), "ms-str");
+  target_accel = gtk_string_object_get_string (target);
+  success = g_list_store_find (self->shortcuts, target, &target_index);
+  g_assert (success);
+
+  dropped = g_object_ref (g_value_get_object (value));
+  dropped_accel = gtk_string_object_get_string (dropped);
+  g_debug ("Dropped %s on %s", dropped_accel, target_accel);
+
+  success = g_list_store_find (self->shortcuts, dropped, &dropped_index);
+  g_assert (success);
+  g_list_store_remove (self->shortcuts, dropped_index);
+  g_list_store_insert (self->shortcuts, target_index, dropped);
+
+  sync_settings (self);
+
+  return TRUE;
+}
+
+
 static GtkWidget *
 create_shortcuts_row (gpointer item, gpointer user_data)
 {
+  MsOskPanel *self = MS_OSK_PANEL (user_data);
   GtkStringObject *string = GTK_STRING_OBJECT (item);
   GtkWidget *label = gtk_shortcut_label_new (gtk_string_object_get_string (string));
+  GtkDragSource *drag_source = gtk_drag_source_new ();
+  GdkContentProvider *type = gdk_content_provider_new_typed (GTK_TYPE_STRING_OBJECT, string);
+  GtkDropTarget *target = gtk_drop_target_new (G_TYPE_INVALID, GDK_ACTION_COPY);
+  GType targets[] = { GTK_TYPE_STRING_OBJECT };
+
+  /* drag */
+  gtk_drag_source_set_content (drag_source, type);
+  g_signal_connect (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), label);
+  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (drag_source));
+
+  /* drop */
+  gtk_drop_target_set_gtypes (target, targets, G_N_ELEMENTS (targets));
+  g_signal_connect (target, "drop", G_CALLBACK (on_drop), self);
+  /* No ref as we just use it for string comparison */
+  g_object_set_data (G_OBJECT (target), "ms-str", string);
+  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (target));
 
   return label;
 }
@@ -71,6 +160,9 @@ static void
 on_terminal_shortcuts_changed (MsOskPanel *self)
 {
   GStrv shortcuts = NULL;
+
+  if (self->shortcuts_updating)
+    return;
 
   g_list_store_remove_all (self->shortcuts);
 
