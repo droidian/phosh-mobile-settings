@@ -51,30 +51,34 @@ struct _MsOskPanel {
   GSettings        *pos_terminal_settings;
   GtkWidget        *terminal_layout_group;
   GtkWidget        *shortcuts_box;
+  GListStore       *shortcuts;
 };
 
 G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, ADW_TYPE_BIN)
+
+
+static GtkWidget *
+create_shortcuts_row (gpointer item, gpointer user_data)
+{
+  GtkStringObject *string = GTK_STRING_OBJECT (item);
+  GtkWidget *label = gtk_shortcut_label_new (gtk_string_object_get_string (string));
+
+  return label;
+}
 
 
 static void
 on_terminal_shortcuts_changed (MsOskPanel *self)
 {
   GStrv shortcuts = NULL;
-  GtkWidget *child;
 
-  do {
-    child = gtk_widget_get_first_child (self->shortcuts_box);
-    if (GTK_IS_FLOW_BOX_CHILD (child))
-      gtk_flow_box_remove (GTK_FLOW_BOX (self->shortcuts_box), child);
-
-    child = gtk_widget_get_first_child (self->shortcuts_box);
-  } while (child);
+  g_list_store_remove_all (self->shortcuts);
 
   shortcuts = g_settings_get_strv (self->pos_terminal_settings, SHORTCUTS_KEY);
   for (int i = 0; shortcuts[i] != NULL; i++) {
-    GtkWidget *shortcut = gtk_shortcut_label_new (shortcuts[i]);
+    g_autoptr (GtkStringObject) shortcut = gtk_string_object_new (shortcuts[i]);
 
-    gtk_flow_box_append (GTK_FLOW_BOX (self->shortcuts_box), shortcut);
+    g_list_store_append (self->shortcuts, shortcut);
   }
 }
 
@@ -177,6 +181,7 @@ ms_osk_panel_finalize (GObject *object)
 {
   MsOskPanel *self = MS_OSK_PANEL (object);
 
+  g_clear_object (&self->shortcuts);
   g_clear_object (&self->a11y_settings);
   g_clear_object (&self->pos_settings);
   g_clear_object (&self->pos_terminal_settings);
@@ -229,6 +234,13 @@ ms_osk_panel_init (MsOskPanel *self)
     on_word_completion_key_changed (self);
 
     gtk_widget_set_visible (self->terminal_layout_group, TRUE);
+    self->shortcuts = g_list_store_new (GTK_TYPE_STRING_OBJECT);
+    gtk_flow_box_bind_model (GTK_FLOW_BOX (self->shortcuts_box),
+                             G_LIST_MODEL (self->shortcuts),
+                             create_shortcuts_row,
+                             self,
+                             NULL);
+
     self->pos_terminal_settings = g_settings_new (PHOSH_OSK_TERMINAL_SETTINGS);
     g_signal_connect_swapped (self->pos_terminal_settings, "changed::" SHORTCUTS_KEY,
                               G_CALLBACK (on_terminal_shortcuts_changed),
