@@ -1,4 +1,4 @@
 version=4
 opts="pgpsigurlmangle=s%$%.asc%" \
-https://storage.puri.sm/releases/@PACKAGE@/ \
+https://sources.phosh.mobi/releases/@PACKAGE@/ \
   @PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@

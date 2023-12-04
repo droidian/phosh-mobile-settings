@@ -202,6 +202,50 @@ mobile_settings_generate_debug_info (void)
   }
   g_string_append (string, "\n");
 
+  {
+    static struct {
+      const char *schema;
+      const char *key;
+    } const schema[] = {
+      { "sm.puri.phosh.emergency-calls", "enabled" },
+      { "sm.puri.phosh", "automatic-high-contrast" },
+      { "sm.puri.phosh.plugins", "lock-screen" },
+      { "org.gnome.desktop.a11y.applications", "screen-keyboard-enabled" },
+      { "org.gnome.desktop.interface", "gtk-im-module" },
+      { "org.gnome.desktop.input-sources", "sources" },
+
+      /* Power related */
+      { "org.gnome.settings-daemon.plugins.power", "ambient-enabled" },
+      { "org.gnome.settings-daemon.plugins.power", "idle-dim" },
+      { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-battery-timeout" },
+      { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-battery-type" },
+      { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-timeout" },
+      { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-type" },
+
+      /* Screen wakeup */
+      { "sm.puri.phosh.notifications", "wakeup-screen-categories" },
+      { "sm.puri.phosh.notifications", "wakeup-screen-triggers" },
+      { "sm.puri.phosh.notifications", "wakeup-screen-urgency" },
+
+      /* Other phosh related */
+      { "sm.puri.phosh", "app-filter-mode" },
+      { "sm.puri.phosh", "automatic-high-contrast" },
+      { "sm.puri.phoc", "auto-maximize" },
+    };
+
+    g_string_append (string, "Settings:\n");
+
+    for (int i = 0; i < G_N_ELEMENTS (schema); i++) {
+      g_autoptr (GSettings) settings = g_settings_new (schema[i].schema);
+      g_autoptr (GVariant) value;
+      g_autofree gchar *result;
+      value = g_settings_get_value (settings, schema[i].key);
+      result = g_variant_print (value, TRUE);
+      g_string_append_printf (string, "- %s '%s': %s\n", schema[i].schema, schema[i].key, result);
+    }
+  }
+  g_string_append (string, "\n");
+
   g_string_append_printf (string, "Wayland Protocols\n");
   {
     MobileSettingsApplication *app = MOBILE_SETTINGS_APPLICATION (g_application_get_default ());

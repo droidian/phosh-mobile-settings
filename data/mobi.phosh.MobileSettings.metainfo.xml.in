@@ -47,6 +47,14 @@
   </screenshots>
 
   <releases>
+    <release version="0.34.0" date="2023-12-04">
+      <description>
+        <ul>
+          <li>Add more information to trouble shooting tab</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.33.0" date="2023-10-28">
       <description>
         <ul>
