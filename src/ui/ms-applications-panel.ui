@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="MsApplicationsPanel" parent="MsPanel">
-    <property name="child">
-      <object class="AdwNavigationView" id="navigation_view">
-
-      </object>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsApplicationsPanel" parent="AdwBin">
+    <child>
+      <object class="GtkScrolledWindow">
+        <child>
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwActionRow"> 
+                    <property name="title">Reset Favorites</property>
+                    <property name="subtitle">This will set your favorited apps back to defaults</property>
+                    <child>
+                      <object class="GtkButton" id="reset_btn">
+                        <property name="valign">center</property>
+                        <property name="label">Reset</property>
+                        <signal name="clicked" handler="on_reset_btn_clicked" swapped="no"/>
+                      </object>
+                    </child>
+                  </object> <!-- AdwActionRow -->
+                </child>
+              </object> <!-- AdwPreferencesGroup -->
+            </child>
+          </object> <!-- AdwPreferencesPage -->
+        </child>
+      </object> <!-- GtkScrolledWindow -->
+    </child>
+  </template>
 </interface>

@@ -19,17 +19,33 @@
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
+#define FAVORITES_KEY       "favorites"
+#define FAVORITES_SCHEMA_ID "sm.puri.phosh"
+
 struct _MsApplicationsPanel {
   AdwBin     parent;
+
+  /* Favorites */
+  GSettings *settings;
+  GtkWidget *reset_btn;
 };
 
 G_DEFINE_TYPE (MsApplicationsPanel, ms_applications_panel, ADW_TYPE_BIN)
+
+
+static void
+on_reset_btn_clicked (GtkButton *reset_btn, MsApplicationsPanel *self)
+{
+  g_settings_reset (self->settings, FAVORITES_KEY);
+}
+
 
 static void
 ms_applications_panel_finalize (GObject *object)
 {
   G_OBJECT_CLASS (ms_applications_panel_parent_class)->finalize (object);
 }
+
 
 static void
 ms_applications_panel_class_init (MsApplicationsPanelClass *klass)
@@ -40,13 +56,20 @@ ms_applications_panel_class_init (MsApplicationsPanelClass *klass)
   object_class->finalize = ms_applications_panel_finalize;
 
   gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/org/sigxcpu/MobileSettings/ui/ms-applications-panel.ui");
+                                               "/mobi/phosh/MobileSettings/ui/ms-applications-panel.ui");
+
+  gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, reset_btn);
+
+  gtk_widget_class_bind_template_callback (widget_class, on_reset_btn_clicked);
 }
+
 
 static void
 ms_applications_panel_init (MsApplicationsPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  self->settings = g_settings_new (FAVORITES_SCHEMA_ID);
 }
 
 
