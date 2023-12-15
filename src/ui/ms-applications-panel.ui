@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="MsApplicationsPanel" parent="MsPanel">
+    <property name="child">
+      <object class="AdwNavigationView" id="navigation_view">
+
+      </object>
+</interface>
