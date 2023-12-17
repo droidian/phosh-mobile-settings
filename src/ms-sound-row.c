@@ -231,12 +231,10 @@ on_file_chooser_response (GtkNativeDialog* dialog, gint response_id, gpointer us
   MsSoundRow *self = MS_SOUND_ROW (user_data);
   GtkFileChooser *filechooser = GTK_FILE_CHOOSER (dialog);
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     if (response_id == GTK_RESPONSE_ACCEPT) {
       g_autoptr (GFile) file = gtk_file_chooser_get_file (filechooser);
       ms_sound_row_set_filename (self, g_file_get_path (file));
     }
-G_GNUC_END_IGNORE_DEPRECATIONS
 
   g_object_unref (dialog);
 }
@@ -254,21 +252,17 @@ open_filechooser_activated (GtkWidget *widget,  const char* action_name, GVarian
   g_assert (MS_IS_SOUND_ROW (self));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   filechooser = gtk_file_chooser_native_new (_("Choose sound file"),
                                              parent,
                                              GTK_FILE_CHOOSER_ACTION_OPEN,
                                              _("_Open"),
                                              _("_Cancel"));
  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (filechooser), self->sound_filter);
-G_GNUC_END_IGNORE_DEPRECATIONS
 
   if (!STR_IS_NULL_OR_EMPTY (self->filename)) {
     current_file = g_file_new_for_path (self->filename);
     if (current_file) {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
       gtk_file_chooser_set_file (GTK_FILE_CHOOSER (filechooser), current_file, NULL);
-G_GNUC_END_IGNORE_DEPRECATIONS
     }
   }
 
