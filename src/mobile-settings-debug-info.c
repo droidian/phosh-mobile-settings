@@ -277,9 +277,5 @@ mobile_settings_generate_debug_info (void)
     }
   }
 
-#if GLIB_CHECK_VERSION(2, 76, 0)
-  return g_string_free_and_steal (string);
-#else
   return g_string_free (string, FALSE);
-#endif
 }
