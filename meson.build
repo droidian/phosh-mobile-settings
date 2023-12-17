@@ -20,6 +20,10 @@ gtk_ver = '4.12'
 gtk_ver_str = 'GDK_VERSION_@0@'.format(gtk_ver.replace('.','_'))
 gtk_ver_cmp = '>=@0@'.format(gtk_ver)
 
+adw_ver = '1.4'
+adw_ver_str = 'ADW_VERSION_@0@'.format(adw_ver.replace('.','_'))
+adw_ver_cmp = '>=@0@'.format(adw_ver)
+
 glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
@@ -40,7 +44,7 @@ wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 
 adwaita_dep = dependency(
   'libadwaita-1',
-  version: '>= 1.4.alpha',
+  version: adw_ver_cmp,
   fallback: ['libadwaita', 'adwaita_dep'],
   default_options: [
     'examples=false',
@@ -107,6 +111,8 @@ add_project_arguments(
    '-DGLIB_VERSION_MAX_ALLOWED=@0@'.format(glib_ver_str),
    '-DGDK_VERSION_MIN_REQUIRED=@0@'.format(gtk_ver_str),
    '-DGDK_VERSION_MAX_ALLOWED=@0@'.format(gtk_ver_str),
+   '-DADW_VERSION_MIN_REQUIRED=@0@'.format(adw_ver_str),
+   '-DADW_VERSION_MAX_ALLOWED=@0@'.format(adw_ver_str),
   ],
   language: 'c',
 )
