@@ -164,6 +164,7 @@ app_destroy (gpointer data)
   g_clear_object (&app->settings);
   g_clear_object (&app->app_info);
   g_clear_pointer (&app->munged_app_id, g_free);
+  g_slice_free (MsFbdApplication, app);
 }
 
 
