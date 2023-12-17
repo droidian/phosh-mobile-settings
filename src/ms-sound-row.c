@@ -278,6 +278,17 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 static void
+set_effect_name (MsSoundRow *self, const char *effect_name)
+{
+  g_autofree char *target = NULL;
+
+  self->effect_name = g_strdup (effect_name);
+  target = ms_sound_row_get_target (self);
+  ms_sound_row_set_filename (self, target);
+}
+
+
+static void
 ms_sound_row_set_property (GObject      *object,
                            guint         property_id,
                            const GValue *value,
@@ -290,8 +301,7 @@ ms_sound_row_set_property (GObject      *object,
     ms_sound_row_set_filename (self, g_value_get_string (value));
     break;
   case PROP_EFFECT_NAME:
-    self->effect_name = g_value_dup_string (value);
-    ms_sound_row_set_filename (self, ms_sound_row_get_target (self));
+    set_effect_name (self, g_value_get_string (value));
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
