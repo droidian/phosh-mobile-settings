@@ -203,6 +203,7 @@ ms_plugin_row_finalize (GObject *object)
   MsPluginRow *self = MS_PLUGIN_ROW (object);
 
   g_clear_pointer (&self->name, g_free);
+  g_clear_pointer (&self->filename, g_free);
   g_clear_object (&self->action_group);
 
   G_OBJECT_CLASS (ms_plugin_row_parent_class)->finalize (object);
