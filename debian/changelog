@@ -57,13 +57,13 @@ phosh-mobile-settings (0.32.0) experimental; urgency=medium
   [ Gotam Gorabh ]
   * window: Switch to AdwNavigationSplitView.
     AdwLeaflet will be deprecated in libadwaita 1.4
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/33
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/33
   * build: Add libadwaita as subproject
   * lockscreen-panel: Make plugin order match listbox order.
   * lockscreen-panel: Allow to reorder the plugins.
     For that add a popover with "move up" and "move down" buttons to each
     plugin row.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/17
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/17
 
   [ Guido Günther ]
   * lockscreen-panel: Log prefs state too. Simplify debugging a bit
@@ -72,7 +72,7 @@ phosh-mobile-settings (0.32.0) experimental; urgency=medium
     Fixes: b5ed64cc841d64be26731e6f4e39e091df28163b
   * feedback-panel: Move flag getting and setting closer together
   * feedback-panel: Don't overwrite a disabled wakeup trigger.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/34
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/34
   * window: Set a title. This avoids a warning when switching tabs.
   * gitignore subprojects
 
@@ -105,7 +105,7 @@ phosh-mobile-settings (0.30.0) experimental; urgency=medium
     These changes will add a troubleshooting tab in posh-mobile-settings.
     This troubleshooting tab will contain debug information required
     while reporting issues against this application.
-    Fixes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/30
+    Fixes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/30
 
   [ Guido Günther ]
   * debug-info: Allow to build with glib < 2.76.0
@@ -143,7 +143,7 @@ phosh-mobile-settings (0.28.0) experimental; urgency=medium
   * Add panel for experimental features.
     This panel is meant for features that will be enabled by default in the
     future. For now we put the emergency call support there.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/25
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/25
 
   [ Sam Hewitt ]
   * Fix issue with invisible element in app icon
@@ -172,7 +172,7 @@ phosh-mobile-settings (0.26.0) experimental; urgency=medium
 
   * panels: Use AdwPreferences page.
     This makes sure we get the styling applied correctly.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/24
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/24
   * convergence-panel: Drop superfluous GtkListBox
   * plugins: Avoid adw_action_row_set_icon_name.
     Deprecated since Adwaita 1.3
