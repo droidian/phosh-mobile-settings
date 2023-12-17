@@ -87,6 +87,7 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
   g_autofree char *dir = NULL;
   g_autofree char *theme_path = NULL;
   g_autofree char *sounds_path = NULL;
+  g_autofree char *custom_theme_dir = NULL;
   g_autoptr (GKeyFile) theme_file = NULL;
   g_autoptr (GVariant) default_theme = NULL;
   g_autoptr (GError) load_error = NULL;
@@ -103,7 +104,8 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
         g_printerr ("Failed to load theme file %s: %s", theme_path, load_error->message);
   }
 
-  if (g_strcmp0 (g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL), ".")) {
+  custom_theme_dir = g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL);
+  if (g_strcmp0 (custom_theme_dir, ".")) {
     g_key_file_set_string (theme_file, "Sound Theme", "Name", _("Custom"));
     if (default_theme != NULL)
       g_key_file_set_string (theme_file, "Sound Theme", "Inherits", g_variant_get_string (default_theme, NULL));
