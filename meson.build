@@ -16,6 +16,8 @@ glib_ver = '2.68'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
+
+
 glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
@@ -98,8 +100,11 @@ foreach arg: test_c_args
   endif
 endforeach
 add_project_arguments(
-  global_c_args,
-  language: 'c'
+  [global_c_args,
+   '-DGLIB_VERSION_MIN_REQUIRED=@0@'.format(glib_ver_str),
+   '-DGLIB_VERSION_MAX_ALLOWED=@0@'.format(glib_ver_str),
+  ],
+  language: 'c',
 )
 
 run_data = configuration_data()
