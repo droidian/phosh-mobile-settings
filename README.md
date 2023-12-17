@@ -79,6 +79,6 @@ The result should look something like this:
 - Issue tracker: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/issues
 - Matrix: https://im.puri.sm/#/room/#phosh:talk.puri.sm
 
-[main]: https://gitlab.gnome.org/World/guido/phosh-mobile-seettings/-/tree/main
-[.gitlab-ci.yml]: https://gitlab.gnome.org/World/guido/phosh-mobile-settings/-/blob/main/.gitlab-ci.yml
-[debian/control]: https://gitlab.gnome.org/World/guido/phosh-mobile-settings/-/blob/main/debian/control
+[main]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-seettings/-/tree/main
+[.gitlab-ci.yml]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/blob/main/.gitlab-ci.yml
+[debian/control]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/blob/main/debian/control
