@@ -226,19 +226,23 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
 
 
 static void
-on_file_chooser_response (GtkNativeDialog* dialog, gint response_id, gpointer user_data)
+on_file_chooser_done (GObject         *object,
+                      GAsyncResult    *response,
+                      gpointer         user_data)
 {
   MsSoundRow *self = MS_SOUND_ROW (user_data);
-  GtkFileChooser *filechooser = GTK_FILE_CHOOSER (dialog);
+  g_autoptr (GtkFileDialog) filechooser = GTK_FILE_DIALOG (object);
+  g_autoptr (GFile) file = NULL;
+  g_autoptr (GError) err = NULL;
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-    if (response_id == GTK_RESPONSE_ACCEPT) {
-      g_autoptr (GFile) file = gtk_file_chooser_get_file (filechooser);
-      ms_sound_row_set_filename (self, g_file_get_path (file));
-    }
-G_GNUC_END_IGNORE_DEPRECATIONS
+  file = gtk_file_dialog_open_finish (filechooser, response, &err);
+  if (!file) {
+    if (!g_error_matches (err, GTK_DIALOG_ERROR, GTK_DIALOG_ERROR_DISMISSED))
+        g_warning ("Failed to select file: %s", err->message);
+    return;
+  }
 
-  g_object_unref (dialog);
+  ms_sound_row_set_filename (self, g_file_get_path (file));
 }
 
 
@@ -246,34 +250,23 @@ static void
 open_filechooser_activated (GtkWidget *widget,  const char* action_name, GVariant *parameter)
 {
   MsSoundRow *self = MS_SOUND_ROW (widget);
-  GtkFileChooserNative *filechooser;
-  g_autoptr (GFile) current_file = NULL;
+  GtkFileDialog *filechooser;
   GtkWindow *parent = GTK_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), GTK_TYPE_WINDOW));
-
 
   g_assert (MS_IS_SOUND_ROW (self));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  filechooser = gtk_file_chooser_native_new (_("Choose sound file"),
-                                             parent,
-                                             GTK_FILE_CHOOSER_ACTION_OPEN,
-                                             _("_Open"),
-                                             _("_Cancel"));
- gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (filechooser), self->sound_filter);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  filechooser = gtk_file_dialog_new ();
+  gtk_file_dialog_set_title (filechooser, _("Choose sound file"));
+  gtk_file_dialog_set_default_filter (filechooser, self->sound_filter);
 
   if (!STR_IS_NULL_OR_EMPTY (self->filename)) {
-    current_file = g_file_new_for_path (self->filename);
-    if (current_file) {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gtk_file_chooser_set_file (GTK_FILE_CHOOSER (filechooser), current_file, NULL);
-G_GNUC_END_IGNORE_DEPRECATIONS
-    }
+    g_autoptr (GFile) current_file = g_file_new_for_path (self->filename);
+    if (current_file)
+      gtk_file_dialog_set_initial_file (filechooser, current_file);
   }
 
-  g_signal_connect (filechooser, "response", G_CALLBACK (on_file_chooser_response), self);
-  gtk_native_dialog_show (GTK_NATIVE_DIALOG (filechooser));
+  gtk_file_dialog_open (filechooser, parent, NULL, on_file_chooser_done, self);
 }
 
 
