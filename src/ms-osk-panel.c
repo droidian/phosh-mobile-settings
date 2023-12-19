@@ -159,7 +159,7 @@ create_shortcuts_row (gpointer item, gpointer user_data)
 static void
 on_terminal_shortcuts_changed (MsOskPanel *self)
 {
-  GStrv shortcuts = NULL;
+  g_auto (GStrv) shortcuts = NULL;
 
   if (self->shortcuts_updating)
     return;

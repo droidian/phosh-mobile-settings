@@ -164,6 +164,7 @@ app_destroy (gpointer data)
   g_clear_object (&app->settings);
   g_clear_object (&app->app_info);
   g_clear_pointer (&app->munged_app_id, g_free);
+  g_slice_free (MsFbdApplication, app);
 }
 
 
@@ -207,6 +208,7 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   GtkWidget *w;
   MsFeedbackRow *row;
   g_autoptr (GIcon) icon = NULL;
+  g_autofree char *markup = NULL;
   const gchar *app_name;
 
   app_name = g_app_info_get_name (app->app_info);
@@ -222,8 +224,8 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   row = ms_feedback_row_new ();
 
   /* TODO: we can move most of this into MsMobileSettingsRow */
-  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
-                                 g_markup_escape_text (app_name, -1));
+  markup = g_markup_escape_text (app_name, -1);
+  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), markup);
   g_object_set_data_full (G_OBJECT (row), "app", app, app_destroy);
   g_settings_bind_with_mapping (app->settings, FEEDBACKD_KEY_PROFILE,
                                 row, "feedback-profile",
