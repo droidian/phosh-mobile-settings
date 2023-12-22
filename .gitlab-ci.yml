@@ -4,6 +4,7 @@ include:
 
 stages:
  - build
+ - test
  - style-checks
 
 default:
@@ -92,3 +93,14 @@ format-check:
   allow_failure: true
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
+
+check-po:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  before_script:
+    - eatmydata apt-get -y update
+    - eatmydata apt-get -y install intltool gettext
+  <<: *trixie_vars
+  needs: []
+  script:
+    - tools/check-po
