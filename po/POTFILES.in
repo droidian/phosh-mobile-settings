@@ -1,5 +1,4 @@
 data/mobi.phosh.MobileSettings.desktop.in
-data/mobi.phosh.MobileSettings.gschema.xml
 data/mobi.phosh.MobileSettings.metainfo.xml.in
 plugins/librem5/ms-plugin-librem5-panel.c
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
