@@ -158,7 +158,7 @@ msgid "_About Mobile Settings"
 msgstr ""
 
 #: src/ui/ms-compositor-panel.ui:16
-msgid "Scaling down of running applications:"
+msgid "Scaling down of running applications"
 msgstr "Verkleinern laufender Anwendungen"
 
 #: src/ui/ms-compositor-panel.ui:17
