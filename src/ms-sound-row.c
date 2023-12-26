@@ -234,6 +234,7 @@ on_file_chooser_done (GObject         *object,
   g_autoptr (GtkFileDialog) filechooser = GTK_FILE_DIALOG (object);
   g_autoptr (GFile) file = NULL;
   g_autoptr (GError) err = NULL;
+  g_autofree char *path = NULL;
 
   file = gtk_file_dialog_open_finish (filechooser, response, &err);
   if (!file) {
@@ -242,7 +243,8 @@ on_file_chooser_done (GObject         *object,
     return;
   }
 
-  ms_sound_row_set_filename (self, g_file_get_path (file));
+  path = g_file_get_path (file);
+  ms_sound_row_set_filename (self, path);
 }
 
 
