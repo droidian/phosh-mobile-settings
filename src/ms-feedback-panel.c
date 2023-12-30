@@ -105,12 +105,14 @@ on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user
   g_autoptr (GError) err = NULL;
   MsFeedbackPanel *self;
 
-  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
-  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-    g_warning ("Failed to play sound: %s", err->message);
-
   self = MS_FEEDBACK_PANEL (user_data);
   g_assert (MS_IS_FEEDBACK_PANEL (self));
+
+  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
+  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+    g_warning ("Failed to play sound: %s", err->message);
+    adw_toast_set_title (self->toast, _("Failed to play sound"));
+  }
 
   /* Clear cancellable if unused, if used it's cleared in stop_playback */
   if (success || !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
