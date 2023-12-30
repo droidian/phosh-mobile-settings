@@ -4,48 +4,48 @@
   <template class="MsSoundRow" parent="AdwActionRow">
     <child>
       <object class="GtkBox">
-	<child>
-	  <object class="GtkButton">
-	    <property name="valign">center</property>
+        <child>
+          <object class="GtkButton">
+            <property name="valign">center</property>
             <property name="action-name">sound-row.open-filechooser</property>
-	    <child>
-	      <object class="GtkBox">
+            <child>
+              <object class="GtkBox">
                 <property name="spacing">6</property>
-	        <child>
-	          <object class="GtkLabel" id="filename_label">
+                <child>
+                  <object class="GtkLabel" id="filename_label">
                     <property name="ellipsize">end</property>
-	          </object>
-	        </child>
-	        <child>
-	          <object class="GtkImage">
-	            <property name="icon-name">folder-open-symbolic</property>
-	          </object>
-	        </child>
-	      </object>
-	    </child>
-	  </object>
-	</child>
-	<child>
-	  <object class="GtkButton">
-	    <property name="valign">center</property>
-	    <property name="icon-name">media-playback-start-symbolic</property>
-	    <property name="action-name">sound-row.play-sound</property>
-	    <property name="tooltip-text">Toggle Play</property>
-	    <style>
-	      <class name="flat"/>
-	    </style>
-	  </object>
-	</child>
-	<child>
-	  <object class="GtkButton">
-	    <property name="valign">center</property>
-	    <property name="icon-name">window-close-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">folder-open-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="valign">center</property>
+            <property name="icon-name">media-playback-start-symbolic</property>
+            <property name="action-name">sound-row.play-sound</property>
+            <property name="tooltip-text">Toggle Play</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="valign">center</property>
+            <property name="icon-name">window-close-symbolic</property>
             <property name="action-name">sound-row.clear-filename</property>
-	    <style>
-	      <class name="flat"/>
-	    </style>
-	  </object>
-	</child>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
       </object>
     </child>
   </template>
