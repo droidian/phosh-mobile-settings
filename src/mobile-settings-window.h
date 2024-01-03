@@ -16,4 +16,6 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (MobileSettingsWindow, mobile_settings_window, MOBILE_SETTINGS, WINDOW, AdwApplicationWindow)
 
+GtkSelectionModel *mobile_settings_window_get_stack_pages (MobileSettingsWindow *self);
+
 G_END_DECLS

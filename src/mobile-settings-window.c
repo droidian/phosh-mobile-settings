@@ -105,3 +105,12 @@ mobile_settings_window_init (MobileSettingsWindow *self)
   gtk_widget_init_template (GTK_WIDGET (self));
   on_visible_child_changed (self);
 }
+
+
+GtkSelectionModel *
+mobile_settings_window_get_stack_pages (MobileSettingsWindow *self)
+{
+  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+
+  return gtk_stack_get_pages (self->stack);
+}
