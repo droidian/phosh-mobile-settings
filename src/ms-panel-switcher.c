@@ -217,7 +217,7 @@ ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *pane
       found = TRUE;
       break;
     }
-  } 
+  }
 
   return found;
 }
