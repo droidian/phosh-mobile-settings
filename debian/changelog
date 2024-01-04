@@ -1,8 +1,9 @@
-phosh-mobile-settings (0.35.0-1) UNRELEASED; urgency=medium
+phosh-mobile-settings (0.35.0-1) unstable; urgency=medium
 
   * New upstream release
+  * metadata: Update repository URL
 
- -- Guido Günther <agx@sigxcpu.org>  Thu, 04 Jan 2024 18:07:37 +0100
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 04 Jan 2024 18:10:44 +0100
 
 phosh-mobile-settings (0.34.0-1) unstable; urgency=medium
 
