@@ -1,3 +1,54 @@
+phosh-mobile-settings (0.35.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * osk-panel: Use a list model.
+    This separates shortcut maintenance from the visual representation.
+  * osk-panel: Allow to sort terminal shortcuts via d'n'd
+  * treewide: Update repository location.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/5
+  * README: Fix broken links.
+    The were 404 before and hence search and replace missed them too.
+  * Multiple leak fixes
+  * Add doap file. Welcome Gotam as maintainer while at that.
+  * build: Use GLIB_VERSION_{MIN_REQURED,MAX_ALLOWED}
+    We had the version string but weren't using it.
+  * build: Bump glib version.
+    We were using 'G_APPLICATION_DEFAULT_FLAGS' already
+  * build: Use GDK_VERSION_{MIN_REQURED,MAX_ALLOWED}
+    We use the same pattern as with glib
+  * sound-row: Drop G_GNUC_END_IGNORE_DEPRECATIONS.
+    Not needed as we specify a GTK version
+  * sound-row: Swith to GtkFileDialog.
+    This makes us use the portal and hence we get an adaptive file dialog in
+    most distros.
+    We bump the required GTK version for 4.12 to that. We require 4.12
+    implicitly anyway due to libadwaita 1.4.
+  * build: Use ADW_VERSION_{MIN_REQURED,MAX_ALLOWED}
+    Be consistent with how we handle glib and gtk.
+  * ci: Remove duplicate style-check
+  * po: Add ms-plugin-row.ui.
+    Fixes: 7721528 ("Allow to enable and disable lockscreen plugins")
+  * tools: Add check-po.
+    Taken from phosh as of c61a960bc451907f7d28dbf6e5e773e4d2cdcce2
+  * ci: Check if we have all translatable files listed
+  * ci: Add ci-fairy rules.
+    Use the ones from Phosh as of 7fb92f43992ab9e20e6d231ca537a9e7ce687ea0
+  * Untabify ui files
+
+  [ Alexandre Iooss ]
+  * po: Delete reference to previously deleted schema file.
+    Fixes: b256841 ("data: Remove unused schema")`
+  * ui: remove extra colon
+  * Add po/fr.po
+
+  [ Gotam Gorabh ]
+  * feedback-panel: Fix toast messages.
+    User should know the current status of playing sound via toast messages.
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/40
+  * sound-row: Add tooltip-text to playback button
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 01 Jan 2024 10:14:26 +0100
+
 phosh-mobile-settings (0.34.0) experimental; urgency=medium
 
   [ Guido Günther ]
@@ -57,13 +108,13 @@ phosh-mobile-settings (0.32.0) experimental; urgency=medium
   [ Gotam Gorabh ]
   * window: Switch to AdwNavigationSplitView.
     AdwLeaflet will be deprecated in libadwaita 1.4
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/33
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/33
   * build: Add libadwaita as subproject
   * lockscreen-panel: Make plugin order match listbox order.
   * lockscreen-panel: Allow to reorder the plugins.
     For that add a popover with "move up" and "move down" buttons to each
     plugin row.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/17
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/17
 
   [ Guido Günther ]
   * lockscreen-panel: Log prefs state too. Simplify debugging a bit
@@ -72,7 +123,7 @@ phosh-mobile-settings (0.32.0) experimental; urgency=medium
     Fixes: b5ed64cc841d64be26731e6f4e39e091df28163b
   * feedback-panel: Move flag getting and setting closer together
   * feedback-panel: Don't overwrite a disabled wakeup trigger.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/34
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/34
   * window: Set a title. This avoids a warning when switching tabs.
   * gitignore subprojects
 
@@ -105,7 +156,7 @@ phosh-mobile-settings (0.30.0) experimental; urgency=medium
     These changes will add a troubleshooting tab in posh-mobile-settings.
     This troubleshooting tab will contain debug information required
     while reporting issues against this application.
-    Fixes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/30
+    Fixes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/30
 
   [ Guido Günther ]
   * debug-info: Allow to build with glib < 2.76.0
@@ -143,7 +194,7 @@ phosh-mobile-settings (0.28.0) experimental; urgency=medium
   * Add panel for experimental features.
     This panel is meant for features that will be enabled by default in the
     future. For now we put the emergency call support there.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/25
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/25
 
   [ Sam Hewitt ]
   * Fix issue with invisible element in app icon
@@ -172,7 +223,7 @@ phosh-mobile-settings (0.26.0) experimental; urgency=medium
 
   * panels: Use AdwPreferences page.
     This makes sure we get the styling applied correctly.
-    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/24
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/24
   * convergence-panel: Drop superfluous GtkListBox
   * plugins: Avoid adw_action_row_set_icon_name.
     Deprecated since Adwaita 1.3

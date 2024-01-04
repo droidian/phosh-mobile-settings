@@ -4,16 +4,16 @@
   <template class="MsPanelSwitcher" parent="AdwBin">
     <child>
       <object class="GtkBox">
-         <property name="orientation">vertical</property>
-	       <child>
-	         <object class="GtkListBox" id="panels_listbox">
-	           <property name="selection-mode">single</property>
-	           <signal name="row-activated" handler="on_row_activated" swapped="yes"/>
-	           <style>
-	             <class name="navigation-sidebar"/>
-	           </style>
-	         </object>
-	       </child>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkListBox" id="panels_listbox">
+            <property name="selection-mode">single</property>
+            <signal name="row-activated" handler="on_row_activated" swapped="yes"/>
+            <style>
+              <class name="navigation-sidebar"/>
+            </style>
+          </object>
+        </child>
       </object>
     </child>
   </template>

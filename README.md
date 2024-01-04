@@ -10,7 +10,7 @@ Phosh Mobile Settings is licensed under the GPLv3+.
 ## Getting the source
 
 ```sh
-git clone https://gitlab.gnome.org/guidog/phosh-mobile-settings
+git clone https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings
 cd phosh-mobile-settings
 ```
 
@@ -76,9 +76,9 @@ The result should look something like this:
 
 # Getting in Touch
 
-- Issue tracker: https://gitlab.gnome.org/guidog/phosh-mobile-settings/issues
+- Issue tracker: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/issues
 - Matrix: https://im.puri.sm/#/room/#phosh:talk.puri.sm
 
-[main]: https://gitlab.gnome.org/World/guido/phosh-mobile-seettings/-/tree/main
-[.gitlab-ci.yml]: https://gitlab.gnome.org/World/guido/phosh-mobile-settings/-/blob/main/.gitlab-ci.yml
-[debian/control]: https://gitlab.gnome.org/World/guido/phosh-mobile-settings/-/blob/main/debian/control
+[main]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-seettings/-/tree/main
+[.gitlab-ci.yml]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/blob/main/.gitlab-ci.yml
+[debian/control]: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/blob/main/debian/control

@@ -87,6 +87,7 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
   g_autofree char *dir = NULL;
   g_autofree char *theme_path = NULL;
   g_autofree char *sounds_path = NULL;
+  g_autofree char *custom_theme_dir = NULL;
   g_autoptr (GKeyFile) theme_file = NULL;
   g_autoptr (GVariant) default_theme = NULL;
   g_autoptr (GError) load_error = NULL;
@@ -103,7 +104,8 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
         g_printerr ("Failed to load theme file %s: %s", theme_path, load_error->message);
   }
 
-  if (g_strcmp0 (g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL), ".")) {
+  custom_theme_dir = g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL);
+  if (g_strcmp0 (custom_theme_dir, ".")) {
     g_key_file_set_string (theme_file, "Sound Theme", "Name", _("Custom"));
     if (default_theme != NULL)
       g_key_file_set_string (theme_file, "Sound Theme", "Inherits", g_variant_get_string (default_theme, NULL));
@@ -224,19 +226,25 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
 
 
 static void
-on_file_chooser_response (GtkNativeDialog* dialog, gint response_id, gpointer user_data)
+on_file_chooser_done (GObject         *object,
+                      GAsyncResult    *response,
+                      gpointer         user_data)
 {
   MsSoundRow *self = MS_SOUND_ROW (user_data);
-  GtkFileChooser *filechooser = GTK_FILE_CHOOSER (dialog);
+  g_autoptr (GtkFileDialog) filechooser = GTK_FILE_DIALOG (object);
+  g_autoptr (GFile) file = NULL;
+  g_autoptr (GError) err = NULL;
+  g_autofree char *path = NULL;
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-    if (response_id == GTK_RESPONSE_ACCEPT) {
-      g_autoptr (GFile) file = gtk_file_chooser_get_file (filechooser);
-      ms_sound_row_set_filename (self, g_file_get_path (file));
-    }
-G_GNUC_END_IGNORE_DEPRECATIONS
+  file = gtk_file_dialog_open_finish (filechooser, response, &err);
+  if (!file) {
+    if (!g_error_matches (err, GTK_DIALOG_ERROR, GTK_DIALOG_ERROR_DISMISSED))
+        g_warning ("Failed to select file: %s", err->message);
+    return;
+  }
 
-  g_object_unref (dialog);
+  path = g_file_get_path (file);
+  ms_sound_row_set_filename (self, path);
 }
 
 
@@ -244,34 +252,34 @@ static void
 open_filechooser_activated (GtkWidget *widget,  const char* action_name, GVariant *parameter)
 {
   MsSoundRow *self = MS_SOUND_ROW (widget);
-  GtkFileChooserNative *filechooser;
-  g_autoptr (GFile) current_file = NULL;
+  GtkFileDialog *filechooser;
   GtkWindow *parent = GTK_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (self), GTK_TYPE_WINDOW));
-
 
   g_assert (MS_IS_SOUND_ROW (self));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  filechooser = gtk_file_chooser_native_new (_("Choose sound file"),
-                                             parent,
-                                             GTK_FILE_CHOOSER_ACTION_OPEN,
-                                             _("_Open"),
-                                             _("_Cancel"));
- gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (filechooser), self->sound_filter);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  filechooser = gtk_file_dialog_new ();
+  gtk_file_dialog_set_title (filechooser, _("Choose sound file"));
+  gtk_file_dialog_set_default_filter (filechooser, self->sound_filter);
 
   if (!STR_IS_NULL_OR_EMPTY (self->filename)) {
-    current_file = g_file_new_for_path (self->filename);
-    if (current_file) {
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      gtk_file_chooser_set_file (GTK_FILE_CHOOSER (filechooser), current_file, NULL);
-G_GNUC_END_IGNORE_DEPRECATIONS
-    }
+    g_autoptr (GFile) current_file = g_file_new_for_path (self->filename);
+    if (current_file)
+      gtk_file_dialog_set_initial_file (filechooser, current_file);
   }
 
-  g_signal_connect (filechooser, "response", G_CALLBACK (on_file_chooser_response), self);
-  gtk_native_dialog_show (GTK_NATIVE_DIALOG (filechooser));
+  gtk_file_dialog_open (filechooser, parent, NULL, on_file_chooser_done, self);
+}
+
+
+static void
+set_effect_name (MsSoundRow *self, const char *effect_name)
+{
+  g_autofree char *target = NULL;
+
+  self->effect_name = g_strdup (effect_name);
+  target = ms_sound_row_get_target (self);
+  ms_sound_row_set_filename (self, target);
 }
 
 
@@ -288,8 +296,7 @@ ms_sound_row_set_property (GObject      *object,
     ms_sound_row_set_filename (self, g_value_get_string (value));
     break;
   case PROP_EFFECT_NAME:
-    self->effect_name = g_value_dup_string (value);
-    ms_sound_row_set_filename (self, ms_sound_row_get_target (self));
+    set_effect_name (self, g_value_get_string (value));
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);

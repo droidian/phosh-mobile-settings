@@ -335,7 +335,7 @@ GStrv
 ms_toplevel_tracker_get_app_ids (MsToplevelTracker *self)
 {
   g_autoptr (GList) keys = NULL;
-  GPtrArray *app_ids = NULL;
+  g_autoptr (GPtrArray) app_ids = NULL;
 
   keys = g_hash_table_get_keys (self->app_ids);
 
