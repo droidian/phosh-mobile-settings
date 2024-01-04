@@ -1,5 +1,4 @@
 data/mobi.phosh.MobileSettings.desktop.in
-data/mobi.phosh.MobileSettings.gschema.xml
 data/mobi.phosh.MobileSettings.metainfo.xml.in
 plugins/librem5/ms-plugin-librem5-panel.c
 plugins/librem5/ui/ms-plugin-librem5-panel.ui
@@ -18,6 +17,7 @@ src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-panel.ui
+src/ui/ms-plugin-row.ui
 src/ui/ms-scale-to-fit-row.ui
 src/ui/ms-sensor-panel.ui
 src/ui/ms-sound-row.ui
