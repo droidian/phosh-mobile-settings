@@ -1,3 +1,16 @@
+phosh-mobile-settings 0.35.0
+----------------------------
+Released: January 2024
+* Show error when sound file didn't play
+* Fix leaks and patch up to GTK 4.12 for
+  GtkFileDialog
+* Contributors:
+    * Alexandre Iooss
+    * Gotam Gorabh
+    * Guido Günther
+* UI translations:
+    * Alexandre Iooss (fr)
+
 phosh-mobile-settings 0.34.0
 ----------------------------
 Released: December 2023
