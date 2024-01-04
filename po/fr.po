@@ -1,0 +1,351 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Alexandre Iooss <erdnaxe@crans.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-13 20:12+0100\n"
+"PO-Revision-Date: 2023-12-23 08:39+0100\n"
+"Last-Translator: Alexandre Iooss <erdnaxe@crans.org>\n"
+"Language-Team: French <none>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 42.0\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Paramètres du mobile"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Mobile;Preferences;MobileSettings;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Paramètres Phosh du mobile"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Cette application vous permet de configurer certains aspects de Phosh qui "
+"nécessiteraient autrement l'utilisation de lignes de commande."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Paramètres avancés pour les appareils mobiles utilisant Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:36
+msgid "Available panels"
+msgstr "Panneaux disponibles"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Compositor panel"
+msgstr "Panneau du compositeur"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Feedback panel"
+msgstr "Panneau des réactions"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Général"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Afficher les raccourcis"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitter"
+
+#: src/ui/mobile-settings-window.ui:74
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: src/ui/mobile-settings-window.ui:80
+msgid "Welcome to Mobile Settings"
+msgstr "Bienvenue dans les paramètres du mobile"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Tweak advanced mobile settings"
+msgstr "Modifier les paramètres avancés du mobile"
+
+#: src/ui/mobile-settings-window.ui:89
+msgid "Feedback"
+msgstr "Réactions"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Compositor"
+msgstr "Compositeur"
+
+#: src/ui/mobile-settings-window.ui:111
+msgid "Lockscreen"
+msgstr "Écran de verrouillage"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Convergence"
+msgstr "Convergence"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "On Screen Keyboard"
+msgstr "Clavier virtuel"
+
+#: src/ui/mobile-settings-window.ui:144 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Capteurs"
+
+#: src/ui/mobile-settings-window.ui:155
+msgid "Experimental features"
+msgstr "Fonctionnalités expérimentales"
+
+#: src/ui/mobile-settings-window.ui:179
+msgid "_Keyboard Shortcuts"
+msgstr "_Raccourcis clavier"
+
+#: src/ui/mobile-settings-window.ui:183
+msgid "_About Mobile Settings"
+msgstr "_À propos de Paramètres du mobile"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "Réduction d'échelle des applications en cours d'exécution"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr ""
+"N'activez cette fonction que pour les applications défectueuses qui ne "
+"s'adaptent pas à l'écran"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "Réduction d'échelle de toutes les applications"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+"Réduction forcée de l'échelle de toutes les applications. N'utilisez cette "
+"solution qu'en dernier recours."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "Réduire toutes les applications"
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:43 src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Activé"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "Aucun dock connu n'a été détecté"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "Cartographier l'écran tactile intégré"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Fonctionnalités expérimentales"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr ""
+"Fonctionnalités qui ne sont pas encore considérées comme totalement stables"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Appels d'urgence"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Activer les appels d'urgence. N'activez cette option que si vous pouvez vous "
+"assurer en toute sécurité qu'elle fonctionne avec votre opérateur."
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr "Activer la mise en veille via le menu système"
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr "Profil de réaction"
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr "Le profil global de réaction maximal"
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Per Application settings"
+msgstr "Paramètres par application"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Sounds"
+msgstr "Sons"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "The sound to use for certain events"
+msgstr "Le son à utiliser pour certains événements"
+
+#: src/ui/ms-feedback-panel.ui:55
+msgid "Phone Calls"
+msgstr "Appels téléphoniques"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:67
+msgid "Instant messages"
+msgstr "Messages instantanés"
+
+#: src/ui/ms-feedback-panel.ui:78
+msgid "Screen Wakeup"
+msgstr "Réveil de l'écran"
+
+#: src/ui/ms-feedback-panel.ui:81
+msgid "Notification urgency that lights up the screen"
+msgstr "Niveau d'urgence de notification qui illumine l'écran"
+
+#: src/ui/ms-lockscreen-panel.ui:11
+msgid "Unlocking"
+msgstr "Déverrouillage"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Shuffle keypad"
+msgstr "Mélange du pavé numérique"
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Permet de mélanger ou non les chiffres du pavé numérique"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Widgets"
+msgstr "Widgets"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Additional widgets for the lock screen"
+msgstr "Widgets supplémentaires pour l'écran de verrouillage"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Activer le _clavier virtuel"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Afficher ou non le clavier à l'écran lorsque c'est nécessaire"
+
+#: src/ui/ms-osk-panel.ui:32
+msgid "Text Completion"
+msgstr "Complétion du texte"
+
+#: src/ui/ms-osk-panel.ui:35
+msgid "Opportunistic word completion"
+msgstr "Complétion opportuniste des mots"
+
+#: src/ui/ms-osk-panel.ui:36
+msgid "Enable word completion when the app indicates it is useful"
+msgstr ""
+"Activer la complétion de mots lorsque l'application indique que c'est utile"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "Toggle via OSK menu"
+msgstr "Basculer via le menu du clavier virtuel"
+
+#: src/ui/ms-osk-panel.ui:52
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+"Permettre de basculer la complétion des mots via le bouton de menu du clavier"
+
+#: src/ui/ms-osk-panel.ui:70
+msgid "Terminal Layout"
+msgstr "Disposition de la console"
+
+#: src/ui/ms-osk-panel.ui:74
+msgid "Shortcuts"
+msgstr "Raccourcis"
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "Les raccourcis disponibles dans la barre de raccourcis"
+
+#: src/ui/ms-plugin-row.ui:33
+msgid "More options…"
+msgstr "Plus d'options…"
+
+#: src/ui/ms-plugin-row.ui:46
+msgid "Move Up"
+msgstr "Monter"
+
+#: src/ui/ms-plugin-row.ui:50
+msgid "Move Down"
+msgstr "Descendre"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Aucun capteur trouvé"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+"Soit il n'y a pas de capteurs installés sur votre appareil, soit ils sont "
+"désactivés par un interrupteur."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Relevés des capteurs"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Proximité"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Luminosité"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Orientation"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Contraste élevé"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Contraste élevé automatique"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "Contrôlé par le capture de luminosité ambiante"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "Seuil d'intensité lumineuse"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "Le thème passe en contraste élevé au-dessus du seuil"
+
+#: src/ui/ms-sound-row.ui:53
+msgid "Sound files (ogg)"
+msgstr "Fichiers audio (.ogg)"

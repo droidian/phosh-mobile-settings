@@ -105,12 +105,14 @@ on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user
   g_autoptr (GError) err = NULL;
   MsFeedbackPanel *self;
 
-  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
-  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-    g_warning ("Failed to play sound: %s", err->message);
-
   self = MS_FEEDBACK_PANEL (user_data);
   g_assert (MS_IS_FEEDBACK_PANEL (self));
+
+  success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
+  if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+    g_warning ("Failed to play sound: %s", err->message);
+    adw_toast_set_title (self->toast, _("Failed to play sound"));
+  }
 
   /* Clear cancellable if unused, if used it's cleared in stop_playback */
   if (success || !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED))
@@ -164,6 +166,7 @@ app_destroy (gpointer data)
   g_clear_object (&app->settings);
   g_clear_object (&app->app_info);
   g_clear_pointer (&app->munged_app_id, g_free);
+  g_slice_free (MsFbdApplication, app);
 }
 
 
@@ -207,6 +210,7 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   GtkWidget *w;
   MsFeedbackRow *row;
   g_autoptr (GIcon) icon = NULL;
+  g_autofree char *markup = NULL;
   const gchar *app_name;
 
   app_name = g_app_info_get_name (app->app_info);
@@ -222,8 +226,8 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   row = ms_feedback_row_new ();
 
   /* TODO: we can move most of this into MsMobileSettingsRow */
-  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
-                                 g_markup_escape_text (app_name, -1));
+  markup = g_markup_escape_text (app_name, -1);
+  adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), markup);
   g_object_set_data_full (G_OBJECT (row), "app", app, app_destroy);
   g_settings_bind_with_mapping (app->settings, FEEDBACKD_KEY_PROFILE,
                                 row, "feedback-profile",

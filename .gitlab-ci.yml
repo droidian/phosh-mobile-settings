@@ -4,6 +4,7 @@ include:
 
 stages:
  - build
+ - test
  - style-checks
 
 default:
@@ -31,7 +32,7 @@ workflow:
 
 variables:
   # For ci-fairy
-  FDO_UPSTREAM_REPO: guidog/phosh-mobile-settings
+  FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
   DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2023-11-20.3
   COMMON_BUILD_OPTS: --werror
 
@@ -51,36 +52,13 @@ sanity:
   extends:
     - .fdo.ci-fairy
   stage: style-checks
+  variables:
+    GIT_DEPTH: "100"
   script: |
     ci-fairy check-commits --junit-xml=commit-message-junit-report.xml cifairy/main..HEAD ;
   artifacts:
     reports:
       junit: commit-message-junit-report.xml
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
-
-format-check:
-  image: ${DEBIAN_IMAGE}
-  stage: style-checks
-  needs: []
-  script:
-    - |
-      if [ -n "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" ]; then
-        git remote add target $CI_MERGE_REQUEST_PROJECT_URL.git
-        echo "Fetching MR target branch $CI_MERGE_REQUEST_TARGET_BRANCH_NAME from $CI_MERGE_REQUEST_PROJECT_URL"
-        git fetch target "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
-        git fetch --deepen=100 origin HEAD
-        merge_base=$(git merge-base "target/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" HEAD)
-        if [ -z "$merge_base" ]; then
-          echo "Could't determine merge base"
-          exit 1
-        fi
-        echo "Merge base: $merge_base"
-        ./.gitlab-ci/check-style.py --dry-run --sha $merge_base
-      else
-        echo "Not a merge request"
-      fi
-  allow_failure: true
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
 
@@ -117,3 +95,14 @@ format-check:
   allow_failure: true
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME'
+
+check-po:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  before_script:
+    - eatmydata apt-get -y update
+    - eatmydata apt-get -y install intltool gettext
+  <<: *trixie_vars
+  needs: []
+  script:
+    - tools/check-po
