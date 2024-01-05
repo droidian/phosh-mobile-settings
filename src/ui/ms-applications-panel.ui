@@ -7,7 +7,7 @@
         <child>
           <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="AdwPreferencesGroup" id="arrange_favs">
                 <property name="title" translatable="yes">Favorites</property>
                 <child>
                   <object class="GtkListBox">

@@ -25,14 +25,15 @@
 #define FAVORITES_LIST_ICON_SIZE 48
 
 struct _MsApplicationsPanel {
-  AdwBin      parent;
+  AdwBin               parent;
 
-  GSettings  *settings;
+  GSettings           *settings;
 
   /* Favorites */
-  GtkFlowBox *fbox;
-  GListStore *apps;
-  GtkWidget  *reset_btn;
+  AdwPreferencesGroup *arrange_favs;
+  GtkFlowBox          *fbox;
+  GListStore          *apps;
+  GtkWidget           *reset_btn;
 };
 
 G_DEFINE_TYPE (MsApplicationsPanel, ms_applications_panel, ADW_TYPE_BIN)
@@ -131,7 +132,7 @@ add_drop_target (GtkWidget *app, MsApplicationsPanel *self)
                     "signal::drop", G_CALLBACK (on_drop), self,
                     NULL);
 
-  gtk_widget_add_controller (app, GTK_EVENT_CONTROLLER (target)); 
+  gtk_widget_add_controller (app, GTK_EVENT_CONTROLLER (target));
 }
 
 
@@ -225,6 +226,7 @@ ms_applications_panel_class_init (MsApplicationsPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-applications-panel.ui");
 
+  gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, arrange_favs);
   gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, fbox);
   gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, reset_btn);
 
@@ -235,6 +237,8 @@ ms_applications_panel_class_init (MsApplicationsPanelClass *klass)
 static void
 ms_applications_panel_init (MsApplicationsPanel *self)
 {
+  const char *version_check;
+
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->apps = g_list_store_new (G_TYPE_APP_INFO);
@@ -251,6 +255,12 @@ ms_applications_panel_init (MsApplicationsPanel *self)
                            NULL);
 
   on_favorites_changed (self);
+
+  version_check = gtk_check_version (4, 13, 2);
+  if (version_check) {
+    g_debug ("%s: Disabling arranging favorites", version_check);
+    gtk_widget_set_visible (GTK_WIDGET (self->arrange_favs), FALSE);
+  }
 }
 
 
