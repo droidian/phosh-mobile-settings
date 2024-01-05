@@ -103,15 +103,26 @@ on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user
   gboolean success;
 
   g_autoptr (GError) err = NULL;
+  const char *msg = NULL;
   MsFeedbackPanel *self;
 
   self = MS_FEEDBACK_PANEL (user_data);
   g_assert (MS_IS_FEEDBACK_PANEL (self));
 
   success = gsound_context_play_full_finish (GSOUND_CONTEXT (source_object), res, &err);
+
   if (!success && !g_error_matches (err, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
+
+    if (g_error_matches (err, GSOUND_ERROR, GSOUND_ERROR_NOTFOUND)) {
+      msg = _("Sound file does not exist");
+    } else if (g_error_matches (err, GSOUND_ERROR, GSOUND_ERROR_CORRUPT)) {
+      msg = _("Sound file is corrupt");
+    } else {
+      msg = _("Failed to play sound");
+    }
+
     g_warning ("Failed to play sound: %s", err->message);
-    adw_toast_set_title (self->toast, _("Failed to play sound"));
+    adw_toast_set_title (self->toast, msg);
   }
 
   /* Clear cancellable if unused, if used it's cleared in stop_playback */
