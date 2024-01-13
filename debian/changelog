@@ -1,3 +1,18 @@
+phosh-mobile-settings (0.35.1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ci: Drop an unused remote.
+    We don't use it and it just causes failures when the remote is
+    unavailable.
+    (cherry picked from commit 716a1d8a280f683d0fa93355de695d068e99133e)
+
+  [ Teemu Ikonen ]
+  * feedback-panel: Use correct schema id for feedbackd.
+    Fixes: 73507d0 ("treewide: Move to mobi.phosh prefix")
+    (cherry picked from commit b6fdc1a4d1dc0cdf5217d9ba0dae4b3d6eb776ca)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 08 Jan 2024 15:47:13 +0100
+
 phosh-mobile-settings (0.35.0) experimental; urgency=medium
 
   [ Guido Günther ]
