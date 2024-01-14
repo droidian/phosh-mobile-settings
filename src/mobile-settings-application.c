@@ -125,12 +125,11 @@ static const struct wl_registry_listener registry_listener = {
 
 
 MobileSettingsApplication *
-mobile_settings_application_new (gchar *application_id,
-                                 GApplicationFlags flags)
+mobile_settings_application_new (gchar *application_id)
 {
   return g_object_new (MOBILE_SETTINGS_TYPE_APPLICATION,
                        "application-id", application_id,
-                       "flags", flags,
+                       "flags", G_APPLICATION_DEFAULT_FLAGS,
                        NULL);
 }
 

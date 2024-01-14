@@ -19,8 +19,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (MobileSettingsApplication, mobile_settings_application, MOBILE_SETTINGS, APPLICATION, AdwApplication)
 
-MobileSettingsApplication *mobile_settings_application_new (gchar *application_id,
-                                                            GApplicationFlags flags);
+MobileSettingsApplication *mobile_settings_application_new (gchar *application_id);
 GtkWidget *mobile_settings_application_get_device_panel  (MobileSettingsApplication *self);
 MsToplevelTracker *mobile_settings_application_get_toplevel_tracker (MobileSettingsApplication *self);
 MsHeadTracker     *mobile_settings_application_get_head_tracker (MobileSettingsApplication *self);
