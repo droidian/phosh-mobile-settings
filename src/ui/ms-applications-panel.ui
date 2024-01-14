@@ -56,6 +56,19 @@
                 </child>
               </object> <!-- AdwPreferencesGroup -->
             </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Mobile App Filtering</property>
+                <child>
+                  <object class="AdwSwitchRow" id="afm_switch_row">
+                    <property name="title">Enable App Filter Mode</property>
+                    <property name="subtitle">Show only mobile apps in the overview</property>
+                    <signal name="notify::active" handler="afm_switch_row_cb" object="MsApplicationsPanel" swapped="yes"/>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object> <!-- AdwPreferencesPage -->
         </child>
       </object> <!-- GtkScrolledWindow -->
