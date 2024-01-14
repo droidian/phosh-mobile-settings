@@ -47,6 +47,15 @@
   </screenshots>
 
   <releases>
+
+    <release version="0.35.1" date="2024-01-08">
+      <description>
+        <ul>
+          <li>Fix feedback level configuration of individual apps</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.35.0" date="2024-01-01">
       <description>
         <ul>
