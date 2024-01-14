@@ -23,7 +23,7 @@
 #define FEEDBACKD_KEY_PROFILE "profile"
 #define FEEDBACKD_THEME_VAR "FEEDBACK_THEME"
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
-#define APP_PREFIX "/mobi/phosh/feedbackd/application/"
+#define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
 
 #define NOTIFICATIONS_SCHEMA "sm.puri.phosh.notifications"
 #define NOTIFICATIONS_URGENCY_ENUM "sm.puri.phosh.NotificationUrgency"
