@@ -139,8 +139,7 @@ mobile_settings_generate_debug_info (void)
     g_autofree char *phosh_session_version = get_phosh_session_version ();
 
     g_string_append (string, "System:\n");
-    g_string_append_printf (string, "- Name: %s\n", os_name);
-    g_string_append_printf (string, "- Version: %s\n", os_version);
+    g_string_append_printf (string, "- Operating System: %s %s\n", os_name, os_version);
     g_string_append_printf (string, "- Phosh-session: %s\n", phosh_session_version);
     g_string_append (string, "\n");
   }
