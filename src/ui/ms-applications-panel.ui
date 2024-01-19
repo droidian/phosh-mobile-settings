@@ -7,7 +7,7 @@
         <child>
           <object class="AdwPreferencesPage">
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="AdwPreferencesGroup" id="arrange_favs">
                 <property name="title" translatable="yes">Favorites</property>
                 <child>
                   <object class="GtkListBox">
@@ -41,7 +41,7 @@
             <child>
               <object class="AdwPreferencesGroup">
                 <child>
-                  <object class="AdwActionRow"> 
+                  <object class="AdwActionRow">
                     <property name="title">Reset Favorites</property>
                     <property name="subtitle">This will set your favorited apps back to defaults</property>
                     <child>
