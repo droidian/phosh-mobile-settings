@@ -54,6 +54,11 @@ struct _MobileSettingsApplication {
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
 
 
+static const GOptionEntry entries[] = {
+  G_OPTION_ENTRY_NULL
+};
+
+
 static void
 mobile_settings_application_get_property (GObject    *object,
                                           guint       property_id,
@@ -145,6 +150,16 @@ mobile_settings_application_new (gchar *application_id)
                        NULL);
 }
 
+
+static int
+mobile_settings_application_handle_local_options (GApplication *self,
+                                                  GVariantDict *options)
+{
+  return G_APPLICATION_CLASS (mobile_settings_application_parent_class)->handle_local_options (self,
+                                                                                               options);
+}
+
+
 static void
 mobile_settings_application_activate (GApplication *app)
 {
@@ -193,6 +208,7 @@ mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
   object_class->get_property = mobile_settings_application_get_property;
 
   app_class->activate = mobile_settings_application_activate;
+  app_class->handle_local_options = mobile_settings_application_handle_local_options;
 
   props[PROP_TOPLEVEL_TRACKER] =
     g_param_spec_object ("toplevel-tracker", "", "",
@@ -258,6 +274,8 @@ mobile_settings_application_init (MobileSettingsApplication *self)
     "<primary>q",
     NULL,
   });
+
+  g_application_add_main_option_entries (G_APPLICATION (self), entries);
 
   self->device_plugin_loader = ms_plugin_loader_new (plugin_dirs, MS_EXTENSION_POINT_DEVICE_PANEL);
   self->wayland_protocols = g_hash_table_new_full (g_str_hash,
