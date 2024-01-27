@@ -124,6 +124,18 @@ static const struct wl_registry_listener registry_listener = {
 };
 
 
+static GtkWindow *
+get_active_window (MobileSettingsApplication *self)
+{
+  GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
+
+  if (window == NULL)
+    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, "application", self, NULL);
+
+  return window;
+}
+
+
 MobileSettingsApplication *
 mobile_settings_application_new (gchar *application_id)
 {
@@ -142,11 +154,7 @@ mobile_settings_application_activate (GApplication *app)
 
   g_assert (GTK_IS_APPLICATION (app));
 
-  window = gtk_application_get_active_window (GTK_APPLICATION (app));
-  if (window == NULL)
-    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW,
-                           "application", app,
-                           NULL);
+  window = get_active_window (self);
 
   if (self->wl_display == NULL) {
     gdk_display = gdk_display_get_default ();
