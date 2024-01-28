@@ -53,8 +53,12 @@ struct _MobileSettingsApplication {
 
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
 
-
 static const GOptionEntry entries[] = {
+  {
+    "list", 'l',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
+    NULL, "Lists the available panels in phosh-mobile-settings", NULL
+  },
   G_OPTION_ENTRY_NULL
 };
 
@@ -141,6 +145,31 @@ get_active_window (MobileSettingsApplication *self)
 }
 
 
+static void
+list_available_panels (GApplication *self)
+{
+  MobileSettingsWindow *window;
+  g_autoptr (GListModel) list = NULL;
+  g_autoptr (GtkStackPage) page = NULL;
+  const char *name;
+
+  // Since we're in the local instance, just get us a window
+  adw_init ();
+
+  window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, NULL);
+  list = G_LIST_MODEL (mobile_settings_window_get_stack_pages (window));
+
+  g_print ("Available panels:\n");
+
+  for (uint i = 0; i < g_list_model_get_n_items (list); ++i) {
+    page = g_list_model_get_item (list, i);
+    name = gtk_stack_page_get_name (page);
+
+    g_print ("- %s\n", name);
+  }
+}
+
+
 MobileSettingsApplication *
 mobile_settings_application_new (gchar *application_id)
 {
@@ -155,6 +184,12 @@ static int
 mobile_settings_application_handle_local_options (GApplication *self,
                                                   GVariantDict *options)
 {
+  if (g_variant_dict_contains (options, "list")) {
+    list_available_panels (self);
+
+    return 0;
+  }
+
   return G_APPLICATION_CLASS (mobile_settings_application_parent_class)->handle_local_options (self,
                                                                                                options);
 }
