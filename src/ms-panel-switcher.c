@@ -197,3 +197,27 @@ ms_panel_switcher_set_stack (MsPanelSwitcher *self, GtkStack *stack)
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_STACK]);
 }
+
+
+gboolean
+ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panel)
+{
+  const char *name;
+  gboolean found = FALSE;
+  g_autoptr (GtkStackPage) page = NULL;
+
+  g_assert (MS_IS_PANEL_SWITCHER (self));
+
+  for (uint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (self->pages)); ++i) {
+    page = g_list_model_get_item (G_LIST_MODEL (self->pages), i);
+    name = gtk_stack_page_get_name (page);
+
+    if (!g_strcmp0 (name, panel)) {
+      gtk_widget_activate (GTK_WIDGET (gtk_list_box_get_row_at_index (self->panels_listbox, i)));
+      found = TRUE;
+      break;
+    }
+  } 
+
+  return found;
+}
