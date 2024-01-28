@@ -63,7 +63,7 @@ ms_sound_row_get_theme_dir (void)
 }
 
 
-static void
+void
 ms_sound_row_set_playing (MsSoundRow *self, gboolean playing)
 {
   g_return_if_fail (MS_IS_SOUND_ROW (self));
@@ -257,6 +257,13 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
   MsSoundRow *self = MS_SOUND_ROW (widget);
 
   g_return_if_fail (!STR_IS_NULL_OR_EMPTY (self->filename));
+
+  if (self->playing) {
+    gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
+    ms_sound_row_set_playing (self, FALSE);
+    return;
+  }
+
   gtk_widget_activate_action (widget, "sound-player.play", "s", self->filename);
 
   ms_sound_row_set_playing (self, TRUE);

@@ -12,6 +12,7 @@
 #include "mobile-settings-enums.h"
 #include "ms-enum-types.h"
 #include "ms-feedback-row.h"
+#include "ms-sound-row.h"
 #include "ms-feedback-panel.h"
 #include "ms-util.h"
 
@@ -47,6 +48,7 @@ struct _MsFeedbackPanel {
   AdwBin                     parent;
 
   GtkListBox                *app_listbox;
+  GtkListBox                *sounds_listbox;
   GHashTable                *known_applications;
 
   GSettings                 *settings;
@@ -77,11 +79,27 @@ stop_playback (MsFeedbackPanel *self)
 
 
 static void
+update_sound_row_playing_state (MsFeedbackPanel *self)
+{
+  GtkWidget *child;
+
+  g_assert (MS_IS_FEEDBACK_PANEL (self));
+
+  for (child = gtk_widget_get_first_child (GTK_WIDGET (self->sounds_listbox));
+       child != NULL;
+       child = gtk_widget_get_next_sibling (child)) {
+         ms_sound_row_set_playing (MS_SOUND_ROW (child), FALSE);
+  }
+}
+
+
+static void
 on_toast_dismissed  (AdwToast *toast,  MsFeedbackPanel *self)
 {
   g_assert (MS_IS_FEEDBACK_PANEL (self));
   g_debug ("Stopping sound playback");
 
+  update_sound_row_playing_state (self);
   stop_playback (self);
 }
 
@@ -120,6 +138,8 @@ on_sound_play_finished (GObject *source_object, GAsyncResult *res, gpointer user
     } else {
       msg = _("Failed to play sound");
     }
+
+    update_sound_row_playing_state (self);
 
     g_warning ("Failed to play sound: %s", err->message);
     adw_toast_set_title (self->toast, msg);
@@ -504,6 +524,7 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-feedback-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sounds_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
 

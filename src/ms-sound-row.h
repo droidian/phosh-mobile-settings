@@ -16,5 +16,6 @@ G_DECLARE_FINAL_TYPE (MsSoundRow, ms_sound_row, MS, SOUND_ROW, AdwActionRow)
 
 MsSoundRow *ms_sound_row_new (void);
 void        ms_sound_row_set_filename (MsSoundRow *self, const char *filename);
+void        ms_sound_row_set_playing (MsSoundRow *self, gboolean playing);
 
 G_END_DECLS
