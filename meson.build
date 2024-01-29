@@ -16,8 +16,9 @@ glib_ver = '2.74'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
-gtk_ver = '4.12'
-gtk_ver_str = 'GDK_VERSION_@0@'.format(gtk_ver.replace('.','_'))
+gtk_ver = '4.12.5'
+gtk_ver_arr = gtk_ver.split('.')
+gtk_ver_str = 'GDK_VERSION_@0@_@1@'.format(gtk_ver_arr[0], gtk_ver_arr[1])
 gtk_ver_cmp = '>=@0@'.format(gtk_ver)
 
 adw_ver = '1.4'
