@@ -16,6 +16,7 @@
     <file>ui/ms-sensor-panel.ui</file>
     <file>ui/ms-sound-row.ui</file>
     <file>gtk/help-overlay.ui</file>
+    <file alias="metainfo.xml">../data/mobi.phosh.MobileSettings.metainfo.xml.in</file>
   </gresource>
   <gresource prefix="/mobi/phosh/MobileSettings/icons/scalable/status/">
     <file alias="applications-symbolic.svg">../data/icons/applications-symbolic.svg</file>
