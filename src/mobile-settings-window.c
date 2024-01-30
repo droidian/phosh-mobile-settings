@@ -15,7 +15,6 @@
 
 #include "ms-compositor-panel.h"
 #include "ms-feedback-panel.h"
-#include "ms-panel-switcher.h"
 #include "ms-plugin-panel.h"
 
 #include <glib/gi18n.h>
@@ -116,4 +115,13 @@ mobile_settings_window_get_stack_pages (MobileSettingsWindow *self)
   g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
 
   return gtk_stack_get_pages (self->stack);
+}
+
+
+MsPanelSwitcher *
+mobile_settings_window_get_panel_switcher (MobileSettingsWindow *self)
+{
+  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+
+  return self->panel_switcher;
 }
