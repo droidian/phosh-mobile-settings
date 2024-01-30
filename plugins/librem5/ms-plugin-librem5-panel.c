@@ -189,7 +189,7 @@ static gboolean
 on_update_timeout (gpointer user_data)
 {
   MsPluginLibrem5Panel *self = MS_PLUGIN_LIBREM5_PANEL (user_data);
-  double temp, crit;
+  double temp = 0.0, crit = 0.0;
 
   for (MsTempSensor i = 0; i <= MS_TEMP_SENSOR_LAST; i++) {
     g_autofree char *temp_msg = NULL;
