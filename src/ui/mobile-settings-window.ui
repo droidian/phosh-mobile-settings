@@ -34,7 +34,7 @@
                   </object>
                 </child>
                 <property name="content">
-                  <object class="MsPanelSwitcher">
+                  <object class="MsPanelSwitcher" id="panel_switcher">
                     <property name="stack">stack</property>
                   </object>
                 </property>

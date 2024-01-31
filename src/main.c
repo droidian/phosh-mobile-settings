@@ -19,12 +19,7 @@ main (int argc, char *argv[])
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
-  app = mobile_settings_application_new (MOBILE_SETTINGS_APP_ID,
-#if GLIB_CHECK_VERSION(2,74,0)
-                                         G_APPLICATION_DEFAULT_FLAGS);
-#else
-                                         G_APPLICATION_FLAGS_NONE);
-#endif
+  app = mobile_settings_application_new (MOBILE_SETTINGS_APP_ID);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
 
   return ret;
