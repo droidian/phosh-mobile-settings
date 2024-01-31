@@ -51,6 +51,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.36.0" date="2024-02-03">
+      <description>
+        <ul>
+          <li>Allow to arrange and reset Phosh's favorites</li>
+          <li>Allow to configure Phosh's OSK long press timer</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.35.0" date="2024-01-01">
       <description>
         <ul>

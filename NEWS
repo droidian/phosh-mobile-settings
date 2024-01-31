@@ -1,3 +1,20 @@
+phosh-mobile-settings 0.36.0
+----------------------------
+Released: February 2024
+* Allow to arrange and reset phosh's favorites
+  (needs GTK >= 4.13.12)
+* Allow to open panels from the command line / via DBus
+* Allow to configure Phosh's osk long press timer
+* Issues fixed:
+  - https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/3
+* Contributors:
+    * Guido Günther
+    * pseudorandom-x
+    * Rodney Lorrimar
+    * Suraj Kumar Mahto
+    * swaroopanand
+    * Teemu Ikonen
+
 phosh-mobile-settings 0.35.0
 ----------------------------
 Released: January 2024
