@@ -15,6 +15,10 @@
       <id>org.sigxcpu.MobileSettings</id>
   </replaces>
 
+  <developer id="phosh.mobi">
+    <name>Phosh developers</name>
+  </developer>
+
   <content_rating type="oars-1.1"/>
 
   <requires>
