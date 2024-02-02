@@ -151,7 +151,7 @@ get_active_window (MobileSettingsApplication *self)
 
 
 static void
-list_available_panels (GApplication *self)
+list_available_panels (GApplication *app)
 {
   MobileSettingsWindow *window;
   g_autoptr (GListModel) list = NULL;
@@ -208,13 +208,14 @@ mobile_settings_application_new (gchar *application_id)
 
 
 static int
-mobile_settings_application_handle_local_options (GApplication *self,
+mobile_settings_application_handle_local_options (GApplication *app,
                                                   GVariantDict *options)
 {
   g_autofree GStrv panels = NULL;
+  GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
 
   if (g_variant_dict_contains (options, "list")) {
-    list_available_panels (self);
+    list_available_panels (app);
 
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
@@ -223,12 +224,11 @@ mobile_settings_application_handle_local_options (GApplication *self,
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
     panel = panels[0];
 
-    g_application_register (G_APPLICATION (self), NULL, NULL);
-    g_action_group_activate_action (G_ACTION_GROUP (self), "set-panel", g_variant_new ("(s)", panel));
+    g_application_register (G_APPLICATION (app), NULL, NULL);
+    g_action_group_activate_action (G_ACTION_GROUP (app), "set-panel", g_variant_new ("(s)", panel));
   }
 
-  return G_APPLICATION_CLASS (mobile_settings_application_parent_class)->handle_local_options (self,
-                                                                                               options);
+  return app_class->handle_local_options (app, options);
 }
 
 
