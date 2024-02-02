@@ -321,27 +321,23 @@ mobile_settings_application_show_about (GSimpleAction *action,
                                         gpointer       user_data)
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
-  GtkWindow *window = NULL;
-  const gchar *developers[] = {"Guido Günther", NULL};
-  const gchar *artists[] = {"Sam Hewitt ", NULL};
+  GtkWindow *window;
+  AdwAboutWindow *about_window;
+  const gchar *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
+  const gchar *artists[] = {"Sam Hewitt", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 
-  window = gtk_application_get_active_window (GTK_APPLICATION (self));
+  about_window = ADW_ABOUT_WINDOW (adw_about_window_new_from_appdata ("/mobi/phosh/MobileSettings/"
+                                                                      "metainfo.xml",
+                                                                      MOBILE_SETTINGS_VERSION));
+  adw_about_window_set_developers (about_window, developers);
+  adw_about_window_set_artists (about_window, artists);
+  adw_about_window_set_debug_info (about_window, mobile_settings_generate_debug_info ());
 
-  adw_show_about_window (window,
-                         "application-name", _("Mobile Settings"),
-                         "application-icon", MOBILE_SETTINGS_APP_ID,
-                         "version", MOBILE_SETTINGS_VERSION,
-                         "copyright", "Copyright (C) 2022 Guido Günther",
-                         "website", "https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings",
-                         "issue-url", "https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/new",
-                         "debug-info", mobile_settings_generate_debug_info (),
-                         "license-type", GTK_LICENSE_GPL_3_0,
-                         "developers", developers,
-                         "artists", artists,
-                         "translator-credits", _("translator-credits"),
-                         NULL);
+  window = gtk_application_get_active_window (GTK_APPLICATION (self));
+  gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
+  gtk_window_present (GTK_WINDOW (about_window));
 }
 
 
