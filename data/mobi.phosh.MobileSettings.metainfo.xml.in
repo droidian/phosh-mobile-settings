@@ -15,6 +15,10 @@
       <id>org.sigxcpu.MobileSettings</id>
   </replaces>
 
+  <developer id="phosh.mobi">
+    <name>Phosh developers</name>
+  </developer>
+
   <content_rating type="oars-1.1"/>
 
   <requires>
@@ -47,11 +51,11 @@
   </screenshots>
 
   <releases>
-
-    <release version="0.35.1" date="2024-01-08">
+    <release version="0.36.0" date="2024-02-03">
       <description>
         <ul>
-          <li>Fix feedback level configuration of individual apps</li>
+          <li>Allow to arrange and reset Phosh's favorites</li>
+          <li>Allow to configure Phosh's OSK long press timer</li>
         </ul>
       </description>
     </release>
