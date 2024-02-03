@@ -190,7 +190,7 @@ ms_sound_row_get_target (MsSoundRow *self)
 
 
 static gboolean
-filename_tranform_to (GBinding *binding, const GValue *from,  GValue *to,  gpointer user_data)
+filename_transform_to (GBinding *binding, const GValue *from,  GValue *to,  gpointer user_data)
 {
   const char *path = g_value_get_string (from);
   char *basename;
@@ -385,7 +385,7 @@ ms_sound_row_init (MsSoundRow *self)
   g_object_bind_property_full (self, "filename",
                                self->filename_label, "label",
                                G_BINDING_DEFAULT,
-                               filename_tranform_to,
+                               filename_transform_to,
                                NULL,
                                NULL,
                                NULL);
