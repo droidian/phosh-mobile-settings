@@ -34,6 +34,7 @@
 enum {
   PROP_0,
   PROP_FILENAME,
+  PROP_PLAYING,
   PROP_EFFECT_NAME,
   PROP_LAST_PROP
 };
@@ -44,10 +45,13 @@ struct _MsSoundRow {
 
   char                 *filename;
   GtkWidget            *filename_label;
+  GtkButton            *playback_button;
   char                 *effect_name;
 
   GtkFileFilter        *sound_filter;
   GSettings            *sound_settings;
+
+  gboolean              playing;
 };
 G_DEFINE_TYPE (MsSoundRow, ms_sound_row, ADW_TYPE_ACTION_ROW)
 
@@ -56,6 +60,20 @@ static char *
 ms_sound_row_get_theme_dir (void)
 {
   return g_build_filename (g_get_user_data_dir (), "sounds", CUSTOM_SOUND_THEME_NAME, NULL);
+}
+
+
+void
+ms_sound_row_set_playing (MsSoundRow *self, gboolean playing)
+{
+  g_return_if_fail (MS_IS_SOUND_ROW (self));
+
+  if (self->playing == playing)
+    return;
+
+  self->playing = playing;
+
+  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_PLAYING]);
 }
 
 
@@ -190,7 +208,7 @@ ms_sound_row_get_target (MsSoundRow *self)
 
 
 static gboolean
-filename_tranform_to (GBinding *binding, const GValue *from,  GValue *to,  gpointer user_data)
+filename_transform_to (GBinding *binding, const GValue *from,  GValue *to,  gpointer user_data)
 {
   const char *path = g_value_get_string (from);
   char *basename;
@@ -205,12 +223,30 @@ filename_tranform_to (GBinding *binding, const GValue *from,  GValue *to,  gpoin
 }
 
 
+static gboolean
+playing_transform_to (GBinding *binding, const GValue *from, GValue *to, gpointer user_data)
+{
+  gboolean is_playing = g_value_get_boolean (from);
+  const char *icon_name = NULL;
+
+  if (is_playing)
+    icon_name = "media-playback-stop-symbolic";
+  else
+    icon_name = "media-playback-start-symbolic";
+
+  g_value_set_string (to, icon_name);
+  return TRUE;
+}
+
+
 static void
 clear_filename_activated (GtkWidget *widget,  const char* action_name, GVariant *parameter)
 {
   MsSoundRow *self = MS_SOUND_ROW (widget);
 
   ms_sound_row_set_filename (self, NULL);
+
+  ms_sound_row_set_playing (self, FALSE);
 }
 
 
@@ -221,7 +257,16 @@ play_sound_activated  (GtkWidget *widget,  const char* action_name, GVariant *pa
   MsSoundRow *self = MS_SOUND_ROW (widget);
 
   g_return_if_fail (!STR_IS_NULL_OR_EMPTY (self->filename));
+
+  if (self->playing) {
+    gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
+    ms_sound_row_set_playing (self, FALSE);
+    return;
+  }
+
   gtk_widget_activate_action (widget, "sound-player.play", "s", self->filename);
+
+  ms_sound_row_set_playing (self, TRUE);
 }
 
 
@@ -257,6 +302,7 @@ open_filechooser_activated (GtkWidget *widget,  const char* action_name, GVarian
 
   g_assert (MS_IS_SOUND_ROW (self));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
+  ms_sound_row_set_playing (self, FALSE);
 
   filechooser = gtk_file_dialog_new ();
   gtk_file_dialog_set_title (filechooser, _("Choose sound file"));
@@ -295,6 +341,9 @@ ms_sound_row_set_property (GObject      *object,
   case PROP_FILENAME:
     ms_sound_row_set_filename (self, g_value_get_string (value));
     break;
+  case PROP_PLAYING:
+    ms_sound_row_set_playing (self, g_value_get_boolean (value));
+    break;
   case PROP_EFFECT_NAME:
     set_effect_name (self, g_value_get_string (value));
     break;
@@ -316,6 +365,9 @@ ms_sound_row_get_property (GObject    *object,
   switch (property_id) {
   case PROP_FILENAME:
     g_value_set_string (value, self->filename);
+    break;
+  case PROP_PLAYING:
+    g_value_set_boolean (value, self->playing);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -353,6 +405,11 @@ ms_sound_row_class_init (MsSoundRowClass *klass)
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_EXPLICIT_NOTIFY);
 
+  props[PROP_PLAYING] =
+    g_param_spec_boolean ("playing", "", "",
+                          FALSE,
+                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_EXPLICIT_NOTIFY);
+
   props[PROP_EFFECT_NAME] =
     g_param_spec_string ("effect-name", "", "",
                          NULL,
@@ -363,6 +420,7 @@ ms_sound_row_class_init (MsSoundRowClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-sound-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsSoundRow, filename_label);
+  gtk_widget_class_bind_template_child (widget_class, MsSoundRow, playback_button);
   gtk_widget_class_bind_template_child (widget_class, MsSoundRow, sound_filter);
 
   gtk_widget_class_install_action (widget_class, "sound-row.open-filechooser", NULL,
@@ -385,7 +443,15 @@ ms_sound_row_init (MsSoundRow *self)
   g_object_bind_property_full (self, "filename",
                                self->filename_label, "label",
                                G_BINDING_DEFAULT,
-                               filename_tranform_to,
+                               filename_transform_to,
+                               NULL,
+                               NULL,
+                               NULL);
+
+  g_object_bind_property_full (self, "playing",
+                               self->playback_button, "icon-name",
+                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
+                               playing_transform_to,
                                NULL,
                                NULL,
                                NULL);
@@ -417,6 +483,7 @@ ms_sound_row_set_filename (MsSoundRow *self, const char *filename)
   gtk_widget_action_set_enabled (GTK_WIDGET (self), "sound-row.play-sound",
                                  !STR_IS_NULL_OR_EMPTY (self->filename));
   gtk_widget_activate_action (GTK_WIDGET (self), "sound-player.stop", NULL, NULL);
+  ms_sound_row_set_playing (self, FALSE);
 
   ms_sound_row_set_symlink (self, self->filename);
 

@@ -26,7 +26,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="playback_button">
             <property name="valign">center</property>
             <property name="icon-name">media-playback-start-symbolic</property>
             <property name="action-name">sound-row.play-sound</property>
