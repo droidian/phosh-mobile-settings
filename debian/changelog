@@ -1,3 +1,87 @@
+phosh-mobile-settings (0.36.0) experimental; urgency=medium
+
+  [ Suraj Kumar Mahto ]
+  * apps-panel: Add application panel skeleton
+
+  [ pseudorandom-x ]
+  * apps-panel: Add ability to reset favorited apps.
+    Allows users to set the favorites back to
+    vendor defaults.
+  * apps-panel: Add ability to rearrange favorited apps.
+    Allows users to drag-n-drop favorited apps to
+    rearrange them.
+    Closes: https://gitlab.gnome.org/guidog/phosh-mobile-settings/-/issues/3
+  * build: Bump minimum GTK required to ver 4.12.5
+  * application: Drop flags argument in mobile_settings_application_new ()
+  * application: Add getter method for active window
+  * application: Override handle_local_options vfunc.
+    This will allow for handling some options locally
+    (e.g., --version) efficiently by registering
+    array of accepted options.
+  * settings-window: Extend API to access stack pages.
+    Adds a getter method to access the pages of
+    GtkStack object
+  * application: Add local option to list panels.
+    Adds the `--list` local option to list the
+    available panels.
+  * settings-window: Bind MsPanelSwitcher template object
+  * settings-window: Extend API to access MsPanelSwitcher object
+  * panel-switcher: Extend API to activate panel by name
+  * application: Add ability to launch a specific panel.
+    Allows the application to be launched with
+    the specified panel activated if found.
+
+  [ Guido Günther ]
+  * ci: Drop an unused remote.
+    We don't use it and it just causes failures when the remote is
+    unavailable.
+  * window: Set log domain
+  * applications-panel: Remove trailing whitespace
+  * packaging: Require recent phoc.
+    This is needed to make touch DnD work
+  * applications: Disable favorite arrangement with too old GTK.
+    The code to organize favorites needs DnD on touch. This was only fixed
+    recently in phoc 0.34.0~beta1:
+      384d755f ("cursor: Don't forget to update the drag icons position")
+    and GTK 4.13.2:
+      d78475372f ("gtk: Obey GTK grabs on DnD events")
+    So disable that part of the panel when GTK is too old.
+  * debug-info: Use a single line for the OS.
+    This will make it simpler to use the pretty name.
+  * debug-info: Move os info gathering to separate function.
+    This will allow us to make it more complex.
+  * debug-info: Try harder to get usable OS information.
+    On Debian the testing/sid the OS version is NULL. Try pretty name too to
+    make that useful.
+  * packaging: Require newer phosh
+  * osk: Allow to set the unfold delay
+  * l5-panel: Init temperatures.
+    This ensures they don't contain garbage in case sensors_get_value()
+    doen't set them.
+  * application: Don't use self for GApplication
+    self refers to an object of type PhoshMobileSettingsApplication not
+    GApplication. Adjust the variable names in functions that did this
+    differently. This makes it obvious where casts are needed.
+    While at that fix an overly long line by introducing a variable.
+    Fixes: 6f40214 ("application: Override handle_local_options vfunc") and
+           related commits.
+  * metainfo: Set developers
+
+  [ Teemu Ikonen ]
+  * feedback-panel: Use correct schema id for feedbackd.
+
+  [ swaroopanand ]
+  * application: Generate about page from meta info.
+    Generate the about page using adw_about_window_new_from_appdata.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/43
+
+  [ Rodney Lorrimar ]
+  * build: Don't compile gesettings schemas.
+    We don't ship any schemas and `glib-compile-schemas` fails if the
+    target directory doesn't exist.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 03 Feb 2024 13:25:23 +0100
+
 phosh-mobile-settings (0.35.0) experimental; urgency=medium
 
   [ Guido Günther ]
