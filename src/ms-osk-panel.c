@@ -19,6 +19,9 @@
 #define A11Y_SETTINGS                "org.gnome.desktop.a11y.applications"
 #define OSK_ENABLED_KEY              "screen-keyboard-enabled"
 
+#define PHOSH_SETTINGS               "sm.puri.phosh"
+#define OSK_UNFOLD_DELAY_KEY         "osk-unfold-delay"
+
 #define PHOSH_OSK_SETTINGS           "sm.puri.phosh.osk"
 #define WORD_COMPLETION_KEY          "completion-mode"
 
@@ -38,6 +41,9 @@ struct _MsOskPanel {
 
   GSettings        *a11y_settings;
   GtkWidget        *osk_enable_switch;
+
+  GSettings        *phosh_settings;
+  GtkWidget        *long_press_combo;
 
   /* Word completion */
   GSettings        *pos_settings;
@@ -275,6 +281,7 @@ ms_osk_panel_finalize (GObject *object)
 
   g_clear_object (&self->shortcuts);
   g_clear_object (&self->a11y_settings);
+  g_clear_object (&self->phosh_settings);
   g_clear_object (&self->pos_settings);
   g_clear_object (&self->pos_terminal_settings);
 
@@ -294,6 +301,9 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
                                                "/mobi/phosh/MobileSettings/ui/ms-osk-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
 
+  /* OSK handling */
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, long_press_combo);
+
   /* Completion group */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, completion_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, app_completion_switch);
@@ -306,6 +316,46 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
 }
 
 
+static gboolean
+long_press_delay_get_mapping (GValue *value, GVariant *variant, gpointer user_data)
+{
+  float delay = g_variant_get_double (variant);
+  guint selection = 0;
+
+  if (delay >= 1.5)
+    selection = 2;
+  else if (delay >= 1.0)
+    selection = 1;
+
+  g_value_set_uint (value, selection);
+  return TRUE;
+}
+
+
+static GVariant *
+long_press_delay_set_mapping (const GValue *value, const GVariantType *expected_type, gpointer user_data)
+{
+  guint selection = g_value_get_uint (value);
+  double delay;
+
+  switch (selection) {
+  case 0:
+    delay = 0.5;
+    break;
+  case 2:
+    delay = 2.0;
+    break;
+  case 1:
+  case GTK_INVALID_LIST_POSITION:
+  default:
+    delay = 1.0;
+    break;
+  }
+
+  return g_variant_new_double (delay);
+}
+
+
 static void
 ms_osk_panel_init (MsOskPanel *self)
 {
@@ -314,6 +364,15 @@ ms_osk_panel_init (MsOskPanel *self)
   self->a11y_settings = g_settings_new (A11Y_SETTINGS);
   g_settings_bind (self->a11y_settings, OSK_ENABLED_KEY,
                    self->osk_enable_switch, "active", G_SETTINGS_BIND_DEFAULT);
+
+  self->phosh_settings = g_settings_new (PHOSH_SETTINGS);
+  g_settings_bind_with_mapping (self->phosh_settings, OSK_UNFOLD_DELAY_KEY,
+                                self->long_press_combo, "selected",
+                                G_SETTINGS_BIND_DEFAULT | G_SETTINGS_BIND_NO_SENSITIVITY,
+                                long_press_delay_get_mapping,
+                                long_press_delay_set_mapping,
+                                self,
+                                NULL);
 
   if (is_osk_stub ()) {
     gtk_widget_set_visible (self->completion_group, TRUE);

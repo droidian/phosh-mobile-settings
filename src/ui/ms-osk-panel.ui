@@ -23,6 +23,24 @@
                     </child>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwComboRow" id="long_press_combo">
+                    <property name="title" translatable="yes">Unfold long-press</property>
+                    <property name="subtitle" translatable="yes">How long to press the center of the home bar to unfold the on screen keyboard</property>
+                    <property name="model">
+                      <object class="GtkStringList">
+                        <items>
+                          <!-- 0.5 -->
+                          <item translatable="yes">short</item>
+                          <!-- 1.0 -->
+                          <item translatable="yes">normal</item>
+                          <!-- 2.0 -->
+                          <item translatable="yes">long</item>
+                        </items>
+                      </object>
+                    </property>
+                  </object>
+                </child>
               </object>
             </child>
 

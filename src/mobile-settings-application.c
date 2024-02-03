@@ -53,6 +53,20 @@ struct _MobileSettingsApplication {
 
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
 
+static const GOptionEntry entries[] = {
+  {
+    "list", 'l',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
+    NULL, "Lists the available panels in phosh-mobile-settings", NULL
+  },
+  {
+    G_OPTION_REMAINING, '\0',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_FILENAME_ARRAY,
+    NULL, "Panel to display", "[PANEL]"
+  },
+  G_OPTION_ENTRY_NULL
+};
+
 
 static void
 mobile_settings_application_get_property (GObject    *object,
@@ -124,15 +138,99 @@ static const struct wl_registry_listener registry_listener = {
 };
 
 
+static GtkWindow *
+get_active_window (MobileSettingsApplication *self)
+{
+  GtkWindow *window = gtk_application_get_active_window (GTK_APPLICATION (self));
+
+  if (window == NULL)
+    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, "application", self, NULL);
+
+  return window;
+}
+
+
+static void
+list_available_panels (GApplication *app)
+{
+  MobileSettingsWindow *window;
+  g_autoptr (GListModel) list = NULL;
+  g_autoptr (GtkStackPage) page = NULL;
+  const char *name;
+
+  // Since we're in the local instance, just get us a window
+  adw_init ();
+
+  window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, NULL);
+  list = G_LIST_MODEL (mobile_settings_window_get_stack_pages (window));
+
+  g_print ("Available panels:\n");
+
+  for (uint i = 0; i < g_list_model_get_n_items (list); ++i) {
+    page = g_list_model_get_item (list, i);
+    name = gtk_stack_page_get_name (page);
+
+    g_print ("- %s\n", name);
+  }
+}
+
+
+static void
+set_panel_activated (GSimpleAction *action,
+                     GVariant      *parameter,
+                     gpointer       user_data)
+{
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
+  MobileSettingsWindow *window;
+  MsPanelSwitcher *panel_switcher;
+  gchar *panel;
+
+  g_variant_get (parameter, "(&s)", &panel);
+
+  g_debug ("'set-panel' '%s'", panel);
+
+  window = MOBILE_SETTINGS_WINDOW (get_active_window (self));
+  panel_switcher = mobile_settings_window_get_panel_switcher (window);
+
+  if (!ms_panel_switcher_set_active_panel_name (panel_switcher, panel))
+    g_warning ("Error: panel `%s` not available, launching with default options.", panel);
+}
+
+
 MobileSettingsApplication *
-mobile_settings_application_new (gchar *application_id,
-                                 GApplicationFlags flags)
+mobile_settings_application_new (gchar *application_id)
 {
   return g_object_new (MOBILE_SETTINGS_TYPE_APPLICATION,
                        "application-id", application_id,
-                       "flags", flags,
+                       "flags", G_APPLICATION_DEFAULT_FLAGS,
                        NULL);
 }
+
+
+static int
+mobile_settings_application_handle_local_options (GApplication *app,
+                                                  GVariantDict *options)
+{
+  g_autofree GStrv panels = NULL;
+  GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
+
+  if (g_variant_dict_contains (options, "list")) {
+    list_available_panels (app);
+
+    return 0;
+  } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
+    const char *panel;
+
+    g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
+    panel = panels[0];
+
+    g_application_register (G_APPLICATION (app), NULL, NULL);
+    g_action_group_activate_action (G_ACTION_GROUP (app), "set-panel", g_variant_new ("(s)", panel));
+  }
+
+  return app_class->handle_local_options (app, options);
+}
+
 
 static void
 mobile_settings_application_activate (GApplication *app)
@@ -143,11 +241,7 @@ mobile_settings_application_activate (GApplication *app)
 
   g_assert (GTK_IS_APPLICATION (app));
 
-  window = gtk_application_get_active_window (GTK_APPLICATION (app));
-  if (window == NULL)
-    window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW,
-                           "application", app,
-                           NULL);
+  window = get_active_window (self);
 
   if (self->wl_display == NULL) {
     gdk_display = gdk_display_get_default ();
@@ -161,6 +255,25 @@ mobile_settings_application_activate (GApplication *app)
   }
 
   gtk_window_present (window);
+}
+
+
+static const GActionEntry actions[] = {
+  { "set-panel", set_panel_activated, "(s)", NULL, NULL, { 0 } },
+};
+
+
+static void
+mobile_settings_application_startup (GApplication *app)
+{
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+
+  g_action_map_add_action_entries (G_ACTION_MAP (self),
+                                   actions,
+                                   G_N_ELEMENTS (actions),
+                                   self);
+
+  G_APPLICATION_CLASS (mobile_settings_application_parent_class)->startup (app);
 }
 
 
@@ -186,6 +299,8 @@ mobile_settings_application_class_init (MobileSettingsApplicationClass *klass)
   object_class->get_property = mobile_settings_application_get_property;
 
   app_class->activate = mobile_settings_application_activate;
+  app_class->startup = mobile_settings_application_startup;
+  app_class->handle_local_options = mobile_settings_application_handle_local_options;
 
   props[PROP_TOPLEVEL_TRACKER] =
     g_param_spec_object ("toplevel-tracker", "", "",
@@ -206,27 +321,23 @@ mobile_settings_application_show_about (GSimpleAction *action,
                                         gpointer       user_data)
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
-  GtkWindow *window = NULL;
-  const gchar *developers[] = {"Guido Günther", NULL};
-  const gchar *artists[] = {"Sam Hewitt ", NULL};
+  GtkWindow *window;
+  AdwAboutWindow *about_window;
+  const gchar *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
+  const gchar *artists[] = {"Sam Hewitt", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 
-  window = gtk_application_get_active_window (GTK_APPLICATION (self));
+  about_window = ADW_ABOUT_WINDOW (adw_about_window_new_from_appdata ("/mobi/phosh/MobileSettings/"
+                                                                      "metainfo.xml",
+                                                                      MOBILE_SETTINGS_VERSION));
+  adw_about_window_set_developers (about_window, developers);
+  adw_about_window_set_artists (about_window, artists);
+  adw_about_window_set_debug_info (about_window, mobile_settings_generate_debug_info ());
 
-  adw_show_about_window (window,
-                         "application-name", _("Mobile Settings"),
-                         "application-icon", MOBILE_SETTINGS_APP_ID,
-                         "version", MOBILE_SETTINGS_VERSION,
-                         "copyright", "Copyright (C) 2022 Guido Günther",
-                         "website", "https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings",
-                         "issue-url", "https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/new",
-                         "debug-info", mobile_settings_generate_debug_info (),
-                         "license-type", GTK_LICENSE_GPL_3_0,
-                         "developers", developers,
-                         "artists", artists,
-                         "translator-credits", _("translator-credits"),
-                         NULL);
+  window = gtk_application_get_active_window (GTK_APPLICATION (self));
+  gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
+  gtk_window_present (GTK_WINDOW (about_window));
 }
 
 
@@ -251,6 +362,10 @@ mobile_settings_application_init (MobileSettingsApplication *self)
     "<primary>q",
     NULL,
   });
+
+  g_application_set_option_context_parameter_string (G_APPLICATION (self),
+                                                     _("- Manage your mobile settings"));
+  g_application_add_main_option_entries (G_APPLICATION (self), entries);
 
   self->device_plugin_loader = ms_plugin_loader_new (plugin_dirs, MS_EXTENSION_POINT_DEVICE_PANEL);
   self->wayland_protocols = g_hash_table_new_full (g_str_hash,

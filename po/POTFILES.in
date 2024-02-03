@@ -11,6 +11,7 @@ src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c
 src/ui/mobile-settings-window.ui
+src/ui/ms-applications-panel.ui
 src/ui/ms-compositor-panel.ui
 src/ui/ms-convergence-panel.ui
 src/ui/ms-features-panel.ui
