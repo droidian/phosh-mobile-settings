@@ -6,6 +6,9 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
+
+#define G_LOG_DOMAIN "mobile-settings-window"
+
 #include "mobile-settings-config.h"
 #include "mobile-settings-application.h"
 #include "mobile-settings-window.h"
@@ -22,6 +25,7 @@ struct _MobileSettingsWindow {
 
   AdwNavigationSplitView  *split_view;
   GtkStack                *stack;
+  MsPanelSwitcher         *panel_switcher;
 };
 
 G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -92,6 +96,7 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
                                                "/mobi/phosh/MobileSettings/ui/mobile-settings-window.ui");
   gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, split_view);
   gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, stack);
+  gtk_widget_class_bind_template_child (widget_class, MobileSettingsWindow, panel_switcher);
   gtk_widget_class_bind_template_callback (widget_class, on_visible_child_changed);
   gtk_widget_class_bind_template_callback (widget_class, stack_child_to_tile);
 }
@@ -101,4 +106,22 @@ mobile_settings_window_init (MobileSettingsWindow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
   on_visible_child_changed (self);
+}
+
+
+GtkSelectionModel *
+mobile_settings_window_get_stack_pages (MobileSettingsWindow *self)
+{
+  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+
+  return gtk_stack_get_pages (self->stack);
+}
+
+
+MsPanelSwitcher *
+mobile_settings_window_get_panel_switcher (MobileSettingsWindow *self)
+{
+  g_assert (MOBILE_SETTINGS_IS_WINDOW (self));
+
+  return self->panel_switcher;
 }

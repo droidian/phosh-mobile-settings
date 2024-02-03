@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.35.1',
+          version: '0.36.0',
     meson_version: '>= 0.58.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
@@ -16,8 +16,9 @@ glib_ver = '2.74'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
-gtk_ver = '4.12'
-gtk_ver_str = 'GDK_VERSION_@0@'.format(gtk_ver.replace('.','_'))
+gtk_ver = '4.12.5'
+gtk_ver_arr = gtk_ver.split('.')
+gtk_ver_str = 'GDK_VERSION_@0@_@1@'.format(gtk_ver_arr[0], gtk_ver_arr[1])
 gtk_ver_cmp = '>=@0@'.format(gtk_ver)
 
 adw_ver = '1.4'
@@ -154,7 +155,6 @@ subdir('po')
 # matters for distro backports:
 if meson.version().version_compare('>=0.59.0')
   gnome.post_install(
-    glib_compile_schemas: true,
     gtk_update_icon_cache: true,
     update_desktop_database: true,
   )

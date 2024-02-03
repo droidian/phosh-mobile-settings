@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsApplicationsPanel" parent="AdwBin">
+    <child>
+      <object class="GtkScrolledWindow">
+        <child>
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup" id="arrange_favs">
+                <property name="title" translatable="yes">Favorites</property>
+                <child>
+                  <object class="GtkListBox">
+                    <property name="selection-mode">GTK_SELECTION_NONE</property>
+                    <style>
+                      <class name="boxed-list"/>
+                    </style>
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Rearrange Favorites</property>
+                        <property name="subtitle">Drag and drop the apps below to rearrange your favorited apps</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkListBoxRow">
+                        <property name="activatable">False</property>
+                        <child>
+                          <object class="GtkFlowBox" id="fbox">
+                            <property name="max-children-per-line">4</property>
+                            <property name="selection-mode">GTK_SELECTION_NONE</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object> <!-- AdwPreferencesGroup -->
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title">Reset Favorites</property>
+                    <property name="subtitle">This will set your favorited apps back to defaults</property>
+                    <child>
+                      <object class="GtkButton" id="reset_btn">
+                        <property name="valign">center</property>
+                        <property name="label">Reset</property>
+                        <signal name="clicked" handler="on_reset_btn_clicked" swapped="no"/>
+                      </object>
+                    </child>
+                  </object> <!-- AdwActionRow -->
+                </child>
+              </object> <!-- AdwPreferencesGroup -->
+            </child>
+          </object> <!-- AdwPreferencesPage -->
+        </child>
+      </object> <!-- GtkScrolledWindow -->
+    </child>
+  </template>
+</interface>

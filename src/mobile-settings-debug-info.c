@@ -98,6 +98,26 @@ get_phosh_session_version (void)
   return g_steal_pointer (&version);
 }
 
+
+static char *
+get_os_info (void)
+{
+  g_autofree char *pretty_name = NULL;
+  g_autofree char *os_name = g_get_os_info (G_OS_INFO_KEY_NAME);
+  g_autofree char *os_version = g_get_os_info (G_OS_INFO_KEY_VERSION);
+
+  if (os_name && os_version)
+    return g_strdup_printf ("%s %s", os_name, os_version);
+
+  pretty_name = g_get_os_info (G_OS_INFO_KEY_PRETTY_NAME);
+  if (pretty_name)
+    return g_steal_pointer (&pretty_name);
+
+  /* Translators: Not marked as translatable as debug output should stay English */
+  return g_strdup ("Unknown");
+}
+
+
 char *
 mobile_settings_generate_debug_info (void)
 {
@@ -134,13 +154,11 @@ mobile_settings_generate_debug_info (void)
   g_string_append (string, "\n");
 
   {
-    g_autofree char *os_name = g_get_os_info (G_OS_INFO_KEY_NAME);
-    g_autofree char *os_version = g_get_os_info (G_OS_INFO_KEY_VERSION);
     g_autofree char *phosh_session_version = get_phosh_session_version ();
+    g_autofree char *os_info = get_os_info ();
 
     g_string_append (string, "System:\n");
-    g_string_append_printf (string, "- Name: %s\n", os_name);
-    g_string_append_printf (string, "- Version: %s\n", os_version);
+    g_string_append_printf (string, "- Operating System: %s\n", os_info);
     g_string_append_printf (string, "- Phosh-session: %s\n", phosh_session_version);
     g_string_append (string, "\n");
   }
