@@ -27,6 +27,7 @@
                         <property name="activatable">False</property>
                         <child>
                           <object class="GtkFlowBox" id="fbox">
+                            <property name="homogeneous">True</property>
                             <property name="max-children-per-line">4</property>
                             <property name="selection-mode">GTK_SELECTION_NONE</property>
                           </object>
