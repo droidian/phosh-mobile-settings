@@ -25,6 +25,7 @@
 
 #define PHOC_LAYER_SHELL_EFFECTS_PROTOCOL_NAME "zphoc_layer_shell_effects_v1"
 #define PHOSH_PRIVATE_PROTOCOL_NAME "phosh_private"
+#define PHOSH_MOBILE_SETTINGS_DESCRIPTION _("- Manage your mobile settings")
 
 enum {
   PROP_0,
@@ -54,6 +55,11 @@ struct _MobileSettingsApplication {
 G_DEFINE_TYPE (MobileSettingsApplication, mobile_settings_application, ADW_TYPE_APPLICATION)
 
 static const GOptionEntry entries[] = {
+  {
+    "version", 'v',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
+    NULL, "Current version of phosh-mobile-settings", NULL
+  },
   {
     "list", 'l',
     G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
@@ -151,6 +157,15 @@ get_active_window (MobileSettingsApplication *self)
 
 
 static void
+print_version (void)
+{
+  g_print ("Phosh Mobile Settings %s %s\n",
+           MOBILE_SETTINGS_VERSION,
+           PHOSH_MOBILE_SETTINGS_DESCRIPTION);
+}
+
+
+static void
 list_available_panels (GApplication *app)
 {
   MobileSettingsWindow *window;
@@ -214,7 +229,11 @@ mobile_settings_application_handle_local_options (GApplication *app,
   g_autofree GStrv panels = NULL;
   GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
 
-  if (g_variant_dict_contains (options, "list")) {
+  if (g_variant_dict_contains (options, "version")) {
+    print_version ();
+
+    return 0;
+  } else if (g_variant_dict_contains (options, "list")) {
     list_available_panels (app);
 
     return 0;
@@ -364,7 +383,7 @@ mobile_settings_application_init (MobileSettingsApplication *self)
   });
 
   g_application_set_option_context_parameter_string (G_APPLICATION (self),
-                                                     _("- Manage your mobile settings"));
+                                                     PHOSH_MOBILE_SETTINGS_DESCRIPTION);
   g_application_add_main_option_entries (G_APPLICATION (self), entries);
 
   self->device_plugin_loader = ms_plugin_loader_new (plugin_dirs, MS_EXTENSION_POINT_DEVICE_PANEL);
