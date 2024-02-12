@@ -432,8 +432,7 @@ mobile_settings_application_get_wayland_protocols (MobileSettingsApplication *se
   g_assert (MOBILE_SETTINGS_APPLICATION (self));
 
   keys = g_hash_table_get_keys (self->wayland_protocols);
-  if (keys == NULL)
-    return NULL;
+  g_assert (keys);
 
   for (GList *l = keys; l; l = l->next)
     g_strv_builder_add (protocols, l->data);
