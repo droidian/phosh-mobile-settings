@@ -17,7 +17,7 @@
                     </style>
                     <child>
                       <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Rearrange Favorites</property>
+                        <property name="title" translatable="yes">Organize Favorites</property>
                         <property name="subtitle">Drag and drop the apps below to rearrange your favorited apps</property>
                       </object>
                     </child>
