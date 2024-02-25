@@ -17,7 +17,7 @@
                     </style>
                     <child>
                       <object class="AdwActionRow">
-                        <property name="title" translatable="yes">Rearrange Favorites</property>
+                        <property name="title" translatable="yes">Organize Favorites</property>
                         <property name="subtitle">Drag and drop the apps below to rearrange your favorited apps</property>
                       </object>
                     </child>
@@ -27,6 +27,7 @@
                         <property name="activatable">False</property>
                         <child>
                           <object class="GtkFlowBox" id="fbox">
+                            <property name="homogeneous">True</property>
                             <property name="max-children-per-line">4</property>
                             <property name="selection-mode">GTK_SELECTION_NONE</property>
                           </object>

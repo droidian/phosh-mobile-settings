@@ -65,6 +65,53 @@ sync_favorites (int start, int end, MsApplicationsPanel *self)
 
 
 static void
+on_drop_flowbox (GtkDropTarget       *target,
+                 GValue              *value,
+                 gdouble              x,
+                 gdouble              y,
+                 MsApplicationsPanel *self)
+{
+  GtkWidget *drag_app = g_value_get_object (value);
+  GtkFlowBoxChild *child = gtk_flow_box_get_child_at_index (self->fbox, 0);
+  g_auto (GStrv) fav_list = g_settings_get_strv (self->settings, FAVORITES_KEY);
+  uint max_per_row = gtk_flow_box_get_max_children_per_line (self->fbox);
+  uint n_apps = g_list_model_get_n_items (G_LIST_MODEL (self->apps));
+  uint n_rows, x_min, y_min;
+  GAppInfo *drag_app_info;
+  const char *drag_app_id;
+  int start = -1;
+
+  /* All rows fully filled, no empty space to drop */
+  if (n_apps % max_per_row == 0)
+    return;
+
+  n_rows = n_apps / max_per_row + 1;
+  x_min = gtk_widget_get_width (GTK_WIDGET (child)) * (n_apps % max_per_row);
+  y_min = gtk_widget_get_height (GTK_WIDGET (child)) * (n_rows - 1);
+
+  /* Drop coordinates (x, y) must be greater than minimum acceptable */
+  if (x < x_min || y < y_min)
+    return;
+
+  drag_app_info = g_object_get_data (G_OBJECT (drag_app), "app-info");
+  g_assert (drag_app_info);
+
+  drag_app_id = g_app_info_get_id (drag_app_info);
+  g_assert (drag_app_id);
+
+  for (int i = 0; fav_list[i]; i++) {
+    if (!g_strcmp0 (drag_app_id, fav_list[i])) {
+      start = i;
+      break;
+    }
+  }
+  g_assert (start >= 0);
+
+  sync_favorites (start, g_strv_length (fav_list) - 1, self);
+}
+
+
+static void
 on_drop (GtkDropTarget       *target,
          GValue              *value,
          gdouble              x,
@@ -238,6 +285,7 @@ static void
 ms_applications_panel_init (MsApplicationsPanel *self)
 {
   const char *version_check;
+  GtkDropTarget *target = gtk_drop_target_new (GTK_TYPE_WIDGET, GDK_ACTION_COPY);
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -253,6 +301,8 @@ ms_applications_panel_init (MsApplicationsPanel *self)
                            create_fav_app,
                            self,
                            NULL);
+  g_signal_connect (target, "drop", G_CALLBACK (on_drop_flowbox), self);
+  gtk_widget_add_controller (GTK_WIDGET (self->fbox), GTK_EVENT_CONTROLLER (target));
 
   on_favorites_changed (self);
 
