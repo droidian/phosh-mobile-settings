@@ -259,6 +259,7 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
     g_autofree char *prefs_path = NULL;
     g_autoptr (GError) error = NULL;
     g_autoptr (GKeyFile) keyfile = g_key_file_new ();
+    g_auto (GStrv) types = NULL;
 
     if (!g_str_has_prefix (filename, PLUGIN_PREFIX) || !g_str_has_suffix (filename, PLUGIN_SUFFIX))
       continue;
@@ -286,6 +287,15 @@ ms_lockscreen_panel_scan_phosh_lockscreen_plugins (MsLockscreenPanel *self)
 
     title = g_key_file_get_locale_string (keyfile, "Plugin", "Name", NULL, NULL);
     description = g_key_file_get_locale_string (keyfile, "Plugin", "Comment", NULL, NULL);
+    types = g_key_file_get_string_list (keyfile, "Plugin", "Types", NULL, NULL);
+
+    if (types == NULL)
+      g_warning ("Plugin '%s' has no type. Please fix", name);
+
+    /* We assume types == NULL means 'lockscreen' plugin for a transition phase */
+    /* TODO: remove past the next phosh release */
+    if (types != NULL && !g_strv_contains ((const char *const *)types, "lockscreen"))
+        continue;
 
     enabled = g_strv_contains ((const gchar * const*)enabled_plugins, name);
     g_debug ("Found plugin %s, name %s, enabled: %d, prefs: %d", filename, name, enabled, !!prefs_path);
