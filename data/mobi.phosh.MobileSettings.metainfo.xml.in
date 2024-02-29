@@ -51,6 +51,17 @@
   </screenshots>
 
   <releases>
+    <release version="0.37.0" date="2024-03-01">
+      <description>
+        <ul>
+          <li>Improve organizing favorites in the application panel</li>
+          <li>Improve sound file selection in feedback panel</li>
+          <li>Allow to set phosh overview's app filter mode</li>
+          <li>Ignore other plugin types when listing lockscreen plugins</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.36.0" date="2024-02-03">
       <description>
         <ul>

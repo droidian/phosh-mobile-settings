@@ -1,3 +1,17 @@
+phosh-mobile-settings 0.37.0
+----------------------------
+Released: March 2024
+* Improve Organizing favorites in the application panel
+* Improve Sound file selection in feedback panel
+* Allow to set phosh overview's app filter mode
+* Ignore other plugin types when listing lockscreen plugins
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/40
+* Contributors:
+    * Gotam Gorabh
+    * Guido Günther
+    * Rudra Pratap Singh
+
 phosh-mobile-settings 0.36.0
 ----------------------------
 Released: February 2024

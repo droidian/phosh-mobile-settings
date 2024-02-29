@@ -1,3 +1,51 @@
+phosh-mobile-settings (0.37.0) experimental; urgency=medium
+
+  [ Gotam Gorabh ]
+  * sound-row: Fix transform function name typo
+  * sound-row: Add playing property to update icon of playback button
+  * feedback-panel: Display proper error message.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/40
+  * feedback-panel: Sync playing state between each sound row
+  * application-panel: Allow to set app filter mode settings.
+    This changes will allow user to enable/disable app-filter-mode via p-m-s.
+    closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/1
+  * application-panel: Make title and subtitle translatable
+
+  [ Rudra Pratap Singh ]
+  * application: Add local option to output version
+  * applications-panel: Reword Favorites row title
+  * applications-panel: Make favorites flowbox homogeneous.
+    This will ensure each added favorite within the
+    flowbox occupies same size, irrespective of
+    the number of favorites.
+  * applications-panel: Allow to append a favorite via flowbox.
+    With this, a favorite can be dropped on the
+    flowbox which will be appended at the end.
+
+  [ Guido Günther ]
+  * lockscreen-panel: Only show lockscreen plugins.
+    With more plugin types coming to phosh via
+    https://gitlab.gnome.org/World/Phosh/phosh/-/merge_requests/1359
+    we want to make sure we only list the plugins with a "lockscreen"
+    type here.
+    For a transition phase we assume that no type means "lockscreen".  This
+    can be dropped in the future.
+  * application-panel: String consistency.
+    Use imperative form, unify spelling.
+  * ci: Switch ci back to Debian Trixie.
+    We have libadwaita 1.4 and Debian sid is going through a larger
+    library transition atm.
+  * packaging: Allow to fetch subprojects.
+    This unbreaks the package build
+  * gmobile: Update to 0.0.6. Go with the flow.
+  * packaging: Depend on libjson-glib-dev.
+    This prevents that it's pulled as a subproject by gmobile
+  * packaging: Improve installation.
+    Don't override the install target so e.g. missing files are correctly
+    detected.
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 29 Feb 2024 17:20:41 +0100
+
 phosh-mobile-settings (0.36.0) experimental; urgency=medium
 
   [ Suraj Kumar Mahto ]
