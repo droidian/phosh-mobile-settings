@@ -18,7 +18,7 @@
                     <child>
                       <object class="AdwActionRow">
                         <property name="title" translatable="yes">Organize Favorites</property>
-                        <property name="subtitle" translatable="yes">Drag and drop the apps below to rearrange your favorited apps</property>
+                        <property name="subtitle" translatable="yes">Drag and drop the apps below to rearrange your favorite apps</property>
                       </object>
                     </child>
 
@@ -44,7 +44,7 @@
                 <child>
                   <object class="AdwActionRow">
                     <property name="title" translatable="yes">Reset Favorites</property>
-                    <property name="subtitle" translatable="yes">This will set your favorited apps back to defaults</property>
+                    <property name="subtitle" translatable="yes">Set list of favorite apps back to the default</property>
                     <child>
                       <object class="GtkButton" id="reset_btn">
                         <property name="valign">center</property>
