@@ -32,7 +32,7 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2023-11-20.3
+  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2024-03-04
   COMMON_BUILD_OPTS: --werror
 
 .trixie_vars: &trixie_vars
@@ -65,9 +65,8 @@ build:native-debian-trixie:
   stage: build
   image: ${DEBIAN_IMAGE}
   before_script:
-    - echo "deb http://deb.debian.org/debian/ sid main" > /etc/apt/sources.list.d/sid.list
     - apt-get -y update
-    - apt-get -y -t sid build-dep .
+    - apt-get -y build-dep .
   <<: *trixie_vars
   <<: *build_step
   artifacts:
