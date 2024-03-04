@@ -21,19 +21,35 @@
 #include <glib/gi18n.h>
 
 #define FAVORITES_KEY            "favorites"
-#define FAVORITES_SCHEMA_ID      "sm.puri.phosh"
+#define APP_FILTER_MODE_KEY      "app-filter-mode"
+#define PHOSH_SCHEMA_ID          "sm.puri.phosh"
 #define FAVORITES_LIST_ICON_SIZE 48
 
-struct _MsApplicationsPanel {
-  AdwBin               parent;
+/**
+ * AppFilterModeFlags:
+ * @APP_FILTER_MODE_FLAGS_NONE: No filtering
+ * @APP_FILTER_MODE_FLAGS_ADAPTIVE: Only show apps in mobile mode that adapt
+ *    to smalls screen sizes.
+ *
+ * Controls what kind of app filtering is done.
+*/
+typedef enum {
+    APP_FILTER_MODE_FLAGS_NONE = 0,
+    APP_FILTER_MODE_FLAGS_ADAPTIVE  = (1 << 0),
+} AppFilterModeFlags;
 
-  GSettings           *settings;
+struct _MsApplicationsPanel {
+  AdwBin                   parent;
+
+  GSettings               *settings;
 
   /* Favorites */
-  AdwPreferencesGroup *arrange_favs;
-  GtkFlowBox          *fbox;
-  GListStore          *apps;
-  GtkWidget           *reset_btn;
+  AdwPreferencesGroup     *arrange_favs;
+  GtkFlowBox              *fbox;
+  GListStore              *apps;
+  GtkWidget               *reset_btn;
+
+  AdwSwitchRow            *afm_switch_row;
 };
 
 G_DEFINE_TYPE (MsApplicationsPanel, ms_applications_panel, ADW_TYPE_BIN)
@@ -43,6 +59,18 @@ static void
 on_reset_btn_clicked (GtkButton *reset_btn, MsApplicationsPanel *self)
 {
   g_settings_reset (self->settings, FAVORITES_KEY);
+}
+
+static void
+afm_switch_row_cb (MsApplicationsPanel *self)
+{
+  gboolean afm_switch_state;
+  gint flags;
+
+  afm_switch_state = adw_switch_row_get_active (self->afm_switch_row);
+
+  flags = afm_switch_state ? APP_FILTER_MODE_FLAGS_ADAPTIVE : APP_FILTER_MODE_FLAGS_NONE;
+  g_settings_set_flags (self->settings, APP_FILTER_MODE_KEY, flags);
 }
 
 
@@ -251,6 +279,19 @@ on_favorites_changed (MsApplicationsPanel *self)
 
 
 static void
+on_afm_setting_changed (MsApplicationsPanel *self)
+{
+  AppFilterModeFlags filter_mode;
+  gboolean active;
+
+  filter_mode = g_settings_get_flags (self->settings, APP_FILTER_MODE_KEY);
+
+  active = !!(filter_mode & APP_FILTER_MODE_FLAGS_ADAPTIVE);
+  adw_switch_row_set_active (self->afm_switch_row, active);
+}
+
+
+static void
 ms_applications_panel_finalize (GObject *object)
 {
   MsApplicationsPanel *self = MS_APPLICATIONS_PANEL (object);
@@ -276,8 +317,10 @@ ms_applications_panel_class_init (MsApplicationsPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, arrange_favs);
   gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, fbox);
   gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, reset_btn);
+  gtk_widget_class_bind_template_child (widget_class, MsApplicationsPanel, afm_switch_row);
 
   gtk_widget_class_bind_template_callback (widget_class, on_reset_btn_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, afm_switch_row_cb);
 }
 
 
@@ -290,7 +333,7 @@ ms_applications_panel_init (MsApplicationsPanel *self)
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->apps = g_list_store_new (G_TYPE_APP_INFO);
-  self->settings = g_settings_new (FAVORITES_SCHEMA_ID);
+  self->settings = g_settings_new (PHOSH_SCHEMA_ID);
 
   g_signal_connect_swapped (self->settings, "changed::" FAVORITES_KEY,
                             G_CALLBACK (on_favorites_changed),
@@ -305,6 +348,12 @@ ms_applications_panel_init (MsApplicationsPanel *self)
   gtk_widget_add_controller (GTK_WIDGET (self->fbox), GTK_EVENT_CONTROLLER (target));
 
   on_favorites_changed (self);
+
+  g_signal_connect_swapped (self->settings, "changed::" APP_FILTER_MODE_KEY,
+                            G_CALLBACK (on_afm_setting_changed),
+                            self);
+
+  on_afm_setting_changed (self);
 
   version_check = gtk_check_version (4, 13, 2);
   if (version_check) {
