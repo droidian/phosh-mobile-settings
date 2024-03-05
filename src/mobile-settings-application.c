@@ -61,9 +61,14 @@ static const GOptionEntry entries[] = {
     NULL, "Current version of phosh-mobile-settings", NULL
   },
   {
+    "debug-info", 'd',
+    G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
+    NULL, "Print debugging information", NULL
+  },
+  {
     "list", 'l',
     G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
-    NULL, "List the available panels in phosh-mobile-settings", NULL
+    NULL, "List the available panels", NULL
   },
   {
     G_OPTION_REMAINING, '\0',
@@ -144,6 +149,24 @@ static const struct wl_registry_listener registry_listener = {
 };
 
 
+static void
+setup_wayland (MobileSettingsApplication *self)
+{
+  GdkDisplay *gdk_display;
+
+  if (self->wl_display == NULL) {
+    gdk_display = gdk_display_get_default ();
+    self->wl_display = gdk_wayland_display_get_wl_display (gdk_display);
+    if (self->wl_display != NULL) {
+      self->wl_registry = wl_display_get_registry (self->wl_display);
+      wl_registry_add_listener (self->wl_registry, &registry_listener, self);
+    } else {
+      g_critical ("Failed to get display: %m\n");
+    }
+  }
+}
+
+
 static GtkWindow *
 get_active_window (MobileSettingsApplication *self)
 {
@@ -162,6 +185,22 @@ print_version (void)
   g_print ("Phosh Mobile Settings %s %s\n",
            MOBILE_SETTINGS_VERSION,
            PHOSH_MOBILE_SETTINGS_DESCRIPTION);
+}
+
+
+static void
+print_system_information (GApplication *app)
+{
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+
+  /* We need this to init components and generate debug info */
+  adw_init ();
+
+  setup_wayland (self);
+  /* Make sure all pending events got processed by the server */
+  wl_display_roundtrip (self->wl_display);
+
+  g_print ("Debugging information:\n%s", mobile_settings_generate_debug_info ());
 }
 
 
@@ -233,6 +272,10 @@ mobile_settings_application_handle_local_options (GApplication *app,
     print_version ();
 
     return 0;
+  } else if (g_variant_dict_contains (options, "debug-info")) {
+    print_system_information (app);
+
+    return 0;
   } else if (g_variant_dict_contains (options, "list")) {
     list_available_panels (app);
 
@@ -255,23 +298,13 @@ static void
 mobile_settings_application_activate (GApplication *app)
 {
   GtkWindow *window;
-  GdkDisplay *gdk_display;
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
 
   g_assert (GTK_IS_APPLICATION (app));
 
   window = get_active_window (self);
 
-  if (self->wl_display == NULL) {
-    gdk_display = gdk_display_get_default ();
-    self->wl_display = gdk_wayland_display_get_wl_display (gdk_display);
-    if (self->wl_display != NULL) {
-      self->wl_registry = wl_display_get_registry (self->wl_display);
-      wl_registry_add_listener (self->wl_registry, &registry_listener, self);
-    } else {
-      g_critical ("Failed to get display: %m\n");
-    }
-  }
+  setup_wayland (self);
 
   gtk_window_present (window);
 }
