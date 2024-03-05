@@ -6,6 +6,7 @@
       <object class="GtkScrolledWindow">
         <child>
           <object class="AdwPreferencesPage">
+
             <child>
               <object class="AdwPreferencesGroup">
 
@@ -18,7 +19,18 @@
                     <property name="prefs-extension-point">phosh-quick-setting-widget-prefs</property>
                   </object>
                 </child>
-
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">UI Elements</property>
+                <child>
+                  <object class="AdwSwitchRow" id="shell_layout_switch">
+                    <property name="title" translatable="yes">Avoid notches</property>
+                    <property name="subtitle" translatable="yes">Don't place UI elements beneath notches and display cutouts</property>
+                    <signal name="notify::active" handler="shell_layout_switch_row_cb" object="MsTopbarPanel" swapped="yes"/>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
