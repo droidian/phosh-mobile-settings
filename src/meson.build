@@ -51,6 +51,8 @@ mobile_settings_sources = [
   'ms-sensor-panel.h',
   'ms-sound-row.c',
   'ms-sound-row.h',
+  'ms-topbar-panel.c',
+  'ms-topbar-panel.h',
   'ms-toplevel-tracker.c',
   'ms-toplevel-tracker.h',
   'ms-util.c',
