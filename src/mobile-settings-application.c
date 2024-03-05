@@ -63,7 +63,7 @@ static const GOptionEntry entries[] = {
   {
     "list", 'l',
     G_OPTION_FLAG_NONE, G_OPTION_ARG_NONE,
-    NULL, "Lists the available panels in phosh-mobile-settings", NULL
+    NULL, "List the available panels in phosh-mobile-settings", NULL
   },
   {
     G_OPTION_REMAINING, '\0',
