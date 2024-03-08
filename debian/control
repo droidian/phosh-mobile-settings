@@ -13,6 +13,12 @@ Build-Depends:
  libsensors-dev,
  meson,
  phosh-dev (>= 0.23.0),
+ feedbackd<!nocheck>,
+ gnome-settings-daemon <!nocheck>,
+ gsettings-desktop-schemas <!nocheck>,
+ phoc <!nocheck>,
+ phosh <!nocheck>,
+ xwayland <!nocheck>,
 Standards-Version: 4.6.0
 Homepage: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/
 Rules-Requires-Root: no
