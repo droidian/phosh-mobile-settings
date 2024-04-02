@@ -1,3 +1,24 @@
+phosh-mobile-settings (0.38.0) experimental; urgency=medium
+
+  [ Rudra Pratap Singh ]
+  * packaging: Add tests dependencies.
+    We need a compositor and apart from that the schemas that p-m-s deals
+    with.
+  * application: Use imperative form in -l option
+  * application: Assert presence of Wayland protocols.
+    Since we always run under Wayland, we should
+    always have access to protocols.
+  * application: Add local option to print debug info
+  * tests: Add tests for local options
+  * ci: Add a job for running tests
+
+  [ Guido Günther ]
+  * osk-panel: Don't print warning when we fail to get the osk PID.
+    Otherwise this trips up the tests and it's not crucuial for the panel to
+    function.
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 02 Apr 2024 19:52:49 +0200
+
 phosh-mobile-settings (0.37.0) experimental; urgency=medium
 
   [ Gotam Gorabh ]

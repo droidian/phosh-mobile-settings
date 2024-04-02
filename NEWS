@@ -1,3 +1,11 @@
+phosh-mobile-settings 0.38.0
+----------------------------
+Released: April 2024
+* Add option to print debug info on the command line
+* Contributors:
+    * Guido Günther
+    * Rudra Pratap Singh
+
 phosh-mobile-settings 0.37.0
 ----------------------------
 Released: March 2024
