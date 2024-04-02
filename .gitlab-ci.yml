@@ -33,7 +33,7 @@ variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
   DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2024-03-04
-  COMMON_BUILD_OPTS: --werror
+  COMMON_BUILD_OPTS: --werror -Db_coverage=true
 
 .trixie_vars: &trixie_vars
   variables:
@@ -45,6 +45,11 @@ variables:
     - 'echo "Build opts: ${BUILD_OPTS}"'
     - meson ${BUILD_OPTS} . _build
     - meson compile -C _build
+
+.test_step: &test_step
+  script:
+    - dbus-run-session meson test --print-errorlogs -C _build
+    - ninja -C _build coverage-html
 
 # Sanity checks of MR settings and commit logs
 sanity:
@@ -104,3 +109,22 @@ check-po:
   needs: []
   script:
     - tools/check-po
+
+test:native-debian-trixie:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  before_script:
+    - apt-get -y update
+    - apt-get -y build-dep .
+  needs:
+    - build:native-debian-trixie
+  <<: *trixie_vars
+  <<: *test_step
+  coverage: '/^lines:\s+([\d.]+\%)\s+/'
+  artifacts:
+    when: always
+    reports:
+      junit: _build/meson-logs/testlog.junit.xml
+  except:
+    variables:
+      - $PKG_ONLY == '1'

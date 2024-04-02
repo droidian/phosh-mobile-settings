@@ -254,7 +254,7 @@ is_osk_stub (void)
                                 NULL,
                                 &error);
   if (proxy == NULL || ret == NULL) {
-    g_warning ("Failed to query osk pid: %s", error->message);
+    g_debug ("Failed to query osk pid: %s", error->message);
     return FALSE;
   }
 

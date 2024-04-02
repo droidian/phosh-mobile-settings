@@ -148,6 +148,7 @@ add_project_arguments([
 subdir('data')
 subdir('protocols')
 subdir('src')
+subdir('tests')
 subdir('plugins')
 subdir('po')
 
