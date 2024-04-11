@@ -30,7 +30,7 @@
                   <object class="AdwActionRow">
                     <property name="title" translatable="yes">Enable suspend via the system menu</property>
                     <property name="use-underline">true</property>
-                    <property name="subtitle">Please only enable this if you're aware of the limitations like data connection loss or missed alarms</property>
+                    <property name="subtitle" translatable="yes">Please only enable this if you're aware of the limitations like data connection loss or missed alarms</property>
                     <child>
                       <object class="GtkSwitch" id="manual_suspend_switch">
                         <property name="valign">center</property>
