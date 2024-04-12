@@ -15,7 +15,8 @@
                     <property name="title">Librem 5</property>
 	            <child>
 	              <object class="AdwActionRow">
-		        <property name="title">U-Boot</property>
+                        <!-- translators: U-boot is the brand of a bootloader -->
+		        <property name="title" translatable="yes">U-Boot</property>
                         <property name="use-underline">true</property>
                         <child>
                           <object class="GtkLabel" id="uboot_label">
@@ -27,9 +28,9 @@
 	            </child>
 	            <child>
 	              <object class="AdwActionRow">
-		        <property name="title">Suspend device</property>
+		        <property name="title" translatable="yes">Suspend device</property>
                         <property name="use-underline">true</property>
-                        <property name="subtitle">Suspend is experimental</property>
+                        <property name="subtitle" translatable="yes">Suspend is experimental</property>
                         <child>
                           <object class="GtkButton" id="suspend_button">
 		            <property name="label">suspend now</property>
@@ -47,10 +48,11 @@
 
 	        <child>
 	          <object class="AdwPreferencesGroup">
-                    <property name="title">Temperatures</property>
+                    <property name="title" translatable="yes">Temperatures</property>
 	            <child>
 	              <object class="AdwActionRow" id="cpu_temp_row">
-		        <property name="title">CPU</property>
+                        <!-- translators: The central processing unit of a smart phone -->
+		        <property name="title" translatable="yes">CPU</property>
                         <property name="use-underline">true</property>
                         <child type="prefix">
                           <object class="GtkImage" id="cpu_temp_icon">
@@ -68,7 +70,8 @@
 	            </child>
 	            <child>
 	              <object class="AdwActionRow" id="gpu_temp_row">
-		        <property name="title">GPU</property>
+                        <!-- translators: The graphics processing unit of a smart phone -->
+		        <property name="title" translatable="yes">GPU</property>
                         <property name="use-underline">true</property>
                         <child type="prefix">
                           <object class="GtkImage" id="gpu_temp_icon">
@@ -86,7 +89,8 @@
 	            </child>
 	            <child>
 	              <object class="AdwActionRow" id="vpu_temp_row">
-		        <property name="title">VPU</property>
+                        <!-- translators: The video processing unit of a smart phone -->
+		        <property name="title" translatable="yes">VPU</property>
                         <property name="use-underline">true</property>
                         <child type="prefix">
                           <object class="GtkImage" id="vpu_temp_icon">
@@ -104,7 +108,7 @@
 	            </child>
 	            <child>
 	              <object class="AdwActionRow" id="fuelgauge_temp_row">
-		        <property name="title">Fuel Gauge</property>
+		        <property name="title" translatable="yes">Fuel Gauge</property>
                         <property name="use-underline">true</property>
                         <child type="prefix">
                           <object class="GtkImage" id="fuelgauge_temp_icon">
@@ -122,7 +126,7 @@
 	            </child>
 	            <child>
 	              <object class="AdwActionRow" id="battery_temp_row">
-		        <property name="title">Battery</property>
+		        <property name="title" translatable="yes">Battery</property>
                         <property name="use-underline">true</property>
                         <child type="prefix">
                           <object class="GtkImage" id="battery_temp_icon">
