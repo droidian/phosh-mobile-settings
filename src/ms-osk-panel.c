@@ -24,6 +24,7 @@
 
 #define PHOSH_OSK_SETTINGS           "sm.puri.phosh.osk"
 #define WORD_COMPLETION_KEY          "completion-mode"
+#define HW_KEYBOARD_KEY              "ignore-hw-keyboards"
 
 #define PHOSH_OSK_TERMINAL_SETTINGS  "sm.puri.phosh.osk.Terminal"
 #define SHORTCUTS_KEY                "shortcuts"
@@ -47,6 +48,7 @@ struct _MsOskPanel {
 
   /* Word completion */
   GSettings        *pos_settings;
+  GtkWidget        *hw_keyboard_switch;
   GtkWidget        *completion_group;
   GtkWidget        *app_completion_switch;
   GtkWidget        *menu_completion_switch;
@@ -299,6 +301,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-osk-panel.ui");
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, hw_keyboard_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
 
   /* OSK handling */
@@ -378,6 +381,10 @@ ms_osk_panel_init (MsOskPanel *self)
     gtk_widget_set_visible (self->completion_group, TRUE);
 
     self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
+    g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
+                     self->hw_keyboard_switch, "active",
+                     G_SETTINGS_BIND_DEFAULT);
+
     self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
     g_signal_connect_swapped (self->pos_settings, "changed::" WORD_COMPLETION_KEY,
                               G_CALLBACK (on_word_completion_key_changed),

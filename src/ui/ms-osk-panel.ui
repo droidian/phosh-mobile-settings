@@ -41,6 +41,12 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwSwitchRow" id="hw_keyboard_switch">
+                    <property name="title" translatable="yes">Ignore hardware keyboard</property>
+                    <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when a physical keyboard is present</property>
+                  </object>
+                </child>
               </object>
             </child>
 
