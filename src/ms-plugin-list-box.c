@@ -34,19 +34,19 @@ enum {
 static GParamSpec *props[PROP_LAST_PROP];
 
 struct _MsPluginListBox {
-  AdwBin      parent;
+  AdwBin              parent;
 
-  GSettings  *settings;
-  char       *settings_key;
-  GtkWidget  *list_box;
-  GListStore *store;
+  GSettings          *settings;
+  char               *settings_key;
+  GtkWidget          *list_box;
+  GListStore         *store;
 
-  MsPluginRow *selected_row;
+  MsPluginRow        *selected_row;
 
   GSimpleActionGroup *action_group;
 
-  char *plugin_type;
-  char *prefs_extension_point;
+  char               *plugin_type;
+  char               *prefs_extension_point;
 };
 G_DEFINE_TYPE (MsPluginListBox, ms_plugin_list_box, ADW_TYPE_BIN)
 
@@ -156,16 +156,16 @@ update_enabled_move_actions (MsPluginListBox *self)
   for (child = gtk_widget_get_first_child (GTK_WIDGET (self->list_box));
        child != NULL;
        child = gtk_widget_get_next_sibling (child)) {
-        gint row_idx;
+    gint row_idx;
 
-        if (!MS_IS_PLUGIN_ROW (child))
-          continue;
+    if (!MS_IS_PLUGIN_ROW (child))
+      continue;
 
-        row_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (child));
-        gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-up", row_idx != 0);
-        gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-down",
-                                       gtk_widget_get_next_sibling (GTK_WIDGET (child)) != NULL);
-       }
+    row_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (child));
+    gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-up", row_idx != 0);
+    gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-down",
+                                   gtk_widget_get_next_sibling (GTK_WIDGET (child)) != NULL);
+  }
 }
 
 
@@ -210,7 +210,11 @@ on_plugin_activated (MsPluginListBox *self, GParamSpec *pspec, MsPluginRow *row)
 }
 
 
- /* update the plugins store to match the order in phosh */
+/**
+ * sort_plugins_store:
+ *
+ * Update the plugins store to match the order in phosh
+ */
 static void
 sort_plugins_store (MsPluginListBox *self)
 {
@@ -292,10 +296,11 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
       g_warning ("Plugin '%s' has no type. Please fix", name);
 
     if (!g_strv_contains ((const char *const *)types, self->plugin_type))
-        continue;
+      continue;
 
     enabled = g_strv_contains ((const gchar * const*)enabled_plugins, name);
-    g_debug ("Found plugin %s, name %s, enabled: %d, prefs: %d", filename, name, enabled, !!prefs_path);
+    g_debug ("Found plugin %s, name %s, enabled: %d, prefs: %d", filename, name, enabled,
+             !!prefs_path);
     row = g_object_new (MS_TYPE_PLUGIN_ROW,
                         "plugin-name", name,
                         "title", title,
@@ -330,9 +335,9 @@ ms_plugin_list_box_set_settings_key (MsPluginListBox *self, const char *key)
 
 static void
 ms_plugin_list_box_set_property (GObject      *object,
-                      guint         property_id,
-                      const GValue *value,
-                      GParamSpec   *pspec)
+                                 guint         property_id,
+                                 const GValue *value,
+                                 GParamSpec   *pspec)
 {
   MsPluginListBox *self = MS_PLUGIN_LIST_BOX (object);
 
@@ -355,9 +360,9 @@ ms_plugin_list_box_set_property (GObject      *object,
 
 static void
 ms_plugin_list_box_get_property (GObject    *object,
-                      guint       property_id,
-                      GValue     *value,
-                      GParamSpec *pspec)
+                                 guint       property_id,
+                                 GValue     *value,
+                                 GParamSpec *pspec)
 {
   MsPluginListBox *self = MS_PLUGIN_LIST_BOX (object);
 

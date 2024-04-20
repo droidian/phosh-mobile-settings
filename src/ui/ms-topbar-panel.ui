@@ -8,7 +8,17 @@
           <object class="AdwPreferencesPage">
             <child>
               <object class="AdwPreferencesGroup">
-                <!-- Add child here -->
+
+                <property name="title" translatable="yes">Quick Settings</property>
+                <property name="description" translatable="yes">Organize your additional Quick Settings</property>
+                <child>
+                  <object class="MsPluginListBox" id="plugins_listbox">
+                    <property name="plugin-type">quick-setting</property>
+                    <property name="settings-key">quick-settings</property>
+                    <property name="prefs-extension-point">phosh-quick-setting-widget-prefs</property>
+                  </object>
+                </child>
+
               </object>
             </child>
           </object>
