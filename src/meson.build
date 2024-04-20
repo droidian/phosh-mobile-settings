@@ -39,6 +39,8 @@ mobile_settings_sources = [
   'ms-panel-switcher.c',
   'ms-panel-switcher.h',
   'ms-plugin-loader.h',
+  'ms-plugin-list-box.c',
+  'ms-plugin-list-box.h',
   'ms-plugin-loader.c',
   'ms-plugin-loader.h',
   'ms-plugin-row.c',
