@@ -35,8 +35,18 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2024-03-04
+  DEBIAN_IMAGE: debian:sid
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
+  PKGS: ca-certificates build-essential git wget gcovr locales uncrustify
+  DEB_SID_PKGS: phosh
+
+.trixie_before_script: &trixie_before_script
+  before_script:
+    - apt-get -y update
+    - apt-get -y install eatmydata
+    - apt-get -y upgrade
+    - apt-get --no-install-recommends -y install $PKGS
+    - apt-get -y build-dep .
 
 .trixie_vars: &trixie_vars
   variables:
@@ -72,9 +82,7 @@ sanity:
 build:native-debian-trixie:
   stage: build
   image: ${DEBIAN_IMAGE}
-  before_script:
-    - apt-get -y update
-    - apt-get -y build-dep .
+  <<: *trixie_before_script
   <<: *trixie_vars
   <<: *build_step
   artifacts:
@@ -84,9 +92,7 @@ build:native-debian-trixie:
 test:native-debian-trixie:
   stage: test
   image: ${DEBIAN_IMAGE}
-  before_script:
-    - apt-get -y update
-    - apt-get -y build-dep .
+  <<: *trixie_before_script
   needs:
     - build:native-debian-trixie
   <<: *trixie_vars
