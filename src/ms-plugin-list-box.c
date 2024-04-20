@@ -387,7 +387,6 @@ ms_plugin_list_box_finalize (GObject *object)
   g_clear_object (&self->store);
   g_clear_object (&self->action_group);
 
-
   g_clear_pointer (&self->prefs_extension_point, g_free);
   g_clear_pointer (&self->settings_key, g_free);
   g_clear_pointer (&self->plugin_type, g_free);
