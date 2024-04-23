@@ -1,0 +1,566 @@
+# Indonesian translation for phosh-mobile-settings.
+# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Andika Triwidada <atriwidada@gnome.org>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-04-22 18:18+0000\n"
+"PO-Revision-Date: 2024-04-23 19:49+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Pengaturan Seluler"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Telepon Seluler;Preferensi;Pengaturan Seluler;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Pengaturan Phosh Seluler"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Aplikasi ini memungkinkan Anda untuk mengonfigurasi beberapa aspek Phosh "
+"yang seharusnya memerlukan penggunaan baris perintah."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Pengaturan lanjutan untuk perangkat Seluler menggunakan Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Panel yang tersedia"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "Panel komposit"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "Panel umpan balik"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "Suhu kritis adalah %.2f°C"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr "Tangguhkan perangkat"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr "Penangguhan bersifat eksperimental"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr "Suhu"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr "CPU"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr "Indikator Bahan Bakar"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "Baterai"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Umum"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tampilkan Pintasan"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Keluar"
+
+#: src/mobile-settings-application.c:28
+msgid "- Manage your mobile settings"
+msgstr "- Mengelola pengaturan ponsel Anda"
+
+#: src/mobile-settings-window.c:77
+msgid "Device"
+msgstr "Perangkat"
+
+#: src/ms-feedback-panel.c:135
+msgid "Sound file does not exist"
+msgstr "Berkas suara tidak ada"
+
+#: src/ms-feedback-panel.c:137
+msgid "Sound file is corrupt"
+msgstr "Berkas suara rusak"
+
+#: src/ms-feedback-panel.c:139
+msgid "Failed to play sound"
+msgstr "Gagal memutar suara"
+
+#: src/ms-feedback-panel.c:178
+#, c-format
+msgid "Playing %s"
+msgstr "Memutar %s"
+
+#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+msgid "none"
+msgstr "nihil"
+
+#: src/ms-feedback-panel.c:341
+msgid "low"
+msgstr "rendah"
+
+#. 1.0
+#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+msgid "normal"
+msgstr "normal"
+
+#: src/ms-feedback-panel.c:345
+msgid "critical"
+msgstr "kritis"
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "Normal"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr "Tak terdefinisi"
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr "Dekat"
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr "Jauh"
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "Memutakhirkan…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr "Tak tersedia"
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "Ubahan"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr "Pilih berkas suara"
+
+#: src/ms-util.c:149
+msgid "Full"
+msgstr "Penuh"
+
+#: src/ms-util.c:151
+msgid "Quiet"
+msgstr "Hening"
+
+#: src/ms-util.c:153
+msgid "Silent"
+msgstr "Senyap"
+
+#: src/ui/mobile-settings-window.ui:74
+msgid "Welcome"
+msgstr "Selamat Datang"
+
+#: src/ui/mobile-settings-window.ui:80
+msgid "Welcome to Mobile Settings"
+msgstr "Selamat Datang di Pengaturan Seluler"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Tweak advanced mobile settings"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:89
+msgid "Applications"
+msgstr "Aplikasi"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Feedback"
+msgstr "Umpan Balik"
+
+#: src/ui/mobile-settings-window.ui:111
+msgid "Compositor"
+msgstr "Kompositor"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Lockscreen"
+msgstr "Layar kunci"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Convergence"
+msgstr "Konvergensi"
+
+#: src/ui/mobile-settings-window.ui:144
+msgid "On Screen Keyboard"
+msgstr "Papan Tik di Layar"
+
+#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Sensor"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Experimental features"
+msgstr "Fitur eksperimental"
+
+#: src/ui/mobile-settings-window.ui:190
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan _Ketik"
+
+#: src/ui/mobile-settings-window.ui:194
+msgid "_About Mobile Settings"
+msgstr "Tent_ang Pengaturan Seluler"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "Favorit"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "Mengatur Favorit"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Seret dan lepas aplikasi di bawah ini untuk mengatur ulang aplikasi favorit "
+"Anda"
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr "Setel Ulang Favorit"
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr "Atur daftar aplikasi favorit kembali ke baku"
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "Reset"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr "Pemfilteran Aplikasi Seluler"
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr "Mengatur Mode Filter Aplikasi"
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr "Hanya tampilkan aplikasi seluler di ringkasan"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "Hanya aktifkan ini untuk aplikasi rusak yang tidak sesuai dengan layar"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Difungsikan"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr ""
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Fitur Percobaan"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "Fitur yang belum dianggap sepenuhnya stabil"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Panggilan Darurat"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Aktifkan panggilan darurat. Harap aktifkan ini hanya jika Anda dapat "
+"memastikan bahwa ini berfungsi dengan penyedia Anda."
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr "Aktifkan penangguhan melalui menu sistem"
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Harap aktifkan ini hanya jika Anda mengetahui batasan seperti kehilangan "
+"koneksi data atau alarm yang tidak terjawab"
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr "Profil umpan balik"
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr "Profil umpan balik maksimum global"
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Per Application settings"
+msgstr "Per pengaturan Aplikasi"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Sounds"
+msgstr "Suara"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "The sound to use for certain events"
+msgstr "Suara yang digunakan untuk kejadian tertentu"
+
+#: src/ui/ms-feedback-panel.ui:55
+msgid "Phone Calls"
+msgstr "Panggilan Telepon"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:67
+msgid "Instant messages"
+msgstr "Pesan instan"
+
+#: src/ui/ms-feedback-panel.ui:78
+msgid "Screen Wakeup"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:81
+msgid "Notification urgency that lights up the screen"
+msgstr "Urgensi pemberitahuan yang menerangi layar"
+
+#: src/ui/ms-lockscreen-panel.ui:11
+msgid "Unlocking"
+msgstr "Buka Kunci"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Shuffle keypad"
+msgstr "Acak keypad"
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Apakah akan mengacak angka pada keypad"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Widgets"
+msgstr "Widget"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Additional widgets for the lock screen"
+msgstr "Widget tambahan untuk layar kunci"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Aktifkan P_apan Ketik Di Layar"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Apakah akan menampilkan papan ketik di layar bila diperlukan"
+
+#: src/ui/ms-osk-panel.ui:28
+msgid "Unfold long-press"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:29
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Berapa lama untuk menekan bagian tengah bilah beranda untuk membuka papan "
+"ketik di layar"
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:34
+msgid "short"
+msgstr "singkat"
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:38
+msgid "long"
+msgstr "lama"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Ignore hardware keyboard"
+msgstr "Abaikan papan ketik perangkat keras"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:56
+msgid "Text Completion"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Opportunistic word completion"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "Enable word completion when the app indicates it is useful"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Toggle via OSK menu"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:94
+msgid "Terminal Layout"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:98
+msgid "Shortcuts"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:99
+msgid "The shortcuts available in the shortcuts bar"
+msgstr ""
+
+#: src/ui/ms-plugin-row.ui:33
+msgid "More options…"
+msgstr ""
+
+#: src/ui/ms-plugin-row.ui:46
+msgid "Move Up"
+msgstr ""
+
+#: src/ui/ms-plugin-row.ui:50
+msgid "Move Down"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Pembacaan Sensor"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Proksimitas"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Cahaya"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Orientasi"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Kontras Tinggi"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Kontras Tinggi Otomatis"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr ""
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "Berkas suara (ogg)"
