@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-22 09:57+0000\n"
-"PO-Revision-Date: 2024-04-22 21:47+0330\n"
+"POT-Creation-Date: 2024-04-22 18:18+0000\n"
+"PO-Revision-Date: 2024-04-24 18:20+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -95,7 +95,7 @@ msgstr "پردازشگر ویدیویی"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
 msgid "Fuel Gauge"
-msgstr ""
+msgstr "عقربهٔ سوخت"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
 msgid "Battery"
@@ -164,15 +164,15 @@ msgstr "معمولی"
 
 #: src/ms-sensor-panel.c:94
 msgid "Bottom up"
-msgstr "پایین به بالا"
+msgstr "پایین بالا"
 
 #: src/ms-sensor-panel.c:96
 msgid "Left up"
-msgstr ""
+msgstr "چپ بالا"
 
 #: src/ms-sensor-panel.c:98
 msgid "Right up"
-msgstr ""
+msgstr "راست بالا"
 
 #: src/ms-sensor-panel.c:100
 msgid "Undefined"
@@ -277,7 +277,7 @@ msgstr "سازمان‌دهی محبوب‌ها"
 
 #: src/ui/ms-applications-panel.ui:21
 msgid "Drag and drop the apps below to rearrange your favorite apps"
-msgstr ""
+msgstr "برای تغییر جایگاه کاره‌های محبوبتان آن‌ها را کشیده و در زیر رها کنید"
 
 #: src/ui/ms-applications-panel.ui:46
 msgid "Reset Favorites"
@@ -285,7 +285,7 @@ msgstr "بازنشانی برگزیده‌ها"
 
 #: src/ui/ms-applications-panel.ui:47
 msgid "Set list of favorite apps back to the default"
-msgstr ""
+msgstr "تنظیم دوبارهٔ سیاههٔ کاره‌های محبوب به پیش‌گزیده"
 
 #: src/ui/ms-applications-panel.ui:51
 msgid "Reset"
@@ -293,35 +293,35 @@ msgstr "بازنشانی"
 
 #: src/ui/ms-applications-panel.ui:62
 msgid "Mobile App Filtering"
-msgstr ""
+msgstr "پالایش کارهٔ همراه"
 
 #: src/ui/ms-applications-panel.ui:65
 msgid "Set Application Filter Mode"
-msgstr ""
+msgstr "تنظیم حالت پالایش برنامه"
 
 #: src/ui/ms-applications-panel.ui:66
 msgid "Show only mobile apps in the overview"
-msgstr ""
+msgstr "فقط نمایش کاره‌های همراه در نمای کلی"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
-msgstr ""
+msgstr "کوچک کردن مقیاس برنامه‌های در حال اجرا"
 
 #: src/ui/ms-compositor-panel.ui:12
 msgid "Only enable this for broken apps that don't fit the screen"
-msgstr ""
+msgstr "به کار انداختن فقط برای کاره‌هایی که در صفحه جا نمی‌شوند"
 
 #: src/ui/ms-compositor-panel.ui:25
 msgid "Scale down all applications"
-msgstr ""
+msgstr "کوچک کردن مقیاس همهٔ برنامه‌ها"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
-msgstr ""
+msgstr "کوچک کردن اجباری مقیاس همهٔ برنامه‌ها. فقط استفاده به عنوان آخرین حربه."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
-msgstr ""
+msgstr "کوچک کردن مقیاس همهٔ کاره‌ها"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
@@ -333,11 +333,11 @@ msgstr "به کار افتاده"
 
 #: src/ui/ms-convergence-panel.ui:15
 msgid "No known docks detected"
-msgstr ""
+msgstr "هیچ دک شناخته شده‌ای پیدا نشد"
 
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
-msgstr ""
+msgstr "نگاشت صفحهٔ لمسی توکار"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
@@ -345,39 +345,43 @@ msgstr "ویژگی‌های آزمایشی"
 
 #: src/ui/ms-features-panel.ui:12
 msgid "Features not yet deemed fully stable"
-msgstr ""
+msgstr "ویژگی‌هایی که هنوز کاملاً‌پایدار نیستند"
 
 #: src/ui/ms-features-panel.ui:16
 msgid "Emergency Calls"
-msgstr ""
+msgstr "تماس‌های اضطراری"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure "
 "that it's working with your provider."
 msgstr ""
+"به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با "
+"اوپراتورتان به کارش بیندازید."
 
 #: src/ui/ms-features-panel.ui:31
 msgid "Enable suspend via the system menu"
-msgstr ""
+msgstr "به کار انداختن تعلیق از فهرست سامانه"
 
 #: src/ui/ms-features-panel.ui:33
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
 msgstr ""
+"لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
+"هشدارها به کارش بیندازید."
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
-msgstr ""
+msgstr "نمایهٔ بازخورد"
 
 #: src/ui/ms-feedback-panel.ui:17
 msgid "The global maximum feedback profile"
-msgstr ""
+msgstr "نمایهٔ بازخوردی بیشینهٔ عمومی"
 
 #: src/ui/ms-feedback-panel.ui:33
 msgid "Per Application settings"
-msgstr ""
+msgstr "تنظیمات به ازای برنامه"
 
 #: src/ui/ms-feedback-panel.ui:46
 msgid "Sounds"
@@ -385,7 +389,7 @@ msgstr "صداها"
 
 #: src/ui/ms-feedback-panel.ui:47
 msgid "The sound to use for certain events"
-msgstr ""
+msgstr "صدای استفاده شده برای رویدادهای خاص"
 
 #: src/ui/ms-feedback-panel.ui:55
 msgid "Phone Calls"
@@ -397,15 +401,15 @@ msgstr "پیامک"
 
 #: src/ui/ms-feedback-panel.ui:67
 msgid "Instant messages"
-msgstr ""
+msgstr "پیام‌های فوری"
 
 #: src/ui/ms-feedback-panel.ui:78
 msgid "Screen Wakeup"
-msgstr ""
+msgstr "بیدار شدن صفحه"
 
 #: src/ui/ms-feedback-panel.ui:81
 msgid "Notification urgency that lights up the screen"
-msgstr ""
+msgstr "ضروریت آگاهی‌ای که صفحه را روشن می‌کند"
 
 #: src/ui/ms-lockscreen-panel.ui:11
 msgid "Unlocking"
@@ -413,11 +417,11 @@ msgstr "قفل‌گشایی"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Shuffle keypad"
-msgstr ""
+msgstr "در هم ریختن شماره‌ها"
 
 #: src/ui/ms-lockscreen-panel.ui:15
 msgid "Whether to shuffle the numbers on the keypad"
-msgstr ""
+msgstr "این که رقم‌های روی صفحه در هم ریخته شوند یا نه"
 
 #: src/ui/ms-lockscreen-panel.ui:32
 msgid "Widgets"
@@ -425,24 +429,24 @@ msgstr "ابزارک‌ها"
 
 #: src/ui/ms-lockscreen-panel.ui:33
 msgid "Additional widgets for the lock screen"
-msgstr ""
+msgstr "ابزارک‌های اضافی برای صفحهٔ قفل"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
-msgstr ""
+msgstr "به کار انداختن صفحه‌کلید مجازی"
 
 #: src/ui/ms-osk-panel.ui:14
 msgid "Whether to show the on screen keyboard when needed"
-msgstr ""
+msgstr "این که صفحه‌کلید مجازی هنگام نیاز نشان داده شود یا نه"
 
 #: src/ui/ms-osk-panel.ui:28
 msgid "Unfold long-press"
-msgstr ""
+msgstr "نگه داشتتن برای جمع کردن"
 
 #: src/ui/ms-osk-panel.ui:29
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
-msgstr ""
+msgstr "چه قدر باید مرکز نوار خانه نگه داشته شود تا صفحه‌کلید مجازی جمع شود"
 
 #. 0.5
 #: src/ui/ms-osk-panel.ui:34
@@ -456,36 +460,37 @@ msgstr "بلند"
 
 #: src/ui/ms-osk-panel.ui:46
 msgid "Ignore hardware keyboard"
-msgstr ""
+msgstr "چشم‌پوشی از صفحه‌کلید سخت‌افزاری"
 
 #: src/ui/ms-osk-panel.ui:47
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
+"این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
 
 #: src/ui/ms-osk-panel.ui:56
 msgid "Text Completion"
-msgstr ""
+msgstr "کامل کردن متن"
 
 #: src/ui/ms-osk-panel.ui:59
 msgid "Opportunistic word completion"
-msgstr ""
+msgstr "کامل کردن متن خوشبینانه"
 
 #: src/ui/ms-osk-panel.ui:60
 msgid "Enable word completion when the app indicates it is useful"
-msgstr ""
+msgstr "به کار انداختن کامل کردن متن هنگامی که کاره مفید بودنش را مشخّص کند"
 
 #: src/ui/ms-osk-panel.ui:75
 msgid "Toggle via OSK menu"
-msgstr ""
+msgstr "تغییر وضعیت با فهرست"
 
 #: src/ui/ms-osk-panel.ui:76
 msgid "Allow to toggle word completion via the keyboard's menu button"
-msgstr ""
+msgstr "اجازه به تغییر وضعیت کامل کردن متن با دکمهٔ فهرست صفحه‌کلید"
 
 #: src/ui/ms-osk-panel.ui:94
 msgid "Terminal Layout"
-msgstr ""
+msgstr "چینش پایانه"
 
 #: src/ui/ms-osk-panel.ui:98
 msgid "Shortcuts"
@@ -493,7 +498,7 @@ msgstr "میان‌برها"
 
 #: src/ui/ms-osk-panel.ui:99
 msgid "The shortcuts available in the shortcuts bar"
-msgstr ""
+msgstr "میان‌برهای موجود در نوار میان‌برها"
 
 #: src/ui/ms-plugin-row.ui:33
 msgid "More options…"
@@ -509,17 +514,17 @@ msgstr "جابه‌جایی به پایین"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
-msgstr ""
+msgstr "هیچ حسگری پیدا نشد"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
 "Either there are no sensors installed on your device or they are disabled by "
 "a killswitch."
-msgstr ""
+msgstr "حسگری روی افزاره‌تان وجود نداشته یا با کلید سخت‌افزاری خاموش شده‌اند."
 
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
-msgstr ""
+msgstr "خوانش‌های حسگر"
 
 #: src/ui/ms-sensor-panel.ui:40
 msgid "Proximity"
@@ -539,19 +544,19 @@ msgstr "سایه‌روشن زیاد"
 
 #: src/ui/ms-sensor-panel.ui:72
 msgid "Automatic High Contrast"
-msgstr ""
+msgstr "سایه‌روشن زیاد خودکار"
 
 #: src/ui/ms-sensor-panel.ui:73
 msgid "Controlled by the Ambient Light Sensor"
-msgstr ""
+msgstr "واپاییده با حسگر نور محیطی"
 
 #: src/ui/ms-sensor-panel.ui:84
 msgid "Light intensity threshold"
-msgstr ""
+msgstr "آستانهٔ تراکم نور"
 
 #: src/ui/ms-sensor-panel.ui:85
 msgid "Theme will switch to high contrast above the threshold"
-msgstr ""
+msgstr "زمینه در بالای آستانه به سایه‌روشن زیاد تغییر خواهد کرد"
 
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
