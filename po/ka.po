@@ -1,0 +1,567 @@
+# Georgian translation for phosh-mobile-settings.
+# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-04-24 14:52+0000\n"
+"PO-Revision-Date: 2024-04-25 09:18+0200\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
+"Language-Team: Georgian <ka@li.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "მობილურობის მორგება"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Mobile;Preferences;MobileSettings;პარამეტრები;მობილური;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Phosh Mobile-ის მორგება"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"ეს აპი საშუალებას გაძლევთ, Phosh-ის ზოგიერთი პარამეტრი მოირგოს, რომელსაც "
+"სხვა შემთხვევაში ბრძანების სტრიქონის გამოყენება დასჭირდებოდა."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "დამატებით პარამეტრები მობილური მოწყობილობებისთვის Phosh-ის გამოყენებით"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "ხელმისაწვდომი პანელები"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "კომპოზიტორის პანელი"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "უკუკავშირის პანელი"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "კრიტიკული ტემპერატურაა %.2f°C"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr "მოწყობილობის დაძინება"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr "დაძინება ექსპერიმენტულია"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr "ტემპერატურა"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr "CPU"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr "ელემენტის მუხტი"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "კვების ელემენტი"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "ზოგადი"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "მალსახმობების ჩვენება"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "გასვლა"
+
+#: src/mobile-settings-application.c:28
+msgid "- Manage your mobile settings"
+msgstr "- მართეთ თქვენი მობილურის პარამეტრები"
+
+#: src/mobile-settings-window.c:77
+msgid "Device"
+msgstr "მოწყობილობა"
+
+#: src/ms-feedback-panel.c:135
+msgid "Sound file does not exist"
+msgstr "ხმის ფაილი არ არსებობს"
+
+#: src/ms-feedback-panel.c:137
+msgid "Sound file is corrupt"
+msgstr "ხმის ფაილი დაზიანებულია"
+
+#: src/ms-feedback-panel.c:139
+msgid "Failed to play sound"
+msgstr "ხმის დაკვრა ჩავარდა"
+
+#: src/ms-feedback-panel.c:178
+#, c-format
+msgid "Playing %s"
+msgstr "%s-ის დაკვრა"
+
+#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+msgid "none"
+msgstr "არა"
+
+#: src/ms-feedback-panel.c:341
+msgid "low"
+msgstr "დაბალი"
+
+#. 1.0
+#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+msgid "normal"
+msgstr "ნორმალური"
+
+#: src/ms-feedback-panel.c:345
+msgid "critical"
+msgstr "კრიტიკული"
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "ჩვეულებრივი"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr "ბოლოთი მაღლა"
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr "მარცხნივ მაღლა"
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr "მარჯვნივ მაღლა"
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr "გაურკვეველი"
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr "ახლოს"
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr "შორს"
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "მიმდინარეობს განახლება…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr "ხელმიუწვდომელია"
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "ხელით"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr "აირჩიეთ ხმის ფაილი"
+
+#: src/ms-util.c:149
+msgid "Full"
+msgstr "სრული"
+
+#: src/ms-util.c:151
+msgid "Quiet"
+msgstr "მშვიდი"
+
+#: src/ms-util.c:153
+msgid "Silent"
+msgstr "ჩუმი"
+
+#: src/ui/mobile-settings-window.ui:74
+msgid "Welcome"
+msgstr "მოგესლამებათ"
+
+#: src/ui/mobile-settings-window.ui:80
+msgid "Welcome to Mobile Settings"
+msgstr "მოგესალმებით მობილურის პარამეტრებში"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Tweak advanced mobile settings"
+msgstr "შეცვალეთ მობილურის დამატებითი პარამეტრები"
+
+#: src/ui/mobile-settings-window.ui:89
+msgid "Applications"
+msgstr "აპლიკაციები"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Feedback"
+msgstr "უკუკავშირი"
+
+#: src/ui/mobile-settings-window.ui:111
+msgid "Compositor"
+msgstr "კომპოზიტორი"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Lockscreen"
+msgstr "ჩაკეტილი ეკრანი"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Convergence"
+msgstr "კონვერგენცია"
+
+#: src/ui/mobile-settings-window.ui:144
+msgid "On Screen Keyboard"
+msgstr "ეკრანის კლავიატურა"
+
+#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "სენსორები"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Experimental features"
+msgstr "ექსპერიმენტალური ფუნქციები"
+
+#: src/ui/mobile-settings-window.ui:190
+msgid "_Keyboard Shortcuts"
+msgstr "_კლავიატურის მალსახმობები"
+
+#: src/ui/mobile-settings-window.ui:194
+msgid "_About Mobile Settings"
+msgstr "მობილურის პარამეტრების შეს_ახებ"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "სანიშნეები"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "სანიშნეების დალაგება"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr "გადაათრიეთ და დაყარეთ აპები ქვემოთ, რომ გადაალაგოთ თქვენი რჩეული აპები"
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr "სანიშნეების ჩამოყრა"
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr "რჩეული აპების სიის ნაგულისხმევზე დაყენება"
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "საწყის მნიშვნელობებზე დაბრუნება"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr "მობილური აპების გაფილტვრა"
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr "აპლიკაციის ფილტრის რეჟიმის დაყენება"
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr "გადახედვაში, მხოლოდ, მობილური აპების ჩვენება"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "გაშვებული აპლიკაცების შემცირება"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "მხოლოდ, ჩართეთ ეს აპებისთვის, რომლებიც ეკრანზე არ ეტევა"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "ყველა აპლიკაციის დაატარავება"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+"ყველა აპლიკაციის ძალით დაპატარავება. გამოიყენეთ, როგორც უკანასკნელი შანსი."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "ყველა აპლიკაციის დაატარავება"
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "ჩართულია"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "ცნობილი მიმაგრებები აღმოჩენილი არაა"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "ჩაშენებული სენსორული ეკრანის ასახვა"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "ექსპერიმენტალური ფუნქციები"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "ფუნქციები, რომლებიც ჯერ სრულად სტაბილური არაა"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "საგანგებო ზარები"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"საგანგებო ზარების ჩართვა. ეს, მხოლოდ, მაშინ ჩართეთ, თუ დარწმუნებული "
+"ბრძანდებით, რომ ის მუშაობს თქვენს პროვაიდერთან."
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr "ძილის ჩართვა სისტემურ მენიუში"
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"ჩართეთ ეს, თუ იცით მისი ისეთი შეზღუდვების გარეშე, როგორიცაა მობილური "
+"ინტერნეტის გათიშვა ან გამოტოვებული განგაშები"
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr "უკუკავშირის პროფილი"
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr "გლობალური მაქსიმალური უკუკავშირის პროფილი"
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Per Application settings"
+msgstr "პარამეტრები თითოეული აპლიკაციისთვის"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Sounds"
+msgstr "ხმები"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "The sound to use for certain events"
+msgstr "ხმა ზოგიერთი მოვლენისთვის"
+
+#: src/ui/ms-feedback-panel.ui:55
+msgid "Phone Calls"
+msgstr "სატელეფონო ზარები"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:67
+msgid "Instant messages"
+msgstr "მყისი შეტყობინებები"
+
+#: src/ui/ms-feedback-panel.ui:78
+msgid "Screen Wakeup"
+msgstr "ეკრანის გაღვიძება"
+
+#: src/ui/ms-feedback-panel.ui:81
+msgid "Notification urgency that lights up the screen"
+msgstr "გაფრთხილების სასწრაფოობა, რომელიც ეკრანს გაანათებს"
+
+#: src/ui/ms-lockscreen-panel.ui:11
+msgid "Unlocking"
+msgstr "განბლოკვა"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Shuffle keypad"
+msgstr "ციფრული კლავიატურის არევა"
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "არის თუ არა ციფრულ კლავიატურაზე რიცხვები არეული"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Widgets"
+msgstr "ვიჯეტები"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Additional widgets for the lock screen"
+msgstr "დამატებითი ვიჯეტები დაბლოკვის ეკრანისთვის"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "ეკრანის _კლავიატურის ჩართვა"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "არის თუ არა ნაჩვენები ეკრანის კლავიატურა, როცა ის საჭიროა"
+
+#: src/ui/ms-osk-panel.ui:28
+msgid "Unfold long-press"
+msgstr "გრძელი დაწოლის დრო"
+
+#: src/ui/ms-osk-panel.ui:29
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"რამდენი ხნით უნდა დააწვეთ საწყისი პანელის ცენტრს, რომ ეკრანის კლავიატურა "
+"გამოჩნდეს"
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:34
+msgid "short"
+msgstr "შორტი"
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:38
+msgid "long"
+msgstr "გრძელი"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Ignore hardware keyboard"
+msgstr "აპარატურული კლავიატურის გამოტოვება"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+"არის თუ არა ნაჩვენები ეკრანის კლავიატურა, როცა აპარატურული კლავიატურა "
+"არსებობს"
+
+#: src/ui/ms-osk-panel.ui:56
+msgid "Text Completion"
+msgstr "ტექსტის დასრულება"
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Opportunistic word completion"
+msgstr "ოპორტუნისტული სიტყვების დასრულება"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "Enable word completion when the app indicates it is useful"
+msgstr "სიტყვის დასრულების ჩართვა, როცა აპი მიუთითებს, რომ ის სასარგებლოა"
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Toggle via OSK menu"
+msgstr "გადართვა OSK მენიუდან"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr "სიტყვის დასრულების გადართვის ჩართვა კლავიატურის მენიუს ღილაკიდან"
+
+#: src/ui/ms-osk-panel.ui:94
+msgid "Terminal Layout"
+msgstr "ტერმინალის განლაგება"
+
+#: src/ui/ms-osk-panel.ui:98
+msgid "Shortcuts"
+msgstr "მალსახმობები"
+
+#: src/ui/ms-osk-panel.ui:99
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "მალსახმობების პანელზე ხელმისაწვდომი მალსახმობები"
+
+#: src/ui/ms-plugin-row.ui:33
+msgid "More options…"
+msgstr "მეტი პარამეტრი…"
+
+#: src/ui/ms-plugin-row.ui:46
+msgid "Move Up"
+msgstr "აწევა"
+
+#: src/ui/ms-plugin-row.ui:50
+msgid "Move Down"
+msgstr "ჩამოწევა"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "სენსორები აღმოჩენილი არაა"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr "სენსორები ან დაყენებული არაა, ან გადასართველითაა გათიშული."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "სენსორის მნიშვნელობები"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "სიახლოვე"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "მსუბუქი"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "ორიენტაცია"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "მაღალი კონტრასტი"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "ავტომატური მაღალი კონტრასტი"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "იმართება გარემოს განათების სენსორის მიერ"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "სინათლის ინტენსივობის ზღვარი"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "ზღვარს ზემოთ თემა მაღალ კონტრასტზე გადაირთვება"
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "ხმის ფალი (ogg)"
