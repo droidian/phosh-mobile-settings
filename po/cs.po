@@ -1,0 +1,559 @@
+# Czech translation for phosh-mobile-settings.
+# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Daniel Rusek <mail@asciiwolf.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-04-28 02:40+0000\n"
+"PO-Revision-Date: 2024-04-28 15:24+0200\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Mobilní nastavení"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Mobilní;Předvolby;MobilníNastavení;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Mobilní nastavení Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Tato aplikace vám umožní nastavit některé aspekty Phosh, které by jinak "
+"vyžadovaly použití příkazového řádku."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Pokročilá nastavení pro mobilní zařízení využívající Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Dostupné panely"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr ""
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr ""
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr ""
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr ""
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr ""
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr ""
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr ""
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr ""
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr ""
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr ""
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "Baterie"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Obecné"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobrazit klávesové zkratky"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
+
+#: src/mobile-settings-application.c:28
+msgid "- Manage your mobile settings"
+msgstr ""
+
+#: src/mobile-settings-window.c:77
+msgid "Device"
+msgstr ""
+
+#: src/ms-feedback-panel.c:135
+msgid "Sound file does not exist"
+msgstr ""
+
+#: src/ms-feedback-panel.c:137
+msgid "Sound file is corrupt"
+msgstr ""
+
+#: src/ms-feedback-panel.c:139
+msgid "Failed to play sound"
+msgstr ""
+
+#: src/ms-feedback-panel.c:178
+#, c-format
+msgid "Playing %s"
+msgstr "Přehrává se %s"
+
+#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+msgid "none"
+msgstr ""
+
+#: src/ms-feedback-panel.c:341
+msgid "low"
+msgstr ""
+
+#. 1.0
+#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+msgid "normal"
+msgstr ""
+
+#: src/ms-feedback-panel.c:345
+msgid "critical"
+msgstr ""
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "Normální"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr ""
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr ""
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr ""
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr ""
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "Aktualizace…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr ""
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "Vlastní"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr ""
+
+#: src/ms-util.c:149
+msgid "Full"
+msgstr ""
+
+#: src/ms-util.c:151
+msgid "Quiet"
+msgstr ""
+
+#: src/ms-util.c:153
+msgid "Silent"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:74
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: src/ui/mobile-settings-window.ui:80
+msgid "Welcome to Mobile Settings"
+msgstr "Vítejte v mobilním nastavení"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Tweak advanced mobile settings"
+msgstr "Vylaďte pokročilá mobilní nastavení"
+
+#: src/ui/mobile-settings-window.ui:89
+msgid "Applications"
+msgstr "Aplikace"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Feedback"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:111
+msgid "Compositor"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Lockscreen"
+msgstr "Zamykací obrazovka"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Convergence"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:144
+msgid "On Screen Keyboard"
+msgstr "Klávesnice na obrazovce"
+
+#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Senzory"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Experimental features"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:190
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové zkratky"
+
+#: src/ui/mobile-settings-window.ui:194
+msgid "_About Mobile Settings"
+msgstr "O _aplikaci Mobilní nastavení"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "Oblíbené"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "Uspořádat oblíbené"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr ""
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr ""
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "Výchozí"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr ""
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr ""
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr ""
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Povoleno"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr ""
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr ""
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Per Application settings"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Sounds"
+msgstr "Zvuky"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "The sound to use for certain events"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:55
+msgid "Phone Calls"
+msgstr "Telefonní hovory"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:67
+msgid "Instant messages"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:78
+msgid "Screen Wakeup"
+msgstr ""
+
+#: src/ui/ms-feedback-panel.ui:81
+msgid "Notification urgency that lights up the screen"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:11
+msgid "Unlocking"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Shuffle keypad"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Widgets"
+msgstr ""
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Additional widgets for the lock screen"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:28
+msgid "Unfold long-press"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:29
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:34
+msgid "short"
+msgstr ""
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:38
+msgid "long"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Ignore hardware keyboard"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:47
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:56
+msgid "Text Completion"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Opportunistic word completion"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "Enable word completion when the app indicates it is useful"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Toggle via OSK menu"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:94
+msgid "Terminal Layout"
+msgstr "Rozložení terminálu"
+
+#: src/ui/ms-osk-panel.ui:98
+msgid "Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: src/ui/ms-osk-panel.ui:99
+msgid "The shortcuts available in the shortcuts bar"
+msgstr ""
+
+#: src/ui/ms-plugin-row.ui:33
+msgid "More options…"
+msgstr "Další volby…"
+
+#: src/ui/ms-plugin-row.ui:46
+msgid "Move Up"
+msgstr "Posunout výš"
+
+#: src/ui/ms-plugin-row.ui:50
+msgid "Move Down"
+msgstr "Posunout níž"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Nenalezeny žádné senzory"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Údaje ze senzorů"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Světlé"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Orientace"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Vysoký kontrast"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr ""
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr ""
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr ""
