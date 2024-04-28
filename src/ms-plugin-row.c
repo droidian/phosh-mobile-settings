@@ -56,7 +56,7 @@ open_prefs_activated (GSimpleAction *action,
   MsPluginRow *self = MS_PLUGIN_ROW (data);
 
   gtk_widget_activate_action (GTK_WIDGET (self),
-                              "lockscreen-panel.open-plugin-prefs",
+                              "plugin-list-box.open-plugin-prefs",
                               "s", self->filename);
 }
 

@@ -21,3 +21,4 @@ src/ui/ms-plugin-row.ui
 src/ui/ms-scale-to-fit-row.ui
 src/ui/ms-sensor-panel.ui
 src/ui/ms-sound-row.ui
+src/ui/ms-topbar-panel.ui

@@ -32,10 +32,10 @@
                 <property name="title" translatable="yes">Widgets</property>
                 <property name="description" translatable="yes">Additional widgets for the lock screen</property>
                 <child>
-                  <object class="GtkListBox" id="plugins_listbox">
-                    <style>
-                      <class name="boxed-list"/>
-                    </style>
+                  <object class="MsPluginListBox" id="plugins_listbox">
+                    <property name="plugin-type">lockscreen</property>
+                    <property name="settings-key">lock-screen</property>
+                    <property name="prefs-extension-point">phosh-lockscreen-widget-prefs</property>
                   </object>
                 </child>
               </object>
