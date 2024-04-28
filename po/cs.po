@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 02:40+0000\n"
-"PO-Revision-Date: 2024-04-28 15:24+0200\n"
+"POT-Creation-Date: 2024-04-28 19:09+0000\n"
+"PO-Revision-Date: 2024-04-28 23:34+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -77,22 +77,22 @@ msgstr ""
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
 msgid "Temperatures"
-msgstr ""
+msgstr "Teploty"
 
 #. translators: The central processing unit of a smart phone
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #. translators: The graphics processing unit of a smart phone
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #. translators: The video processing unit of a smart phone
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
 msgid "VPU"
-msgstr ""
+msgstr "VPU"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
 msgid "Fuel Gauge"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
-msgstr ""
+msgstr "Zařízení"
 
 #: src/ms-feedback-panel.c:135
 msgid "Sound file does not exist"
@@ -229,42 +229,46 @@ msgid "Tweak advanced mobile settings"
 msgstr "Vylaďte pokročilá mobilní nastavení"
 
 #: src/ui/mobile-settings-window.ui:89
+msgid "Top Bar"
+msgstr ""
+
+#: src/ui/mobile-settings-window.ui:100
 msgid "Applications"
 msgstr "Aplikace"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:111
 msgid "Feedback"
 msgstr ""
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:122
 msgid "Compositor"
 msgstr ""
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:133
 msgid "Lockscreen"
 msgstr "Zamykací obrazovka"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:144
 msgid "Convergence"
 msgstr ""
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:155
 msgid "On Screen Keyboard"
 msgstr "Klávesnice na obrazovce"
 
-#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Senzory"
 
-#: src/ui/mobile-settings-window.ui:166
+#: src/ui/mobile-settings-window.ui:177
 msgid "Experimental features"
 msgstr ""
 
-#: src/ui/mobile-settings-window.ui:190
+#: src/ui/mobile-settings-window.ui:201
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: src/ui/mobile-settings-window.ui:194
+#: src/ui/mobile-settings-window.ui:205
 msgid "_About Mobile Settings"
 msgstr "O _aplikaci Mobilní nastavení"
 
@@ -274,7 +278,7 @@ msgstr "Oblíbené"
 
 #: src/ui/ms-applications-panel.ui:20
 msgid "Organize Favorites"
-msgstr "Uspořádat oblíbené"
+msgstr "Uspořádejte si oblíbené"
 
 #: src/ui/ms-applications-panel.ui:21
 msgid "Drag and drop the apps below to rearrange your favorite apps"
@@ -410,7 +414,7 @@ msgstr ""
 
 #: src/ui/ms-lockscreen-panel.ui:11
 msgid "Unlocking"
-msgstr ""
+msgstr "Odemykání"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Shuffle keypad"
@@ -422,15 +426,15 @@ msgstr ""
 
 #: src/ui/ms-lockscreen-panel.ui:32
 msgid "Widgets"
-msgstr ""
+msgstr "Widgety"
 
 #: src/ui/ms-lockscreen-panel.ui:33
 msgid "Additional widgets for the lock screen"
-msgstr ""
+msgstr "Další widgety pro zamykací obrazovku"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
-msgstr ""
+msgstr "Povolit klávesnici na _obrazovce"
 
 #: src/ui/ms-osk-panel.ui:14
 msgid "Whether to show the on screen keyboard when needed"
@@ -557,3 +561,11 @@ msgstr ""
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
 msgstr ""
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "Quick Settings"
+msgstr "Rychlá nastavení"
+
+#: src/ui/ms-topbar-panel.ui:13
+msgid "Organize your additional Quick Settings"
+msgstr "Uspořádejte si další rychlá nastavení"
