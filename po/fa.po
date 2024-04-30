@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-22 18:18+0000\n"
-"PO-Revision-Date: 2024-04-24 18:20+0330\n"
+"POT-Creation-Date: 2024-04-28 19:09+0000\n"
+"PO-Revision-Date: 2024-05-01 01:20+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -37,8 +37,8 @@ msgid ""
 "This app allows you to configure some aspects of Phosh that would otherwise "
 "require command line usage."
 msgstr ""
-"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید "
-"از خط فرمان استفاده می‌کردید."
+"این کاره می‌گذارد برخی جنبه‌های فوش را پیکربندی کنید که در غیر این صورت باید از "
+"خط فرمان استفاده می‌کردید."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
@@ -190,8 +190,7 @@ msgstr "دور"
 msgid "Updating…"
 msgstr "در حال به‌روز رسانی…"
 
-#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
-#: src/ms-sensor-panel.c:271
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270 src/ms-sensor-panel.c:271
 msgid "Not available"
 msgstr "در دسترس نیست"
 
@@ -228,42 +227,46 @@ msgid "Tweak advanced mobile settings"
 msgstr "سیخونک به تنظیمات همراه پیش‌رفته"
 
 #: src/ui/mobile-settings-window.ui:89
+msgid "Top Bar"
+msgstr "نوار بالا"
+
+#: src/ui/mobile-settings-window.ui:100
 msgid "Applications"
 msgstr "برنامه‌ها"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:111
 msgid "Feedback"
 msgstr "بازخورد"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:122
 msgid "Compositor"
 msgstr "ترکیب‌بند"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:133
 msgid "Lockscreen"
 msgstr "صفحهٔ قفل"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:144
 msgid "Convergence"
 msgstr "یکپارچگی"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:155
 msgid "On Screen Keyboard"
 msgstr "صفحه‌کلید مجازی"
 
-#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "حسگرها"
 
-#: src/ui/mobile-settings-window.ui:166
+#: src/ui/mobile-settings-window.ui:177
 msgid "Experimental features"
 msgstr "ویژگی‌های آزمایشی"
 
-#: src/ui/mobile-settings-window.ui:190
+#: src/ui/mobile-settings-window.ui:201
 msgid "_Keyboard Shortcuts"
 msgstr "_میان‌برهای صفحه‌کلید"
 
-#: src/ui/mobile-settings-window.ui:194
+#: src/ui/mobile-settings-window.ui:205
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
 
@@ -353,8 +356,8 @@ msgstr "تماس‌های اضطراری"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
-"Enable emergency calls. Please only enable this if you safely can ensure "
-"that it's working with your provider."
+"Enable emergency calls. Please only enable this if you safely can ensure that "
+"it's working with your provider."
 msgstr ""
 "به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با "
 "اوپراتورتان به کارش بیندازید."
@@ -369,7 +372,7 @@ msgid ""
 "connection loss or missed alarms"
 msgstr ""
 "لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
-"هشدارها به کارش بیندازید."
+"هشدارها به کارش بیندازید"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -561,3 +564,11 @@ msgstr "زمینه در بالای آستانه به سایه‌روشن زیا�
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
 msgstr "پرونده‌های صدا (اوگ)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "Quick Settings"
+msgstr "تنظیمات سریع"
+
+#: src/ui/ms-topbar-panel.ui:13
+msgid "Organize your additional Quick Settings"
+msgstr "سازمان دهی تنظیمات سریع اضافیتان"
