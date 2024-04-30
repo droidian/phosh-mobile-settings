@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-24 14:52+0000\n"
-"PO-Revision-Date: 2024-04-25 09:18+0200\n"
+"POT-Creation-Date: 2024-04-28 19:09+0000\n"
+"PO-Revision-Date: 2024-04-30 11:41+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -228,42 +228,46 @@ msgid "Tweak advanced mobile settings"
 msgstr "შეცვალეთ მობილურის დამატებითი პარამეტრები"
 
 #: src/ui/mobile-settings-window.ui:89
+msgid "Top Bar"
+msgstr "ზედა ზოლი"
+
+#: src/ui/mobile-settings-window.ui:100
 msgid "Applications"
 msgstr "აპლიკაციები"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:111
 msgid "Feedback"
 msgstr "უკუკავშირი"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:122
 msgid "Compositor"
 msgstr "კომპოზიტორი"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:133
 msgid "Lockscreen"
 msgstr "ჩაკეტილი ეკრანი"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:144
 msgid "Convergence"
 msgstr "კონვერგენცია"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:155
 msgid "On Screen Keyboard"
 msgstr "ეკრანის კლავიატურა"
 
-#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "სენსორები"
 
-#: src/ui/mobile-settings-window.ui:166
+#: src/ui/mobile-settings-window.ui:177
 msgid "Experimental features"
 msgstr "ექსპერიმენტალური ფუნქციები"
 
-#: src/ui/mobile-settings-window.ui:190
+#: src/ui/mobile-settings-window.ui:201
 msgid "_Keyboard Shortcuts"
 msgstr "_კლავიატურის მალსახმობები"
 
-#: src/ui/mobile-settings-window.ui:194
+#: src/ui/mobile-settings-window.ui:205
 msgid "_About Mobile Settings"
 msgstr "მობილურის პარამეტრების შეს_ახებ"
 
@@ -565,3 +569,11 @@ msgstr "ზღვარს ზემოთ თემა მაღალ კო�
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
 msgstr "ხმის ფალი (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "Quick Settings"
+msgstr "სწრაფი მორგება"
+
+#: src/ui/ms-topbar-panel.ui:13
+msgid "Organize your additional Quick Settings"
+msgstr "მოირგეთ თქვენი დამატებითი სწრაფი პარამეტრები"
