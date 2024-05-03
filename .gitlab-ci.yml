@@ -54,6 +54,11 @@ variables:
     - dbus-run-session meson test --print-errorlogs -C _build
     - ninja -C _build coverage-html
 
+.before: &before
+  before_script:
+    - apt-get -y update
+    - apt-get -y build-dep .
+
 # Sanity checks of MR settings and commit logs
 sanity:
   extends:
@@ -72,9 +77,7 @@ sanity:
 build:native-debian-trixie:
   stage: build
   image: ${DEBIAN_IMAGE}
-  before_script:
-    - apt-get -y update
-    - apt-get -y build-dep .
+  <<: *before
   <<: *trixie_vars
   <<: *build_step
   artifacts:
@@ -84,11 +87,9 @@ build:native-debian-trixie:
 test:native-debian-trixie:
   stage: test
   image: ${DEBIAN_IMAGE}
-  before_script:
-    - apt-get -y update
-    - apt-get -y build-dep .
   needs:
     - build:native-debian-trixie
+  <<: *before
   <<: *trixie_vars
   <<: *test_step
   coverage: '/^lines:\s+([\d.]+\%)\s+/'
