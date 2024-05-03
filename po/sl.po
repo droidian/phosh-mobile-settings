@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2024-04-29 13:18+0000\n"
-"PO-Revision-Date: 2024-05-03 17:43+0200\n"
+"PO-Revision-Date: 2024-05-03 18:08+0200\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Nastavitve mobilnega telefona"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobilnik;mobilni;telefon;nastavitve; MobileSettings;"
+msgstr "Mobilnik;mobilni;telefon;nastavitve;MobileSettings;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -52,9 +52,8 @@ msgid "Available panels"
 msgstr "Razpoložljivi pulti"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
-#, fuzzy
 msgid "Compositor panel"
-msgstr "Plošča skladatelja"
+msgstr "Plošča grafičnega upodobilnika"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
 msgid "Feedback panel"
@@ -98,7 +97,6 @@ msgid "VPU"
 msgstr "VPE"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
-#, fuzzy
 msgid "Fuel Gauge"
 msgstr "Merilnik goriva"
 
@@ -245,9 +243,8 @@ msgid "Feedback"
 msgstr "Povratne informacije"
 
 #: src/ui/mobile-settings-window.ui:122
-#, fuzzy
 msgid "Compositor"
-msgstr "Skladatelj"
+msgstr "Grafični upodobilnik"
 
 #: src/ui/mobile-settings-window.ui:133
 msgid "Lockscreen"
@@ -349,9 +346,8 @@ msgid "No known docks detected"
 msgstr "Zaznana ni nobena znana priklopna postaja"
 
 #: src/ui/ms-convergence-panel.ui:29
-#, fuzzy
 msgid "Map built-in touch screen"
-msgstr "Vgrajen zaslon na dotik z zemljevidom"
+msgstr "Preslikaj vgrajeni zaslon na dotik"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
@@ -390,9 +386,8 @@ msgid "Feedback profile"
 msgstr "Profil za povratne informacije"
 
 #: src/ui/ms-feedback-panel.ui:17
-#, fuzzy
 msgid "The global maximum feedback profile"
-msgstr "Globalni profil največjega števila povratnih informacij"
+msgstr "Globalni profil za čim več povratnih informacij"
 
 #: src/ui/ms-feedback-panel.ui:33
 msgid "Per Application settings"
@@ -419,9 +414,8 @@ msgid "Instant messages"
 msgstr "Neposredna sporočila"
 
 #: src/ui/ms-feedback-panel.ui:78
-#, fuzzy
 msgid "Screen Wakeup"
-msgstr "Bujenje zaslona"
+msgstr "Povrnitev zaslona iz pripravljenosti"
 
 #: src/ui/ms-feedback-panel.ui:81
 msgid "Notification urgency that lights up the screen"
@@ -456,9 +450,8 @@ msgid "Whether to show the on screen keyboard when needed"
 msgstr "Ali želite po potrebi prikazati zaslonsko tipkovnico"
 
 #: src/ui/ms-osk-panel.ui:28
-#, fuzzy
 msgid "Unfold long-press"
-msgstr "Raztegnite dolg pritisk"
+msgstr "Razgrni z dolgim pritiskom"
 
 #: src/ui/ms-osk-panel.ui:29
 msgid ""
