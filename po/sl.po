@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2024-04-29 13:18+0000\n"
-"PO-Revision-Date: 2024-05-03 09:37+0200\n"
+"PO-Revision-Date: 2024-05-03 17:43+0200\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -67,19 +67,16 @@ msgstr "Kritična temperatura je %.2f °C"
 
 #. translators: U-boot is the brand of a bootloader
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
-#, fuzzy
 msgid "U-Boot"
 msgstr "U-Boot"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
-#, fuzzy
 msgid "Suspend device"
-msgstr "Začasna prekinitev naprave"
+msgstr "Postavi napravo v stanje pripravljenosti"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
-#, fuzzy
 msgid "Suspend is experimental"
-msgstr "Prekinitev je poskusna"
+msgstr "Stanje pripravljenosti je poskusno"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
 msgid "Temperatures"
@@ -97,9 +94,8 @@ msgstr "GPE"
 
 #. translators: The video processing unit of a smart phone
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
-#, fuzzy
 msgid "VPU"
-msgstr "VPU"
+msgstr "VPE"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
 #, fuzzy
@@ -254,9 +250,8 @@ msgid "Compositor"
 msgstr "Skladatelj"
 
 #: src/ui/mobile-settings-window.ui:133
-#, fuzzy
 msgid "Lockscreen"
-msgstr "Zaklenjeni zaslon"
+msgstr "Zaklep zaslona"
 
 #: src/ui/mobile-settings-window.ui:144
 msgid "Convergence"
@@ -333,7 +328,6 @@ msgid "Scale down all applications"
 msgstr "Zmanjšaj obseg vseh aplikacij"
 
 #: src/ui/ms-compositor-panel.ui:26
-#, fuzzy
 msgid "Forcibly scale down all applications. Only use this as a last resort."
 msgstr ""
 "Prisilno zmanjšajte vse aplikacije. To uporabite le kot zadnjo možnost."
@@ -372,7 +366,6 @@ msgid "Emergency Calls"
 msgstr "Klici v sili"
 
 #: src/ui/ms-features-panel.ui:17
-#, fuzzy
 msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure "
 "that it's working with your provider."
@@ -381,18 +374,16 @@ msgstr ""
 "deluje z vašim ponudnikom."
 
 #: src/ui/ms-features-panel.ui:31
-#, fuzzy
 msgid "Enable suspend via the system menu"
-msgstr "Omogočite prekinitev prek sistemskega menija"
+msgstr "Omogoči stanje pripravljenosti prek sistemskega menija"
 
 #: src/ui/ms-features-panel.ui:33
-#, fuzzy
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
 msgstr ""
-"To omogočite le, če poznate omejitve, kot so izguba podatkovne povezave ali "
-"zgrešeni alarmi"
+"To omogočite le, če se zavedate omejitev, kot so izguba podatkovne povezave "
+"ali zgrešeni alarmi"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -404,9 +395,8 @@ msgid "The global maximum feedback profile"
 msgstr "Globalni profil največjega števila povratnih informacij"
 
 #: src/ui/ms-feedback-panel.ui:33
-#, fuzzy
 msgid "Per Application settings"
-msgstr "Na nastavitve aplikacije"
+msgstr "Nastavitve za aplikacije"
 
 #: src/ui/ms-feedback-panel.ui:46
 msgid "Sounds"
@@ -442,12 +432,10 @@ msgid "Unlocking"
 msgstr "Poteka odklepanje …"
 
 #: src/ui/ms-lockscreen-panel.ui:14
-#, fuzzy
 msgid "Shuffle keypad"
-msgstr "Naključno predvajanje tipkovnice"
+msgstr "Premešaj številčnico"
 
 #: src/ui/ms-lockscreen-panel.ui:15
-#, fuzzy
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Ali želite premešati številke na tipkovnici"
 
