@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2024-04-29 13:18+0000\n"
-"PO-Revision-Date: 2024-05-02 23:57+0200\n"
+"PO-Revision-Date: 2024-05-03 09:37+0200\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "Začasna prekinitev naprave"
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
 #, fuzzy
 msgid "Suspend is experimental"
-msgstr "Prekinitev je eksperimentalna"
+msgstr "Prekinitev je poskusna"
 
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
 msgid "Temperatures"
@@ -126,16 +126,14 @@ msgid "Quit"
 msgstr "Konča program"
 
 #: src/mobile-settings-application.c:28
-#, fuzzy
 msgid "- Manage your mobile settings"
-msgstr "- Upravljanje mobilnih nastavitev"
+msgstr "- Upravljajte nastavitve svojega mobilnika"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
 msgstr "Naprava"
 
 #: src/ms-feedback-panel.c:135
-#, fuzzy
 msgid "Sound file does not exist"
 msgstr "Zvočna datoteka ne obstaja"
 
@@ -174,17 +172,14 @@ msgid "Normal"
 msgstr "Običajno"
 
 #: src/ms-sensor-panel.c:94
-#, fuzzy
 msgid "Bottom up"
 msgstr "Od spodaj navzgor"
 
 #: src/ms-sensor-panel.c:96
-#, fuzzy
 msgid "Left up"
 msgstr "Levo navzgor"
 
 #: src/ms-sensor-panel.c:98
-#, fuzzy
 msgid "Right up"
 msgstr "Desno navzgor"
 
@@ -238,9 +233,8 @@ msgid "Welcome to Mobile Settings"
 msgstr "Dobrodošli v mobilnih nastavitvah"
 
 #: src/ui/mobile-settings-window.ui:81
-#, fuzzy
 msgid "Tweak advanced mobile settings"
-msgstr "Prilagodite napredne mobilne nastavitve"
+msgstr "Prilagodi napredne mobilne nastavitve"
 
 #: src/ui/mobile-settings-window.ui:89
 msgid "Top Bar"
@@ -262,17 +256,15 @@ msgstr "Skladatelj"
 #: src/ui/mobile-settings-window.ui:133
 #, fuzzy
 msgid "Lockscreen"
-msgstr "Izboljšano odklepanje s prstnim odtisom zaklenjenega zaslona"
+msgstr "Zaklenjeni zaslon"
 
 #: src/ui/mobile-settings-window.ui:144
-#, fuzzy
 msgid "Convergence"
-msgstr "Konvergence"
+msgstr "Konvergenca"
 
 #: src/ui/mobile-settings-window.ui:155
-#, fuzzy
 msgid "On Screen Keyboard"
-msgstr "Zaslonska _tipkovnica"
+msgstr "Zaslonska tipkovnica"
 
 #: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
@@ -299,7 +291,6 @@ msgid "Organize Favorites"
 msgstr "Organiziraj priljubljene"
 
 #: src/ui/ms-applications-panel.ui:21
-#, fuzzy
 msgid "Drag and drop the apps below to rearrange your favorite apps"
 msgstr ""
 "Povlecite in spustite spodnje aplikacije, da preuredite svoje najljubše "
@@ -310,43 +301,36 @@ msgid "Reset Favorites"
 msgstr "Ponastavi priljubljene"
 
 #: src/ui/ms-applications-panel.ui:47
-#, fuzzy
 msgid "Set list of favorite apps back to the default"
-msgstr "Nastavitev seznama priljubljenih aplikacij nazaj na privzete"
+msgstr "Nastavi seznam priljubljenih aplikacij nazaj na privzetega"
 
 #: src/ui/ms-applications-panel.ui:51
 msgid "Reset"
 msgstr "Ponastavi"
 
 #: src/ui/ms-applications-panel.ui:62
-#, fuzzy
 msgid "Mobile App Filtering"
 msgstr "Filtriranje aplikacij za mobilne naprave"
 
 #: src/ui/ms-applications-panel.ui:65
-#, fuzzy
 msgid "Set Application Filter Mode"
-msgstr "Nastavitev načina filtra aplikacij"
+msgstr "Nastavite način filtra aplikacij"
 
 #: src/ui/ms-applications-panel.ui:66
-#, fuzzy
 msgid "Show only mobile apps in the overview"
 msgstr "V pregledu pokaži samo mobilne aplikacije"
 
 #: src/ui/ms-compositor-panel.ui:11
-#, fuzzy
 msgid "Scaling down of running applications"
 msgstr "Zmanjšanje števila zagnanih aplikacij"
 
 #: src/ui/ms-compositor-panel.ui:12
-#, fuzzy
 msgid "Only enable this for broken apps that don't fit the screen"
-msgstr "To omogočite samo za nedelujoče aplikacije, ki se ne prilegajo zaslonu"
+msgstr "To omogoči samo za nedelujoče aplikacije, ki se ne prilegajo zaslonu"
 
 #: src/ui/ms-compositor-panel.ui:25
-#, fuzzy
 msgid "Scale down all applications"
-msgstr "Zmanjšajte obseg vseh aplikacij"
+msgstr "Zmanjšaj obseg vseh aplikacij"
 
 #: src/ui/ms-compositor-panel.ui:26
 #, fuzzy
@@ -355,9 +339,8 @@ msgstr ""
 "Prisilno zmanjšajte vse aplikacije. To uporabite le kot zadnjo možnost."
 
 #: src/ui/ms-compositor-panel.ui:29
-#, fuzzy
 msgid "Scale down all apps"
-msgstr "Zmanjšajte obseg vseh aplikacij"
+msgstr "Zmanjšaj obseg vseh aplikacij"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
@@ -368,7 +351,6 @@ msgid "Enabled"
 msgstr "Omogočenoe"
 
 #: src/ui/ms-convergence-panel.ui:15
-#, fuzzy
 msgid "No known docks detected"
 msgstr "Zaznana ni nobena znana priklopna postaja"
 
@@ -378,12 +360,10 @@ msgid "Map built-in touch screen"
 msgstr "Vgrajen zaslon na dotik z zemljevidom"
 
 #: src/ui/ms-features-panel.ui:11
-#, fuzzy
 msgid "Experimental Features"
-msgstr "Eksperimentalne značilnosti"
+msgstr "Poskusne funkcionalnosti"
 
 #: src/ui/ms-features-panel.ui:12
-#, fuzzy
 msgid "Features not yet deemed fully stable"
 msgstr "Funkcije, ki še niso popolnoma stabilne"
 
@@ -415,7 +395,6 @@ msgstr ""
 "zgrešeni alarmi"
 
 #: src/ui/ms-feedback-panel.ui:16
-#, fuzzy
 msgid "Feedback profile"
 msgstr "Profil za povratne informacije"
 
@@ -434,9 +413,8 @@ msgid "Sounds"
 msgstr "Zvoki"
 
 #: src/ui/ms-feedback-panel.ui:47
-#, fuzzy
 msgid "The sound to use for certain events"
-msgstr "Zvok, ki ga je treba uporabiti za določene dogodke"
+msgstr "Zvok, ki naj bo uporabljen za določene dogodke"
 
 #: src/ui/ms-feedback-panel.ui:55
 msgid "Phone Calls"
@@ -456,12 +434,10 @@ msgid "Screen Wakeup"
 msgstr "Bujenje zaslona"
 
 #: src/ui/ms-feedback-panel.ui:81
-#, fuzzy
 msgid "Notification urgency that lights up the screen"
 msgstr "Nujnost obvestila, ki osvetli zaslon"
 
 #: src/ui/ms-lockscreen-panel.ui:11
-#, fuzzy
 msgid "Unlocking"
 msgstr "Poteka odklepanje …"
 
@@ -480,17 +456,14 @@ msgid "Widgets"
 msgstr "Gradniki"
 
 #: src/ui/ms-lockscreen-panel.ui:33
-#, fuzzy
 msgid "Additional widgets for the lock screen"
-msgstr "Dodatni pripomočki za zaklenjeni zaslon"
+msgstr "Dodatni gradniki za zaklenjeni zaslon"
 
 #: src/ui/ms-osk-panel.ui:13
-#, fuzzy
 msgid "Enable _On Screen Keyboard"
-msgstr "Omogočanje zaslonske tipkovnice _On"
+msgstr "Omo_goči zaslonsko tipkovnico"
 
 #: src/ui/ms-osk-panel.ui:14
-#, fuzzy
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Ali želite po potrebi prikazati zaslonsko tipkovnico"
 
@@ -500,7 +473,6 @@ msgid "Unfold long-press"
 msgstr "Raztegnite dolg pritisk"
 
 #: src/ui/ms-osk-panel.ui:29
-#, fuzzy
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -509,55 +481,46 @@ msgstr ""
 
 #. 0.5
 #: src/ui/ms-osk-panel.ui:34
-#, fuzzy
 msgid "short"
-msgstr "Kratko"
+msgstr "kratko"
 
 #. 2.0
 #: src/ui/ms-osk-panel.ui:38
-#, fuzzy
 msgid "long"
-msgstr "Dolgo"
+msgstr "dolgo"
 
 #: src/ui/ms-osk-panel.ui:46
-#, fuzzy
 msgid "Ignore hardware keyboard"
 msgstr "Prezri strojno tipkovnico"
 
 #: src/ui/ms-osk-panel.ui:47
-#, fuzzy
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
-msgstr "Prikaz zaslonske tipkovnice, ko je prisotna fizična tipkovnica"
+msgstr ""
+"Ali želite prikaz zaslonske tipkovnice, ko je prisotna fizična tipkovnica"
 
 #: src/ui/ms-osk-panel.ui:56
-#, fuzzy
 msgid "Text Completion"
 msgstr "Dokončanje besedila"
 
 #: src/ui/ms-osk-panel.ui:59
-#, fuzzy
 msgid "Opportunistic word completion"
-msgstr "Oportunistično dokončanje besede"
+msgstr "Oportunistično dokončanje besed"
 
 #: src/ui/ms-osk-panel.ui:60
-#, fuzzy
 msgid "Enable word completion when the app indicates it is useful"
-msgstr "Omogočanje dokončanja besede, ko aplikacija pokaže, da je uporabna"
+msgstr "Omogoči dokončanja besed, ko aplikacija pokaže, da je uporabna"
 
 #: src/ui/ms-osk-panel.ui:75
-#, fuzzy
 msgid "Toggle via OSK menu"
 msgstr "Preklapljanje prek menija zaslonske tipkovnice"
 
 #: src/ui/ms-osk-panel.ui:76
-#, fuzzy
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Omogočanje preklapljanja med dokončanjem besede z gumbom menija tipkovnice"
 
 #: src/ui/ms-osk-panel.ui:94
-#, fuzzy
 msgid "Terminal Layout"
 msgstr "Postavitev terminala"
 
@@ -566,14 +529,12 @@ msgid "Shortcuts"
 msgstr "Pokaže tipkovne bližnjice"
 
 #: src/ui/ms-osk-panel.ui:99
-#, fuzzy
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Bližnjice, ki so na voljo v vrstici z bližnjicami"
 
 #: src/ui/ms-plugin-row.ui:33
-#, fuzzy
 msgid "More options…"
-msgstr "_Dodatne možnosti"
+msgstr "_Dodatne možnosti …"
 
 #: src/ui/ms-plugin-row.ui:46
 msgid "Move Up"
@@ -584,28 +545,24 @@ msgid "Move Down"
 msgstr "Premakni dol"
 
 #: src/ui/ms-sensor-panel.ui:16
-#, fuzzy
 msgid "No Sensors found"
-msgstr "Ni najdenih senzorjev"
+msgstr "Ni najdenih tipal"
 
 #: src/ui/ms-sensor-panel.ui:17
-#, fuzzy
 msgid ""
 "Either there are no sensors installed on your device or they are disabled by "
 "a killswitch."
 msgstr ""
-"Ali v vaši napravi ni nameščenih senzorjev ali pa jih onemogoči stikalo za "
-"ubijanje."
+"Ali v vaši napravi ni nameščenih tipal ali pa jih onemogoči stikalo za "
+"izklop."
 
 #: src/ui/ms-sensor-panel.ui:32
-#, fuzzy
 msgid "Sensor Readings"
-msgstr "Odčitki senzorjev"
+msgstr "Odčitki tipal"
 
 #: src/ui/ms-sensor-panel.ui:40
-#, fuzzy
 msgid "Proximity"
-msgstr "Bližine"
+msgstr "Bližina"
 
 #: src/ui/ms-sensor-panel.ui:49
 msgid "Light"
@@ -620,36 +577,29 @@ msgid "High Contrast"
 msgstr "Visok kontrast"
 
 #: src/ui/ms-sensor-panel.ui:72
-#, fuzzy
 msgid "Automatic High Contrast"
 msgstr "Samodejni visok kontrast"
 
 #: src/ui/ms-sensor-panel.ui:73
-#, fuzzy
 msgid "Controlled by the Ambient Light Sensor"
-msgstr "Upravlja senzor svetlobe v okolici"
+msgstr "Upravlja tipalo okoljske svetlobe"
 
 #: src/ui/ms-sensor-panel.ui:84
-#, fuzzy
 msgid "Light intensity threshold"
 msgstr "Prag intenzivnosti svetlobe"
 
 #: src/ui/ms-sensor-panel.ui:85
-#, fuzzy
 msgid "Theme will switch to high contrast above the threshold"
 msgstr "Tema bo preklopila na visok kontrast nad pragom"
 
 #: src/ui/ms-sound-row.ui:54
-#, fuzzy
 msgid "Sound files (ogg)"
-msgstr "Zvočne datoteke (jajce)"
+msgstr "Zvočne datoteke (ogg)"
 
 #: src/ui/ms-topbar-panel.ui:12
-#, fuzzy
 msgid "Quick Settings"
-msgstr "Tipkovna bližnjica, za preklop menija hitrih nastavitev"
+msgstr "Hitre nastavitve"
 
 #: src/ui/ms-topbar-panel.ui:13
-#, fuzzy
 msgid "Organize your additional Quick Settings"
-msgstr "Organiziranje dodatnih hitrih nastavitev"
+msgstr "Organizirajte dodatne hitre nastavite"
