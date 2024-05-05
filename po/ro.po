@@ -1,0 +1,594 @@
+# Romanian translation for phosh-mobile-settings.
+# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Antonio Marin (libre) <gnmer.6qxyg@slmail.me>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-05-01 12:32+0000\n"
+"PO-Revision-Date: 2024-05-03 13:30+0200\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Reglări Mobil"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:12
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr ""
+"Mobile;Preferences;MobileSettings;Mobil;Preferințe;Configurări;Opțiuni;"
+"ReglăriMobil;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Reglări Mobil Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Această aplicație permite configurarea unor aspecte din Phosh pentru care "
+"altfel ar trebui folosită linia de comandă."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Reglări avansate pentru aparatele mobile care utilizează Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Panouri disponibile"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "Panoul compozitorului"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "Panoul de reacții"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "Temperatura critică este de %.2f°C"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr "Suspendă aparatul"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr "Suspendarea este experimentală"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr "Temperaturi"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr "CPU"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr "Indicator de energie"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "Baterie"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generale"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Arată scurtăturile"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Închide"
+
+#: src/mobile-settings-application.c:28
+msgid "- Manage your mobile settings"
+msgstr "- Gestionează reglările pentru mobil"
+
+#: src/mobile-settings-window.c:77
+msgid "Device"
+msgstr "Aparat"
+
+#: src/ms-feedback-panel.c:135
+msgid "Sound file does not exist"
+msgstr "Fișierul audio nu există"
+
+#: src/ms-feedback-panel.c:137
+msgid "Sound file is corrupt"
+msgstr "Fișierul audio este deteriorat"
+
+#: src/ms-feedback-panel.c:139
+msgid "Failed to play sound"
+msgstr "Nu s-a putut reda sunetul"
+
+#: src/ms-feedback-panel.c:178
+#, c-format
+msgid "Playing %s"
+msgstr "Se redă %s"
+
+#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+msgid "none"
+msgstr "nimic"
+
+#: src/ms-feedback-panel.c:341
+msgid "low"
+msgstr "redus"
+
+#. 1.0
+#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+msgid "normal"
+msgstr "normal"
+
+#: src/ms-feedback-panel.c:345
+msgid "critical"
+msgstr "critic"
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "Normal"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr "De jos în sus"
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr "Stânga sus"
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr "Dreapta sus"
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr "Nedefinit"
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr "Aproape"
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr "Departe"
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "Se actualizează…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr "Indisponibil"
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "Personalizat"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr "Alege fișierul audio"
+
+#: src/ms-util.c:149
+msgid "Full"
+msgstr "Complet"
+
+#: src/ms-util.c:151
+msgid "Quiet"
+msgstr "Liniștit"
+
+#: src/ms-util.c:153
+msgid "Silent"
+msgstr "Silențios"
+
+#: src/ui/mobile-settings-window.ui:74
+msgid "Welcome"
+msgstr "Bun venit"
+
+#: src/ui/mobile-settings-window.ui:80
+msgid "Welcome to Mobile Settings"
+msgstr "Bun venit în Reglări Mobil"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Tweak advanced mobile settings"
+msgstr "Modifică reglările avansate pentru mobil"
+
+#: src/ui/mobile-settings-window.ui:89
+msgid "Top Bar"
+msgstr "Spațiul de sus"
+
+#: src/ui/mobile-settings-window.ui:100
+msgid "Applications"
+msgstr "Aplicații"
+
+#: src/ui/mobile-settings-window.ui:111
+msgid "Feedback"
+msgstr "Reacții"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Compositor"
+msgstr "Compozitor"
+
+#: src/ui/mobile-settings-window.ui:133
+msgid "Lockscreen"
+msgstr "Ecranul blocat"
+
+#: src/ui/mobile-settings-window.ui:144
+msgid "Convergence"
+msgstr "Convergență"
+
+#: src/ui/mobile-settings-window.ui:155
+msgid "On Screen Keyboard"
+msgstr "Tastatura pe ecran"
+
+#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Senzori"
+
+#: src/ui/mobile-settings-window.ui:177
+msgid "Experimental features"
+msgstr "Caracteristici experimentale"
+
+#: src/ui/mobile-settings-window.ui:201
+msgid "_Keyboard Shortcuts"
+msgstr "_Taste rapide"
+
+#: src/ui/mobile-settings-window.ui:205
+msgid "_About Mobile Settings"
+msgstr "_Despre Reglări Mobil"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "Preferate"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "Organizare Preferate"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Trage și așează aplicațiile de mai jos pentru a rearanja aplicațiile "
+"preferate"
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr "Restabilire Preferate"
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr "Restabilește starea inițială a listei de aplicații preferate"
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "Restabilește"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr "Filtrare aplicații de mobil"
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr "Alege modul de filtrare a aplicațiilor"
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr "Arată doar aplicații pentru mobil"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "Redimensionarea aplicațiilor în funcțiune"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr ""
+"Activează această opțiune doar pentru aplicațiile care nu se adaptează la "
+"ecran"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "Redimensionează toate aplicațiile"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+"Redimensionează forțat toate aplicațiile. A se utiliza numai ca ultimă "
+"soluție."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "Redimensionează toate aplicațiile"
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Activat"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "N-a fost detectat niciun suport cunoscut"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "Vizualizează ecranul tactil integrat"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Caracteristici experimentale"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "Caracteristici care nu sunt încă pe deplin stabile"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Apeluri de urgență"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Activează apelurile de urgență. Activează-le numai după ce te-ai asigurat că "
+"funcționează cu furnizorul tău."
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr "Activează suspendarea prin intermediul opțiunilor de sistem"
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Activează această opțiune numai dacă accepți limitări precum pierderea "
+"conexiunii de date sau pierderea alarmelor"
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr "Profil de reacții"
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr "Profilul general de reacție maximă"
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Per Application settings"
+msgstr "Reglări per aplicație"
+
+#: src/ui/ms-feedback-panel.ui:46
+msgid "Sounds"
+msgstr "Sunete"
+
+#: src/ui/ms-feedback-panel.ui:47
+msgid "The sound to use for certain events"
+msgstr "Sunetul de utilizat pentru anumite evenimente"
+
+#: src/ui/ms-feedback-panel.ui:55
+msgid "Phone Calls"
+msgstr "Apeluri"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:67
+msgid "Instant messages"
+msgstr "Mesaje instantanee"
+
+#: src/ui/ms-feedback-panel.ui:78
+msgid "Screen Wakeup"
+msgstr "Iluminarea ecranului"
+
+#: src/ui/ms-feedback-panel.ui:81
+msgid "Notification urgency that lights up the screen"
+msgstr "Notificare de urgență care iluminează ecranul"
+
+#: src/ui/ms-lockscreen-panel.ui:11
+msgid "Unlocking"
+msgstr "Deblocare"
+
+#: src/ui/ms-lockscreen-panel.ui:14
+msgid "Shuffle keypad"
+msgstr "Tastatură aleatorie"
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Dacă să li se schimbe locul numerelor de pe tastatură"
+
+#: src/ui/ms-lockscreen-panel.ui:32
+msgid "Widgets"
+msgstr "Miniaturi"
+
+#: src/ui/ms-lockscreen-panel.ui:33
+msgid "Additional widgets for the lock screen"
+msgstr "Miniaturi suplimentare pentru ecranul blocat"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Activează _Tastatura pe ecran"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Dacă să apară tastatura pe ecran atunci când este nevoie"
+
+#: src/ui/ms-osk-panel.ui:28
+msgid "Unfold long-press"
+msgstr "Să apară prin apăsare lungă"
+
+#: src/ui/ms-osk-panel.ui:29
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Cât de lungă să fie apăsarea în centrul spațiului de căutare pentru a "
+"desfășura tastatura pe ecran"
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:34
+msgid "short"
+msgstr "scurtă"
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:38
+msgid "long"
+msgstr "lungă"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Ignore hardware keyboard"
+msgstr "Ignoră tastatura fizică"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+"Dacă să se afișeze tastatura pe ecran atunci când este prezentă o tastatură "
+"fizică"
+
+#: src/ui/ms-osk-panel.ui:56
+msgid "Text Completion"
+msgstr "Completarea textului"
+
+#: src/ui/ms-osk-panel.ui:59
+msgid "Opportunistic word completion"
+msgstr "Completarea automată a cuvintelor"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "Enable word completion when the app indicates it is useful"
+msgstr ""
+"Activează completarea automată a cuvintelor dacă aplicația sugerează că este "
+"utilă"
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Toggle via OSK menu"
+msgstr "Comută prin tastatura virtuală"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+"Permite activarea/dezactivarea completării cuvintelor prin butonul de "
+"opțiuni al tastaturii de pe ecran"
+
+#: src/ui/ms-osk-panel.ui:94
+msgid "Terminal Layout"
+msgstr "Dispunere Terminal"
+
+#: src/ui/ms-osk-panel.ui:98
+msgid "Shortcuts"
+msgstr "Scurtături"
+
+#: src/ui/ms-osk-panel.ui:99
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "Scurtături disponibile în spațiul scurtăturilor"
+
+#: src/ui/ms-plugin-row.ui:33
+msgid "More options…"
+msgstr "Alte opțiuni…"
+
+#: src/ui/ms-plugin-row.ui:46
+msgid "Move Up"
+msgstr "Mută sus"
+
+#: src/ui/ms-plugin-row.ui:50
+msgid "Move Down"
+msgstr "Mută jos"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Niciun senzor"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+"Fie nu există senzori instalați în aparat, fie aceștia sunt dezactivați de "
+"un întrerupător."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Măsurătorile senzorilor"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Vecinătate"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Lumină"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Orientare"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Contrast mare"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Contrast mare automat"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "Controlat de senzorul de lumină ambientală"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "Limita de intensitate a luminii"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "Contrastul va deveni mare la depășirea limitei"
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "Fișiere audio (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "Quick Settings"
+msgstr "Reglări rapide"
+
+#: src/ui/ms-topbar-panel.ui:13
+msgid "Organize your additional Quick Settings"
+msgstr "Organizează reglările rapide suplimentare"
