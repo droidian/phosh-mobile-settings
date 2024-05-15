@@ -1,3 +1,88 @@
+phosh-mobile-settings (0.39.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * tests: Don't fail if phoc is missing.
+    There's already a block to skip the tests when phoc is missing but until
+    now `meson setup` aborted when phoc isn't found.
+    This unbreaks the nightly builds:
+    https://source.puri.sm/guido.gunther/phosh-debs/-/jobs/432243
+    Fixes: 363d074 ("tests: Add tests for local options")
+  * librem5-panel: Mark strings as translatable
+  * packaging: Add breaks against old phosh-osk-stub.
+    We want at least 0.37.0 to have the ignore-hw-keyboards key
+  * osk-panel: Allow to ignore hardware keyboards.
+    This allows to always show the OSK, even when a hardware keyboard is
+    present.
+  * ci: Update common function and use template job.
+    Use meta-phosh as of f3c92e90dcc0d65322888217429b75dd101bd0d3
+    This allows us to drop our check-po variant and to use the
+    common style check.
+  * packaging: Bump phosh dependency.
+    We need 0.37.0 for the Quick Setting gsettings schema
+  * plugin-list-box: Add widget that manages phosh plugins.
+    This is based on the implementation in the lock screen panel.
+  * lockscreen-panel: Use plugin-list-box
+  * topbar-panel: Allow to configure additional quick settings.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/46
+  * Revert "ci: Use sid at the moment"
+    This reverts commit b537e288b04793dfced613d06a46974b2d93be0c.
+    Phosh 0.38.0 is now in testing.
+  * ci: Use common before step
+  * ci: Use newer image.
+    This will fix gcovr failing to do anything. See
+      https://gitlab.gnome.org/guidog/phosh-osk-stub/-/merge_requests/136
+
+  [ Gotam Gorabh ]
+  * topbar-panel: Create a new empty top bar panel.
+    Top bar panel will contains settings related to shell or top-bar.
+
+  [ Vladimir Vaskov ]
+  * applications-panel: Mark UI strings as translatable
+  * features-panel: Mark UI strings as translatable
+  * po: Remove main. It has no translatable strings
+  * po: Add a Russian translation
+
+  [ Danial Behzadi ]
+  * Add Persian translation
+
+  [ Andika Triwidada ]
+  * Add Indonesian translation
+
+  [ Yuri Chornoivan ]
+  * Add Ukrainian translation
+
+  [ Ekaterine Papava ]
+  * Add Georgian translation
+
+  [ Daniel Rusek ]
+  * Add Czech translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Sabri Ünal ]
+  * Add Turkish translation
+
+  [ Martin ]
+  * Add Slovenian translation
+
+  [ Daniel Șerbănescu ]
+  * Add Romanian translation
+
+  [ Anders Jonsson ]
+  * Add Swedish translation
+
+  [ Andi Chandler ]
+  * Add British English translation
+
+  [ Yaron Shahrabani ]
+  * Add Hebrew translation
+
+  [ Scrambled 777 ]
+  * Add Hindi translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 06 May 2024 20:06:11 +0200
+
 phosh-mobile-settings (0.38.0) experimental; urgency=medium
 
   [ Rudra Pratap Singh ]

@@ -1,3 +1,30 @@
+phosh-mobile-settings 0.39.0
+----------------------------
+Released: May 2024
+* Allow manage custom quick settings
+* osk panel: Allow to configure whether to ignore hardware keyboards
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/46
+* Contributors:
+    * Gotam Gorabh
+    * Guido Günther
+    * Vladimir Vaskov
+* UI translations:
+    * Anders Jonsson (sv)
+    * Andi Chandler (en_GB)
+    * Andika Triwidada (id)
+    * Artur S0 (ru)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Daniel Șerbănescu (ro)
+    * Ekaterine Papava (ka)
+    * Martin (sl)
+    * Sabri Ünal (tr)
+    * Scrambled 777 (hi)
+    * Vladimir Vaskov (ru)
+    * Yaron Shahrabani (he)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.38.0
 ----------------------------
 Released: April 2024
