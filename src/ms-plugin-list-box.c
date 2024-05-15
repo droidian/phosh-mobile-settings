@@ -428,7 +428,7 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
   /**
-   * MsPluginListBox:pref-extension-point:
+   * MsPluginListBox:prefs-extension-point:
    *
    * The extension point for plugin preferences
    */
