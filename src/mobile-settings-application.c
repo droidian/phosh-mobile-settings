@@ -19,6 +19,8 @@
 #include "protocols/wlr-foreign-toplevel-management-unstable-v1-client-protocol.h"
 #include "protocols/wlr-output-management-unstable-v1-client-protocol.h"
 
+#include <phosh-plugin.h>
+
 #include <gdk/wayland/gdkwayland.h>
 #include <wayland-client.h>
 #include <glib/gi18n.h>
@@ -424,6 +426,9 @@ mobile_settings_application_init (MobileSettingsApplication *self)
                                                    g_str_equal,
                                                    g_free,
                                                    NULL);
+
+  g_io_extension_point_register (PHOSH_PLUGIN_EXTENSION_POINT_LOCKSCREEN_WIDGET_PREFS);
+  g_io_extension_point_register (PHOSH_PLUGIN_EXTENSION_POINT_QUICK_SETTING_WIDGET_PREFS);
 }
 
 
