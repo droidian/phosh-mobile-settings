@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-22 09:57+0000\n"
-"PO-Revision-Date: 2024-04-22 22:55+0530\n"
+"POT-Creation-Date: 2024-05-12 13:13+0000\n"
+"PO-Revision-Date: 2024-05-12 22:43+0530\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
-"Language-Team: Hindi\n"
+"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 46.0\n"
+"X-Generator: Gtranslator 46.1\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -230,42 +230,46 @@ msgid "Tweak advanced mobile settings"
 msgstr "उन्नत मोबाइल सेटिंग्स में बदलाव करें"
 
 #: src/ui/mobile-settings-window.ui:89
+msgid "Top Bar"
+msgstr "शीर्ष पट्टी"
+
+#: src/ui/mobile-settings-window.ui:100
 msgid "Applications"
 msgstr "अनुप्रयोग"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:111
 msgid "Feedback"
 msgstr "प्रतिक्रिया"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:122
 msgid "Compositor"
 msgstr "कंपोज़ीटर"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:133
 msgid "Lockscreen"
 msgstr "लॉकस्क्रीन"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:144
 msgid "Convergence"
 msgstr "अभिसरण"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:155
 msgid "On Screen Keyboard"
 msgstr "ऑन स्क्रीन कीबोर्ड"
 
-#: src/ui/mobile-settings-window.ui:155 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "सेंसर"
 
-#: src/ui/mobile-settings-window.ui:166
+#: src/ui/mobile-settings-window.ui:177
 msgid "Experimental features"
 msgstr "प्रायोगिक विशेषताएं"
 
-#: src/ui/mobile-settings-window.ui:190
+#: src/ui/mobile-settings-window.ui:201
 msgid "_Keyboard Shortcuts"
 msgstr "कीबोर्ड शॉर्टकट (_K)"
 
-#: src/ui/mobile-settings-window.ui:194
+#: src/ui/mobile-settings-window.ui:205
 msgid "_About Mobile Settings"
 msgstr "मोबाइल सेटिंग्स के बारे में (_A)"
 
@@ -562,3 +566,11 @@ msgstr "सीमा से ऊपर थीम उच्च कंट्रा�
 #: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
 msgstr "ध्वनि फाइलें (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "Quick Settings"
+msgstr "त्वरित सेटिंग"
+
+#: src/ui/ms-topbar-panel.ui:13
+msgid "Organize your additional Quick Settings"
+msgstr "अपनी अतिरिक्त त्वरित सेटिंग्स व्यवस्थित करें"
