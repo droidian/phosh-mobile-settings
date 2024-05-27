@@ -387,6 +387,9 @@ mobile_settings_application_show_about (GSimpleAction *action,
                                                                       MOBILE_SETTINGS_VERSION));
   adw_about_window_set_developers (about_window, developers);
   adw_about_window_set_artists (about_window, artists);
+  adw_about_window_set_translator_credits (about_window,
+               /* Translators: Replace "translator-credits" with your names, one name per line */
+                                           _("translator-credits"));
   adw_about_window_set_debug_info (about_window, mobile_settings_generate_debug_info ());
 
   window = gtk_application_get_active_window (GTK_APPLICATION (self));
