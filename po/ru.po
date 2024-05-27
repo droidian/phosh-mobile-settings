@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-04-28 23:56+0300\n"
+"POT-Creation-Date: 2024-05-05 09:30+0000\n"
+"PO-Revision-Date: 2024-05-12 17:50+0300\n"
 "Last-Translator: Artur So <arturios2005@mail.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -574,7 +574,7 @@ msgstr "Автоматическая высокая контрастность"
 
 #: src/ui/ms-sensor-panel.ui:73
 msgid "Controlled by the Ambient Light Sensor"
-msgstr "Управляется датчиком освещенности"
+msgstr "Управляется датчиком освещения"
 
 #: src/ui/ms-sensor-panel.ui:84
 msgid "Light intensity threshold"
