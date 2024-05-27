@@ -286,12 +286,18 @@ mobile_settings_generate_debug_info (void)
     g_auto (GStrv) compatibles = gm_device_tree_get_compatibles (NULL, &err);
 
     if (compatibles && compatibles[0]) {
-      g_autofree char *compatible_str = g_strjoinv(" ", compatibles);
+      g_autofree char *compatible_str = g_strjoinv (" ", compatibles);
 
       g_string_append_printf (string, "- DT compatibles: %s\n", compatible_str);
     } else {
+      g_autofree char *modalias = NULL;
+
       g_debug ("Couldn't get device tree information: %s", err->message);
-      g_string_append (string, "Not a device tree device\n");
+
+      if (g_file_get_contents ("/sys/class/dmi/id/modalias", &modalias, NULL, NULL))
+        g_string_append_printf (string, "- DMI modalias: %s\n", modalias);
+      else
+        g_string_append_printf (string, "Could not read DMI or DT information");
     }
   }
 
