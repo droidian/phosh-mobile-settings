@@ -226,7 +226,6 @@ mobile_settings_generate_debug_info (void)
       const char *key;
     } const schema[] = {
       { "sm.puri.phosh.emergency-calls", "enabled" },
-      { "sm.puri.phosh", "automatic-high-contrast" },
       { "sm.puri.phosh.plugins", "lock-screen" },
       { "org.gnome.desktop.a11y.applications", "screen-keyboard-enabled" },
       { "org.gnome.desktop.interface", "gtk-im-module" },
