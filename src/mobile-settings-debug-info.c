@@ -240,6 +240,16 @@ mobile_settings_generate_debug_info (void)
       { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-timeout" },
       { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-type" },
 
+      /* Interface related */
+      { "org.gnome.desktop.interface", "color-scheme" },
+      { "org.gnome.desktop.interface", "gtk-theme" },
+      { "org.gnome.desktop.interface", "icon-theme" },
+      { "org.gnome.desktop.interface", "show-battery-percentage" },
+      { "org.gnome.desktop.interface", "clock-format" },
+      { "org.gnome.desktop.interface", "clock-show-date" },
+      { "org.gnome.desktop.interface", "clock-show-seconds" },
+      { "org.gnome.desktop.interface", "clock-show-weekday" },
+
       /* Screen wakeup */
       { "sm.puri.phosh.notifications", "wakeup-screen-categories" },
       { "sm.puri.phosh.notifications", "wakeup-screen-triggers" },
