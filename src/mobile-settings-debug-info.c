@@ -226,7 +226,6 @@ mobile_settings_generate_debug_info (void)
       const char *key;
     } const schema[] = {
       { "sm.puri.phosh.emergency-calls", "enabled" },
-      { "sm.puri.phosh", "automatic-high-contrast" },
       { "sm.puri.phosh.plugins", "lock-screen" },
       { "org.gnome.desktop.a11y.applications", "screen-keyboard-enabled" },
       { "org.gnome.desktop.interface", "gtk-im-module" },
@@ -239,6 +238,16 @@ mobile_settings_generate_debug_info (void)
       { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-battery-type" },
       { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-timeout" },
       { "org.gnome.settings-daemon.plugins.power", "sleep-inactive-ac-type" },
+
+      /* Interface related */
+      { "org.gnome.desktop.interface", "color-scheme" },
+      { "org.gnome.desktop.interface", "gtk-theme" },
+      { "org.gnome.desktop.interface", "icon-theme" },
+      { "org.gnome.desktop.interface", "show-battery-percentage" },
+      { "org.gnome.desktop.interface", "clock-format" },
+      { "org.gnome.desktop.interface", "clock-show-date" },
+      { "org.gnome.desktop.interface", "clock-show-seconds" },
+      { "org.gnome.desktop.interface", "clock-show-weekday" },
 
       /* Screen wakeup */
       { "sm.puri.phosh.notifications", "wakeup-screen-categories" },
