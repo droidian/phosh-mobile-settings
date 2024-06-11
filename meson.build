@@ -1,6 +1,6 @@
 project('phosh-mobile-settings', 'c',
           version: '0.39.0',
-    meson_version: '>= 0.58.0',
+    meson_version: '>= 1.0.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
                      'c_std=gnu11',
