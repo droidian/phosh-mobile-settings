@@ -29,13 +29,15 @@ glib_dep = dependency('glib-2.0', version: glib_ver_cmp)
 gio_dep = dependency('gio-2.0', version: glib_ver_cmp)
 gio_unix_dep =  dependency('gio-unix-2.0', version: glib_ver_cmp)
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
-gmobile = subproject('gmobile',
-  default_options: [
-    'examples=false',
-    'gtk_doc=false',
-    'tests=false',
-  ])
-gmobile_dep = gmobile.get_variable('gmobile_dep')
+gmobile_dep = dependency('gmobile',
+  version: '>= 0.2.0',
+  fallback: ['gmobile', 'gmobile_dep'],
+  default_options:
+    [ 'examples=false',
+      'introspection=false',
+      'gtk_doc=false',
+      'tests=false'
+    ])
 gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: gtk_ver_cmp)
 gtk_wayland_dep = dependency('gtk4-wayland', version: gtk_ver_cmp)
