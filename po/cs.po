@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-04-29 15:16+0200\n"
+"POT-Creation-Date: 2024-06-16 12:06+0000\n"
+"PO-Revision-Date: 2024-06-16 15:38+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -117,9 +117,14 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ukončit"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Spravujte svá mobilní nastavení"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr "Daniel Rusek <mail@asciiwolf.com>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -333,7 +338,7 @@ msgstr "Zmenšení všech aplikací"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -419,23 +424,31 @@ msgstr "Probuzení obrazovky"
 msgid "Notification urgency that lights up the screen"
 msgstr "Naléhavost upozornění, které rozsvítí obrazovku"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Odemykání"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Uzamknutí a odemčení"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Automatické zpoždění uzamknutí obrazovky"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Počet sekund od ztmavení obrazovky po její uzamknutí"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Zamíchání klávesnice"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Zda se mají zamíchat čísla na klávesnici"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Widgety"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Další widgety pro zamykací obrazovku"
 
@@ -582,3 +595,6 @@ msgstr "Rychlá nastavení"
 #: src/ui/ms-topbar-panel.ui:13
 msgid "Organize your additional Quick Settings"
 msgstr "Uspořádejte si další rychlá nastavení"
+
+#~ msgid "Unlocking"
+#~ msgstr "Odemykání"
