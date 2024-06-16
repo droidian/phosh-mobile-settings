@@ -21,15 +21,39 @@
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
 #define LOCKSCREEN_KEY_SCALE_TO_FIT "shuffle-keypad"
 
+#define SCREENSAVER_SCHEMA_ID "org.gnome.desktop.screensaver"
+#define SCREENSAVER_KEY_LOCK_DELAY "lock-delay"
 
 struct _MsLockscreenPanel {
   AdwBin     parent;
 
   GSettings *settings;
+  GSettings *screensaver_settings;
   GtkWidget *shuffle_switch;
+  GtkWidget *lock_delay_adjustment;
 };
 
 G_DEFINE_TYPE (MsLockscreenPanel, ms_lockscreen_panel, ADW_TYPE_BIN)
+
+
+static gboolean
+uint32_to_double_get_mapping (GValue *out_value, GVariant *in_variant, gpointer user_data)
+{
+  guint32 uint32_value = g_variant_get_uint32 (in_variant);
+
+  g_value_set_double (out_value, (double) uint32_value);
+  return TRUE;
+}
+
+
+static GVariant *
+double_to_uint32_set_mapping (const GValue *in_value, const GVariantType *out_type, gpointer data)
+{
+  double dbl_value = g_value_get_double (in_value);
+  guint32 int32_value = (guint32) CLAMP (dbl_value, 0.0, (double) G_MAXUINT32);
+
+  return g_variant_new_uint32 (int32_value);
+}
 
 
 static void
@@ -38,6 +62,7 @@ ms_lockscreen_panel_finalize (GObject *object)
   MsLockscreenPanel *self = MS_LOCKSCREEN_PANEL (object);
 
   g_clear_object (&self->settings);
+  g_clear_object (&self->screensaver_settings);
 
   G_OBJECT_CLASS (ms_lockscreen_panel_parent_class)->finalize (object);
 }
@@ -54,6 +79,7 @@ ms_lockscreen_panel_class_init (MsLockscreenPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-lockscreen-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsLockscreenPanel, shuffle_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsLockscreenPanel, lock_delay_adjustment);
 }
 
 
@@ -71,6 +97,16 @@ ms_lockscreen_panel_init (MsLockscreenPanel *self)
                    self->shuffle_switch,
                    "active",
                    G_SETTINGS_BIND_DEFAULT);
+
+  self->screensaver_settings = g_settings_new (SCREENSAVER_SCHEMA_ID);
+  g_settings_bind_with_mapping (self->screensaver_settings,
+                                SCREENSAVER_KEY_LOCK_DELAY,
+                                self->lock_delay_adjustment,
+                                "value",
+                                G_SETTINGS_BIND_DEFAULT,
+                                uint32_to_double_get_mapping,
+                                double_to_uint32_set_mapping,
+                                NULL, NULL);
 }
 
 
