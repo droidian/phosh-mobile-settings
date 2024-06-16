@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-29 13:18+0000\n"
-"PO-Revision-Date: 2024-05-03 18:08+0200\n"
+"POT-Creation-Date: 2024-06-16 12:06+0000\n"
+"PO-Revision-Date: 2024-06-17 00:29+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -119,9 +119,14 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Konča program"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Upravljajte nastavitve svojega mobilnika"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr "Martin Srebotnjak <miles@filmsi.net>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -335,7 +340,7 @@ msgstr "Zmanjšaj obseg vseh aplikacij"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -421,23 +426,31 @@ msgstr "Povrnitev zaslona iz pripravljenosti"
 msgid "Notification urgency that lights up the screen"
 msgstr "Nujnost obvestila, ki osvetli zaslon"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Poteka odklepanje …"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Zaklepanje in odklepanje"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Samodejna zakasnitev zaklepanja zaslona"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Čas (v s) od praznega zaslona do zaklepa zaslona"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Premešaj številčnico"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Ali želite premešati številke na tipkovnici"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Gradniki"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Dodatni gradniki za zaklenjeni zaslon"
 
