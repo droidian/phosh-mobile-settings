@@ -28,7 +28,7 @@ if phoc.found()
   foreach opt : local_opts
     test('test-@0@'.format(opt), phoc,
          args: ['-E',
-		'@0@/src/phosh-mobile-settings --@1@'.format(meson.build_root(), opt),
+		'@0@/src/phosh-mobile-settings --@1@'.format(meson.project_build_root(), opt),
 	       ],
          env: test_env_phoc)
   endforeach
