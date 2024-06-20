@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-05-05 17:21+0200\n"
+"POT-Creation-Date: 2024-06-16 12:06+0000\n"
+"PO-Revision-Date: 2024-06-18 00:37+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -117,9 +117,15 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Hantera dina mobilinställningar"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr ""
+"Anders Jonsson <anders.jonsson@norsjovallen.se>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -331,7 +337,7 @@ msgstr "Skala ner alla appar"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -417,23 +423,31 @@ msgstr "Skärmväckning"
 msgid "Notification urgency that lights up the screen"
 msgstr "Aviseringsgrad som lyser upp skärmen"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Upplåsning"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Låsning och upplåsning"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Fördröjning för automatiskt skärmlås"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Sekunder från det att skärmen töms till den låses"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Växla knappsats"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Huruvida siffrorna på knappsatsen ska växlas"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Komponenter"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Ytterligare komponenter för låsskärmen"
 
@@ -580,3 +594,6 @@ msgstr "Snabbinställningar"
 #: src/ui/ms-topbar-panel.ui:13
 msgid "Organize your additional Quick Settings"
 msgstr "Organisera dina ytterligare snabbinställningar"
+
+#~ msgid "Unlocking"
+#~ msgstr "Upplåsning"
