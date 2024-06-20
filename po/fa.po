@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-05-01 01:20+0330\n"
+"POT-Creation-Date: 2024-06-16 12:06+0000\n"
+"PO-Revision-Date: 2024-06-20 04:17+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
-msgstr "تنظمیات همراه"
+msgstr "تنظیمات همراه"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
@@ -30,7 +30,7 @@ msgstr "Mobile;Preferences;MobileSettings;موبایل;همراه;تلفن;تر�
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
-msgstr "تنظمیات همراه فوش"
+msgstr "تنظیمات همراه فوش"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
 msgid ""
@@ -116,9 +116,14 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "خروج"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- مدیریت تنظیمات همراهتان"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr "دانیال بهزادی <dani.behzi@ubuntu.com>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -328,7 +333,7 @@ msgstr "کوچک کردن مقیاس همهٔ کاره‌ها"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -414,23 +419,31 @@ msgstr "بیدار شدن صفحه"
 msgid "Notification urgency that lights up the screen"
 msgstr "ضروریت آگاهی‌ای که صفحه را روشن می‌کند"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "قفل‌گشایی"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "قفل و قفل‌گشایی"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "تأخیر قفل صفحهٔ خودکار"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "ثانیه‌ها از سیاه شدن صفحه تا قفل"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "در هم ریختن شماره‌ها"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "این که رقم‌های روی صفحه در هم ریخته شوند یا نه"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "ابزارک‌ها"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "ابزارک‌های اضافی برای صفحهٔ قفل"
 
@@ -572,3 +585,6 @@ msgstr "تنظیمات سریع"
 #: src/ui/ms-topbar-panel.ui:13
 msgid "Organize your additional Quick Settings"
 msgstr "سازمان دهی تنظیمات سریع اضافیتان"
+
+#~ msgid "Unlocking"
+#~ msgstr "قفل‌گشایی"
