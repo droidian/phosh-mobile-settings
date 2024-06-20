@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
 "POT-Creation-Date: 2024-06-16 12:06+0000\n"
-"PO-Revision-Date: 2024-06-20 12:28+0300\n"
+"PO-Revision-Date: 2024-06-20 13:22+0300\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: Hebrew\n"
 "Language: he\n"
@@ -127,6 +127,7 @@ msgstr "- ניהול הגדרות המכשיר הנייד שלך"
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
+"יוסף אור בוצ׳קו <yoseforb@gmail.com>\n"
 "מיזם תרגום GNOME לעברית https://l10n.gnome.org/teams/he/"
 
 #: src/mobile-settings-window.c:77
@@ -242,7 +243,7 @@ msgstr "סרגל עליון"
 
 #: src/ui/mobile-settings-window.ui:100
 msgid "Applications"
-msgstr "יישומונים"
+msgstr "יישומים"
 
 #: src/ui/mobile-settings-window.ui:111
 msgid "Feedback"
@@ -290,7 +291,7 @@ msgstr "סידור מועדפים"
 
 #: src/ui/ms-applications-panel.ui:21
 msgid "Drag and drop the apps below to rearrange your favorite apps"
-msgstr "גרירת היישומונים להלן כדי לסדר את היישומונים המועדפים שלך מחדש"
+msgstr "גרירת היישומים להלן כדי לסדר את היישומים המועדפים שלך מחדש"
 
 #: src/ui/ms-applications-panel.ui:46
 msgid "Reset Favorites"
@@ -298,7 +299,7 @@ msgstr "איפוס מועדפים"
 
 #: src/ui/ms-applications-panel.ui:47
 msgid "Set list of favorite apps back to the default"
-msgstr "הגדרת רשימת היישומונים המועדפים בחזרה לברירת המחדל"
+msgstr "הגדרת רשימת היישומים המועדפים בחזרה לברירת המחדל"
 
 #: src/ui/ms-applications-panel.ui:51
 msgid "Reset"
@@ -306,35 +307,35 @@ msgstr "איפוס"
 
 #: src/ui/ms-applications-panel.ui:62
 msgid "Mobile App Filtering"
-msgstr "סינון יישומונים לנייד"
+msgstr "סינון יישומים לנייד"
 
 #: src/ui/ms-applications-panel.ui:65
 msgid "Set Application Filter Mode"
-msgstr "הגדרת מצב סינון יישומונים"
+msgstr "הגדרת מצב סינון יישומים"
 
 #: src/ui/ms-applications-panel.ui:66
 msgid "Show only mobile apps in the overview"
-msgstr "להציג רק יישומונים לניידים בסקירה"
+msgstr "להציג רק יישומים לניידים בסקירה"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
-msgstr "הקטנת יישומונים פעילים"
+msgstr "הקטנת יישומים פעילים"
 
 #: src/ui/ms-compositor-panel.ui:12
 msgid "Only enable this for broken apps that don't fit the screen"
-msgstr "יש להפעיל את זה רק ליישומונים שחורגים מגודל המסך"
+msgstr "יש להפעיל את זה רק ליישומים שחורגים מגודל המסך"
 
 #: src/ui/ms-compositor-panel.ui:25
 msgid "Scale down all applications"
-msgstr "הקטנת כל יישמונים"
+msgstr "הקטנת כל היישומים"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
-msgstr "כפיית הקטנת כל היישומונים. יש להפעיל את זה רק כמוצא אחרון."
+msgstr "כפיית הקטנת כל היישומים. יש להפעיל את זה רק כמוצא אחרון."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
-msgstr "הקטנת כל היישומונים"
+msgstr "הקטנת כל היישומים"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
@@ -346,7 +347,7 @@ msgstr "פעיל"
 
 #: src/ui/ms-convergence-panel.ui:15
 msgid "No known docks detected"
-msgstr "לא זוהוה מעגנים מוכרים"
+msgstr "לא זוהו מעגנים מוכרים"
 
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
@@ -434,7 +435,7 @@ msgstr "השהיה אוטומטית לנעילת מסך"
 
 #: src/ui/ms-lockscreen-panel.ui:16
 msgid "Seconds from screen blank to screen lock"
-msgstr "משך הזמן בשניות מהחשכת המסך לנעילת המסך"
+msgstr "משך הזמן מהחשכת המסך לנעילת המסך"
 
 #: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
@@ -446,11 +447,11 @@ msgstr "האם לערבב את הספרות בלוח המקשים"
 
 #: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
-msgstr "וידג׳טים"
+msgstr "יישומונים"
 
 #: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
-msgstr "וידג׳טים נוספים למסך הנעילה"
+msgstr "יישומונים נוספים למסך הנעילה"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
