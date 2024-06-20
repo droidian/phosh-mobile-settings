@@ -75,6 +75,7 @@ mobile_settings_deps = [
   gtk_wayland_dep,
   adwaita_dep,
   phosh_plugins_dep,
+  phosh_settings_dep,
   wayland_client_dep,
 ]
 

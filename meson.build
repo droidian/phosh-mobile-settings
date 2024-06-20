@@ -42,6 +42,7 @@ gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: gtk_ver_cmp)
 gtk_wayland_dep = dependency('gtk4-wayland', version: gtk_ver_cmp)
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
+phosh_settings_dep = dependency('phosh-settings-schemas', required: false)
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
 wayland_protos_dep = dependency('wayland-protocols', version: '>=1.12')
 
@@ -138,6 +139,7 @@ config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_plugins_dir'))
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'))
+config_h.set('HAVE_PHOSH_SETTINGS_SCHEMAS', phosh_settings_dep.found())
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,
