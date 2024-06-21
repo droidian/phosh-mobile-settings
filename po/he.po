@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-16 12:06+0000\n"
-"PO-Revision-Date: 2024-06-20 13:22+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2024-06-20 16:09+0000\n"
+"PO-Revision-Date: 2024-06-21 10:19+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3)\n"
-"X-Generator: Gtranslator 46.1\n"
+"2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -583,13 +583,25 @@ msgstr "ערכת הנושא תוחלף לניגודיות גבוהה מעל לס
 msgid "Sound files (ogg)"
 msgstr "קובצי שמע (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:12
+#: src/ui/ms-topbar-panel.ui:13
 msgid "Quick Settings"
 msgstr "הגדרות מהירות"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:14
 msgid "Organize your additional Quick Settings"
 msgstr "מיון ההגדרות המהירות הנוספות שלך"
+
+#: src/ui/ms-topbar-panel.ui:26
+msgid "UI Elements"
+msgstr "רכיבי מנשק משתמש"
+
+#: src/ui/ms-topbar-panel.ui:29
+msgid "Avoid notches"
+msgstr "הימנעות מאזור חסימה למצלמה"
+
+#: src/ui/ms-topbar-panel.ui:30
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "לא להציב רכיבי מנשק משתמש מתחת לאזורי חסימה ואזורי חיתוך של הצג"
 
 #~ msgid "Unlocking"
 #~ msgstr "שחרור"
