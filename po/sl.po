@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-16 12:06+0000\n"
-"PO-Revision-Date: 2024-06-17 00:29+0200\n"
+"POT-Creation-Date: 2024-06-20 16:09+0000\n"
+"PO-Revision-Date: 2024-06-21 15:41+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -590,10 +590,25 @@ msgstr "Tema bo preklopila na visok kontrast nad pragom"
 msgid "Sound files (ogg)"
 msgstr "Zvočne datoteke (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:12
+#: src/ui/ms-topbar-panel.ui:13
 msgid "Quick Settings"
 msgstr "Hitre nastavitve"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:14
 msgid "Organize your additional Quick Settings"
 msgstr "Organizirajte dodatne hitre nastavite"
+
+#: src/ui/ms-topbar-panel.ui:26
+msgid "UI Elements"
+msgstr "Elementi up. vmesnika"
+
+#: src/ui/ms-topbar-panel.ui:29
+#, fuzzy
+msgid "Avoid notches"
+msgstr "Izogibaj se zarezam"
+
+#: src/ui/ms-topbar-panel.ui:30
+#, fuzzy
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Elementov uporabniškega vmesnika ne postavljaj pod zareze in izrezke zaslona"
