@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-05-01 12:32+0000\n"
-"PO-Revision-Date: 2024-05-03 13:30+0200\n"
+"POT-Creation-Date: 2024-06-20 16:09+0000\n"
+"PO-Revision-Date: 2024-06-21 23:42+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -120,9 +120,14 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Închide"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Gestionează reglările pentru mobil"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr "libre (Antonio Marin)"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -339,7 +344,7 @@ msgstr "Redimensionează toate aplicațiile"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -425,23 +430,31 @@ msgstr "Iluminarea ecranului"
 msgid "Notification urgency that lights up the screen"
 msgstr "Notificare de urgență care iluminează ecranul"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Deblocare"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Blocare și deblocare"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Amânarea blocării automate a ecranului"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Numărul de secunde de la stingerea ecranului până la blocarea lui"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Tastatură aleatorie"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Dacă să li se schimbe locul numerelor de pe tastatură"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Miniaturi"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Miniaturi suplimentare pentru ecranul blocat"
 
@@ -585,10 +598,23 @@ msgstr "Contrastul va deveni mare la depășirea limitei"
 msgid "Sound files (ogg)"
 msgstr "Fișiere audio (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:12
+#: src/ui/ms-topbar-panel.ui:13
 msgid "Quick Settings"
 msgstr "Reglări rapide"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:14
 msgid "Organize your additional Quick Settings"
 msgstr "Organizează reglările rapide suplimentare"
+
+#: src/ui/ms-topbar-panel.ui:26
+msgid "UI Elements"
+msgstr "Elementele interfaței"
+
+#: src/ui/ms-topbar-panel.ui:29
+msgid "Avoid notches"
+msgstr "Evită orificiile"
+
+#: src/ui/ms-topbar-panel.ui:30
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Nu poziționa elementele interfeței sub orificiile și decupajul ecranului"
