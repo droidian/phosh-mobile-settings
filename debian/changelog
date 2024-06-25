@@ -1,3 +1,79 @@
+phosh-mobile-settings (0.40.0~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * application: Register extension points upfront.
+    Doing it in MsPluginListBox is too late as we only ever init one of the
+    lock screen plugins there meaning that either quick setting or
+  * application: Set translator credits.
+    As we have translations now we should credit translators in about too.
+  * build: Don't use deprecated build_root
+  * build: Bump meson dependency to 1.0
+  * build: Allow to use shared gmobile.
+    Bump dependency to gmobile 0.2.0 while at that.
+  * packaging: Depend on shared gmobile.
+    This unbreaks the nightly builds which don't have gmobile.
+
+  [ Gotam Gorabh ]
+  * debug-info: Use dmi modalias for non DT devices.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/50
+  * debug-info: Add org.gnome.desktop.interface related gsettings.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/53
+  * debug-info: Drop duplicated gsetting
+  * topbar-panel: Allow to set shell layout settings.
+    This would allow to set shell layout settings and allow to disable taking device
+    information into account (e.g. for testing or when the information in
+    gmobile is broken).
+    See https://phosh.mobi/posts/notch-support/ for more information.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/42
+
+  [ Teemu Ikonen ]
+  * lockscreen-panel: Add a SpinRow for 'lock-delay' key.
+    Allow setting the 'lock-delay' key from org.gnome.desktop.screensaver
+    schema with AdwSpinRow.
+    Add the row to 'Locking and unlocking' PreferencesGroup, renamed from
+    'Unlocking'.
+
+  [ Scrambled 777 ]
+  * Update Hindi translation
+
+  [ Jiri Grönroos ]
+  * Add Finnish translation
+
+  [ Jordi Mas i Hernandez ]
+  * Add Catalan translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Yosef Or Boczko ]
+  * Update Hebrew translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 25 Jun 2024 20:17:44 +0200
+
 phosh-mobile-settings (0.39.0) experimental; urgency=medium
 
   [ Guido Günther ]
