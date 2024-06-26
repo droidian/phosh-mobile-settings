@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-16 12:06+0000\n"
-"PO-Revision-Date: 2024-06-20 04:17+0330\n"
+"POT-Creation-Date: 2024-06-20 16:09+0000\n"
+"PO-Revision-Date: 2024-06-26 16:25+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -18,8 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:3
-#: src/ui/mobile-settings-window.ui:6
+#: data/mobi.phosh.MobileSettings.desktop.in:3 src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
 msgstr "تنظیمات همراه"
 
@@ -373,8 +372,8 @@ msgstr "به کار انداختن تعلیق از فهرست سامانه"
 
 #: src/ui/ms-features-panel.ui:33
 msgid ""
-"Please only enable this if you're aware of the limitations like data "
-"connection loss or missed alarms"
+"Please only enable this if you're aware of the limitations like data connection "
+"loss or missed alarms"
 msgstr ""
 "لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
 "هشدارها به کارش بیندازید"
@@ -479,10 +478,8 @@ msgid "Ignore hardware keyboard"
 msgstr "چشم‌پوشی از صفحه‌کلید سخت‌افزاری"
 
 #: src/ui/ms-osk-panel.ui:47
-msgid ""
-"Whether to show the on screen keyboard when a physical keyboard is present"
-msgstr ""
-"این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
+msgid "Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr "این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
 
 #: src/ui/ms-osk-panel.ui:56
 msgid "Text Completion"
@@ -534,8 +531,8 @@ msgstr "هیچ حسگری پیدا نشد"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
-"Either there are no sensors installed on your device or they are disabled by "
-"a killswitch."
+"Either there are no sensors installed on your device or they are disabled by a "
+"killswitch."
 msgstr "حسگری روی افزاره‌تان وجود نداشته یا با کلید سخت‌افزاری خاموش شده‌اند."
 
 #: src/ui/ms-sensor-panel.ui:32
@@ -578,13 +575,25 @@ msgstr "زمینه در بالای آستانه به سایه‌روشن زیا�
 msgid "Sound files (ogg)"
 msgstr "پرونده‌های صدا (اوگ)"
 
-#: src/ui/ms-topbar-panel.ui:12
+#: src/ui/ms-topbar-panel.ui:13
 msgid "Quick Settings"
 msgstr "تنظیمات سریع"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:14
 msgid "Organize your additional Quick Settings"
 msgstr "سازمان دهی تنظیمات سریع اضافیتان"
+
+#: src/ui/ms-topbar-panel.ui:26
+msgid "UI Elements"
+msgstr "عنصرهای میانای کاربری"
+
+#: src/ui/ms-topbar-panel.ui:29
+msgid "Avoid notches"
+msgstr "دوری از روآمدگی‌ها"
+
+#: src/ui/ms-topbar-panel.ui:30
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "قرار ندادن عنصرهای میانای کاربری زیر روآمدگی‌ها و بریدگی‌های صفحهٔ نمایش"
 
 #~ msgid "Unlocking"
 #~ msgstr "قفل‌گشایی"
