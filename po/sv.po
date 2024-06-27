@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-16 12:06+0000\n"
-"PO-Revision-Date: 2024-06-18 00:37+0200\n"
+"POT-Creation-Date: 2024-06-20 16:09+0000\n"
+"PO-Revision-Date: 2024-06-27 10:31+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:3
-#: src/ui/mobile-settings-window.ui:6
+#: data/mobi.phosh.MobileSettings.desktop.in:3 src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
 msgstr "Mobilinställningar"
 
@@ -60,7 +59,7 @@ msgstr "Återkopplingspanel"
 #: plugins/librem5/ms-plugin-librem5-panel.c:214
 #, c-format
 msgid "Critical temperature is %.2f°C"
-msgstr "Kritisk temperatur är %.2f°C"
+msgstr "Kritisk temperatur är %.2f °C"
 
 #. translators: U-boot is the brand of a bootloader
 #: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
@@ -124,8 +123,7 @@ msgstr "- Hantera dina mobilinställningar"
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/mobile-settings-application.c:392
 msgid "translator-credits"
-msgstr ""
-"Anders Jonsson <anders.jonsson@norsjovallen.se>"
+msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -197,8 +195,7 @@ msgstr "Långt borta"
 msgid "Updating…"
 msgstr "Uppdaterar…"
 
-#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
-#: src/ms-sensor-panel.c:271
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270 src/ms-sensor-panel.c:271
 msgid "Not available"
 msgstr "Inte tillgänglig"
 
@@ -365,8 +362,8 @@ msgstr "Nödsamtal"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
-"Enable emergency calls. Please only enable this if you safely can ensure "
-"that it's working with your provider."
+"Enable emergency calls. Please only enable this if you safely can ensure that "
+"it's working with your provider."
 msgstr ""
 "Aktivera nödsamtal. Aktivera endast detta om du säkert kan anta att det "
 "fungerar med din leverantör."
@@ -467,8 +464,8 @@ msgstr "Långtryck för utbredning"
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
-"Hur länge du ska trycka på hemradens mitt för att skärmtangentbordet ska "
-"breda ut sig"
+"Hur länge du ska trycka på hemradens mitt för att skärmtangentbordet ska breda "
+"ut sig"
 
 #. 0.5
 #: src/ui/ms-osk-panel.ui:34
@@ -541,8 +538,8 @@ msgstr "Inga sensorer hittades"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
-"Either there are no sensors installed on your device or they are disabled by "
-"a killswitch."
+"Either there are no sensors installed on your device or they are disabled by a "
+"killswitch."
 msgstr ""
 "Antingen finns inga sensorer installerade på din enhet eller så har de "
 "inaktiverats av en brytare."
@@ -587,13 +584,25 @@ msgstr "Temat kommer växla till hög kontrast ovanför tröskelvärdet"
 msgid "Sound files (ogg)"
 msgstr "Ljudfiler (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:12
+#: src/ui/ms-topbar-panel.ui:13
 msgid "Quick Settings"
 msgstr "Snabbinställningar"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:14
 msgid "Organize your additional Quick Settings"
 msgstr "Organisera dina ytterligare snabbinställningar"
+
+#: src/ui/ms-topbar-panel.ui:26
+msgid "UI Elements"
+msgstr "Användargränssnittselement"
+
+#: src/ui/ms-topbar-panel.ui:29
+msgid "Avoid notches"
+msgstr "Undvik skåror"
+
+#: src/ui/ms-topbar-panel.ui:30
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "Placera inte användargränssnittselement under skåror och hål i skärmytan"
 
 #~ msgid "Unlocking"
 #~ msgstr "Upplåsning"
