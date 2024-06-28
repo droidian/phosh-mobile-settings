@@ -3,6 +3,14 @@
   <requires lib="gtk" version="4.0"/>
   <template class="MsPluginRow" parent="AdwActionRow">
     <property name="activatable-widget">toggle</property>
+    <child type="prefix">
+      <object class="GtkImage">
+        <property name="icon-name">list-drag-handle-symbolic</property>
+        <style>
+          <class name="drag-handle"/>
+        </style>
+      </object>
+    </child>
     <child type="suffix">
       <object class="GtkSwitch" id="toggle">
         <property name="valign">center</property>

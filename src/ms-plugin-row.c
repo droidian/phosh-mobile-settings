@@ -17,6 +17,7 @@
 enum {
   PROP_0,
   PROP_PLUGIN_NAME,
+  PROP_SUBTITLE,
   PROP_ENABLED,
   PROP_FILENAME,
   PROP_HAS_PREFS,
@@ -39,9 +40,14 @@ struct _MsPluginRow {
   GtkWidget   *prefs;
 
   char        *name;
+  char        *subtitle;
   char        *filename;
   gboolean     enabled;
   gboolean     has_prefs;
+
+  GtkListBox  *drag_widget;
+  gdouble      drag_x;
+  gdouble      drag_y;
 
   GSimpleActionGroup *action_group;
 };
@@ -75,6 +81,10 @@ ms_plugin_row_set_property (GObject      *object,
     self->name = g_value_dup_string (value);
     adw_preferences_row_set_title (ADW_PREFERENCES_ROW (self), self->name);
     break;
+  case PROP_SUBTITLE:
+    self->subtitle = g_value_dup_string (value);
+    adw_action_row_set_subtitle (ADW_ACTION_ROW (self), self->subtitle);
+    break;
   case PROP_FILENAME:
     self->filename = g_value_dup_string (value);
     break;
@@ -102,6 +112,9 @@ ms_plugin_row_get_property (GObject    *object,
   switch (property_id) {
   case PROP_PLUGIN_NAME:
     g_value_set_string (value, ms_plugin_row_get_name (self));
+    break;
+  case PROP_SUBTITLE:
+    g_value_set_string (value, self->subtitle);
     break;
   case PROP_FILENAME:
     g_value_set_string (value, self->filename);
@@ -196,6 +209,60 @@ move_down_activated (GSimpleAction *action,
                  self);
 }
 
+static GdkContentProvider *
+on_drag_prepare (MsPluginRow *self, double x, double y)
+{
+  self->drag_x = x;
+  self->drag_y = y;
+
+  return gdk_content_provider_new_typed (MS_TYPE_PLUGIN_ROW, self);
+}
+
+static void
+on_drag_begin (MsPluginRow *self, GdkDrag *drag)
+{
+  MsPluginRow *plugin_row;
+  GtkWidget *drag_icon;
+
+  self->drag_widget = GTK_LIST_BOX (gtk_list_box_new ());
+
+  plugin_row = g_object_new (MS_TYPE_PLUGIN_ROW,
+                             "plugin-name", self->name,
+                             "subtitle", self->subtitle,
+                             "enabled", self->enabled,
+                             "filename", self->filename,
+                             "has-prefs", self->has_prefs,
+                             NULL);
+
+  gtk_widget_set_size_request (GTK_WIDGET (plugin_row),
+                               gtk_widget_get_width (GTK_WIDGET (self)),
+                               gtk_widget_get_height (GTK_WIDGET (self)));
+
+  gtk_list_box_append (GTK_LIST_BOX (self->drag_widget), GTK_WIDGET (plugin_row));
+  gtk_list_box_drag_highlight_row (self->drag_widget, GTK_LIST_BOX_ROW (plugin_row));
+
+  drag_icon = gtk_drag_icon_get_for_drag (drag);
+  gtk_drag_icon_set_child (GTK_DRAG_ICON (drag_icon), GTK_WIDGET (self->drag_widget));
+  gdk_drag_set_hotspot (drag, self->drag_x, self->drag_y);
+}
+
+static gboolean
+on_drop (MsPluginRow *self, const GValue *value, gdouble x, gdouble y)
+{
+  MsPluginRow *source;
+
+  g_debug ("Droped");
+
+  if (!G_VALUE_HOLDS (value, MS_TYPE_PLUGIN_ROW))
+    return FALSE;
+
+  source = g_value_get_object (value);
+
+  g_signal_emit (source, signals[SIGNAL_MOVE_ROW], 0, self);
+
+  return TRUE;
+}
+
 
 static void
 ms_plugin_row_finalize (GObject *object)
@@ -224,6 +291,12 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
     g_param_spec_string ("plugin-name", "", "",
                          NULL,
                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+
+  props[PROP_SUBTITLE] =
+    g_param_spec_string ("subtitle", "", "",
+                         NULL,
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+
   /**
    * MsPluginRow:filename:
    *
@@ -279,8 +352,20 @@ static void
 ms_plugin_row_init (MsPluginRow *self)
 {
   GAction *action;
+  GtkDragSource *drag_source;
+  GtkDropTarget *drop_target;
 
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  drag_source = gtk_drag_source_new ();
+  gtk_drag_source_set_actions (drag_source, GDK_ACTION_MOVE);
+  g_signal_connect_swapped (drag_source, "prepare", G_CALLBACK (on_drag_prepare), self);
+  g_signal_connect_swapped (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), self);
+  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (drag_source));
+
+  drop_target = gtk_drop_target_new (MS_TYPE_PLUGIN_ROW, GDK_ACTION_MOVE);
+  g_signal_connect_swapped (drop_target, "drop", G_CALLBACK (on_drop), self);
+  gtk_widget_add_controller (GTK_WIDGET (self), GTK_EVENT_CONTROLLER (drop_target));
 
   g_object_bind_property (self,
                           "enabled",
