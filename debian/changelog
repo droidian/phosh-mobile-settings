@@ -1,4 +1,4 @@
-phosh-mobile-settings (0.40.0~rc1) experimental; urgency=medium
+phosh-mobile-settings (0.40.0) experimental; urgency=medium
 
   [ Guido Günther ]
   * application: Register extension points upfront.
@@ -25,6 +25,9 @@ phosh-mobile-settings (0.40.0~rc1) experimental; urgency=medium
     gmobile is broken).
     See https://phosh.mobi/posts/notch-support/ for more information.
     Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/42
+  * plugin-row: Make plugin row draggable.
+    Plugin row already has a menu button to reorder the plugin but making it
+    draggable will enhance the user experience.
 
   [ Teemu Ikonen ]
   * lockscreen-panel: Add a SpinRow for 'lock-delay' key.
@@ -72,7 +75,7 @@ phosh-mobile-settings (0.40.0~rc1) experimental; urgency=medium
   [ Antonio Marin ]
   * Update Romanian translation
 
- -- Guido Günther <agx@sigxcpu.org>  Tue, 25 Jun 2024 20:17:44 +0200
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 29 Jun 2024 09:41:59 +0200
 
 phosh-mobile-settings (0.39.0) experimental; urgency=medium
 
