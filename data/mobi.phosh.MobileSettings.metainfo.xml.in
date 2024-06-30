@@ -51,6 +51,17 @@
   </screenshots>
 
   <releases>
+    <release version="0.40.0" date="2024-04-30">
+      <description>
+        <ul>
+          <li>Add more information to the trouble shooting page</li>
+          <li>Allow to configure whether to automatically avoid notches</li>
+          <li>Allow to set screen lock delay</li>
+          <li>Allow to order plugins via drag and drop</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.39.0" date="2024-05-15">
       <description>
         <ul>

@@ -1,10 +1,11 @@
-phosh-mobile-settings 0.40.0~rc1
---------------------------------
+phosh-mobile-settings 0.40.0
+----------------------------
 Released: June 2024
 * Add more info to debug output
 * Allow to set shell layout (whether to use device information for
   notches)
-* Allow to set lock-delay  
+* Allow to set lock-delay
+* Make plugin rows draggable
 * Issues fixed:
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/50
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/53
