@@ -20,6 +20,8 @@
 #define PHOSH_SCHEMA_ID   "sm.puri.phosh"
 #define SHELL_LAYOUT_KEY  "shell-layout"
 
+#define INTERFACE_SCHEMA_ID     "org.gnome.desktop.interface"
+#define BATTERY_PERCENTAGE_KEY  "show-battery-percentage"
 
 #ifndef HAVE_PHOSH_SETTINGS_SCHEMAS
 /**
@@ -40,7 +42,9 @@ struct _MsTopbarPanel {
   AdwBin                   parent;
 
   GSettings               *settings;
+  GSettings               *interface_settings;
 
+  AdwSwitchRow            *battery_percentage_switch;
   AdwSwitchRow            *shell_layout_switch;
 };
 
@@ -82,6 +86,7 @@ ms_topbar_panel_finalize (GObject *object)
   MsTopbarPanel *self = MS_TOPBAR_PANEL (object);
 
   g_clear_object (&self->settings);
+  g_clear_object (&self->interface_settings);
 
   G_OBJECT_CLASS (ms_topbar_panel_parent_class)->finalize (object);
 }
@@ -100,6 +105,7 @@ ms_topbar_panel_class_init (MsTopbarPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-topbar-panel.ui");
 
+  gtk_widget_class_bind_template_child (widget_class, MsTopbarPanel, battery_percentage_switch);
   gtk_widget_class_bind_template_child (widget_class, MsTopbarPanel, shell_layout_switch);
 
   gtk_widget_class_bind_template_callback (widget_class, shell_layout_switch_row_cb);
@@ -118,6 +124,11 @@ ms_topbar_panel_init (MsTopbarPanel *self)
                             self);
 
   on_shell_layout_setting_changed (self);
+
+  self->interface_settings = g_settings_new (INTERFACE_SCHEMA_ID);
+
+  g_settings_bind (self->interface_settings, BATTERY_PERCENTAGE_KEY,
+                   self->battery_percentage_switch, "active", G_SETTINGS_BIND_DEFAULT);
 }
 
 
