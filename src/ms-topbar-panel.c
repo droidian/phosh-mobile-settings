@@ -30,7 +30,7 @@
  * @PHOSH_SHELL_LAYOUT_DEVICE: Use device information to optimize layout.
  *
  * Controls how the shell’s UI elements are layed out.
-*/
+ */
 typedef enum {
     PHOSH_SHELL_LAYOUT_NONE = 0,
     PHOSH_SHELL_LAYOUT_DEVICE  = (1 << 0),
@@ -39,13 +39,13 @@ typedef enum {
 
 
 struct _MsTopbarPanel {
-  AdwBin                   parent;
+  AdwBin        parent;
 
-  GSettings               *settings;
-  GSettings               *interface_settings;
+  GSettings    *settings;
+  GSettings    *interface_settings;
 
-  AdwSwitchRow            *battery_percentage_switch;
-  AdwSwitchRow            *shell_layout_switch;
+  AdwSwitchRow *battery_percentage_switch;
+  AdwSwitchRow *shell_layout_switch;
 };
 
 G_DEFINE_TYPE (MsTopbarPanel, ms_topbar_panel, ADW_TYPE_BIN)
