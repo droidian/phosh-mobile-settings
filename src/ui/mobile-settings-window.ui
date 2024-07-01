@@ -36,6 +36,7 @@
                 <property name="content">
                   <object class="MsPanelSwitcher" id="panel_switcher">
                     <property name="stack">stack</property>
+                    <signal name="row-activated" handler="show_content_cb" after="yes" swapped="yes"/>
                   </object>
                 </property>
               </object>
@@ -67,7 +68,7 @@
                 <property name="content">
                   <object class="GtkStack" id="stack">
                     <property name="vhomogeneous">False</property>
-                    <signal name="notify::visible-child" handler="on_visible_child_changed" after="yes" swapped="yes"/>
+                    <signal name="notify::visible-child" handler="show_content_cb" after="yes" swapped="yes"/>
 
                     <child>
                       <object class="GtkStackPage">
