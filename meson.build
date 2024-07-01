@@ -21,7 +21,7 @@ gtk_ver_arr = gtk_ver.split('.')
 gtk_ver_str = 'GDK_VERSION_@0@_@1@'.format(gtk_ver_arr[0], gtk_ver_arr[1])
 gtk_ver_cmp = '>=@0@'.format(gtk_ver)
 
-adw_ver = '1.4'
+adw_ver = '1.5'
 adw_ver_str = 'ADW_VERSION_@0@'.format(adw_ver.replace('.','_'))
 adw_ver_cmp = '>=@0@'.format(adw_ver)
 
