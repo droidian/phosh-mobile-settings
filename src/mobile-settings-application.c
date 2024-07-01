@@ -376,25 +376,24 @@ mobile_settings_application_show_about (GSimpleAction *action,
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   GtkWindow *window;
-  AdwAboutWindow *about_window;
+  AdwAboutDialog *about_dialog;
   const gchar *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
   const gchar *artists[] = {"Sam Hewitt", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 
-  about_window = ADW_ABOUT_WINDOW (adw_about_window_new_from_appdata ("/mobi/phosh/MobileSettings/"
+  about_dialog = ADW_ABOUT_DIALOG (adw_about_dialog_new_from_appdata ("/mobi/phosh/MobileSettings/"
                                                                       "metainfo.xml",
                                                                       MOBILE_SETTINGS_VERSION));
-  adw_about_window_set_developers (about_window, developers);
-  adw_about_window_set_artists (about_window, artists);
-  adw_about_window_set_translator_credits (about_window,
+  adw_about_dialog_set_developers (about_dialog, developers);
+  adw_about_dialog_set_artists (about_dialog, artists);
+  adw_about_dialog_set_translator_credits (about_dialog,
                /* Translators: Replace "translator-credits" with your names, one name per line */
                                            _("translator-credits"));
-  adw_about_window_set_debug_info (about_window, mobile_settings_generate_debug_info ());
+  adw_about_dialog_set_debug_info (about_dialog, mobile_settings_generate_debug_info ());
 
   window = gtk_application_get_active_window (GTK_APPLICATION (self));
-  gtk_window_set_transient_for (GTK_WINDOW (about_window), window);
-  gtk_window_present (GTK_WINDOW (about_window));
+  adw_dialog_present (ADW_DIALOG (about_dialog), GTK_WIDGET (window));
 }
 
 
