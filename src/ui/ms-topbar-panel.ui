@@ -9,7 +9,28 @@
 
             <child>
               <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">UI Elements</property>
 
+                <child>
+                  <object class="AdwSwitchRow" id="battery_percentage_switch">
+                    <property name="title" translatable="yes">Show battery percentage</property>
+                    <property name="subtitle" translatable="yes">Show exact charge level in the top bar</property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwSwitchRow" id="shell_layout_switch">
+                    <property name="title" translatable="yes">Avoid notches</property>
+                    <property name="subtitle" translatable="yes">Don't place UI elements beneath notches and display cutouts</property>
+                    <signal name="notify::active" handler="shell_layout_switch_row_cb" object="MsTopbarPanel" swapped="yes"/>
+                  </object>
+                </child>
+
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup">
                 <property name="title" translatable="yes">Quick Settings</property>
                 <property name="description" translatable="yes">Organize your additional Quick Settings</property>
                 <child>
@@ -21,18 +42,7 @@
                 </child>
               </object>
             </child>
-            <child>
-              <object class="AdwPreferencesGroup">
-                <property name="title" translatable="yes">UI Elements</property>
-                <child>
-                  <object class="AdwSwitchRow" id="shell_layout_switch">
-                    <property name="title" translatable="yes">Avoid notches</property>
-                    <property name="subtitle" translatable="yes">Don't place UI elements beneath notches and display cutouts</property>
-                    <signal name="notify::active" handler="shell_layout_switch_row_cb" object="MsTopbarPanel" swapped="yes"/>
-                  </object>
-                </child>
-              </object>
-            </child>
+
           </object>
         </child>
       </object>
