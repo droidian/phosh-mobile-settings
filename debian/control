@@ -13,7 +13,7 @@ Build-Depends:
  libsensors-dev,
  meson,
  phosh-dev (>= 0.23.0),
- feedbackd <!nocheck>,
+ feedbackd-common (>= 0.0.4) <!nocheck>,
  gnome-settings-daemon <!nocheck>,
  gsettings-desktop-schemas <!nocheck>,
  phoc <!nocheck>,
