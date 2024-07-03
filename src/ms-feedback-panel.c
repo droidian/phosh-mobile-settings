@@ -22,7 +22,6 @@
 /* Verbatim from feedbackd */
 #define FEEDBACKD_SCHEMA_ID "org.sigxcpu.feedbackd"
 #define FEEDBACKD_KEY_PROFILE "profile"
-#define FEEDBACKD_THEME_VAR "FEEDBACK_THEME"
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
 #define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
 
