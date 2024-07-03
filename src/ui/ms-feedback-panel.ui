@@ -26,6 +26,14 @@
                          <property name="selected" bind-source="MsFeedbackPanel" bind-property="feedback-profile" bind-flags="sync-create|bidirectional"/>
                        </object>
                      </child>
+
+                     <child>
+                       <object class="AdwSwitchRow" id="prefer_flash">
+                         <property name="title" translatable="yes">Prefer flash</property>
+                         <property name="subtitle" translatable="yes">Prefer camera flash over status LED when available</property>
+                       </object>
+                     </child>
+
                    </object>
                  </child>
                  <child>

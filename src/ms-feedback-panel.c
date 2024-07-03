@@ -22,6 +22,7 @@
 /* Verbatim from feedbackd */
 #define FEEDBACKD_SCHEMA_ID "org.sigxcpu.feedbackd"
 #define FEEDBACKD_KEY_PROFILE "profile"
+#define FEEDBACKD_KEY_PREFER_FLASH "prefer-flash"
 #define APP_SCHEMA FEEDBACKD_SCHEMA_ID ".application"
 #define APP_PREFIX "/org/sigxcpu/feedbackd/application/"
 
@@ -52,6 +53,8 @@ struct _MsFeedbackPanel {
 
   GSettings                 *settings;
   MsFeedbackProfile          profile;
+
+  GtkWidget                 *prefer_flash;
 
   GSoundContext             *sound_context;
   GCancellable              *sound_cancel;
@@ -481,6 +484,9 @@ ms_feedback_panel_constructed (GObject *object)
                                 settings_name_to_profile,
                                 settings_profile_to_name,
                                 NULL, NULL);
+  g_settings_bind (self->settings, FEEDBACKD_KEY_PREFER_FLASH,
+                   self->prefer_flash, "active",
+                   G_SETTINGS_BIND_DEFAULT);
 }
 
 
@@ -523,6 +529,7 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-feedback-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, prefer_flash);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sounds_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
