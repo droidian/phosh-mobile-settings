@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-05-05 09:30+0000\n"
-"PO-Revision-Date: 2024-05-12 17:50+0300\n"
+"POT-Creation-Date: 2024-07-02 12:14+0000\n"
+"PO-Revision-Date: 2024-07-02 17:58+0300\n"
 "Last-Translator: Artur So <arturios2005@mail.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -118,9 +118,14 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Выйти"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Управление мобильными настройками"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr "Artur So"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
@@ -217,59 +222,59 @@ msgstr "Тихий"
 msgid "Silent"
 msgstr "Беззвучный"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/ui/mobile-settings-window.ui:75
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:81
 msgid "Welcome to Mobile Settings"
 msgstr "Добро пожаловать в Мобильные настройки"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:82
 msgid "Tweak advanced mobile settings"
 msgstr "Изменение расширенных мобильных настроек"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:90
 msgid "Top Bar"
 msgstr "Верхняя панель"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:101
 msgid "Applications"
 msgstr "Приложения"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:112
 msgid "Feedback"
 msgstr "Обратная связь"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:123
 msgid "Compositor"
 msgstr "Композитор"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:134
 msgid "Lockscreen"
 msgstr "Экран блокировки"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:145
 msgid "Convergence"
 msgstr "Конвергенция"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:156
 msgid "On Screen Keyboard"
 msgstr "Экранная клавиатура"
 
-#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Датчики"
 
-#: src/ui/mobile-settings-window.ui:177
+#: src/ui/mobile-settings-window.ui:178
 msgid "Experimental features"
 msgstr "Экспериментальные функции"
 
-#: src/ui/mobile-settings-window.ui:201
+#: src/ui/mobile-settings-window.ui:202
 msgid "_Keyboard Shortcuts"
 msgstr "_Комбинации клавиш"
 
-#: src/ui/mobile-settings-window.ui:205
+#: src/ui/mobile-settings-window.ui:206
 msgid "_About Mobile Settings"
 msgstr "_О приложении"
 
@@ -346,7 +351,7 @@ msgstr "Уменьшить масштабирование всех прилож�
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -432,23 +437,31 @@ msgstr "Пробуждение телефона"
 msgid "Notification urgency that lights up the screen"
 msgstr "Срочное уведомление, при котором загорается экран"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Разблокировка"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Блокировка и разблокировка"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Автоматическая задержка блокировки экрана"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Секунды после отключения экрана до его блокировки"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Тасовать кнопки"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Тасовать кнопки с цифрами на клавиатуре"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Виджеты"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Дополнительные виджеты для экрана блокировки"
 
@@ -524,15 +537,15 @@ msgstr "Комбинации клавиш"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Комбинации клавиш, доступные на соответствующей панели"
 
-#: src/ui/ms-plugin-row.ui:33
+#: src/ui/ms-plugin-row.ui:41
 msgid "More options…"
 msgstr "Больше опций…"
 
-#: src/ui/ms-plugin-row.ui:46
+#: src/ui/ms-plugin-row.ui:54
 msgid "Move Up"
 msgstr "Переместить вверх"
 
-#: src/ui/ms-plugin-row.ui:50
+#: src/ui/ms-plugin-row.ui:58
 msgid "Move Down"
 msgstr "Переместить вниз"
 
@@ -590,9 +603,32 @@ msgid "Sound files (ogg)"
 msgstr "Аудиофайлы (ogg)"
 
 #: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Элементы интерфейса"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Показывать процент заряда батареи"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Показывать точный уровень заряда в верхней панели"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Избегать вырезов"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "Не размещать элементы интерфейса под выемками и вырезами дисплея"
+
+#: src/ui/ms-topbar-panel.ui:34
 msgid "Quick Settings"
 msgstr "Быстрые настройки"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Управление дополнительными быстрыми настройками"
+
+#~ msgid "Unlocking"
+#~ msgstr "Разблокировка"
