@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-20 16:09+0000\n"
-"PO-Revision-Date: 2024-06-21 10:19+0300\n"
+"POT-Creation-Date: 2024-07-02 12:14+0000\n"
+"PO-Revision-Date: 2024-07-04 22:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
 "Language: he\n"
@@ -225,59 +225,59 @@ msgstr "שקטה"
 msgid "Silent"
 msgstr "חרישית"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/ui/mobile-settings-window.ui:75
 msgid "Welcome"
 msgstr "ברוך בואך"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:81
 msgid "Welcome to Mobile Settings"
 msgstr "ברוך בואך להגדרות הנייד"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:82
 msgid "Tweak advanced mobile settings"
 msgstr "כוונון הגדרות מתקדמות במכשיר"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:90
 msgid "Top Bar"
 msgstr "סרגל עליון"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:101
 msgid "Applications"
 msgstr "יישומים"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:112
 msgid "Feedback"
 msgstr "משוב"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:123
 msgid "Compositor"
 msgstr "ניהול חלונאי"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:134
 msgid "Lockscreen"
 msgstr "מסך נעילה"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:145
 msgid "Convergence"
 msgstr "התלכדות"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:156
 msgid "On Screen Keyboard"
 msgstr "מקלדת מסך"
 
-#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "חיישנים"
 
-#: src/ui/mobile-settings-window.ui:177
+#: src/ui/mobile-settings-window.ui:178
 msgid "Experimental features"
 msgstr "יכולות ניסיוניות"
 
-#: src/ui/mobile-settings-window.ui:201
+#: src/ui/mobile-settings-window.ui:202
 msgid "_Keyboard Shortcuts"
 msgstr "_קיצורים"
 
-#: src/ui/mobile-settings-window.ui:205
+#: src/ui/mobile-settings-window.ui:206
 msgid "_About Mobile Settings"
 msgstr "_על הגדרות נייד"
 
@@ -521,15 +521,15 @@ msgstr "קיצורים"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "הקיצורים הזמינים מסרגל הקיצורים"
 
-#: src/ui/ms-plugin-row.ui:33
+#: src/ui/ms-plugin-row.ui:41
 msgid "More options…"
 msgstr "אפשרויות נוספות…"
 
-#: src/ui/ms-plugin-row.ui:46
+#: src/ui/ms-plugin-row.ui:54
 msgid "Move Up"
 msgstr "העלאה למעלה"
 
-#: src/ui/ms-plugin-row.ui:50
+#: src/ui/ms-plugin-row.ui:58
 msgid "Move Down"
 msgstr "הורדה למטה"
 
@@ -583,25 +583,33 @@ msgstr "ערכת הנושא תוחלף לניגודיות גבוהה מעל לס
 msgid "Sound files (ogg)"
 msgstr "קובצי שמע (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:13
-msgid "Quick Settings"
-msgstr "הגדרות מהירות"
-
-#: src/ui/ms-topbar-panel.ui:14
-msgid "Organize your additional Quick Settings"
-msgstr "מיון ההגדרות המהירות הנוספות שלך"
-
-#: src/ui/ms-topbar-panel.ui:26
+#: src/ui/ms-topbar-panel.ui:12
 msgid "UI Elements"
 msgstr "רכיבי מנשק משתמש"
 
-#: src/ui/ms-topbar-panel.ui:29
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "הצגת אחוז סוללה"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "הצגת רמת הטעינה המדויקת בסרגל העליון"
+
+#: src/ui/ms-topbar-panel.ui:23
 msgid "Avoid notches"
 msgstr "הימנעות מאזור חסימה למצלמה"
 
-#: src/ui/ms-topbar-panel.ui:30
+#: src/ui/ms-topbar-panel.ui:24
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr "לא להציב רכיבי מנשק משתמש מתחת לאזורי חסימה ואזורי חיתוך של הצג"
+
+#: src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "הגדרות מהירות"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "מיון ההגדרות המהירות הנוספות שלך"
 
 #~ msgid "Unlocking"
 #~ msgstr "שחרור"
