@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-06-20 16:09+0000\n"
-"PO-Revision-Date: 2024-06-21 23:42+0200\n"
+"POT-Creation-Date: 2024-07-02 12:14+0000\n"
+"PO-Revision-Date: 2024-07-02 17:40+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -224,59 +224,59 @@ msgstr "Liniștit"
 msgid "Silent"
 msgstr "Silențios"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/ui/mobile-settings-window.ui:75
 msgid "Welcome"
 msgstr "Bun venit"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:81
 msgid "Welcome to Mobile Settings"
 msgstr "Bun venit în Reglări Mobil"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:82
 msgid "Tweak advanced mobile settings"
 msgstr "Modifică reglările avansate pentru mobil"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:90
 msgid "Top Bar"
 msgstr "Spațiul de sus"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:101
 msgid "Applications"
 msgstr "Aplicații"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:112
 msgid "Feedback"
 msgstr "Reacții"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:123
 msgid "Compositor"
 msgstr "Compozitor"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:134
 msgid "Lockscreen"
 msgstr "Ecranul blocat"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:145
 msgid "Convergence"
 msgstr "Convergență"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:156
 msgid "On Screen Keyboard"
 msgstr "Tastatura pe ecran"
 
-#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Senzori"
 
-#: src/ui/mobile-settings-window.ui:177
+#: src/ui/mobile-settings-window.ui:178
 msgid "Experimental features"
 msgstr "Caracteristici experimentale"
 
-#: src/ui/mobile-settings-window.ui:201
+#: src/ui/mobile-settings-window.ui:202
 msgid "_Keyboard Shortcuts"
 msgstr "_Taste rapide"
 
-#: src/ui/mobile-settings-window.ui:205
+#: src/ui/mobile-settings-window.ui:206
 msgid "_About Mobile Settings"
 msgstr "_Despre Reglări Mobil"
 
@@ -534,15 +534,15 @@ msgstr "Scurtături"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Scurtături disponibile în spațiul scurtăturilor"
 
-#: src/ui/ms-plugin-row.ui:33
+#: src/ui/ms-plugin-row.ui:41
 msgid "More options…"
 msgstr "Alte opțiuni…"
 
-#: src/ui/ms-plugin-row.ui:46
+#: src/ui/ms-plugin-row.ui:54
 msgid "Move Up"
 msgstr "Mută sus"
 
-#: src/ui/ms-plugin-row.ui:50
+#: src/ui/ms-plugin-row.ui:58
 msgid "Move Down"
 msgstr "Mută jos"
 
@@ -598,23 +598,31 @@ msgstr "Contrastul va deveni mare la depășirea limitei"
 msgid "Sound files (ogg)"
 msgstr "Fișiere audio (ogg)"
 
-#: src/ui/ms-topbar-panel.ui:13
-msgid "Quick Settings"
-msgstr "Reglări rapide"
-
-#: src/ui/ms-topbar-panel.ui:14
-msgid "Organize your additional Quick Settings"
-msgstr "Organizează reglările rapide suplimentare"
-
-#: src/ui/ms-topbar-panel.ui:26
+#: src/ui/ms-topbar-panel.ui:12
 msgid "UI Elements"
 msgstr "Elementele interfaței"
 
-#: src/ui/ms-topbar-panel.ui:29
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Arată procentul bateriei"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Arată nivelul exact de încărcare în partea de sus a ecranului"
+
+#: src/ui/ms-topbar-panel.ui:23
 msgid "Avoid notches"
 msgstr "Evită orificiile"
 
-#: src/ui/ms-topbar-panel.ui:30
+#: src/ui/ms-topbar-panel.ui:24
 msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Nu poziționa elementele interfeței sub orificiile și decupajul ecranului"
+
+#: src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Reglări rapide"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "Organizează reglările rapide suplimentare"
