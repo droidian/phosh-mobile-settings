@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2022 Purism SPC
+ *               2024 THe Phosh Developers
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  *
@@ -154,4 +155,43 @@ ms_feedback_profile_to_label (MsFeedbackProfile profile)
   default:
     g_return_val_if_reached (NULL);
   }
+}
+
+/**
+ * ms_schema_bind_property:
+ * @id: The schema id
+ * @id: The name of the key to bind to
+ * @object: The object's property that should be bound
+ * @property: The property that gets updated on schema changes
+ * @flags: The flags
+ *
+ * Bind an `object`'s `property` to a `key` in the schema with the
+ * given `id` if the schema and `key` exist. The lifetime of the binding
+ * is bound to `object`.
+ *
+ * Returns: `TRUE` if the binding was created, otherwise `FALSE`.
+ */
+gboolean
+ms_schema_bind_property (const char         *id,
+                         const char         *key,
+                         GObject            *object,
+                         const char         *property,
+                         GSettingsBindFlags  flags)
+{
+  g_autoptr (GSettingsSchemaSource) source = g_settings_schema_source_get_default ();
+  g_autoptr (GSettingsSchema) schema = NULL;
+  g_autoptr (GSettings) settings = NULL;
+
+  g_return_val_if_fail (source, FALSE);
+
+  schema = g_settings_schema_source_lookup (source, id, TRUE);
+  if (!schema)
+    return FALSE;
+
+  if (!g_settings_schema_has_key (schema, key))
+    return FALSE;
+
+  settings = g_settings_new (id);
+  g_settings_bind (settings, key, object, property, flags);
+  return TRUE;
 }
