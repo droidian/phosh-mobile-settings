@@ -50,6 +50,7 @@ struct _MsFeedbackPanel {
   GtkListBox                *app_listbox;
   GtkListBox                *sounds_listbox;
   GHashTable                *known_applications;
+  AdwSwitchRow              *quick_silent_switch;
 
   GSettings                 *settings;
   MsFeedbackProfile          profile;
@@ -472,6 +473,7 @@ static void
 ms_feedback_panel_constructed (GObject *object)
 {
   MsFeedbackPanel *self = MS_FEEDBACK_PANEL (object);
+  gboolean found;
 
   G_OBJECT_CLASS (ms_feedback_panel_parent_class)->constructed (object);
 
@@ -484,9 +486,17 @@ ms_feedback_panel_constructed (GObject *object)
                                 settings_name_to_profile,
                                 settings_profile_to_name,
                                 NULL, NULL);
+
   g_settings_bind (self->settings, FEEDBACKD_KEY_PREFER_FLASH,
                    self->prefer_flash, "active",
                    G_SETTINGS_BIND_DEFAULT);
+
+  found = ms_schema_bind_property ("sm.puri.phosh",
+                                   "quick-silent",
+                                   G_OBJECT (self->quick_silent_switch),
+                                   "active",
+                                   G_SETTINGS_BIND_DEFAULT);
+  gtk_widget_set_visible (GTK_WIDGET (self->quick_silent_switch), found);
 }
 
 
@@ -531,6 +541,7 @@ ms_feedback_panel_class_init (MsFeedbackPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, app_listbox);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, prefer_flash);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, sounds_listbox);
+  gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, quick_silent_switch);
   gtk_widget_class_bind_template_child (widget_class, MsFeedbackPanel, toast_overlay);
   gtk_widget_class_bind_template_callback (widget_class, item_feedback_profile_name);
 

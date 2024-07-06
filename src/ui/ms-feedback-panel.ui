@@ -34,6 +34,13 @@
                        </object>
                      </child>
 
+                     <child>
+                       <object class="AdwSwitchRow" id="quick_silent_switch">
+                         <property name="title" translatable="yes" comments="Translators: Vol- means the 'Lower Volume' key">Silence on Vol-</property>
+                         <property name="subtitle" translatable="yes">When locked put the phone in silent mode when pressing Vol- on incoming calls</property>
+                       </object>
+                     </child>
+
                    </object>
                  </child>
                  <child>
