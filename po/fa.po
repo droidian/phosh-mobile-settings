@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-02 12:14+0000\n"
-"PO-Revision-Date: 2024-07-02 16:50+0330\n"
+"POT-Creation-Date: 2024-07-06 13:38+0000\n"
+"PO-Revision-Date: 2024-07-09 17:53+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -128,37 +128,37 @@ msgstr "دانیال بهزادی <dani.behzi@ubuntu.com>"
 msgid "Device"
 msgstr "افزاره"
 
-#: src/ms-feedback-panel.c:135
+#: src/ms-feedback-panel.c:137
 msgid "Sound file does not exist"
 msgstr "پروندهٔ صدا وجود ندارد"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:139
 msgid "Sound file is corrupt"
 msgstr "پروندهٔ صدا خراب است"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:141
 msgid "Failed to play sound"
 msgstr "شکست در پخش صد"
 
-#: src/ms-feedback-panel.c:178
+#: src/ms-feedback-panel.c:180
 #, c-format
 msgid "Playing %s"
 msgstr "پخش کردن %s"
 
-#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
 msgid "none"
 msgstr "هیچ"
 
-#: src/ms-feedback-panel.c:341
+#: src/ms-feedback-panel.c:343
 msgid "low"
 msgstr "کم"
 
 #. 1.0
-#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "معمولی"
 
-#: src/ms-feedback-panel.c:345
+#: src/ms-feedback-panel.c:347
 msgid "critical"
 msgstr "بحرانی"
 
@@ -386,35 +386,43 @@ msgstr "نمایهٔ بازخورد"
 msgid "The global maximum feedback profile"
 msgstr "نمایهٔ بازخوردی بیشینهٔ عمومی"
 
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "ترجیح فلاش"
+
 #: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr "ترجیح فلاش دوربین به چراغ وضعیت هنگام موجود بودن"
+
+#: src/ui/ms-feedback-panel.ui:41
 msgid "Per Application settings"
 msgstr "تنظیمات به ازای برنامه"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:54
 msgid "Sounds"
 msgstr "صداها"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:55
 msgid "The sound to use for certain events"
 msgstr "صدای استفاده شده برای رویدادهای خاص"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:63
 msgid "Phone Calls"
 msgstr "تماس‌های تلفنی"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:69
 msgid "SMS"
 msgstr "پیامک"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:75
 msgid "Instant messages"
 msgstr "پیام‌های فوری"
 
-#: src/ui/ms-feedback-panel.ui:78
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Screen Wakeup"
 msgstr "بیدار شدن صفحه"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:89
 msgid "Notification urgency that lights up the screen"
 msgstr "ضروریت آگاهی‌ای که صفحه را روشن می‌کند"
 
