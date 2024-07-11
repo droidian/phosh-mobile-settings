@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-02 12:14+0000\n"
-"PO-Revision-Date: 2024-07-02 15:32+0200\n"
+"POT-Creation-Date: 2024-07-06 13:38+0000\n"
+"PO-Revision-Date: 2024-07-11 23:20+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -130,37 +130,37 @@ msgstr "Daniel Rusek <mail@asciiwolf.com>"
 msgid "Device"
 msgstr "Zařízení"
 
-#: src/ms-feedback-panel.c:135
+#: src/ms-feedback-panel.c:137
 msgid "Sound file does not exist"
 msgstr "Zvukový soubor neexistuje"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:139
 msgid "Sound file is corrupt"
 msgstr "Zvukový soubor je poškozený"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:141
 msgid "Failed to play sound"
 msgstr "Přehrání zvuku se nezdařilo"
 
-#: src/ms-feedback-panel.c:178
+#: src/ms-feedback-panel.c:180
 #, c-format
 msgid "Playing %s"
 msgstr "Přehrává se %s"
 
-#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
 msgid "none"
 msgstr "nic"
 
-#: src/ms-feedback-panel.c:341
+#: src/ms-feedback-panel.c:343
 msgid "low"
 msgstr "nízké"
 
 #. 1.0
-#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normální"
 
-#: src/ms-feedback-panel.c:345
+#: src/ms-feedback-panel.c:347
 msgid "critical"
 msgstr "kritické"
 
@@ -392,35 +392,43 @@ msgstr "Profil zpětné vazby"
 msgid "The global maximum feedback profile"
 msgstr "Globální maximální profil zpětné vazby"
 
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "Upřednostnit blesk"
+
 #: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr "Upřednostnit blesk fotoaparátu před stavovou LED, pokud je dostupný"
+
+#: src/ui/ms-feedback-panel.ui:41
 msgid "Per Application settings"
 msgstr "Nastavení podle aplikace"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:54
 msgid "Sounds"
 msgstr "Zvuky"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:55
 msgid "The sound to use for certain events"
 msgstr "Zvuk, který se má použít pro určité události"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:63
 msgid "Phone Calls"
 msgstr "Telefonní hovory"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:69
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:75
 msgid "Instant messages"
 msgstr "Rychlé zprávy"
 
-#: src/ui/ms-feedback-panel.ui:78
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Screen Wakeup"
 msgstr "Probuzení obrazovky"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:89
 msgid "Notification urgency that lights up the screen"
 msgstr "Naléhavost upozornění, které rozsvítí obrazovku"
 
