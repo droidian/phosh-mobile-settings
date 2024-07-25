@@ -7,7 +7,10 @@ project('phosh-mobile-settings', 'c',
                    ],
 )
 
+app_id = 'mobi.phosh.MobileSettings'
+
 prefix = get_option('prefix')
+bindir = prefix / get_option('bindir')
 datadir = prefix / get_option('datadir')
 libdir = prefix / get_option('libdir')
 ms_plugins_dir = prefix / libdir / 'phosh-mobile-settings' / 'plugins'
@@ -132,7 +135,7 @@ config_h = configuration_data()
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', 'phosh-mobile-settings')
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-config_h.set_quoted('MOBILE_SETTINGS_APP_ID', 'mobi.phosh.MobileSettings')
+config_h.set_quoted('MOBILE_SETTINGS_APP_ID', app_id)
 config_h.set_quoted('MOBILE_SETTINGS_VERSION', meson.project_version())
 config_h.set_quoted('MOBILE_SETTINGS_PLUGINS_DIR', ms_plugins_dir)
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',

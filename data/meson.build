@@ -22,4 +22,17 @@ if appstream_util.found()
   )
 endif
 
+dbus_service_conf = configuration_data()
+dbus_service_conf.set('bindir', bindir)
+dbus_service_conf.set('appid', app_id)
+
+dbus_service = '@0@.service'.format(app_id)
+configure_file(
+          input : dbus_service + '.in',
+         output : dbus_service,
+        install : true,
+    install_dir : datadir / 'dbus-1' / 'services',
+  configuration : dbus_service_conf
+)
+
 subdir('icons')
