@@ -242,8 +242,9 @@ set_panel_activated (GSimpleAction *action,
   MobileSettingsWindow *window;
   MsPanelSwitcher *panel_switcher;
   gchar *panel;
+  g_autoptr (GVariant) params = NULL;
 
-  g_variant_get (parameter, "(&s)", &panel);
+  g_variant_get (parameter, "(&s@a{sv})", &panel, params);
 
   g_debug ("'set-panel' '%s'", panel);
 
@@ -286,12 +287,17 @@ mobile_settings_application_handle_local_options (GApplication *app,
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
     const char *panel;
+    GVariantDict dict;
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
     panel = panels[0];
+    g_variant_dict_init (&dict, NULL);
 
     g_application_register (G_APPLICATION (app), NULL, NULL);
-    g_action_group_activate_action (G_ACTION_GROUP (app), "set-panel", g_variant_new ("(s)", panel));
+
+    g_action_group_activate_action (G_ACTION_GROUP (app),
+                                    "set-panel",
+                                    g_variant_new ("(s@a{sv})", panel, g_variant_dict_end (&dict)));
   }
 
   return app_class->handle_local_options (app, options);
@@ -315,7 +321,7 @@ mobile_settings_application_activate (GApplication *app)
 
 
 static const GActionEntry actions[] = {
-  { "set-panel", set_panel_activated, "(s)", NULL, NULL, { 0 } },
+  { "set-panel", set_panel_activated, "(sa{sv})", NULL, NULL, { 0 } },
 };
 
 
