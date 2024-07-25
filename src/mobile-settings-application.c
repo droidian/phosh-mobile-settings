@@ -6,6 +6,8 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
+#define G_LOG_DOMAIN "mobile-settings-application"
+
 #include "mobile-settings-config.h"
 
 #include "mobile-settings-application.h"
