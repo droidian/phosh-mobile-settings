@@ -253,6 +253,8 @@ set_panel_activated (GSimpleAction *action,
 
   if (!ms_panel_switcher_set_active_panel_name (panel_switcher, panel))
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
+
+  gtk_window_present (GTK_WINDOW (window));
 }
 
 
