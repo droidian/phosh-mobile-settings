@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-05-01 17:33+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2024-07-22 12:02+0000\n"
+"PO-Revision-Date: 2024-07-26 01:11+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.3\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -29,7 +29,7 @@ msgstr "Mobil Ayarlar"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobil;Yeğler;Tercihler;Ayarlar;MobilAyarlar;"
+msgstr "Mobil;Yeğler;Tercihler;Ayarlar;MobilAyarlar;Mobile;Preferences;MobileSettings;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -119,45 +119,52 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çık"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:30
 msgid "- Manage your mobile settings"
 msgstr "- Mobil ayarlarınızı yönetin"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:392
+msgid "translator-credits"
+msgstr ""
+"Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Sabri Ünal <yakushabb@gmail.com>"
 
 #: src/mobile-settings-window.c:77
 msgid "Device"
 msgstr "Aygıt"
 
-#: src/ms-feedback-panel.c:135
+#: src/ms-feedback-panel.c:137
 msgid "Sound file does not exist"
 msgstr "Ses dosyası yok"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:139
 msgid "Sound file is corrupt"
 msgstr "Ses dosyası bozuk"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:141
 msgid "Failed to play sound"
 msgstr "Ses oynatılamadı"
 
-#: src/ms-feedback-panel.c:178
+#: src/ms-feedback-panel.c:180
 #, c-format
 msgid "Playing %s"
 msgstr "%s oynatılıyor"
 
-#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
 msgid "none"
 msgstr "yok"
 
-#: src/ms-feedback-panel.c:341
+#: src/ms-feedback-panel.c:343
 msgid "low"
 msgstr "düşük"
 
 #. 1.0
-#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normal"
 
-#: src/ms-feedback-panel.c:345
+#: src/ms-feedback-panel.c:347
 msgid "critical"
 msgstr "kritik"
 
@@ -218,59 +225,59 @@ msgstr "Neredeyse Sessiz"
 msgid "Silent"
 msgstr "Sessiz"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/ui/mobile-settings-window.ui:75
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:81
 msgid "Welcome to Mobile Settings"
 msgstr "Mobil Ayarlara Hoş Geldiniz"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:82
 msgid "Tweak advanced mobile settings"
 msgstr "Gelişmiş mobil ayarları değiştirin"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:90
 msgid "Top Bar"
 msgstr "Üst Çubuk"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:101
 msgid "Applications"
 msgstr "Uygulamalar"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:112
 msgid "Feedback"
 msgstr "Geri Bildirim"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:123
 msgid "Compositor"
 msgstr "Dizgileyici"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:134
 msgid "Lockscreen"
 msgstr "Kilit Ekranı"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:145
 msgid "Convergence"
 msgstr "Yakınsama"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:156
 msgid "On Screen Keyboard"
 msgstr "Ekran Klavyesi"
 
-#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Algılayıcılar"
 
-#: src/ui/mobile-settings-window.ui:177
+#: src/ui/mobile-settings-window.ui:178
 msgid "Experimental features"
 msgstr "Deneysel Özellikler"
 
-#: src/ui/mobile-settings-window.ui:201
+#: src/ui/mobile-settings-window.ui:202
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
-#: src/ui/mobile-settings-window.ui:205
+#: src/ui/mobile-settings-window.ui:206
 msgid "_About Mobile Settings"
 msgstr "Mobil Ayarlar _Hakkında"
 
@@ -334,7 +341,7 @@ msgstr "Tüm uygulamaları küçült"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
 #: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
@@ -388,55 +395,71 @@ msgstr "Geri bildirim profili"
 msgid "The global maximum feedback profile"
 msgstr "Genel azami geri bildirim profili"
 
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "Flaşı yeğle"
+
 #: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr "Oluyorsa durum LEDʼi yerine kamera flaşını yeğle"
+
+#: src/ui/ms-feedback-panel.ui:41
 msgid "Per Application settings"
 msgstr "Uygulama Başına ayarlar"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:54
 msgid "Sounds"
 msgstr "Sesler"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:55
 msgid "The sound to use for certain events"
 msgstr "Belirli olaylar için kullanılacak ses"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:63
 msgid "Phone Calls"
 msgstr "Telefon Çağrıları"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:69
 msgid "SMS"
 msgstr "Kısa İleti"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:75
 msgid "Instant messages"
 msgstr "Anlık iletiler"
 
-#: src/ui/ms-feedback-panel.ui:78
+#: src/ui/ms-feedback-panel.ui:86
 msgid "Screen Wakeup"
 msgstr "Ekran Uyandırma"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:89
 msgid "Notification urgency that lights up the screen"
 msgstr "Ekranı aydınlatan bildirim aciliyeti"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Kilit Açma"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Kilitleme ve kilit açma"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Kendiliğinden ekran kilidi gecikmesi"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Boş ekrandan ekran kilidine dek geçen saniye"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Tuş takımını karıştır"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Tuş takımındaki sayıların karıştırılma durumu"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Parçacıklar"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Kilit ekranı için ek parçacıklar"
 
@@ -488,7 +511,8 @@ msgstr "Fırsatçı sözcük tamamlama"
 
 #: src/ui/ms-osk-panel.ui:60
 msgid "Enable word completion when the app indicates it is useful"
-msgstr "Uygulama, yararlı olduğunu belirttiğinde sözcük tamamlamayı etkinleştir"
+msgstr ""
+"Uygulama, yararlı olduğunu belirttiğinde sözcük tamamlamayı etkinleştir"
 
 # OSK: On Screen Keyboard
 #: src/ui/ms-osk-panel.ui:75
@@ -511,15 +535,15 @@ msgstr "Kısayollar"
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Kısayollar çubuğundaki kısayollar"
 
-#: src/ui/ms-plugin-row.ui:33
+#: src/ui/ms-plugin-row.ui:41
 msgid "More options…"
 msgstr "Daha çok seçenek…"
 
-#: src/ui/ms-plugin-row.ui:46
+#: src/ui/ms-plugin-row.ui:54
 msgid "Move Up"
 msgstr "Yukarı Taşı"
 
-#: src/ui/ms-plugin-row.ui:50
+#: src/ui/ms-plugin-row.ui:58
 msgid "Move Down"
 msgstr "Aşağı Taşı"
 
@@ -532,8 +556,8 @@ msgid ""
 "Either there are no sensors installed on your device or they are disabled by "
 "a killswitch."
 msgstr ""
-"Aygıtınızda kurulu algılayıcı yok ya da kapatma anahtarınca devre "
-"dışı bırakılmış."
+"Aygıtınızda kurulu algılayıcı yok ya da kapatma anahtarınca devre dışı "
+"bırakılmış."
 
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
@@ -576,9 +600,30 @@ msgid "Sound files (ogg)"
 msgstr "Ses dosyaları (ogg)"
 
 #: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Kullanıcı Arayüzü Ögeleri"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Pil yüzdesini göster"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Üst çubukta tam şarj düzeyini göster"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Çentiklerden kaçın"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Kullanıcı arayüz ögelerini çentikler ve ekran kesiklerinin altına yerleştirme"
+
+#: src/ui/ms-topbar-panel.ui:34
 msgid "Quick Settings"
 msgstr "Hızlı Ayarlar"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Ek Hızlı Ayarlar’ınızı düzenleyin"
