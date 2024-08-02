@@ -6,6 +6,8 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
+#define G_LOG_DOMAIN "mobile-settings-application"
+
 #include "mobile-settings-config.h"
 
 #include "mobile-settings-application.h"
@@ -240,8 +242,9 @@ set_panel_activated (GSimpleAction *action,
   MobileSettingsWindow *window;
   MsPanelSwitcher *panel_switcher;
   gchar *panel;
+  g_autoptr (GVariant) params = NULL;
 
-  g_variant_get (parameter, "(&s)", &panel);
+  g_variant_get (parameter, "(&s@av)", &panel, &params);
 
   g_debug ("'set-panel' '%s'", panel);
 
@@ -250,6 +253,8 @@ set_panel_activated (GSimpleAction *action,
 
   if (!ms_panel_switcher_set_active_panel_name (panel_switcher, panel))
     g_warning ("Error: panel `%s` not available, launching with default options.", panel);
+
+  gtk_window_present (GTK_WINDOW (window));
 }
 
 
@@ -284,12 +289,18 @@ mobile_settings_application_handle_local_options (GApplication *app,
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
     const char *panel;
+    GVariantBuilder builder;
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
     panel = panels[0];
+    g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
 
     g_application_register (G_APPLICATION (app), NULL, NULL);
-    g_action_group_activate_action (G_ACTION_GROUP (app), "set-panel", g_variant_new ("(s)", panel));
+
+    g_action_group_activate_action (G_ACTION_GROUP (app),
+                                    "set-panel",
+                                    g_variant_new ("(s@av)",
+                                                   panel, g_variant_builder_end (&builder)));
   }
 
   return app_class->handle_local_options (app, options);
@@ -313,7 +324,7 @@ mobile_settings_application_activate (GApplication *app)
 
 
 static const GActionEntry actions[] = {
-  { "set-panel", set_panel_activated, "(s)", NULL, NULL, { 0 } },
+  { "set-panel", set_panel_activated, "(sav)", NULL, NULL, { 0 } },
 };
 
 
