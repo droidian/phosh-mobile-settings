@@ -1,3 +1,33 @@
+phosh-mobile-settings 0.41.0~rc1
+--------------------------------
+Released August 2024
+* top-bar: Allow to toggle showing Battery percentage
+* feedback: Allow to prefer camera flash as notification LED
+* Make DBus activatable
+* Use AdwAboutDialog
+* Allow going back to the same page in folded mode
+* Issues fixed:
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/38
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/58
+* Contributors:
+    * Gotam Gorabh
+    * Guido Günther
+    * Teemu Ikonen
+* UI translations:
+    * Anders Jonsson (sv)
+    * Antonio Marin (ro)
+    * Artur S0 (ru)
+    * Balázs Úr (hu)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Ekaterine Papava (ka)
+    * Emin Tufan Çetin (tr)
+    * Jürgen Benvenuti (de)
+    * Martin (sl)
+    * Scrambled 777 (hi)
+    * Yaron Shahrabani (he)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.40.0
 ----------------------------
 Released: June 2024

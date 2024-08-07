@@ -1,3 +1,82 @@
+phosh-mobile-settings (0.41.0~rc1) experimental; urgency=medium
+
+  [ Teemu Ikonen ]
+  * panel-switcher: Allow going back to same page in folded mode.
+    Rename on_visible_child_changed() in MobileSettingsWindow to
+    show_content_cb(), since that's what it is doing.
+    Connect this signal handler also to the 'row-activated' signal of
+    MsPanelSwitcher so that the content page is shown in folded mode also
+    when the visible child of the stack does not change.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/38
+  * build: Require libadwaita version 1.5
+  * application: Use AdwAboutDialog for credits
+  * topbar-panel: Add row for 'show-battery-percentage'
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/58
+  * topbar-panel: Fix indentation
+  * topbar-panel: Move 'UI Elements' group above 'Quick Settings'
+
+  [ Guido Günther ]
+  * feedback-panel: Drop unused define
+  * treewide: Bump libadwaita dependency to 1.5.
+    AdwAboutDialog needs it
+  * packaging: Require feedbackd-common >= 0.0.4.
+    Needed for the prefer-flash setting.
+  * feedback-panel: Support prefer-flash property.
+    This allows to use a camera flash instead of a status LED.
+  * ci: Add version number consistency check.
+    This updates the script from meta-phosh to 3390c988d2202500fdca9419c2335656e0281c78
+  * application: Set log domain
+  * application: Use more flexible action parameter for set-panel.
+    This will allow us to pass arbitrary key value pairs if needed.
+  * build: Use '/' in favor of for installation dirs
+  * data: Make DBus activatable.
+    This is needed if 3rd party apps want to spawn certain panels.
+  * application: Present window.
+    This allows it to move to the foreground when the panel changes
+    via e.g. dbus or command line.
+  * ci: Update shared scripts to ebb7aef
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Scrambled 777 ]
+  * Update Hindi translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Jürgen Benvenuti ]
+  * Update German translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Balázs Úr ]
+  * Add Hungarian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 07 Aug 2024 19:59:50 +0200
+
 phosh-mobile-settings (0.40.0) experimental; urgency=medium
 
   [ Guido Günther ]
