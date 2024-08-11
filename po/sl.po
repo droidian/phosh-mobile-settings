@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-06 13:38+0000\n"
-"PO-Revision-Date: 2024-07-07 12:17+0200\n"
+"POT-Creation-Date: 2024-08-11 12:50+0000\n"
+"PO-Revision-Date: 2024-08-11 18:25+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -27,7 +27,7 @@ msgid "Mobile Settings"
 msgstr "Nastavitve mobilnega telefona"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobilnik;mobilni;telefon;nastavitve;MobileSettings;"
 
@@ -119,12 +119,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Konča program"
 
-#: src/mobile-settings-application.c:30
+#: src/mobile-settings-application.c:32
 msgid "- Manage your mobile settings"
 msgstr "- Upravljajte nastavitve svojega mobilnika"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:392
+#: src/mobile-settings-application.c:403
 msgid "translator-credits"
 msgstr "Martin Srebotnjak <miles@filmsi.net>"
 
@@ -132,37 +132,37 @@ msgstr "Martin Srebotnjak <miles@filmsi.net>"
 msgid "Device"
 msgstr "Naprava"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:138
 msgid "Sound file does not exist"
 msgstr "Zvočna datoteka ne obstaja"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:140
 msgid "Sound file is corrupt"
 msgstr "Zvočna datoteka je okvarjena"
 
-#: src/ms-feedback-panel.c:141
+#: src/ms-feedback-panel.c:142
 msgid "Failed to play sound"
 msgstr "Predvajanje zvoka ni uspelo"
 
-#: src/ms-feedback-panel.c:180
+#: src/ms-feedback-panel.c:181
 #, c-format
 msgid "Playing %s"
 msgstr "Igranje %s"
 
-#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
+#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
 msgid "none"
 msgstr "brez"
 
-#: src/ms-feedback-panel.c:343
+#: src/ms-feedback-panel.c:344
 msgid "low"
 msgstr "nizko"
 
 #. 1.0
-#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "navadno"
 
-#: src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:348
 msgid "critical"
 msgstr "kritično"
 
@@ -211,15 +211,15 @@ msgstr "Po meri"
 msgid "Choose sound file"
 msgstr "Izberite zvočno datoteko"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "Polno"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "Tiho"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "Tiho"
 
@@ -402,35 +402,47 @@ msgstr "Prednost ima bliskavica"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Prednost daje bliskavici kamere pred lučko LED stanja, ko je na voljo"
 
-#: src/ui/ms-feedback-panel.ui:41
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Tišina na Glasn-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Ko je telefon zaklenjen, preklopite v tihi način, ko pritisnete Glasn- na "
+"dohodne klice"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "Nastavitve za aplikacije"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "Zvoki"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "Zvok, ki naj bo uporabljen za določene dogodke"
 
-#: src/ui/ms-feedback-panel.ui:63
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "Telefonski klici"
 
-#: src/ui/ms-feedback-panel.ui:69
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:75
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "Neposredna sporočila"
 
-#: src/ui/ms-feedback-panel.ui:86
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "Povrnitev zaslona iz pripravljenosti"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "Nujnost obvestila, ki osvetli zaslon"
 
