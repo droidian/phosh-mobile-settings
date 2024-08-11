@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2024-07-06 13:38+0000\n"
-"PO-Revision-Date: 2024-07-06 19:12+0300\n"
+"POT-Creation-Date: 2024-08-11 12:50+0000\n"
+"PO-Revision-Date: 2024-08-11 19:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgid "Mobile Settings"
 msgstr "Параметри мобільного"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobile;Preferences;MobileSettings;мобільний;параметри;налаштування;"
 
@@ -119,12 +119,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти з програми"
 
-#: src/mobile-settings-application.c:30
+#: src/mobile-settings-application.c:32
 msgid "- Manage your mobile settings"
 msgstr "- Керування вашими мобільними параметрами"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:392
+#: src/mobile-settings-application.c:403
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
@@ -132,37 +132,37 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 msgid "Device"
 msgstr "Пристрій"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:138
 msgid "Sound file does not exist"
 msgstr "Звукового файла не існує"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:140
 msgid "Sound file is corrupt"
 msgstr "Звуковий файл пошкоджено"
 
-#: src/ms-feedback-panel.c:141
+#: src/ms-feedback-panel.c:142
 msgid "Failed to play sound"
 msgstr "Не вдалося відтворити звук"
 
-#: src/ms-feedback-panel.c:180
+#: src/ms-feedback-panel.c:181
 #, c-format
 msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
-#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
+#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
 msgid "none"
 msgstr "немає"
 
-#: src/ms-feedback-panel.c:343
+#: src/ms-feedback-panel.c:344
 msgid "low"
 msgstr "низький"
 
 #. 1.0
-#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "звичайний"
 
-#: src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:348
 msgid "critical"
 msgstr "критичний"
 
@@ -211,15 +211,15 @@ msgstr "Нетиповий"
 msgid "Choose sound file"
 msgstr "Виберіть звуковий файл"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "Повний"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "Тихо"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "Беззвучно"
 
@@ -403,35 +403,47 @@ msgstr "Перевага спалаху"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Пріоритет спалаху камери над світлодіодом стану, якщо такий доступний"
 
-#: src/ui/ms-feedback-panel.ui:41
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Глушити клавішею Гуч-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Якщо заблоковано, перевести телефон у беззвучний режим при натисканні Гуч-"
+" при вхідних викликах"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "Параметри для окремих програм"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "Звуки"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "Звук, яким слід скористатися для певних подій"
 
-#: src/ui/ms-feedback-panel.ui:63
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "Телефонні дзвінки"
 
-#: src/ui/ms-feedback-panel.ui:69
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:75
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "Миттєві повідомлення"
 
-#: src/ui/ms-feedback-panel.ui:86
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "Пробудження екрана"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "Критичність сповіщення для засвічування екрана"
 
