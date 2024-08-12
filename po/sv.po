@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-06 13:38+0000\n"
-"PO-Revision-Date: 2024-07-06 16:11+0200\n"
+"POT-Creation-Date: 2024-08-11 12:50+0000\n"
+"PO-Revision-Date: 2024-08-11 15:33+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -25,7 +25,7 @@ msgid "Mobile Settings"
 msgstr "Mobilinställningar"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobil;Inställningar;Mobilinställningar;"
 
@@ -117,12 +117,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: src/mobile-settings-application.c:30
+#: src/mobile-settings-application.c:32
 msgid "- Manage your mobile settings"
 msgstr "- Hantera dina mobilinställningar"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:392
+#: src/mobile-settings-application.c:403
 msgid "translator-credits"
 msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
 
@@ -130,37 +130,37 @@ msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
 msgid "Device"
 msgstr "Enhet"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:138
 msgid "Sound file does not exist"
 msgstr "Ljudfilen finns inte"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:140
 msgid "Sound file is corrupt"
 msgstr "Ljudfilen är trasig"
 
-#: src/ms-feedback-panel.c:141
+#: src/ms-feedback-panel.c:142
 msgid "Failed to play sound"
 msgstr "Misslyckades med att spela upp ljud"
 
-#: src/ms-feedback-panel.c:180
+#: src/ms-feedback-panel.c:181
 #, c-format
 msgid "Playing %s"
 msgstr "Spelar %s"
 
-#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
+#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
 msgid "none"
 msgstr "ingen"
 
-#: src/ms-feedback-panel.c:343
+#: src/ms-feedback-panel.c:344
 msgid "low"
 msgstr "låg"
 
 #. 1.0
-#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normal"
 
-#: src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:348
 msgid "critical"
 msgstr "kritisk"
 
@@ -209,15 +209,15 @@ msgstr "Anpassad"
 msgid "Choose sound file"
 msgstr "Välj ljudfil"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "Fullständig"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "Tyst"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "Ljudlös"
 
@@ -398,35 +398,45 @@ msgstr "Föredra blixt"
 msgid "Prefer camera flash over status LED when available"
 msgstr "Föredra kamerablixt över status-LED när tillgänglig"
 
-#: src/ui/ms-feedback-panel.ui:41
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Tysta med Vol-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr "När låst, sätt telefonen i tyst läge med Vol- vid inkommande samtal"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "Inställningar per program"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "Ljud"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "Ljudet att använda för vissa händelser"
 
-#: src/ui/ms-feedback-panel.ui:63
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "Telefonsamtal"
 
-#: src/ui/ms-feedback-panel.ui:69
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:75
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "Snabbmeddelanden"
 
-#: src/ui/ms-feedback-panel.ui:86
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "Skärmväckning"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "Aviseringsgrad som lyser upp skärmen"
 
@@ -622,6 +632,3 @@ msgstr "Snabbinställningar"
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Organisera dina ytterligare snabbinställningar"
-
-#~ msgid "Unlocking"
-#~ msgstr "Upplåsning"
