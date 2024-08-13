@@ -78,7 +78,7 @@ sync_favorites (int start, int end, MsApplicationsPanel *self)
 
   g_settings_set_strv (self->settings,
                        FAVORITES_KEY,
-                       (const gchar *const *)fav_list);
+                       (const char *const *)fav_list);
 }
 
 

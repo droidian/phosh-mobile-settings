@@ -265,7 +265,7 @@ mobile_settings_generate_debug_info (void)
     for (int i = 0; i < G_N_ELEMENTS (schema); i++) {
       g_autoptr (GSettings) settings = g_settings_new (schema[i].schema);
       g_autoptr (GVariant) value;
-      g_autofree gchar *result;
+      g_autofree char *result;
       value = g_settings_get_value (settings, schema[i].key);
       result = g_variant_print (value, TRUE);
       g_string_append_printf (string, "- %s '%s': %s\n", schema[i].schema, schema[i].key, result);

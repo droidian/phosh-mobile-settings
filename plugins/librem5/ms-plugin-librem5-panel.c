@@ -150,7 +150,7 @@ static gboolean
 parse_uboot_version (MsPluginLibrem5Panel *self)
 {
   gsize len;
-  g_autofree gchar *cmdline = NULL;
+  g_autofree char *cmdline = NULL;
   g_autoptr (GError) err = NULL;
   g_auto (GStrv) parts = NULL;
 

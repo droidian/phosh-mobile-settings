@@ -241,7 +241,7 @@ set_panel_activated (GSimpleAction *action,
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   MobileSettingsWindow *window;
   MsPanelSwitcher *panel_switcher;
-  gchar *panel;
+  char *panel;
   g_autoptr (GVariant) params = NULL;
 
   g_variant_get (parameter, "(&s@av)", &panel, &params);
@@ -259,7 +259,7 @@ set_panel_activated (GSimpleAction *action,
 
 
 MobileSettingsApplication *
-mobile_settings_application_new (gchar *application_id)
+mobile_settings_application_new (char *application_id)
 {
   return g_object_new (MOBILE_SETTINGS_TYPE_APPLICATION,
                        "application-id", application_id,
@@ -388,8 +388,8 @@ mobile_settings_application_show_about (GSimpleAction *action,
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   GtkWindow *window;
   AdwAboutDialog *about_dialog;
-  const gchar *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
-  const gchar *artists[] = {"Sam Hewitt", NULL};
+  const char *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
+  const char *artists[] = {"Sam Hewitt", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 

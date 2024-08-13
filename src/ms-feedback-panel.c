@@ -217,7 +217,7 @@ item_feedback_profile_name (AdwEnumListItem   *item,
 static gboolean
 settings_name_to_profile (GValue *value, GVariant *variant, gpointer user_data)
 {
-  const gchar *name;
+  const char *name;
 
   name = g_variant_get_string (variant, NULL);
 
@@ -247,7 +247,7 @@ add_application_row (MsFeedbackPanel *self, MsFbdApplication *app)
   MsFeedbackRow *row;
   g_autoptr (GIcon) icon = NULL;
   g_autofree char *markup = NULL;
-  const gchar *app_name;
+  const char *app_name;
 
   app_name = g_app_info_get_name (app->app_info);
   if (STR_IS_NULL_OR_EMPTY (app_name))
