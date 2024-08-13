@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-06 13:38+0000\n"
-"PO-Revision-Date: 2024-07-07 08:51+0530\n"
+"POT-Creation-Date: 2024-08-11 12:50+0000\n"
+"PO-Revision-Date: 2024-08-11 19:13+0530\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 46.1\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
@@ -25,7 +25,7 @@ msgid "Mobile Settings"
 msgstr "मोबाइल सेटिंग्स"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "मोबाइल;प्राथमिकताएं;मोबाइल सेटिंग्स;"
 
@@ -117,12 +117,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "छोड़ें"
 
-#: src/mobile-settings-application.c:30
+#: src/mobile-settings-application.c:32
 msgid "- Manage your mobile settings"
 msgstr "- अपनी मोबाइल सेटिंग प्रबंधित करें"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:392
+#: src/mobile-settings-application.c:403
 msgid "translator-credits"
 msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 
@@ -130,37 +130,37 @@ msgstr "Scrambled777 <weblate.scrambled777@simplelogin.com>"
 msgid "Device"
 msgstr "उपकरण"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:138
 msgid "Sound file does not exist"
 msgstr "ध्वनि फाइल मौजूद नहीं है"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:140
 msgid "Sound file is corrupt"
 msgstr "ध्वनि फाइल भ्रष्ट है"
 
-#: src/ms-feedback-panel.c:141
+#: src/ms-feedback-panel.c:142
 msgid "Failed to play sound"
 msgstr "ध्वनि चलाने में विफल"
 
-#: src/ms-feedback-panel.c:180
+#: src/ms-feedback-panel.c:181
 #, c-format
 msgid "Playing %s"
 msgstr "%s बज रहा है"
 
-#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
+#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
 msgid "none"
 msgstr "कोई नहीं"
 
-#: src/ms-feedback-panel.c:343
+#: src/ms-feedback-panel.c:344
 msgid "low"
 msgstr "निम्न"
 
 #. 1.0
-#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "सामान्य"
 
-#: src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:348
 msgid "critical"
 msgstr "क्रांतिक"
 
@@ -209,15 +209,15 @@ msgstr "तदनुकूल"
 msgid "Choose sound file"
 msgstr "ध्वनि फाइल चुनें"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "पूर्ण"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "शांत"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "मूक"
 
@@ -397,35 +397,45 @@ msgstr "फ्लैश वरीय"
 msgid "Prefer camera flash over status LED when available"
 msgstr "उपलब्ध होने पर स्टेटस एलईडी की जगह कैमरा फ्लैश को प्राथमिकता दें"
 
-#: src/ui/ms-feedback-panel.ui:41
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Vol- कुंजी पर मौन"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr "लॉक होने पर, इनकमिंग कॉल पर Vol- दबाकर फोन को साइलेंट मोड में रखें"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "प्रति अनुप्रयोग सेटिंग्स"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "ध्वनियां"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "विशिष्ट घटनाओं के लिए उपयोग की जाने वाली ध्वनि"
 
-#: src/ui/ms-feedback-panel.ui:63
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "फोन कॉल"
 
-#: src/ui/ms-feedback-panel.ui:69
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:75
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "त्वरित संदेश"
 
-#: src/ui/ms-feedback-panel.ui:86
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "स्क्रीन जगाना"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "अधिसूचना की तात्कालिकता जो स्क्रीन को रोशन करती है"
 
