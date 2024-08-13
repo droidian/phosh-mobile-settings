@@ -267,11 +267,30 @@ mobile_settings_application_new (char *application_id)
                        NULL);
 }
 
+/**
+ * mobile_settings_application_set_panel:
+ * @self: the application
+ * @panel: the panel to set
+ *
+ * Convenience wrapper to activate the given panel via the `set-panel` action.
+ */
+static void
+mobile_settings_application_set_panel (MobileSettingsApplication *self, const char *panel)
+{
+  GVariantBuilder builder;
+  g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
+
+  g_action_group_activate_action (G_ACTION_GROUP (self),
+                                  "set-panel",
+                                  g_variant_new ("(s@av)",
+                                                 panel, g_variant_builder_end (&builder)));
+}
+
 
 static int
-mobile_settings_application_handle_local_options (GApplication *app,
-                                                  GVariantDict *options)
+mobile_settings_application_handle_local_options (GApplication *app, GVariantDict *options)
 {
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
   g_autofree GStrv panels = NULL;
   GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
 
@@ -289,18 +308,12 @@ mobile_settings_application_handle_local_options (GApplication *app,
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
     const char *panel;
-    GVariantBuilder builder;
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
     panel = panels[0];
-    g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
 
     g_application_register (G_APPLICATION (app), NULL, NULL);
-
-    g_action_group_activate_action (G_ACTION_GROUP (app),
-                                    "set-panel",
-                                    g_variant_new ("(s@av)",
-                                                   panel, g_variant_builder_end (&builder)));
+    mobile_settings_application_set_panel (self, panel);
   }
 
   return app_class->handle_local_options (app, options);
