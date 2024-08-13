@@ -114,6 +114,7 @@ foreach arg: test_c_args
 endforeach
 add_project_arguments(
   [global_c_args,
+   '-DGMOBILE_USE_UNSTABLE_API',
    '-DGLIB_VERSION_MIN_REQUIRED=@0@'.format(glib_ver_str),
    '-DGLIB_VERSION_MAX_ALLOWED=@0@'.format(glib_ver_str),
    '-DGDK_VERSION_MIN_REQUIRED=@0@'.format(gtk_ver_str),

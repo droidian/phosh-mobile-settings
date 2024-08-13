@@ -11,7 +11,6 @@
 #include "mobile-settings-application.h"
 #include "mobile-settings-debug-info.h"
 
-#define GMOBILE_USE_UNSTABLE_API
 #include <gmobile.h>
 
 /* Copied and adapted from gtk/inspector/general.c */
