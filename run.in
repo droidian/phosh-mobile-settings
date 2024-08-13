@@ -7,7 +7,7 @@ ABS_BUILDDIR='@ABS_BUILDDIR@'
 [ -n "${PHOSH_BUILD_DIR}" ] || PHOSH_BUILD_DIR="../phosh/_build"
 
 # PSM needs schema from Phosh, which otherwise would be loaded from standard path
-GSETTINGS_SCHEMA_DIR="${PHOSH_BUILD_DIR}/data:${GSETTINGS_SCHEMA_DIR}"
+GSETTINGS_SCHEMA_DIR="${ABS_BUILDDIR}/data:${PHOSH_BUILD_DIR}/data:${GSETTINGS_SCHEMA_DIR}"
 export GSETTINGS_SCHEMA_DIR
 
 # Log DEBUG messages of all domains by default
