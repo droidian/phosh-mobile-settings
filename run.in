@@ -18,5 +18,9 @@ export G_MESSAGES_DEBUG
 [ -n "${GSETTINGS_BACKEND}" ] || GSETTINGS_BACKEND=memory
 export GSETTINGS_BACKEND
 
+# Abort on criticals by default
+[ -n "${G_DEBUG}" ] || G_DEBUG=fatal-criticals
+export G_DEBUG
+
 set -x
 exec "${ABS_BUILDDIR}/src/phosh-mobile-settings" $@
