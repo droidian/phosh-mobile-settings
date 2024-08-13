@@ -23,6 +23,8 @@
 
 #include <phosh-plugin.h>
 
+#include <gmobile.h>
+
 #include <gdk/wayland/gdkwayland.h>
 #include <wayland-client.h>
 #include <glib/gi18n.h>
@@ -293,6 +295,7 @@ mobile_settings_application_handle_local_options (GApplication *app, GVariantDic
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
   g_autofree GStrv panels = NULL;
   GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
+  g_autofree char *panel = NULL;
 
   if (g_variant_dict_contains (options, "version")) {
     print_version ();
@@ -307,11 +310,18 @@ mobile_settings_application_handle_local_options (GApplication *app, GVariantDic
 
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
-    const char *panel;
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
-    panel = panels[0];
+    panel = g_strdup (panels[0]);
+  }
 
+  if (!panel) {
+    g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
+
+    panel = g_settings_get_string (settings, "last-panel");
+  }
+
+  if (!gm_str_is_null_or_empty (panel)) {
     g_application_register (G_APPLICATION (app), NULL, NULL);
     mobile_settings_application_set_panel (self, panel);
   }
@@ -345,16 +355,11 @@ static void
 mobile_settings_application_startup (GApplication *app)
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
-  g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
-  g_autofree char *panel = NULL;
 
   g_action_map_add_action_entries (G_ACTION_MAP (self),
                                    actions,
                                    G_N_ELEMENTS (actions),
                                    self);
-
-  panel = g_settings_get_string (settings, "last-panel");
-  mobile_settings_application_set_panel (self, panel);
 
   G_APPLICATION_CLASS (mobile_settings_application_parent_class)->startup (app);
 }

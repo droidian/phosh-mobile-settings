@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="phosh-mobile-settings">
+  <schema id="mobi.phosh.MobileSettings" path="/phosh/mobi/MobileSettings/">
+    <key name="last-panel" type="s">
+      <default>''</default>
+      <summary>The name of the last opened panel</summary>
+      <description>
+        The identifier for the last Settings panel that was opened.
+        Unrecognised values will be ignored and the welcome panel used
+        instead.
+      </description>
+    </key>
+  </schema>
+</schemalist>
