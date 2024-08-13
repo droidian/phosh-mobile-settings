@@ -8,7 +8,7 @@ Build-Depends:
  desktop-file-utils,
  libadwaita-1-dev (>= 1.5),
  libgsound-dev,
- libgmobile-dev,
+ libgmobile-dev (>= 0.2.0),
  libgtk-4-dev,
  libsensors-dev,
  meson,
