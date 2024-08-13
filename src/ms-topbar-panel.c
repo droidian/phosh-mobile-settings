@@ -6,13 +6,10 @@
  * Authors: Gotam Gorabh <gautamy672@gmail.com>
  */
 
-#ifdef HAVE_PHOSH_SETTINGS_SCHEMAS
-#include <phosh-settings-enums.h>
-#endif
-
-
 #include "ms-topbar-panel.h"
 #include "ms-plugin-list-box.h"
+
+#include <phosh-settings-enums.h>
 
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
@@ -22,20 +19,6 @@
 
 #define INTERFACE_SCHEMA_ID     "org.gnome.desktop.interface"
 #define BATTERY_PERCENTAGE_KEY  "show-battery-percentage"
-
-#ifndef HAVE_PHOSH_SETTINGS_SCHEMAS
-/**
- * PhoshShellLayout:
- * @PHOSH_SHELL_LAYOUT_NONE: Don’t perform any additional layouting
- * @PHOSH_SHELL_LAYOUT_DEVICE: Use device information to optimize layout.
- *
- * Controls how the shell’s UI elements are layed out.
- */
-typedef enum {
-    PHOSH_SHELL_LAYOUT_NONE = 0,
-    PHOSH_SHELL_LAYOUT_DEVICE  = (1 << 0),
-} PhoshShellLayout;
-#endif
 
 
 struct _MsTopbarPanel {
@@ -130,6 +113,3 @@ ms_topbar_panel_init (MsTopbarPanel *self)
   g_settings_bind (self->interface_settings, BATTERY_PERCENTAGE_KEY,
                    self->battery_percentage_switch, "active", G_SETTINGS_BIND_DEFAULT);
 }
-
-
-
