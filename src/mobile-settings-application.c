@@ -345,11 +345,16 @@ static void
 mobile_settings_application_startup (GApplication *app)
 {
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
+  g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
+  g_autofree char *panel = NULL;
 
   g_action_map_add_action_entries (G_ACTION_MAP (self),
                                    actions,
                                    G_N_ELEMENTS (actions),
                                    self);
+
+  panel = g_settings_get_string (settings, "last-panel");
+  mobile_settings_application_set_panel (self, panel);
 
   G_APPLICATION_CLASS (mobile_settings_application_parent_class)->startup (app);
 }
