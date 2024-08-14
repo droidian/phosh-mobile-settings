@@ -178,7 +178,7 @@ ms_schema_bind_property (const char         *id,
                          const char         *property,
                          GSettingsBindFlags  flags)
 {
-  g_autoptr (GSettingsSchemaSource) source = g_settings_schema_source_get_default ();
+  GSettingsSchemaSource *source = g_settings_schema_source_get_default ();
   g_autoptr (GSettingsSchema) schema = NULL;
   g_autoptr (GSettings) settings = NULL;
 
