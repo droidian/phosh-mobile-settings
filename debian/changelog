@@ -1,3 +1,43 @@
+phosh-mobile-settings (0.41.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * util: Add a helper to bind to a schema that might not exist.
+    If we try to access schema entries that don't exist the app aborts.
+    Allow to do that gracefully so that new settings can be added once the
+    functionality landed on e.g. Phosh's main branch.
+  * feedback-panel: Support quick-silent property.
+    This allows to enable/disable silencing the phone on incoming calls via
+    Vol-.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/59
+  * util: Don't unref default schema
+    `g_settings_schema_source_get_default` does not transfer ownership.
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Scrambled 777 ]
+  * Update Hindi translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Rafael Fontenelle ]
+  * Add Brazilian Portuguese translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 15 Aug 2024 08:21:14 +0200
+
 phosh-mobile-settings (0.41.0~rc1) experimental; urgency=medium
 
   [ Teemu Ikonen ]

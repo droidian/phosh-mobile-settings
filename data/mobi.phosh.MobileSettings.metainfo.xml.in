@@ -51,6 +51,16 @@
   </screenshots>
 
   <releases>
+    <release version="0.41.0" date="2024-08-15">
+      <description>
+        <ul>
+          <li>top-bar: Allow to toggle showing Battery percentage</li>
+          <li>feedback: Allow to prefer camera flash as notification LED</li>
+          <li>Allow going back to the same page in folded mode</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.40.0" date="2024-04-30">
       <description>
         <ul>

@@ -1,5 +1,5 @@
-phosh-mobile-settings 0.41.0~rc1
---------------------------------
+phosh-mobile-settings 0.41.0
+----------------------------
 Released August 2024
 * top-bar: Allow to toggle showing Battery percentage
 * feedback: Allow to prefer camera flash as notification LED
@@ -9,8 +9,8 @@ Released August 2024
 * Issues fixed:
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/38
     * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/58
+    * https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/59
 * Contributors:
-    * Gotam Gorabh
     * Guido Günther
     * Teemu Ikonen
 * UI translations:
@@ -24,6 +24,7 @@ Released August 2024
     * Emin Tufan Çetin (tr)
     * Jürgen Benvenuti (de)
     * Martin (sl)
+    * Rafael Fontenelle (pt_BR)
     * Scrambled 777 (hi)
     * Yaron Shahrabani (he)
     * Yuri Chornoivan (uk)
