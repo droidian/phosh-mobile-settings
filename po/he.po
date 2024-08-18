@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-07-06 13:38+0000\n"
-"PO-Revision-Date: 2024-07-12 10:09+0300\n"
+"POT-Creation-Date: 2024-08-15 07:54+0000\n"
+"PO-Revision-Date: 2024-08-18 09:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
 "Language: he\n"
@@ -27,7 +27,7 @@ msgid "Mobile Settings"
 msgstr "הגדרות הנייד"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "נייד;מובייל;סלולרי;מכשיר;העדפות;הגדרות;הגדרות לנייד;"
 
@@ -118,12 +118,12 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "יציאה"
 
-#: src/mobile-settings-application.c:30
+#: src/mobile-settings-application.c:32
 msgid "- Manage your mobile settings"
 msgstr "- ניהול הגדרות המכשיר הנייד שלך"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:392
+#: src/mobile-settings-application.c:403
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
@@ -134,37 +134,37 @@ msgstr ""
 msgid "Device"
 msgstr "מכשיר"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:138
 msgid "Sound file does not exist"
 msgstr "לא קיים קובץ שמע"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:140
 msgid "Sound file is corrupt"
 msgstr "קובץ השמע פגום"
 
-#: src/ms-feedback-panel.c:141
+#: src/ms-feedback-panel.c:142
 msgid "Failed to play sound"
 msgstr "השמעת הצליל נכשלה"
 
-#: src/ms-feedback-panel.c:180
+#: src/ms-feedback-panel.c:181
 #, c-format
 msgid "Playing %s"
 msgstr "‫%s מתנגן"
 
-#: src/ms-feedback-panel.c:341 src/ms-feedback-panel.c:349
+#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
 msgid "none"
 msgstr "ללא"
 
-#: src/ms-feedback-panel.c:343
+#: src/ms-feedback-panel.c:344
 msgid "low"
 msgstr "נמוך"
 
 #. 1.0
-#: src/ms-feedback-panel.c:345 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "רגיל"
 
-#: src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:348
 msgid "critical"
 msgstr "קיצוני"
 
@@ -213,15 +213,15 @@ msgstr "מותאם אישית"
 msgid "Choose sound file"
 msgstr "בחירת קובץ שמע"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "מלאה"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "שקטה"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "חרישית"
 
@@ -395,41 +395,53 @@ msgstr "פרופיל המשוב הכללי המרבי"
 
 #: src/ui/ms-feedback-panel.ui:32
 msgid "Prefer flash"
-msgstr "עדיף מבזק"
+msgstr "להעדיף מבזק"
 
 #: src/ui/ms-feedback-panel.ui:33
 msgid "Prefer camera flash over status LED when available"
-msgstr "להעדיף את מבזק המצלמה על פני נורית החיווי כשניתן"
+msgstr "להעדיף את המבזק של המצלמה על פני נורית המצב כשניתן"
 
-#: src/ui/ms-feedback-panel.ui:41
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "להשתיק עם הנמכת עוצמת שמע"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"כהמכשיר נעול אפשר להעביר את הטלפון למצב שקט בלחיצה על הנמכת עוצמת השמע "
+"בשיחות נכנסות"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "הגדרות ברמת יישומון"
 
-#: src/ui/ms-feedback-panel.ui:54
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "צלילים"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "הצלילים שיודיעו על אירועים מסוימים"
 
-#: src/ui/ms-feedback-panel.ui:63
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "שיחות טלפון"
 
-#: src/ui/ms-feedback-panel.ui:69
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "מסרון"
 
-#: src/ui/ms-feedback-panel.ui:75
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "הודעות מיידיות"
 
-#: src/ui/ms-feedback-panel.ui:86
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "התעוררות המסך"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "דחיפות התראות שמפעילה את המסך"
 
