@@ -17,6 +17,8 @@
 #include "ms-applications-panel.h"
 #include "ms-util.h"
 
+#include <phosh-settings-enums.h>
+
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
@@ -25,18 +27,6 @@
 #define PHOSH_SCHEMA_ID          "sm.puri.phosh"
 #define FAVORITES_LIST_ICON_SIZE 48
 
-/**
- * AppFilterModeFlags:
- * @APP_FILTER_MODE_FLAGS_NONE: No filtering
- * @APP_FILTER_MODE_FLAGS_ADAPTIVE: Only show apps in mobile mode that adapt
- *    to smalls screen sizes.
- *
- * Controls what kind of app filtering is done.
-*/
-typedef enum {
-    APP_FILTER_MODE_FLAGS_NONE = 0,
-    APP_FILTER_MODE_FLAGS_ADAPTIVE  = (1 << 0),
-} AppFilterModeFlags;
 
 struct _MsApplicationsPanel {
   AdwBin                   parent;
@@ -64,12 +54,12 @@ on_reset_btn_clicked (GtkButton *reset_btn, MsApplicationsPanel *self)
 static void
 afm_switch_row_cb (MsApplicationsPanel *self)
 {
-  gboolean afm_switch_state;
+  gboolean switch_state;
   gint flags;
 
-  afm_switch_state = adw_switch_row_get_active (self->afm_switch_row);
+  switch_state = adw_switch_row_get_active (self->afm_switch_row);
 
-  flags = afm_switch_state ? APP_FILTER_MODE_FLAGS_ADAPTIVE : APP_FILTER_MODE_FLAGS_NONE;
+  flags = switch_state ? PHOSH_APP_FILTER_MODE_FLAGS_ADAPTIVE : PHOSH_APP_FILTER_MODE_FLAGS_NONE;
   g_settings_set_flags (self->settings, APP_FILTER_MODE_KEY, flags);
 }
 
@@ -281,12 +271,12 @@ on_favorites_changed (MsApplicationsPanel *self)
 static void
 on_afm_setting_changed (MsApplicationsPanel *self)
 {
-  AppFilterModeFlags filter_mode;
+  PhoshAppFilterModeFlags filter_mode;
   gboolean active;
 
   filter_mode = g_settings_get_flags (self->settings, APP_FILTER_MODE_KEY);
 
-  active = !!(filter_mode & APP_FILTER_MODE_FLAGS_ADAPTIVE);
+  active = !!(filter_mode & PHOSH_APP_FILTER_MODE_FLAGS_ADAPTIVE);
   adw_switch_row_set_active (self->afm_switch_row, active);
 }
 

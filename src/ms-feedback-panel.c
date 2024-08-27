@@ -16,6 +16,8 @@
 #include "ms-feedback-panel.h"
 #include "ms-util.h"
 
+#include <phosh-settings-enums.h>
+
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
 
@@ -356,7 +358,7 @@ static void
 update_wakeup_screen_triggers (MsFeedbackPanel *self)
 {
   gboolean wants_urgency;
-  MsPhoshNotifyScreenWakeupFlags flags, new_flags;
+  PhoshNotifyScreenWakeupFlags flags, new_flags;
 
   switch (self->notifications_urgency) {
   case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
@@ -370,9 +372,9 @@ update_wakeup_screen_triggers (MsFeedbackPanel *self)
   }
 
   flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
-  new_flags = flags ^ MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
+  new_flags = flags ^ PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
   if (wants_urgency)
-    new_flags |= MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
+    new_flags |= PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY;
 
   if (flags == new_flags)
     return;
@@ -399,12 +401,12 @@ static void
 on_notifications_settings_changed (MsFeedbackPanel *self)
 {
   MsPhoshNotificationUrgency urgency;
-  MsPhoshNotifyScreenWakeupFlags flags;
+  PhoshNotifyScreenWakeupFlags flags;
 
   urgency = g_settings_get_enum (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_URGENCY_KEY);
   flags = g_settings_get_flags (self->notifications_settings, NOTIFICATIONS_WAKEUP_SCREEN_TRIGGERS_KEY);
 
-  if (!(flags & MS_PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY))
+  if (!(flags & PHOSH_NOTIFY_SCREEN_WAKEUP_FLAG_URGENCY))
     urgency = MS_PHOSH_NOTIFICATION_NONE;
 
   adw_combo_row_set_selected (self->notificationssettings_row, notifications_urgency_to_combo_pos (urgency));
