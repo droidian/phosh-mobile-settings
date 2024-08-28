@@ -41,9 +41,11 @@ gmobile_dep = dependency('gmobile',
       'gtk_doc=false',
       'tests=false'
     ])
+gnome_desktop_dep = dependency('gnome-desktop-4', version: '>= 44')
 gsound_dep = dependency('gsound')
 gtk_dep = dependency('gtk4', version: gtk_ver_cmp)
 gtk_wayland_dep = dependency('gtk4-wayland', version: gtk_ver_cmp)
+json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.2')
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
 phosh_settings_dep = dependency('phosh-settings', version: '>= 0.40.0')
 wayland_client_dep = dependency('wayland-client', version: '>=1.14')
@@ -143,6 +145,8 @@ config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_plugins_dir'))
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'))
+config_h.set_quoted('MOBILE_SETTINGS_OSK_LAYOUTS', datadir / 'phosh-osk-stub' / 'layouts.json')
+
 configure_file(
   output: 'mobile-settings-config.h',
   configuration: config_h,

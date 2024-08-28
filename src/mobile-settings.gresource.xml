@@ -9,6 +9,9 @@
     <file>ui/ms-feedback-panel.ui</file>
     <file>ui/ms-feedback-row.ui</file>
     <file>ui/ms-lockscreen-panel.ui</file>
+    <file>ui/ms-osk-add-layout-dialog.ui</file>
+    <file>ui/ms-osk-layout-prefs.ui</file>
+    <file>ui/ms-osk-layout-row.ui</file>
     <file>ui/ms-osk-panel.ui</file>
     <file>ui/ms-panel-switcher.ui</file>
     <file>ui/ms-plugin-row.ui</file>
