@@ -65,6 +65,7 @@ mobile_settings_sources = [
 ]
 
 mobile_settings_deps = [
+  adwaita_dep,
   gio_dep,
   gio_unix_dep,
   glib_dep,
@@ -73,7 +74,6 @@ mobile_settings_deps = [
   gsound_dep,
   gtk_dep,
   gtk_wayland_dep,
-  adwaita_dep,
   phosh_plugins_dep,
   phosh_settings_dep,
   wayland_client_dep,
