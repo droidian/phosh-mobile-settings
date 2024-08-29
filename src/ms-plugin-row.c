@@ -167,11 +167,9 @@ update_move_actions_after_row_moved_down (MsPluginRow *self)
 
 
 static void
-on_move_up_activated (GSimpleAction *action,
-                      GVariant      *parameter,
-                      gpointer       user_data)
+on_move_up_activated (GtkWidget *widget, const char *action_name, GVariant *parameter)
 {
-  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  MsPluginRow *self = MS_PLUGIN_ROW (widget);
   GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
   gint previous_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) - 1;
   GtkListBoxRow *previous_row = gtk_list_box_get_row_at_index (list_box, previous_idx);
@@ -186,11 +184,9 @@ on_move_up_activated (GSimpleAction *action,
 
 
 static void
-on_move_down_activated (GSimpleAction *action,
-                        GVariant      *parameter,
-                        gpointer       user_data)
+on_move_down_activated (GtkWidget *widget, const char *action_name, GVariant *parameter)
 {
-  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  MsPluginRow *self = MS_PLUGIN_ROW (widget);
   GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
   gint next_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) + 1;
   GtkListBoxRow *next_row = gtk_list_box_get_row_at_index (list_box, next_idx);
@@ -330,6 +326,9 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
                   G_TYPE_NONE,
                   1, MS_TYPE_PLUGIN_ROW);
 
+  gtk_widget_class_install_action (widget_class, "row.move-up", NULL, on_move_up_activated);
+  gtk_widget_class_install_action (widget_class, "row.move-down", NULL, on_move_down_activated);
+
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-plugin-row.ui");
   gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
@@ -340,8 +339,6 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
 static GActionEntry entries[] =
 {
   { .name = "open-prefs", .activate = on_open_prefs_activated },
-  { .name = "move-up", .activate = on_move_up_activated },
-  { .name = "move-down", .activate = on_move_down_activated },
 };
 
 
