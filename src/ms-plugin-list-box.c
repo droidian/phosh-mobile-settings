@@ -322,6 +322,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
                              G_CONNECT_SWAPPED);
   }
   sort_plugins_store (self);
+  update_enabled_move_actions (self);
 }
 
 
