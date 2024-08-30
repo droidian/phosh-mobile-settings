@@ -35,4 +35,20 @@ configure_file(
   configuration : dbus_service_conf
 )
 
+schemas = ['mobi.phosh.MobileSettings.gschema.xml']
+compiled = gnome.compile_schemas(
+  build_by_default: true
+)
+
+compile_schemas = find_program('glib-compile-schemas', required: false)
+if compile_schemas.found()
+  test('Validate schema file', compile_schemas,
+       args: ['--strict', '--dry-run', meson.current_source_dir()])
+endif
+
+install_data(
+  schemas,
+  install_dir: 'share/glib-2.0/schemas'
+)
+
 subdir('icons')

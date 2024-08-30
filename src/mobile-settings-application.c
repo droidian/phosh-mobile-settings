@@ -23,6 +23,8 @@
 
 #include <phosh-plugin.h>
 
+#include <gmobile.h>
+
 #include <gdk/wayland/gdkwayland.h>
 #include <wayland-client.h>
 #include <glib/gi18n.h>
@@ -241,7 +243,7 @@ set_panel_activated (GSimpleAction *action,
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   MobileSettingsWindow *window;
   MsPanelSwitcher *panel_switcher;
-  gchar *panel;
+  char *panel;
   g_autoptr (GVariant) params = NULL;
 
   g_variant_get (parameter, "(&s@av)", &panel, &params);
@@ -259,7 +261,7 @@ set_panel_activated (GSimpleAction *action,
 
 
 MobileSettingsApplication *
-mobile_settings_application_new (gchar *application_id)
+mobile_settings_application_new (char *application_id)
 {
   return g_object_new (MOBILE_SETTINGS_TYPE_APPLICATION,
                        "application-id", application_id,
@@ -267,13 +269,33 @@ mobile_settings_application_new (gchar *application_id)
                        NULL);
 }
 
+/**
+ * mobile_settings_application_set_panel:
+ * @self: the application
+ * @panel: the panel to set
+ *
+ * Convenience wrapper to activate the given panel via the `set-panel` action.
+ */
+static void
+mobile_settings_application_set_panel (MobileSettingsApplication *self, const char *panel)
+{
+  GVariantBuilder builder;
+  g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
+
+  g_action_group_activate_action (G_ACTION_GROUP (self),
+                                  "set-panel",
+                                  g_variant_new ("(s@av)",
+                                                 panel, g_variant_builder_end (&builder)));
+}
+
 
 static int
-mobile_settings_application_handle_local_options (GApplication *app,
-                                                  GVariantDict *options)
+mobile_settings_application_handle_local_options (GApplication *app, GVariantDict *options)
 {
+  MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
   g_autofree GStrv panels = NULL;
   GApplicationClass *app_class = G_APPLICATION_CLASS (mobile_settings_application_parent_class);
+  g_autofree char *panel = NULL;
 
   if (g_variant_dict_contains (options, "version")) {
     print_version ();
@@ -288,19 +310,20 @@ mobile_settings_application_handle_local_options (GApplication *app,
 
     return 0;
   } else if (g_variant_dict_lookup (options, G_OPTION_REMAINING, "^a&ay", &panels)) {
-    const char *panel;
-    GVariantBuilder builder;
 
     g_return_val_if_fail (panels && panels[0], EXIT_FAILURE);
-    panel = panels[0];
-    g_variant_builder_init (&builder, G_VARIANT_TYPE ("av"));
+    panel = g_strdup (panels[0]);
+  }
 
+  if (!panel) {
+    g_autoptr (GSettings) settings = g_settings_new ("mobi.phosh.MobileSettings");
+
+    panel = g_settings_get_string (settings, "last-panel");
+  }
+
+  if (!gm_str_is_null_or_empty (panel)) {
     g_application_register (G_APPLICATION (app), NULL, NULL);
-
-    g_action_group_activate_action (G_ACTION_GROUP (app),
-                                    "set-panel",
-                                    g_variant_new ("(s@av)",
-                                                   panel, g_variant_builder_end (&builder)));
+    mobile_settings_application_set_panel (self, panel);
   }
 
   return app_class->handle_local_options (app, options);
@@ -388,8 +411,8 @@ mobile_settings_application_show_about (GSimpleAction *action,
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (user_data);
   GtkWindow *window;
   AdwAboutDialog *about_dialog;
-  const gchar *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
-  const gchar *artists[] = {"Sam Hewitt", NULL};
+  const char *developers[] = {"Guido Günther", "Gotam Gorabh", NULL};
+  const char *artists[] = {"Sam Hewitt", NULL};
 
   g_return_if_fail (MOBILE_SETTINGS_IS_APPLICATION (self));
 

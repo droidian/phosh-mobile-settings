@@ -21,11 +21,13 @@
 
 
 struct _MobileSettingsWindow {
-  AdwApplicationWindow parent_instance;
+  AdwApplicationWindow     parent_instance;
 
   AdwNavigationSplitView  *split_view;
   GtkStack                *stack;
   MsPanelSwitcher         *panel_switcher;
+
+  GSettings               *settings;
 };
 
 G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATION_WINDOW)
@@ -34,7 +36,13 @@ G_DEFINE_TYPE (MobileSettingsWindow, mobile_settings_window, ADW_TYPE_APPLICATIO
 static void
 show_content_cb (MobileSettingsWindow *self)
 {
+  const char *panelname;
+
   adw_navigation_split_view_set_show_content (self->split_view, TRUE);
+
+  panelname = gtk_stack_get_visible_child_name (self->stack);
+
+  g_settings_set_string (self->settings, "last-panel", panelname);
 }
 
 
@@ -82,12 +90,24 @@ ms_settings_window_constructed (GObject *object)
 
 
 static void
+ms_settings_window_dispose (GObject *object)
+{
+  MobileSettingsWindow *self = MOBILE_SETTINGS_WINDOW (object);
+
+  g_clear_object (&self->settings);
+
+  G_OBJECT_CLASS (mobile_settings_window_parent_class)->dispose (object);
+}
+
+
+static void
 mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
   object_class->constructed = ms_settings_window_constructed;
+  object_class->dispose = ms_settings_window_dispose;
 
   g_type_ensure (MS_TYPE_COMPOSITOR_PANEL);
   g_type_ensure (MS_TYPE_FEEDBACK_PANEL);
@@ -104,6 +124,8 @@ mobile_settings_window_class_init (MobileSettingsWindowClass *klass)
 static void
 mobile_settings_window_init (MobileSettingsWindow *self)
 {
+  self->settings = g_settings_new ("mobi.phosh.MobileSettings");
+
   gtk_widget_init_template (GTK_WIDGET (self));
   show_content_cb (self);
 }

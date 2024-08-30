@@ -14,9 +14,9 @@ gboolean
 ms_plugin_check_device_support (const char * const *supported)
 {
   gsize len;
-  const gchar *comp;
+  const char *comp;
   g_autoptr (GError) err = NULL;
-  g_autofree gchar *compatibles = NULL;
+  g_autofree char *compatibles = NULL;
   const char *assume_device;
 
   assume_device = g_getenv("MOBILE_SETTINGS_ASSUME_DEVICE");

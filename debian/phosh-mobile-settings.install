@@ -2,6 +2,7 @@ usr/bin/phosh-mobile-settings
 usr/lib/*/phosh-mobile-settings/plugins/libms-plugin-librem5.so
 usr/share/applications/mobi.phosh.MobileSettings.desktop
 usr/share/dbus-1/services/
+usr/share/glib-2.0/schemas/mobi.phosh.MobileSettings.gschema.xml
 usr/share/icons/hicolor/scalable/apps/mobi.phosh.MobileSettings.svg
 usr/share/icons/hicolor/symbolic/apps/mobi.phosh.MobileSettings-symbolic.svg
 usr/share/locale/*/*/phosh-mobile-settings.mo

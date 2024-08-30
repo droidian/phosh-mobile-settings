@@ -144,7 +144,7 @@ save_plugin_store (MsPluginListBox *self)
     }
   }
   ret = g_strv_builder_end (builder);
-  g_settings_set_strv (self->settings, self->settings_key, (const gchar * const *)ret);
+  g_settings_set_strv (self->settings, self->settings_key, (const char * const *)ret);
 }
 
 
@@ -298,7 +298,7 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
     if (!g_strv_contains ((const char *const *)types, self->plugin_type))
       continue;
 
-    enabled = g_strv_contains ((const gchar * const*)enabled_plugins, name);
+    enabled = g_strv_contains ((const char * const*)enabled_plugins, name);
     g_debug ("Found plugin %s, name %s, enabled: %d, prefs: %d", filename, name, enabled,
              !!prefs_path);
     row = g_object_new (MS_TYPE_PLUGIN_ROW,
