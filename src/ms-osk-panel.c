@@ -378,13 +378,13 @@ ms_osk_panel_init (MsOskPanel *self)
                                 NULL);
 
   if (is_osk_stub ()) {
-    gtk_widget_set_visible (self->completion_group, TRUE);
-
+    gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
     self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
     g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
                      self->hw_keyboard_switch, "active",
                      G_SETTINGS_BIND_DEFAULT);
 
+    gtk_widget_set_visible (self->completion_group, TRUE);
     self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
     g_signal_connect_swapped (self->pos_settings, "changed::" WORD_COMPLETION_KEY,
                               G_CALLBACK (on_word_completion_key_changed),
