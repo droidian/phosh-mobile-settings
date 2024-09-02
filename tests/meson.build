@@ -8,6 +8,7 @@ test_env_common.set('PYTHONDONTWRITEBYTECODE', 'yes')
 test_env_common.set('MALLOC_CHECK_', '2')
 test_env_common.set('NO_AT_BRIDGE', '1')
 test_env_common.set('GTK_A11Y', 'none')
+test_env_common.set('GSK_RENDERER', 'gl')
 
 phoc = find_program('phoc', required: false)
 
