@@ -25,12 +25,12 @@ enum {
 };
 static GParamSpec *props[PROP_LAST_PROP];
 
-enum
-{
+
+enum {
   SIGNAL_MOVE_ROW,
   SIGNAL_LAST
 };
-static guint signals[SIGNAL_LAST] = { 0, };
+static guint signals[SIGNAL_LAST];
 
 
 struct _MsPluginRow {
@@ -55,9 +55,9 @@ G_DEFINE_TYPE (MsPluginRow, ms_plugin_row, ADW_TYPE_ACTION_ROW)
 
 
 static void
-open_prefs_activated (GSimpleAction *action,
-                      GVariant      *parameter,
-                      gpointer       data)
+on_open_prefs_activated (GSimpleAction *action,
+                         GVariant      *parameter,
+                         gpointer       data)
 {
   MsPluginRow *self = MS_PLUGIN_ROW (data);
 
@@ -65,7 +65,6 @@ open_prefs_activated (GSimpleAction *action,
                               "plugin-list-box.open-plugin-prefs",
                               "s", self->filename);
 }
-
 
 
 static void
@@ -133,46 +132,9 @@ ms_plugin_row_get_property (GObject    *object,
 
 
 static void
-update_move_actions_after_row_moved_up (MsPluginRow *self)
+on_move_up_activated (GtkWidget *widget, const char *action_name, GVariant *parameter)
 {
-  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
-  gint previous_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) - 1;
-  GtkListBoxRow *previous_row = gtk_list_box_get_row_at_index (list_box, previous_idx);
-
-  if (gtk_list_box_get_row_at_index (list_box, previous_idx - 1) == NULL) {
-    gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", FALSE);
-  }
-
-  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-up", TRUE);
-  gtk_widget_action_set_enabled (GTK_WIDGET (previous_row), "row.move-down",
-                                 gtk_widget_get_next_sibling (GTK_WIDGET (self)) != NULL);
-  gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", TRUE);
-}
-
-
-static void
-update_move_actions_after_row_moved_down (MsPluginRow *self)
-{
-  GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
-  gint next_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) + 1;
-  GtkListBoxRow *next_row = gtk_list_box_get_row_at_index (list_box, next_idx);
-
-  if (gtk_widget_get_next_sibling (GTK_WIDGET (next_row)) == NULL) {
-    gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-down", FALSE);
-  }
-
-  gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-up", next_idx-1 != 0);
-  gtk_widget_action_set_enabled (GTK_WIDGET (next_row), "row.move-down", TRUE);
-  gtk_widget_action_set_enabled (GTK_WIDGET (self), "row.move-up", TRUE);
-}
-
-
-static void
-move_up_activated (GSimpleAction *action,
-                   GVariant      *parameter,
-                   gpointer       user_data)
-{
-  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  MsPluginRow *self = MS_PLUGIN_ROW (widget);
   GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
   gint previous_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) - 1;
   GtkListBoxRow *previous_row = gtk_list_box_get_row_at_index (list_box, previous_idx);
@@ -180,20 +142,14 @@ move_up_activated (GSimpleAction *action,
   if (previous_row == NULL)
     return;
 
-  update_move_actions_after_row_moved_up (self);
-
-  g_signal_emit (self,
-                 signals[SIGNAL_MOVE_ROW],
-                 0,
-                 previous_row);
+  g_signal_emit (self, signals[SIGNAL_MOVE_ROW], 0, previous_row);
 }
 
+
 static void
-move_down_activated (GSimpleAction *action,
-                     GVariant      *parameter,
-                     gpointer       user_data)
+on_move_down_activated (GtkWidget *widget, const char *action_name, GVariant *parameter)
 {
-  MsPluginRow *self = MS_PLUGIN_ROW (user_data);
+  MsPluginRow *self = MS_PLUGIN_ROW (widget);
   GtkListBox *list_box = GTK_LIST_BOX (gtk_widget_get_parent (GTK_WIDGET (self)));
   gint next_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (self)) + 1;
   GtkListBoxRow *next_row = gtk_list_box_get_row_at_index (list_box, next_idx);
@@ -201,13 +157,9 @@ move_down_activated (GSimpleAction *action,
   if (next_row == NULL)
     return;
 
-  update_move_actions_after_row_moved_down (self);
-
-  g_signal_emit (next_row,
-                 signals[SIGNAL_MOVE_ROW],
-                 0,
-                 self);
+  g_signal_emit (next_row, signals[SIGNAL_MOVE_ROW], 0, self);
 }
+
 
 static GdkContentProvider *
 on_drag_prepare (MsPluginRow *self, double x, double y)
@@ -217,6 +169,7 @@ on_drag_prepare (MsPluginRow *self, double x, double y)
 
   return gdk_content_provider_new_typed (MS_TYPE_PLUGIN_ROW, self);
 }
+
 
 static void
 on_drag_begin (MsPluginRow *self, GdkDrag *drag)
@@ -245,6 +198,7 @@ on_drag_begin (MsPluginRow *self, GdkDrag *drag)
   gtk_drag_icon_set_child (GTK_DRAG_ICON (drag_icon), GTK_WIDGET (self->drag_widget));
   gdk_drag_set_hotspot (drag, self->drag_x, self->drag_y);
 }
+
 
 static gboolean
 on_drop (MsPluginRow *self, const GValue *value, gdouble x, gdouble y)
@@ -323,11 +277,6 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
 
   g_object_class_install_properties (object_class, PROP_LAST_PROP, props);
 
-  gtk_widget_class_set_template_from_resource (widget_class,
-                                               "/mobi/phosh/MobileSettings/ui/ms-plugin-row.ui");
-  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
-  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, prefs);
-
   signals[SIGNAL_MOVE_ROW] =
     g_signal_new ("move-row",
                   G_TYPE_FROM_CLASS (object_class),
@@ -337,14 +286,20 @@ ms_plugin_row_class_init (MsPluginRowClass *klass)
                   NULL,
                   G_TYPE_NONE,
                   1, MS_TYPE_PLUGIN_ROW);
+
+  gtk_widget_class_install_action (widget_class, "row.move-up", NULL, on_move_up_activated);
+  gtk_widget_class_install_action (widget_class, "row.move-down", NULL, on_move_down_activated);
+
+  gtk_widget_class_set_template_from_resource (widget_class,
+                                               "/mobi/phosh/MobileSettings/ui/ms-plugin-row.ui");
+  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, toggle);
+  gtk_widget_class_bind_template_child (widget_class, MsPluginRow, prefs);
 }
 
 
 static GActionEntry entries[] =
 {
-  { .name = "open-prefs", .activate = open_prefs_activated },
-  { .name = "move-up", .activate = move_up_activated },
-  { .name = "move-down", .activate = move_down_activated },
+  { .name = "open-prefs", .activate = on_open_prefs_activated },
 };
 
 
