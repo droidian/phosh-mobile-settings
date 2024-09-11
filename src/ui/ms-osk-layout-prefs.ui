@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsOskLayoutPrefs" parent="AdwPreferencesGroup">
+    <property name="title" translatable="yes" context="on screen keyboard">Layouts</property>
+    <property name="visible">False</property>
+    <child type="header-suffix">
+      <object class="GtkButton">
+        <property name="action-name">osk-prefs.add-layout</property>
+        <property name="child">
+          <object class="AdwButtonContent">
+            <property name="icon-name">list-add-symbolic</property>
+            <property name="label" translatable="yes" context="on screen keyboard">Add Layout</property>
+          </object>
+        </property>
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkListBox" id="layouts_list_box">
+        <property name="selection-mode">none</property>
+        <child type="placeholder">
+          <object class="GtkLabel">
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+            <property name="label" translatable="yes" context="on screen keyboard">No Layouts configured</property>
+          </object>
+        </child>
+        <style>
+          <class name="boxed-list" />
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

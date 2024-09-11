@@ -45,9 +45,14 @@
                   <object class="AdwSwitchRow" id="hw_keyboard_switch">
                     <property name="title" translatable="yes">Ignore hardware keyboard</property>
                     <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when a physical keyboard is present</property>
+                    <property name="visible">False</property>
                   </object>
                 </child>
               </object>
+            </child>
+
+            <child>
+              <object class="MsOskLayoutPrefs" id="osk_layout_prefs"/>
             </child>
 
             <child>

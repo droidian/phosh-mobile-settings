@@ -16,6 +16,9 @@ src/ui/ms-convergence-panel.ui
 src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
+src/ui/ms-osk-add-layout-dialog.ui
+src/ui/ms-osk-layout-prefs.ui
+src/ui/ms-osk-layout-row.ui
 src/ui/ms-osk-panel.ui
 src/ui/ms-plugin-row.ui
 src/ui/ms-scale-to-fit-row.ui

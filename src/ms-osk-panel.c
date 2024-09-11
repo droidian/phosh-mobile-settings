@@ -1,7 +1,9 @@
 /*
- * Copyright (C) 2023 Guido Günther <agx@sigxcpu.org>
+ * Copyright (C) 2023-2024 The Phosh Developers
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Author: Guido Günther <agx@sigxcpu.org>
  */
 
 #define G_LOG_DOMAIN "ms-osk-panel"
@@ -9,6 +11,7 @@
 #include "mobile-settings-config.h"
 #include "mobile-settings-enums.h"
 #include "ms-enum-types.h"
+#include "ms-osk-layout-prefs.h"
 #include "ms-osk-panel.h"
 #include "ms-util.h"
 
@@ -42,6 +45,7 @@ struct _MsOskPanel {
 
   GSettings        *a11y_settings;
   GtkWidget        *osk_enable_switch;
+  GtkWidget        *osk_layout_prefs;
 
   GSettings        *phosh_settings;
   GtkWidget        *long_press_combo;
@@ -303,6 +307,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
                                                "/mobi/phosh/MobileSettings/ui/ms-osk-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, hw_keyboard_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_layout_prefs);
 
   /* OSK handling */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, long_press_combo);
@@ -378,13 +383,13 @@ ms_osk_panel_init (MsOskPanel *self)
                                 NULL);
 
   if (is_osk_stub ()) {
-    gtk_widget_set_visible (self->completion_group, TRUE);
-
+    gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
     self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
     g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
                      self->hw_keyboard_switch, "active",
                      G_SETTINGS_BIND_DEFAULT);
 
+    gtk_widget_set_visible (self->completion_group, TRUE);
     self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
     g_signal_connect_swapped (self->pos_settings, "changed::" WORD_COMPLETION_KEY,
                               G_CALLBACK (on_word_completion_key_changed),
@@ -404,6 +409,9 @@ ms_osk_panel_init (MsOskPanel *self)
                               G_CALLBACK (on_terminal_shortcuts_changed),
                               self);
     on_terminal_shortcuts_changed (self);
+
+    gtk_widget_set_visible (self->osk_layout_prefs, TRUE);
+    ms_osk_layout_prefs_load_osk_layouts (MS_OSK_LAYOUT_PREFS (self->osk_layout_prefs));
   }
 }
 
