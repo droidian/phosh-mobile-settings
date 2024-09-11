@@ -2,21 +2,22 @@
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024.
+# Juliano de Souza Camargo <julianosc@pm.me>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-08-14 16:48+0000\n"
-"PO-Revision-Date: 2024-08-15 00:11-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-11 08:08-0300\n"
+"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 46.1\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
@@ -118,50 +119,50 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sai"
 
-#: src/mobile-settings-application.c:32
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "- Gerencia suas configurações móveis"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:403
+#: src/mobile-settings-application.c:426
 msgid "translator-credits"
 msgstr "Rafael Fontenelle <rafaelff@gnome.org>"
 
-#: src/mobile-settings-window.c:77
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "Dispositivo"
 
-#: src/ms-feedback-panel.c:138
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "Arquivo de som não existe"
 
-#: src/ms-feedback-panel.c:140
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "Arquivo de som corrompido"
 
-#: src/ms-feedback-panel.c:142
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "Falha ao reproduzir o som"
 
-#: src/ms-feedback-panel.c:181
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "Reproduzindo %s"
 
-#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "nada"
 
-#: src/ms-feedback-panel.c:344
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "baixo"
 
 #. 1.0
-#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normal"
 
-#: src/ms-feedback-panel.c:348
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "crítico"
 
@@ -340,7 +341,7 @@ msgstr "Redução de escala de todos aplicativos"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Habilitado"
@@ -473,6 +474,49 @@ msgstr "Widgets"
 msgid "Additional widgets for the lock screen"
 msgstr "Widgets adicionais para a tela de bloqueio"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Adicionar leiaute"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Adicionar"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Idioma"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Leiautes"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Nenhum leiaute configurado"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Mais opções…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Mover para cima"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Mover para baixo"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Remover"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "Habilitar teclado _virtual"
@@ -512,52 +556,40 @@ msgid ""
 msgstr ""
 "Se deve mostrar o teclado na tela quando um teclado físico estiver presente"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "Autocompletamento de texto"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "Autocompletamento oportunístico de palavras"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Habilita autocompletamento de palavra quando o aplicativo indicar ser útil"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "Alternar via menu OSK"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permite alternar o autocompletamento de palavras por meio do botão de menu "
 "do teclado"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "Layout do terminal"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "Atalhos"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Os atalhos disponíveis na barra de atalhos"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "Mais opções…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Mover para cima"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Mover para baixo"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
