@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-08-30 16:27+0000\n"
-"PO-Revision-Date: 2024-08-25 00:25+0300\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-11 08:00+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -344,7 +344,7 @@ msgstr "Tüm uygulamaları küçült"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Etkin"
@@ -477,6 +477,49 @@ msgstr "Parçacıklar"
 msgid "Additional widgets for the lock screen"
 msgstr "Kilit ekranı için ek parçacıklar"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Düzen Ekle"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Ekle"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Dil"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Düzenler"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Düzen yapılandırılmadı"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Daha çok seçenek…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Yukarı Taşı"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Aşağı Taşı"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Kaldır"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "_Ekran Klavyesini Etkinleştir"
@@ -515,51 +558,39 @@ msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "Fiziksel klavye varsa ekran klavyesinin gösterilme durumu"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "Metin Tamamlama"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "Fırsatçı sözcük tamamlama"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Uygulama, yararlı olduğunu belirttiğinde sözcük tamamlamayı etkinleştir"
 
 # OSK: On Screen Keyboard
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "Ekran Klavyesi menüsü ile değiştir"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Klavyenin menü düğmesiyle sözcük tamamlamayı açıp kapatmaya izin ver"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "Uçbirim Yerleşimi"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "Kısayollar"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Kısayollar çubuğundaki kısayollar"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "Daha çok seçenek…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Yukarı Taşı"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Aşağı Taşı"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
