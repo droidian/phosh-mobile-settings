@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2024-08-11 12:50+0000\n"
-"PO-Revision-Date: 2024-08-11 19:24+0300\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-11 16:46+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -119,50 +119,50 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти з програми"
 
-#: src/mobile-settings-application.c:32
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "- Керування вашими мобільними параметрами"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:403
+#: src/mobile-settings-application.c:426
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
-#: src/mobile-settings-window.c:77
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "Пристрій"
 
-#: src/ms-feedback-panel.c:138
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "Звукового файла не існує"
 
-#: src/ms-feedback-panel.c:140
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "Звуковий файл пошкоджено"
 
-#: src/ms-feedback-panel.c:142
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "Не вдалося відтворити звук"
 
-#: src/ms-feedback-panel.c:181
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
-#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "немає"
 
-#: src/ms-feedback-panel.c:344
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "низький"
 
 #. 1.0
-#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "звичайний"
 
-#: src/ms-feedback-panel.c:348
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "критичний"
 
@@ -342,7 +342,7 @@ msgstr "Масштабувати усі програми"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -412,8 +412,8 @@ msgstr "Глушити клавішею Гуч-"
 msgid ""
 "When locked put the phone in silent mode when pressing Vol- on incoming calls"
 msgstr ""
-"Якщо заблоковано, перевести телефон у беззвучний режим при натисканні Гуч-"
-" при вхідних викликах"
+"Якщо заблоковано, перевести телефон у беззвучний режим при натисканні Гуч- "
+"при вхідних викликах"
 
 #: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
@@ -475,6 +475,49 @@ msgstr "Віджети"
 msgid "Additional widgets for the lock screen"
 msgstr "Додаткові віджети для екрана блокування"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Додати компонування"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Додати"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Мова"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Компонування"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Компонувань не налаштовано"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Додаткові параметри…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Пересунути вище"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Пересунути нижче"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Вилучити"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "Увімкнути _екранну клавіатуру"
@@ -515,52 +558,40 @@ msgstr ""
 "Визначає, чи слід показувати екранну клавіатуру, якщо наявна фізична "
 "клавіатура"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "Завершення тексту"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "Гнучке автоматичне доповнення"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "Перемикання за меню OSK"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Уможливити перемикання автодоповнення слів за допомогою кнопки меню "
 "клавіатури"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "Компонування термінала"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "Скорочення"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Скорочення, якими можна скористатися на панелі скорочень"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "Додаткові параметри…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Пересунути вище"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Пересунути нижче"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
