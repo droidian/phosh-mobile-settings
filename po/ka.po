@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-08-11 12:50+0000\n"
-"PO-Revision-Date: 2024-08-12 06:21+0200\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-12 03:06+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -116,50 +116,50 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "გასვლა"
 
-#: src/mobile-settings-application.c:32
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "- მართეთ თქვენი მობილურის პარამეტრები"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:403
+#: src/mobile-settings-application.c:426
 msgid "translator-credits"
 msgstr "temuri Doghonadze"
 
-#: src/mobile-settings-window.c:77
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "მოწყობილობა"
 
-#: src/ms-feedback-panel.c:138
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "ხმის ფაილი არ არსებობს"
 
-#: src/ms-feedback-panel.c:140
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "ხმის ფაილი დაზიანებულია"
 
-#: src/ms-feedback-panel.c:142
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "ხმის დაკვრა ჩავარდა"
 
-#: src/ms-feedback-panel.c:181
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "%s-ის დაკვრა"
 
-#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "არა"
 
-#: src/ms-feedback-panel.c:344
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "დაბალი"
 
 #. 1.0
-#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "ნორმალური"
 
-#: src/ms-feedback-panel.c:348
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "კრიტიკული"
 
@@ -336,7 +336,7 @@ msgstr "ყველა აპლიკაციის დაატარავ�
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "ჩართულია"
@@ -470,6 +470,49 @@ msgstr "ვიჯეტები"
 msgid "Additional widgets for the lock screen"
 msgstr "დამატებითი ვიჯეტები დაბლოკვის ეკრანისთვის"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "განლაგების დამატება"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "დამატება"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "ენა"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "განლაგებები"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "განლაგებები მორგებული არაა"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "მეტი პარამეტრი…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "აწევა"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "ჩამოწევა"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "წაშლა"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "ეკრანის _კლავიატურის ჩართვა"
@@ -510,49 +553,37 @@ msgstr ""
 "არის თუ არა ნაჩვენები ეკრანის კლავიატურა, როცა აპარატურული კლავიატურა "
 "არსებობს"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "ტექსტის დასრულება"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "ოპორტუნისტული სიტყვების დასრულება"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "სიტყვის დასრულების ჩართვა, როცა აპი მიუთითებს, რომ ის სასარგებლოა"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "გადართვა OSK მენიუდან"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "სიტყვის დასრულების გადართვის ჩართვა კლავიატურის მენიუს ღილაკიდან"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "ტერმინალის განლაგება"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "მალსახმობები"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "მალსახმობების პანელზე ხელმისაწვდომი მალსახმობები"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "მეტი პარამეტრი…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "აწევა"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "ჩამოწევა"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
