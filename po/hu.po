@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settin"
 "gs/-/issues\n"
-"POT-Creation-Date: 2024-08-11 12:50+0000\n"
-"PO-Revision-Date: 2024-09-09 13:06+0200\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-13 17:07+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -117,50 +117,50 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: src/mobile-settings-application.c:32
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "– mobilbeállítások kezelése"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:403
+#: src/mobile-settings-application.c:426
 msgid "translator-credits"
 msgstr "Úr Balázs <ur dot balazs at fsf dot hu>, 2024."
 
-#: src/mobile-settings-window.c:77
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "Eszköz"
 
-#: src/ms-feedback-panel.c:138
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "A hangfájl nem létezik"
 
-#: src/ms-feedback-panel.c:140
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "A hangfájl sérült"
 
-#: src/ms-feedback-panel.c:142
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "Nem sikerült lejátszani a hangot"
 
-#: src/ms-feedback-panel.c:181
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "%s lejátszása"
 
-#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "nincs"
 
-#: src/ms-feedback-panel.c:344
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "alacsony"
 
 #. 1.0
-#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normál"
 
-#: src/ms-feedback-panel.c:348
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "kritikus"
 
@@ -342,7 +342,7 @@ msgstr "Összes alkalmazás méretének csökkentése"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Engedélyezve"
@@ -414,8 +414,8 @@ msgstr "Csendesítés a hangerő csökkentése gombbal"
 msgid ""
 "When locked put the phone in silent mode when pressing Vol- on incoming calls"
 msgstr ""
-"Ha zárolva van, akkor a telefont néma módba helyezi a bejövő hívásoknál a"
-" hangerő csökkentése gomb megnyomásakor."
+"Ha zárolva van, akkor a telefont néma módba helyezi a bejövő hívásoknál a "
+"hangerő csökkentése gomb megnyomásakor."
 
 #: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
@@ -477,6 +477,49 @@ msgstr "Felületi elemek"
 msgid "Additional widgets for the lock screen"
 msgstr "További felületi elemek a zárolási képernyőhöz"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Elrendezés hozzáadása"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Hozzáadás"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Nyelv"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Elrendezések"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Nincsenek elrendezések beállítva"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "További beállítások…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Mozgatás fel"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Mozgatás le"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Eltávolítás"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "_Képernyő-billentyűzet engedélyezése"
@@ -517,52 +560,40 @@ msgstr ""
 "Meg kell-e jeleníteni a képernyő-billentyűzetet, ha fizikai billentyűzettel "
 "rendelkezik"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "Szövegkiegészítés"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "Megalkuvó szókiegészítés"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Szókiegészítés engedélyezése, ha az alkalmazás azt jelzi, hogy ez hasznos"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "Be- és kikapcsolás az OSK menün keresztül"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "A szókiegészítés be- és kikapcsolásának lehetővé tétele a billentyűzet "
 "menügombján keresztül"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "Terminál elrendezése"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "A gyorsbillentyűsávon elérhető gyorsbillentyűk"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "További beállítások…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Mozgatás fel"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Mozgatás le"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
