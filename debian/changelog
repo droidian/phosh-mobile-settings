@@ -1,3 +1,91 @@
+phosh-mobile-settings (0.42~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * packaging: Bump phosh dependency.
+    We want recent enums and schemas.
+  * build: Require phosh's enums.
+    We've done multiple releases with it now
+    Fixes: f9e684a ("topbar-panel: Allow to set shell layout settings")
+  * top-panel: Require enums from phosh.
+    Drop the fallback as we'' require it in other parts of mobile settings
+    too.
+  * app-panel: Use enum filter-mode-flag enum from phosh
+  * feedback-panel: Use phosh's enums for screen wakup flags.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/55
+  * run: Abort on criticals by default.
+    They're too often ignored
+  * run: Add our schema dir.
+    This way we can keep running from the source tree
+  * mobile-settings-application: Split panel activation into a helper
+  * application: Open last panel on startup
+  * packaging: Sync gmobile version with the subproject wrap
+  * treewide: Ack gmobile unstable API in a single place.
+    No use bothering separate source files with that.
+  * application: Open the panel stored in `last-panel`
+    If no panel was given on the command line get the panel to open from
+    gsettings.
+  * window: Remember the panel on stack page changes.
+    This way we have the last panel available even when the app crashes.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/61
+  * build: Sort deps alphabetically
+  * plugin-row: Use gtk_widget_class_install_action for move up/down.
+    This makes `update_enabled_move_actions()` actually work as
+    `gtk_widget_action_set_enabled` only work on those actions.
+  * plugin-list-box: Update movability after loading plugins.
+    Otherwise move-up/down will be will be marked as possible in the popover
+    for the first/last row until we move at least one row.
+  * plugin-row: Remove duplicate logic.
+    This duplicates the logic of `update_enabled_move_actions()`.
+  * osk-panel: Hide HW keyboard detection by default.
+    It's only supported with phosh-osk-stub
+  * osk-panel: Allow to configure OSK layouts.
+    This allows to add / remove and sort keyboard layouts.
+    The list of available layouts is provided by the OSK. For XKB layouts we
+    provide a translated language from the xkb database.
+
+  [ Tomi Lähteenmäki ]
+  * tests: Set GSK_RENDERER in test env.
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Jordi Mas i Hernandez ]
+  * Update Catalan translation
+
+  [ Daniel Rusek ]
+
+  [ Balázs Úr ]
+  * Update Hungarian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 20 Sep 2024 17:15:48 +0200
+
 phosh-mobile-settings (0.41.0) experimental; urgency=medium
 
   [ Guido Günther ]
