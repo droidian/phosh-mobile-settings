@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-04-28 19:09+0000\n"
-"PO-Revision-Date: 2024-05-06 11:52+0100\n"
+"POT-Creation-Date: 2024-09-11 10:34+0000\n"
+"PO-Revision-Date: 2024-09-20 17:48+0100\n"
 "Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
 "Language-Team: English - United Kingdom <en@li.org>\n"
 "Language: en_GB\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 46.0\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -26,7 +26,7 @@ msgid "Mobile Settings"
 msgstr "Mobile Settings"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mobile;Preferences;MobileSettings;"
 
@@ -118,45 +118,52 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quit"
 
-#: src/mobile-settings-application.c:28
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "- Manage your mobile settings"
 
-#: src/mobile-settings-window.c:77
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:426
+msgid "translator-credits"
+msgstr ""
+"Andi Chandler <andi@gowling.com>\n"
+"Bruce Cowan <bruce@bcowan.me.uk>"
+
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "Device"
 
-#: src/ms-feedback-panel.c:135
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "Sound file does not exist"
 
-#: src/ms-feedback-panel.c:137
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "Sound file is corrupt"
 
-#: src/ms-feedback-panel.c:139
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "Failed to play sound"
 
-#: src/ms-feedback-panel.c:178
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "Playing %s"
 
-#: src/ms-feedback-panel.c:339 src/ms-feedback-panel.c:347
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "none"
 
-#: src/ms-feedback-panel.c:341
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "low"
 
 #. 1.0
-#: src/ms-feedback-panel.c:343 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
 msgid "normal"
 msgstr "normal"
 
-#: src/ms-feedback-panel.c:345
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "critical"
 
@@ -205,71 +212,71 @@ msgstr "Custom"
 msgid "Choose sound file"
 msgstr "Choose sound file"
 
-#: src/ms-util.c:149
+#: src/ms-util.c:150
 msgid "Full"
 msgstr "Full"
 
-#: src/ms-util.c:151
+#: src/ms-util.c:152
 msgid "Quiet"
 msgstr "Quiet"
 
-#: src/ms-util.c:153
+#: src/ms-util.c:154
 msgid "Silent"
 msgstr "Silent"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/ui/mobile-settings-window.ui:75
 msgid "Welcome"
 msgstr "Welcome"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:81
 msgid "Welcome to Mobile Settings"
 msgstr "Welcome to Mobile Settings"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:82
 msgid "Tweak advanced mobile settings"
 msgstr "Tweak advanced mobile settings"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:90
 msgid "Top Bar"
 msgstr "Top Bar"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:101
 msgid "Applications"
 msgstr "Applications"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:112
 msgid "Feedback"
 msgstr "Feedback"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:123
 msgid "Compositor"
 msgstr "Compositor"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:134
 msgid "Lockscreen"
 msgstr "Lockscreen"
 
-#: src/ui/mobile-settings-window.ui:144
+#: src/ui/mobile-settings-window.ui:145
 msgid "Convergence"
 msgstr "Convergence"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:156
 msgid "On Screen Keyboard"
 msgstr "On Screen Keyboard"
 
-#: src/ui/mobile-settings-window.ui:166 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Sensors"
 
-#: src/ui/mobile-settings-window.ui:177
+#: src/ui/mobile-settings-window.ui:178
 msgid "Experimental features"
 msgstr "Experimental features"
 
-#: src/ui/mobile-settings-window.ui:201
+#: src/ui/mobile-settings-window.ui:202
 msgid "_Keyboard Shortcuts"
 msgstr "_Keyboard Shortcuts"
 
-#: src/ui/mobile-settings-window.ui:205
+#: src/ui/mobile-settings-window.ui:206
 msgid "_About Mobile Settings"
 msgstr "_About Mobile Settings"
 
@@ -331,8 +338,8 @@ msgstr "Scale down all apps"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Enabled"
@@ -385,57 +392,127 @@ msgstr "Feedback profile"
 msgid "The global maximum feedback profile"
 msgstr "The global maximum feedback profile"
 
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "Prefer flash"
+
 #: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr "Prefer camera flash over status LED when available"
+
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Silence on Vol-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "Per Application settings"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "Sounds"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
 msgstr "The sound to use for certain events"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "Phone Calls"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "Instant messages"
 
-#: src/ui/ms-feedback-panel.ui:78
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
 msgstr "Screen Wakeup"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
 msgstr "Notification urgency that lights up the screen"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Unlocking"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Locking and unlocking"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Automatic screen lock delay"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Seconds from screen blank to screen lock"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Shuffle keypad"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Whether to shuffle the numbers on the keypad"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Widgets"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Additional widgets for the lock screen"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Add Layout"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Add"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Language"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Layouts"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "No Layouts configured"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "More options…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Move Up"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Move Down"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Remove"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
@@ -475,49 +552,37 @@ msgid ""
 msgstr ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:61
 msgid "Text Completion"
 msgstr "Text Completion"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:64
 msgid "Opportunistic word completion"
 msgstr "Opportunistic word completion"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:65
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Enable word completion when the app indicates it is useful"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:80
 msgid "Toggle via OSK menu"
 msgstr "Toggle via OSK menu"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:81
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Allow to toggle word completion via the keyboard's menu button"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:99
 msgid "Terminal Layout"
 msgstr "Terminal Layout"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:103
 msgid "Shortcuts"
 msgstr "Shortcuts"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:104
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "The shortcuts available in the shortcuts bar"
-
-#: src/ui/ms-plugin-row.ui:33
-msgid "More options…"
-msgstr "More options…"
-
-#: src/ui/ms-plugin-row.ui:46
-msgid "Move Up"
-msgstr "Move Up"
-
-#: src/ui/ms-plugin-row.ui:50
-msgid "Move Down"
-msgstr "Move Down"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -572,9 +637,32 @@ msgid "Sound files (ogg)"
 msgstr "Sound files (ogg)"
 
 #: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "UI Elements"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Show battery percentage"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Show exact charge level in the top bar"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Avoid notches"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "Don't place UI elements beneath notches and display cutouts"
+
+#: src/ui/ms-topbar-panel.ui:34
 msgid "Quick Settings"
 msgstr "Quick Settings"
 
-#: src/ui/ms-topbar-panel.ui:13
+#: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Organise your additional Quick Settings"
+
+#~ msgid "Unlocking"
+#~ msgstr "Unlocking"
