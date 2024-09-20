@@ -34,7 +34,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Breaks:
- phosh-osk-stub (<< 0.38.0)
+ phosh-osk-stub (<< 0.42~)
 Description: Phosh and related settings for mobile
  Mobile Settings allows to configure some advanced settings of the Phosh mobile
  environment that would otherwise involve using the command line.
