@@ -52,6 +52,44 @@
             </child>
 
             <child>
+              <object class="AdwPreferencesGroup" id="keyboard_height_prefs">
+                <property name="visible">False</property>
+                <child>
+                  <object class="AdwSpinRow" id="scale_in_vertical_orientation">
+                    <property name="title" translatable="yes">Keyboard height in portrait mode</property>
+                    <property name="subtitle" translatable="yes">When the screen is taller than wide</property>
+                    <property name="digits">2</property>
+                    <property name="visible">False</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">0.50</property>
+                        <property name="upper">2.00</property>
+                        <property name="page-increment">0.10</property>
+                        <property name="step-increment">0.01</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSpinRow" id="scale_in_horizontal_orientation">
+                    <property name="title" translatable="yes">Keyboard height in landscape mode</property>
+                    <property name="subtitle" translatable="yes">When the screen is wider than tall</property>
+                    <property name="digits">2</property>
+                    <property name="visible">False</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">0.50</property>
+                        <property name="upper">2.00</property>
+                        <property name="page-increment">0.10</property>
+                        <property name="step-increment">0.01</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
               <object class="MsOskLayoutPrefs" id="osk_layout_prefs"/>
             </child>
 
