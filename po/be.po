@@ -1,0 +1,670 @@
+# Belarusian translation for phosh-mobile-settings.
+# Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
+# This file is distributed under the same license as the phosh-mobile-settings package.
+# Yuras Shumovich <shumovichy@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phosh-mobile-settings main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-09-20 21:03+0000\n"
+"PO-Revision-Date: 2024-09-21 16:45+0300\n"
+"Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
+"Language-Team: Belarusian <Belarusian>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.5\n"
+
+#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: src/ui/mobile-settings-window.ui:6
+msgid "Mobile Settings"
+msgstr "Мабільныя налады"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:13
+msgid "Mobile;Preferences;MobileSettings;"
+msgstr "Mobile;Preferences;MobileSettings;Мабільныя;Налады;Параметры;"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
+msgid "Phosh Mobile Settings"
+msgstr "Мабільныя налады Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:8
+msgid ""
+"This app allows you to configure some aspects of Phosh that would otherwise "
+"require command line usage."
+msgstr ""
+"Гэтая праграма дазваляе наладжваць некаторыя функцыі Phosh, для якіх у іншым "
+"выпадку патрабавалася б выкарыстанне каманднага радка."
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
+msgid "Advanced settings for Mobile devices using Phosh"
+msgstr "Пашыраныя налады для мабільных прылад з Phosh"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+msgid "Available panels"
+msgstr "Даступныя панэлі"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+msgid "Compositor panel"
+msgstr "Панэль кампазітара"
+
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
+msgid "Feedback panel"
+msgstr "Панэль зваротнай сувязі"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "Крытычная тэмпература – %.2f°C"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr "Прыпыненне працы прылады"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr "Функцыя прыпынення працы эксперыментальная"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr "Тэмпературы"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr "ЦП"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr "Датчык энергіі"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "Батарэя"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Агульныя"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Паказаць спалучэнні клавіш"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Выйсці"
+
+#: src/mobile-settings-application.c:34
+msgid "- Manage your mobile settings"
+msgstr "- Кіраванне мабільнымі наладамі"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:426
+msgid "translator-credits"
+msgstr "Юрась Шумовіч <shumovichy@gmail.com>"
+
+#: src/mobile-settings-window.c:85
+msgid "Device"
+msgstr "Прылада"
+
+#: src/ms-feedback-panel.c:140
+msgid "Sound file does not exist"
+msgstr "Аўдыяфайл не існуе"
+
+#: src/ms-feedback-panel.c:142
+msgid "Sound file is corrupt"
+msgstr "Аўдыяфайл пашкоджаны"
+
+#: src/ms-feedback-panel.c:144
+msgid "Failed to play sound"
+msgstr "Не ўдалося прайграць аўдыяфайл"
+
+#: src/ms-feedback-panel.c:183
+#, c-format
+msgid "Playing %s"
+msgstr "Прайграецца %s"
+
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
+msgid "none"
+msgstr "няма"
+
+#: src/ms-feedback-panel.c:346
+msgid "low"
+msgstr "нізкая"
+
+#. 1.0
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+msgid "normal"
+msgstr "нармальная"
+
+#: src/ms-feedback-panel.c:350
+msgid "critical"
+msgstr "крытычная"
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "Звычайная"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr "Перавернутая"
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr "Павернутая направа"
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr "Павернутая налева"
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr "Нявызначана"
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr "Блізка"
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr "Далёка"
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "Абнаўленне…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr "Недаступна"
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "Уласны"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr "Выбраць аўдыяфайл"
+
+#: src/ms-util.c:150
+msgid "Full"
+msgstr "Поўны"
+
+#: src/ms-util.c:152
+msgid "Quiet"
+msgstr "Ціхі"
+
+#: src/ms-util.c:154
+msgid "Silent"
+msgstr "Бязгучны"
+
+#: src/ui/mobile-settings-window.ui:75
+msgid "Welcome"
+msgstr "Вітаем"
+
+#: src/ui/mobile-settings-window.ui:81
+msgid "Welcome to Mobile Settings"
+msgstr "Вітаем у Мабільных наладах"
+
+#: src/ui/mobile-settings-window.ui:82
+msgid "Tweak advanced mobile settings"
+msgstr "Змяненне пашыраных мабільных налад"
+
+#: src/ui/mobile-settings-window.ui:90
+msgid "Top Bar"
+msgstr "Верхняя панэль"
+
+#: src/ui/mobile-settings-window.ui:101
+msgid "Applications"
+msgstr "Праграмы"
+
+#: src/ui/mobile-settings-window.ui:112
+msgid "Feedback"
+msgstr "Зваротная сувязь"
+
+#: src/ui/mobile-settings-window.ui:123
+msgid "Compositor"
+msgstr "Кампазітар"
+
+#: src/ui/mobile-settings-window.ui:134
+msgid "Lockscreen"
+msgstr "Экран блакіравання"
+
+#: src/ui/mobile-settings-window.ui:145
+msgid "Convergence"
+msgstr "Звядзенне"
+
+#: src/ui/mobile-settings-window.ui:156
+msgid "On Screen Keyboard"
+msgstr "Экранная клавіятура"
+
+#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
+msgid "Sensors"
+msgstr "Датчыкі"
+
+#: src/ui/mobile-settings-window.ui:178
+msgid "Experimental features"
+msgstr "Эксперыментальныя функцыі"
+
+#: src/ui/mobile-settings-window.ui:202
+msgid "_Keyboard Shortcuts"
+msgstr "_Спалучэнні клавіш"
+
+#: src/ui/mobile-settings-window.ui:206
+msgid "_About Mobile Settings"
+msgstr "_Пра Мабільныя налады"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "Абраныя"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "Упарадкаванне абранага"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Перацягвайце праграмы, размешчаныя ніжэй, каб упарадкаваць абраныя праграмы"
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr "Скінуць абраныя"
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr "Вярнуць прадвызначаныя налады спіса абраных праграм"
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "Скінуць"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr "Фільтраванне мабільных праграм"
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr "Вызначыць рэжым фільтравання праграм"
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr "Паказваць пры аглядзе толькі мабільныя праграмы"
+
+#: src/ui/ms-compositor-panel.ui:11
+msgid "Scaling down of running applications"
+msgstr "Маштабаванне запушчаных праграм"
+
+#: src/ui/ms-compositor-panel.ui:12
+msgid "Only enable this for broken apps that don't fit the screen"
+msgstr "Уключайце толькі для праграм, якія не ўмяшчаюцца ў экран"
+
+#: src/ui/ms-compositor-panel.ui:25
+msgid "Scale down all applications"
+msgstr "Маштабаванне ўсіх праграм"
+
+#: src/ui/ms-compositor-panel.ui:26
+msgid "Forcibly scale down all applications. Only use this as a last resort."
+msgstr ""
+"Прымусова паменшыць маштаб для ўсіх праграм. Выкарыстоўвайце толькі ў "
+"крайнім выпадку."
+
+#: src/ui/ms-compositor-panel.ui:29
+msgid "Scale down all apps"
+msgstr "Маштабаванне ўсіх праграм"
+
+#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
+#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
+#: src/ui/ms-scale-to-fit-row.ui:11
+msgid "Enabled"
+msgstr "Уключана"
+
+#: src/ui/ms-convergence-panel.ui:15
+msgid "No known docks detected"
+msgstr "Вядомых прыставак не выяўлена"
+
+#: src/ui/ms-convergence-panel.ui:29
+msgid "Map built-in touch screen"
+msgstr "Прывязаць убудаваны сэнсарны экран"
+
+#: src/ui/ms-features-panel.ui:11
+msgid "Experimental Features"
+msgstr "Эксперыментальныя функцыі"
+
+#: src/ui/ms-features-panel.ui:12
+msgid "Features not yet deemed fully stable"
+msgstr "Функцыі, якія яшчэ лічацца нестабільнымі"
+
+#: src/ui/ms-features-panel.ui:16
+msgid "Emergency Calls"
+msgstr "Экстранныя выклікі"
+
+#: src/ui/ms-features-panel.ui:17
+msgid ""
+"Enable emergency calls. Please only enable this if you safely can ensure "
+"that it's working with your provider."
+msgstr ""
+"Уключыць экстранныя выклікі. Уключайце гэту функцыю толькі калі перакананы, "
+"што яна працуе ў вашага аператара."
+
+#: src/ui/ms-features-panel.ui:31
+msgid "Enable suspend via the system menu"
+msgstr "Уключыць прыпыненне працы праз сістэмнае меню"
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Уключайце толькі калі ведаеце пра абмежаванні рэжыму, напрыклад, страта "
+"інтэрнэт-злучэння і прапушчаныя выклікі"
+
+#: src/ui/ms-feedback-panel.ui:16
+msgid "Feedback profile"
+msgstr "Профіль зваротнай сувязі"
+
+#: src/ui/ms-feedback-panel.ui:17
+msgid "The global maximum feedback profile"
+msgstr "Глабальны профіль зваротнай сувязі"
+
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "Аддаваць перавагу ліхтарыку"
+
+#: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr ""
+"Калі магчыма, аддаваць перавагу ліхтарыку камеры замест індыкатара стану"
+
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Адключаць гук кнопкай Vol-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Калі тэлефон заблакіраваны, націсканне кнопкі памяншэння гучнасці, падчас "
+"уваходнага выкліку, адключае гук"
+
+#: src/ui/ms-feedback-panel.ui:48
+msgid "Per Application settings"
+msgstr "Наладжванне праграм паасобку"
+
+#: src/ui/ms-feedback-panel.ui:61
+msgid "Sounds"
+msgstr "Гукі"
+
+#: src/ui/ms-feedback-panel.ui:62
+msgid "The sound to use for certain events"
+msgstr "Гук, які выкарыстоўваецца для пэўных падзей"
+
+#: src/ui/ms-feedback-panel.ui:70
+msgid "Phone Calls"
+msgstr "Тэлефонныя выклікі"
+
+#: src/ui/ms-feedback-panel.ui:76
+msgid "SMS"
+msgstr "SMS"
+
+#: src/ui/ms-feedback-panel.ui:82
+msgid "Instant messages"
+msgstr "Імгненныя паведамленні"
+
+#: src/ui/ms-feedback-panel.ui:93
+msgid "Screen Wakeup"
+msgstr "Актывацыя экрана"
+
+#: src/ui/ms-feedback-panel.ui:96
+msgid "Notification urgency that lights up the screen"
+msgstr "Узровень важнасці паведамлення, пры якім загараецца экран"
+
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Блакіраванне і разблакіраванне"
+
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Затрымка да аўтаблакіравання экрана"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Секунд да аўтаматычнага блакіравання экрана пасля яго адключэння"
+
+#: src/ui/ms-lockscreen-panel.ui:30
+msgid "Shuffle keypad"
+msgstr "Перамешваць кнопкі"
+
+#: src/ui/ms-lockscreen-panel.ui:31
+msgid "Whether to shuffle the numbers on the keypad"
+msgstr "Ці перамешваць кнопкі на лічбавай панэлі"
+
+#: src/ui/ms-lockscreen-panel.ui:48
+msgid "Widgets"
+msgstr "Віджэты"
+
+#: src/ui/ms-lockscreen-panel.ui:49
+msgid "Additional widgets for the lock screen"
+msgstr "Дадатковыя віджэты для экрана блакіравання"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Дадаць раскладку"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Скасаваць"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Дадаць"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Мова"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Раскладкі"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Раскладкі не наладжаны"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Больш параметраў…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Перамясціць вышэй"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Перамясціць ніжэй"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Выдаліць"
+
+#: src/ui/ms-osk-panel.ui:13
+msgid "Enable _On Screen Keyboard"
+msgstr "Уключыць _экранную клавіятуру"
+
+#: src/ui/ms-osk-panel.ui:14
+msgid "Whether to show the on screen keyboard when needed"
+msgstr "Ці паказваць экранную клавіятуру пры патрэбе"
+
+#: src/ui/ms-osk-panel.ui:28
+msgid "Unfold long-press"
+msgstr "Раскрыццё працяглым націсканнем"
+
+#: src/ui/ms-osk-panel.ui:29
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Працягласць націскання на цэнтр панэлі кіравання, каб раскрыць экранную "
+"клавіятуру"
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:34
+msgid "short"
+msgstr "кароткая"
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:38
+msgid "long"
+msgstr "доўгая"
+
+#: src/ui/ms-osk-panel.ui:46
+msgid "Ignore hardware keyboard"
+msgstr "Ігнараваць апаратную клавіятуру"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr "Ці паказваць экранную клавіятуру, калі маецца фізічная"
+
+#: src/ui/ms-osk-panel.ui:61
+msgid "Text Completion"
+msgstr "Аўтазавяршэнне тэксту"
+
+#: src/ui/ms-osk-panel.ui:64
+msgid "Opportunistic word completion"
+msgstr "Прапаноўваць канец незавершанага слова"
+
+#: src/ui/ms-osk-panel.ui:65
+msgid "Enable word completion when the app indicates it is useful"
+msgstr "Уключыць завяршэнне слоў, калі праграма лічыць гэта карысным"
+
+#: src/ui/ms-osk-panel.ui:80
+msgid "Toggle via OSK menu"
+msgstr "Укл/выкл праз меню клавіятуры"
+
+#: src/ui/ms-osk-panel.ui:81
+msgid "Allow to toggle word completion via the keyboard's menu button"
+msgstr ""
+"Дазволіць уключэнне і выключэнне функцыі завяршэння слоў праз меню экраннай "
+"клавіятуры"
+
+#: src/ui/ms-osk-panel.ui:99
+msgid "Terminal Layout"
+msgstr "Раскладка тэрмінала"
+
+#: src/ui/ms-osk-panel.ui:103
+msgid "Shortcuts"
+msgstr "Спалучэнні клавіш"
+
+#: src/ui/ms-osk-panel.ui:104
+msgid "The shortcuts available in the shortcuts bar"
+msgstr "Спалучэнні клавіш, якія даступны на адпаведнай панэлі"
+
+#: src/ui/ms-sensor-panel.ui:16
+msgid "No Sensors found"
+msgstr "Датчыкі не знойдзены"
+
+#: src/ui/ms-sensor-panel.ui:17
+msgid ""
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
+msgstr ""
+"На прыладзе не ўсталяваны датчыкі або яны адключаны праз апаратныя "
+"пераключальнікі."
+
+#: src/ui/ms-sensor-panel.ui:32
+msgid "Sensor Readings"
+msgstr "Чытанне датчыкаў"
+
+#: src/ui/ms-sensor-panel.ui:40
+msgid "Proximity"
+msgstr "Прыбліжэнне"
+
+#: src/ui/ms-sensor-panel.ui:49
+msgid "Light"
+msgstr "Асветленасць"
+
+#: src/ui/ms-sensor-panel.ui:58
+msgid "Orientation"
+msgstr "Арыентацыя"
+
+#: src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Высокая кантраснасць"
+
+#: src/ui/ms-sensor-panel.ui:72
+msgid "Automatic High Contrast"
+msgstr "Аўтаматычная высокая кантраснасць"
+
+#: src/ui/ms-sensor-panel.ui:73
+msgid "Controlled by the Ambient Light Sensor"
+msgstr "Кіруецца датчыкам асветленасці"
+
+#: src/ui/ms-sensor-panel.ui:84
+msgid "Light intensity threshold"
+msgstr "Парог асветленасці"
+
+#: src/ui/ms-sensor-panel.ui:85
+msgid "Theme will switch to high contrast above the threshold"
+msgstr "Тэма пераключыцца на высокакантрасную, калі значэнне ніжэйшае за парог"
+
+#: src/ui/ms-sound-row.ui:54
+msgid "Sound files (ogg)"
+msgstr "Аўдыяфайлы (ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Элементы інтэрфейсу"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Паказваць зарад батарэі ў працэнтах"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Паказваць дакладны ўзровень зараду на верхняй панэлі"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Пазбягаць выразаў"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr "Не размяшчаць элементы інтэрфейсу на выемках і выразах дысплэя"
+
+#: src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Хуткія налады"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "Упарадкаванне дадатковых хуткіх налад"
