@@ -1,3 +1,29 @@
+phosh-mobile-settings (0.42.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * packaging: Let changelog hook handle rc versions.
+    This allows our release pre script to work for RCs and actual releases.
+
+  [ Vasil Pupkin ]
+  * Add Belarusian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Tim Sabsch ]
+  * Update German translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 28 Sep 2024 19:05:26 +0200
+
 phosh-mobile-settings (0.42~rc1) experimental; urgency=medium
 
   [ Guido Günther ]

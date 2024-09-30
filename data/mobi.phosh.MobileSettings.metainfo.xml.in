@@ -51,6 +51,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.42.0" date="2024-09-30">
+      <description>
+        <ul>
+          <li>Allow to select OSK layouts when OSK supports it</li>
+          <li>Open last opened panel on startup</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.41.0" date="2024-08-15">
       <description>
         <ul>

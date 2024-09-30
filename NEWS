@@ -1,5 +1,5 @@
-phosh-mobile-settings 0.42~rc1
-------------------------------
+phosh-mobile-settings 0.42.0
+----------------------------
 Released September 2024
 * Allow to select OSK layouts when OSK supports it
 * Open last opened panel on startup
@@ -10,6 +10,7 @@ Released September 2024
     * Guido Günther
     * Tomi Lähteenmäki
 * UI translations:
+    * Anders Jonsson (sv)
     * Antonio Marin (ro)
     * Artur S0 (ru)
     * Balázs Úr (hu)
@@ -21,6 +22,8 @@ Released September 2024
     * Juliano de Souza Camargo (pt_BR)
     * Martin (sl)
     * Sabri Ünal (tr)
+    * Tim Sabsch (de)
+    * Vasil Pupkin (be)
     * Yaron Shahrabani (he)
     * Yuri Chornoivan (uk)
 
