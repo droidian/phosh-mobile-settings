@@ -66,6 +66,7 @@ sanity:
   stage: style-checks
   variables:
     GIT_DEPTH: "100"
+  needs: []
   script: |
     ci-fairy check-commits --signed-off-by --junit-xml=commit-message-junit-report.xml
   artifacts:
