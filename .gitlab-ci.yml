@@ -67,7 +67,7 @@ sanity:
   variables:
     GIT_DEPTH: "100"
   script: |
-    ci-fairy check-commits --junit-xml=commit-message-junit-report.xml cifairy/main..HEAD ;
+    ci-fairy check-commits --junit-xml=commit-message-junit-report.xml
   artifacts:
     reports:
       junit: commit-message-junit-report.xml
