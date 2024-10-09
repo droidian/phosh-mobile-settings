@@ -32,12 +32,23 @@
 #define PHOSH_OSK_TERMINAL_SETTINGS  "sm.puri.phosh.osk.Terminal"
 #define SHORTCUTS_KEY                "shortcuts"
 
+#define SQUEEKBOARD_SETTINGS         "sm.puri.Squeekboard"
+#define SCALE_WHEN_HORIZONTAL_KEY    "scale-in-horizontal-screen-orientation"
+#define SCALE_WHEN_VERTICAL_KEY      "scale-in-vertical-screen-orientation"
+
 /* From phosh osk-stub */
 typedef enum {
   PHOSH_OSK_COMPLETION_MODE_NONE   = 0,
   PHOSH_OSK_COMPLETION_MODE_MANUAL = (1 << 0),
   PHOSH_OSK_COMPLETION_MODE_HINT   = (1 << 1),
 } CompletionMode;
+
+
+typedef enum {
+  MS_OSK_APP_UNKNOWN = 0,
+  MS_OSK_APP_POS = 1,
+  MS_OSK_APP_SQUEEKBOARD = 2
+} MsOskApp;
 
 
 struct _MsOskPanel {
@@ -65,6 +76,10 @@ struct _MsOskPanel {
   GtkWidget        *shortcuts_box;
   GListStore       *shortcuts;
   gboolean          shortcuts_updating;
+
+  GtkWidget        *keyboard_height_prefs;
+  GtkWidget        *scale_in_horizontal_orientation;
+  GtkWidget        *scale_in_vertical_orientation;
 };
 
 G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, ADW_TYPE_BIN)
@@ -229,8 +244,8 @@ on_completion_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, GtkWi
 }
 
 
-static gboolean
-is_osk_stub (void)
+static MsOskApp
+is_osk_app (void)
 {
   g_autoptr (GError) error = NULL;
   g_autoptr (GDBusProxy) proxy = NULL;
@@ -249,7 +264,7 @@ is_osk_stub (void)
                                           &error);
   if (proxy == NULL) {
     g_warning ("Failed to query dbus: %s", error->message);
-    return FALSE;
+    return MS_OSK_APP_UNKNOWN;
   }
 
   ret = g_dbus_proxy_call_sync (proxy,
@@ -261,7 +276,7 @@ is_osk_stub (void)
                                 &error);
   if (proxy == NULL || ret == NULL) {
     g_debug ("Failed to query osk pid: %s", error->message);
-    return FALSE;
+    return MS_OSK_APP_UNKNOWN;
   }
 
   g_variant_get (ret, "(u)", &pid);
@@ -270,13 +285,15 @@ is_osk_stub (void)
   exe = g_file_read_link (proc_path, &error);
   if (exe == NULL) {
     g_warning ("Failed to query osk exe: %s", error->message);
-    return FALSE;
+    return MS_OSK_APP_UNKNOWN;
   }
 
   if (g_str_has_suffix (exe, "/phosh-osk-stub"))
-    return TRUE;
+    return MS_OSK_APP_POS;
+  if (g_str_has_suffix (exe, "/squeekboard"))
+    return MS_OSK_APP_SQUEEKBOARD;
 
-  return FALSE;
+  return MS_OSK_APP_UNKNOWN;
 }
 
 
@@ -321,6 +338,11 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   /* Terminal layout group */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, terminal_layout_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, shortcuts_box);
+
+  /* Squeekboard panel-size */
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, keyboard_height_prefs);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_horizontal_orientation);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_vertical_orientation);
 }
 
 
@@ -382,7 +404,7 @@ ms_osk_panel_init (MsOskPanel *self)
                                 self,
                                 NULL);
 
-  if (is_osk_stub ()) {
+  if (is_osk_app () == MS_OSK_APP_POS) {
     gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
     self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
     g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
@@ -412,6 +434,22 @@ ms_osk_panel_init (MsOskPanel *self)
 
     gtk_widget_set_visible (self->osk_layout_prefs, TRUE);
     ms_osk_layout_prefs_load_osk_layouts (MS_OSK_LAYOUT_PREFS (self->osk_layout_prefs));
+  } else if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD) {
+    gboolean found_key_horizontal;
+    gboolean found_key_vertical;
+
+    found_key_horizontal = ms_schema_bind_property (SQUEEKBOARD_SETTINGS, SCALE_WHEN_HORIZONTAL_KEY,
+                                                    G_OBJECT (self->scale_in_horizontal_orientation),
+                                                    "value", G_SETTINGS_BIND_DEFAULT);
+    gtk_widget_set_visible (self->scale_in_horizontal_orientation, found_key_horizontal);
+
+    found_key_vertical = ms_schema_bind_property (SQUEEKBOARD_SETTINGS, SCALE_WHEN_VERTICAL_KEY,
+                                                  G_OBJECT (self->scale_in_vertical_orientation),
+                                                  "value", G_SETTINGS_BIND_DEFAULT);
+    gtk_widget_set_visible (self->scale_in_vertical_orientation, found_key_vertical);
+
+    gtk_widget_set_visible (self->keyboard_height_prefs,
+                            found_key_horizontal | found_key_vertical);
   }
 }
 

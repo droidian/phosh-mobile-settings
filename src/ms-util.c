@@ -160,7 +160,7 @@ ms_feedback_profile_to_label (MsFeedbackProfile profile)
 /**
  * ms_schema_bind_property:
  * @id: The schema id
- * @id: The name of the key to bind to
+ * @key: The name of the key to bind to
  * @object: The object's property that should be bound
  * @property: The property that gets updated on schema changes
  * @flags: The flags
