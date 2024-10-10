@@ -65,8 +65,8 @@ struct _MsOskPanel {
   GSettings        *pos_settings;
   GtkWidget        *hw_keyboard_switch;
   GtkWidget        *completion_group;
-  GtkWidget        *app_completion_switch;
-  GtkWidget        *menu_completion_switch;
+  AdwSwitchRow     *app_completion_switch;
+  AdwSwitchRow     *menu_completion_switch;
   CompletionMode    mode;
   gboolean          updating_flags;
 
@@ -208,16 +208,16 @@ on_word_completion_key_changed (MsOskPanel *self)
   self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
   self->updating_flags = TRUE;
 
-  gtk_switch_set_active (GTK_SWITCH (self->menu_completion_switch),
-                         self->mode & PHOSH_OSK_COMPLETION_MODE_MANUAL);
-  gtk_switch_set_active (GTK_SWITCH (self->app_completion_switch),
-                         self->mode & PHOSH_OSK_COMPLETION_MODE_HINT);
+  adw_switch_row_set_active (self->menu_completion_switch,
+                             self->mode & PHOSH_OSK_COMPLETION_MODE_MANUAL);
+  adw_switch_row_set_active (self->app_completion_switch,
+                             self->mode & PHOSH_OSK_COMPLETION_MODE_HINT);
   self->updating_flags = FALSE;
 }
 
 
 static void
-on_completion_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, GtkWidget *switch_)
+on_completion_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, AdwSwitchRow *switch_)
 {
   CompletionMode flag;
   gboolean active;
@@ -234,7 +234,7 @@ on_completion_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, GtkWi
     return;
   }
 
-  active = gtk_switch_get_active (GTK_SWITCH (switch_));
+  active = adw_switch_row_get_active (switch_);
   if (active)
     self->mode |= flag;
   else

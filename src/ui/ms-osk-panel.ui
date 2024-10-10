@@ -9,18 +9,9 @@
             <child>
               <object class="AdwPreferencesGroup">
                 <child>
-                  <object class="AdwActionRow">
+                  <object class="AdwSwitchRow"  id="osk_enable_switch">
                     <property name="title" translatable="yes">Enable _On Screen Keyboard</property>
                     <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when needed</property>
-                    <property name="use-underline">true</property>
-                    <child>
-                      <object class="GtkSwitch" id="osk_enable_switch">
-                        <property name="valign">center</property>
-                        <accessibility>
-                          <property name="label" translatable="yes">Enabled</property>
-                        </accessibility>
-                      </object>
-                    </child>
                   </object>
                 </child>
                 <child>
@@ -98,35 +89,18 @@
                 <property name="visible">False</property>
                 <property name="title" translatable="yes">Text Completion</property>
                 <child>
-                  <object class="AdwActionRow">
+                  <object class="AdwSwitchRow" id="app_completion_switch">
                     <property name="title" translatable="yes">Opportunistic word completion</property>
                     <property name="subtitle" translatable="yes">Enable word completion when the app indicates it is useful</property>
                     <property name="use-underline">true</property>
-                    <child>
-                      <object class="GtkSwitch" id="app_completion_switch">
-                        <property name="valign">center</property>
-                        <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
-                        <accessibility>
-                          <property name="label" translatable="yes">Enabled</property>
-                        </accessibility>
-                      </object>
-                    </child>
+                    <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
                   </object>
                 </child>
                 <child>
-                  <object class="AdwActionRow">
+                  <object class="AdwSwitchRow" id="menu_completion_switch">
                     <property name="title" translatable="yes">Toggle via OSK menu</property>
                     <property name="subtitle" translatable="yes">Allow to toggle word completion via the keyboard's menu button</property>
-                    <property name="use-underline">true</property>
-                    <child>
-                      <object class="GtkSwitch" id="menu_completion_switch">
-                        <property name="valign">center</property>
-                        <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
-                        <accessibility>
-                          <property name="label" translatable="yes">Enabled</property>
-                        </accessibility>
-                      </object>
-                    </child>
+                    <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
                   </object>
                 </child>
               </object>
