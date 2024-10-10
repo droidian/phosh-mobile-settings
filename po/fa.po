@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-09-11 10:34+0000\n"
-"PO-Revision-Date: 2024-09-11 16:24+0330\n"
+"POT-Creation-Date: 2024-10-09 06:55+0000\n"
+"PO-Revision-Date: 2024-10-10 18:31+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3 src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
@@ -333,7 +333,7 @@ msgstr "کوچک کردن مقیاس همهٔ کاره‌ها"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
+#: src/ui/ms-osk-panel.ui:110 src/ui/ms-osk-panel.ui:126
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "به کار افتاده"
@@ -545,35 +545,51 @@ msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
 
-#: src/ui/ms-osk-panel.ui:61
+#: src/ui/ms-osk-panel.ui:59
+msgid "Keyboard height in portrait mode"
+msgstr "بلندای صفحه‌کلید در حالت عمودی"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "When the screen is taller than wide"
+msgstr "هنگامی که صفحه بلندتر از پهناست"
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Keyboard height in landscape mode"
+msgstr "بلندای صفحه‌کلید در حالت افقی"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "When the screen is wider than tall"
+msgstr "هنگامی که صفحه پهن‌تر از بلنداست"
+
+#: src/ui/ms-osk-panel.ui:99
 msgid "Text Completion"
 msgstr "کامل کردن متن"
 
-#: src/ui/ms-osk-panel.ui:64
+#: src/ui/ms-osk-panel.ui:102
 msgid "Opportunistic word completion"
 msgstr "کامل کردن متن خوشبینانه"
 
-#: src/ui/ms-osk-panel.ui:65
+#: src/ui/ms-osk-panel.ui:103
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "به کار انداختن کامل کردن متن هنگامی که کاره مفید بودنش را مشخّص کند"
 
-#: src/ui/ms-osk-panel.ui:80
+#: src/ui/ms-osk-panel.ui:118
 msgid "Toggle via OSK menu"
 msgstr "تغییر وضعیت با فهرست"
 
-#: src/ui/ms-osk-panel.ui:81
+#: src/ui/ms-osk-panel.ui:119
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "اجازه به تغییر وضعیت کامل کردن متن با دکمهٔ فهرست صفحه‌کلید"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:137
 msgid "Terminal Layout"
 msgstr "چینش پایانه"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:141
 msgid "Shortcuts"
 msgstr "میان‌برها"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:142
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "میان‌برهای موجود در نوار میان‌برها"
 
