@@ -146,6 +146,7 @@ config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'))
 config_h.set_quoted('MOBILE_SETTINGS_OSK_LAYOUTS', datadir / 'phosh-osk-stub' / 'layouts.json')
+config_h.set_quoted('MOBILE_SETTINGS_OSK_COMPLETERS_DIR', datadir / 'phosh-osk-stub' / 'completers')
 
 configure_file(
   output: 'mobile-settings-config.h',

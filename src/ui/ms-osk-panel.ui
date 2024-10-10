@@ -103,6 +103,15 @@
                     <signal name="notify::active" handler="on_completion_switch_activate_changed" swapped="true"/>
                   </object>
                 </child>
+                <child>
+                  <object class="AdwComboRow" id="completer_combo">
+                    <property name="title" translatable="yes">Default Completer</property>
+                    <property name="subtitle" translatable="yes">The default completion engine to use</property>
+                    <property name="expression">
+                      <lookup name="name" type="MsCompleterInfo"/>
+                    </property>
+                  </object>
+                </child>
               </object>
             </child>
 

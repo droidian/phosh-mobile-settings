@@ -10,10 +10,13 @@
 
 #include "mobile-settings-config.h"
 #include "mobile-settings-enums.h"
+#include "ms-completer-info.h"
 #include "ms-enum-types.h"
 #include "ms-osk-layout-prefs.h"
 #include "ms-osk-panel.h"
 #include "ms-util.h"
+
+#include <gmobile.h>
 
 #include <glib/gi18n.h>
 
@@ -28,6 +31,10 @@
 #define PHOSH_OSK_SETTINGS           "sm.puri.phosh.osk"
 #define WORD_COMPLETION_KEY          "completion-mode"
 #define HW_KEYBOARD_KEY              "ignore-hw-keyboards"
+
+#define PHOSH_OSK_COMPLETER_SETTINGS "sm.puri.phosh.osk.Completers"
+#define DEFAULT_COMPLETER_KEY        "default"
+#define POS_COMPLETER_SUFFIX         ".completer"
 
 #define PHOSH_OSK_TERMINAL_SETTINGS  "sm.puri.phosh.osk.Terminal"
 #define SHORTCUTS_KEY                "shortcuts"
@@ -63,12 +70,15 @@ struct _MsOskPanel {
 
   /* Word completion */
   GSettings        *pos_settings;
+  GSettings        *pos_completer_settings;
   GtkWidget        *hw_keyboard_switch;
   GtkWidget        *completion_group;
   AdwSwitchRow     *app_completion_switch;
   AdwSwitchRow     *menu_completion_switch;
   CompletionMode    mode;
   gboolean          updating_flags;
+  AdwComboRow      *completer_combo;
+  GListStore       *completer_infos;
 
   /* Terminal layout */
   GSettings        *pos_terminal_settings;
@@ -302,10 +312,12 @@ ms_osk_panel_finalize (GObject *object)
 {
   MsOskPanel *self = MS_OSK_PANEL (object);
 
+  g_clear_object (&self->completer_infos);
   g_clear_object (&self->shortcuts);
   g_clear_object (&self->a11y_settings);
   g_clear_object (&self->phosh_settings);
   g_clear_object (&self->pos_settings);
+  g_clear_object (&self->pos_completer_settings);
   g_clear_object (&self->pos_terminal_settings);
 
   G_OBJECT_CLASS (ms_osk_panel_parent_class)->finalize (object);
@@ -330,6 +342,7 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, long_press_combo);
 
   /* Completion group */
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, completer_combo);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, completion_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, app_completion_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, menu_completion_switch);
@@ -386,6 +399,126 @@ long_press_delay_set_mapping (const GValue *value, const GVariantType *expected_
 }
 
 
+static gboolean
+transform_to_subtitle (GBinding *binding, const GValue *from, GValue *to, gpointer user_data)
+{
+  MsCompleterInfo *info;
+  const char *description, *comment;
+  GString *subtitle = g_string_new ("");
+
+  info = g_value_get_object (from);
+  g_assert (MS_IS_COMPLETER_INFO (info));
+
+  description = ms_completer_info_get_description (info);
+  if (description) {
+    g_string_append (subtitle, description);
+    g_string_append (subtitle, ". ");
+  }
+  comment = ms_completer_info_get_comment (info);
+  if (comment)
+    g_string_append (subtitle, comment);
+
+  g_value_take_string (to, g_string_free_and_steal (subtitle));
+
+  return TRUE;
+}
+
+
+
+static void
+ms_osk_panel_init_pos_completer (MsOskPanel *self)
+{
+  g_autoptr (GError) err = NULL;
+  g_autoptr (GDir) dir = NULL;
+  const char *filename;
+  g_autofree char *enabled_completer = NULL;
+
+  dir = g_dir_open (MOBILE_SETTINGS_OSK_COMPLETERS_DIR, 0, &err);
+  if (!dir) {
+    g_warning ("Failed to read phosh plugins from " MOBILE_SETTINGS_PHOSH_PLUGINS_DIR ": %s",
+               err->message);
+  }
+
+  enabled_completer = g_settings_get_string (self->pos_completer_settings, DEFAULT_COMPLETER_KEY);
+  while (dir && (filename = g_dir_read_name (dir))) {
+    g_autofree char *path = NULL;
+    g_autofree char *id = NULL;
+    g_autofree char *name = NULL;
+    g_autofree char *description = NULL;
+    g_autofree char *comment = NULL;
+    g_autoptr (GError) error = NULL;
+    g_autoptr (GKeyFile) keyfile = g_key_file_new ();
+    g_autoptr (MsCompleterInfo) info = NULL;
+
+    if (!g_str_has_suffix (filename, POS_COMPLETER_SUFFIX))
+      continue;
+
+    path = g_build_filename (MOBILE_SETTINGS_OSK_COMPLETERS_DIR, filename, NULL);
+    if (g_key_file_load_from_file (keyfile, path, G_KEY_FILE_NONE, &error) == FALSE) {
+      g_warning ("Failed to load completer info '%s': %s", filename, error->message);
+      continue;
+    }
+
+    id = g_key_file_get_string (keyfile, "Completer", "Id", NULL);
+    if (id == NULL)
+      continue;
+
+    name = g_key_file_get_locale_string (keyfile, "Completer", "Name", NULL, NULL);
+    if (name == NULL)
+      continue;
+
+    description = g_key_file_get_locale_string (keyfile, "Completer", "Description", NULL, NULL);
+    if (description == NULL)
+      continue;
+
+    comment = g_key_file_get_locale_string (keyfile, "Completer", "Comment", NULL, NULL);
+    if (comment == NULL)
+      continue;
+
+    if (g_strcmp0 (enabled_completer, id) == 0)
+      g_clear_pointer (&enabled_completer, g_free);
+
+    g_debug ("Found completer %s, id %s, name: %s", filename, id, name);
+    info = g_object_new (MS_TYPE_COMPLETER_INFO,
+                         "id", id,
+                         "name", name,
+                         "description", description,
+                         "comment", comment,
+                         NULL);
+    g_list_store_append (self->completer_infos, info);
+  }
+
+  if (enabled_completer) {
+    /* We didn't find any info for the currently enabled completer so
+     * make the best out of it to not overwrite user preference */
+       MsCompleterInfo *info = g_object_new (MS_TYPE_COMPLETER_INFO,
+                                          "id", enabled_completer,
+                                          "name", enabled_completer,
+                                          NULL);
+    g_list_store_append (self->completer_infos, info);
+  }
+
+  adw_combo_row_set_model (self->completer_combo, G_LIST_MODEL (self->completer_infos));
+
+  g_object_bind_property_full (self->completer_combo, "selected-item",
+                               self->completer_combo, "subtitle",
+                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
+                               transform_to_subtitle,
+                               NULL, NULL, NULL);
+}
+
+
+static gboolean
+completer_combo_sensitive_mapping (GValue *value, GVariant *variant, gpointer user_data)
+{
+  const char *const *flags = g_variant_get_strv (variant, NULL);
+
+  g_value_set_boolean (value, !gm_strv_is_null_or_empty (flags));
+
+  return TRUE;
+}
+
+
 static void
 ms_osk_panel_init_pos (MsOskPanel *self)
 {
@@ -401,6 +534,11 @@ ms_osk_panel_init_pos (MsOskPanel *self)
                             G_CALLBACK (on_word_completion_key_changed),
                             self);
   on_word_completion_key_changed (self);
+  g_settings_bind_with_mapping (self->pos_settings, WORD_COMPLETION_KEY,
+                                self->completer_combo, "sensitive",
+                                G_SETTINGS_BIND_GET,
+                                completer_combo_sensitive_mapping,
+                                NULL, NULL, NULL);
 
   gtk_widget_set_visible (self->terminal_layout_group, TRUE);
   self->shortcuts = g_list_store_new (GTK_TYPE_STRING_OBJECT);
@@ -418,6 +556,9 @@ ms_osk_panel_init_pos (MsOskPanel *self)
 
   gtk_widget_set_visible (self->osk_layout_prefs, TRUE);
   ms_osk_layout_prefs_load_osk_layouts (MS_OSK_LAYOUT_PREFS (self->osk_layout_prefs));
+
+  self->pos_completer_settings = g_settings_new (PHOSH_OSK_COMPLETER_SETTINGS);
+  ms_osk_panel_init_pos_completer (self);
 }
 
 
@@ -426,6 +567,7 @@ ms_osk_panel_init (MsOskPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 
+  self->completer_infos = g_list_store_new (MS_TYPE_COMPLETER_INFO);
   self->a11y_settings = g_settings_new (A11Y_SETTINGS);
   g_settings_bind (self->a11y_settings, OSK_ENABLED_KEY,
                    self->osk_enable_switch, "active", G_SETTINGS_BIND_DEFAULT);
