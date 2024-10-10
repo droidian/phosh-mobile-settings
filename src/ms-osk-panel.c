@@ -387,6 +387,41 @@ long_press_delay_set_mapping (const GValue *value, const GVariantType *expected_
 
 
 static void
+ms_osk_panel_init_pos (MsOskPanel *self)
+{
+  gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
+  self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
+  g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
+                   self->hw_keyboard_switch, "active",
+                   G_SETTINGS_BIND_DEFAULT);
+
+  gtk_widget_set_visible (self->completion_group, TRUE);
+  self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
+  g_signal_connect_swapped (self->pos_settings, "changed::" WORD_COMPLETION_KEY,
+                            G_CALLBACK (on_word_completion_key_changed),
+                            self);
+  on_word_completion_key_changed (self);
+
+  gtk_widget_set_visible (self->terminal_layout_group, TRUE);
+  self->shortcuts = g_list_store_new (GTK_TYPE_STRING_OBJECT);
+  gtk_flow_box_bind_model (GTK_FLOW_BOX (self->shortcuts_box),
+                           G_LIST_MODEL (self->shortcuts),
+                           create_shortcuts_row,
+                           self,
+                           NULL);
+
+  self->pos_terminal_settings = g_settings_new (PHOSH_OSK_TERMINAL_SETTINGS);
+  g_signal_connect_swapped (self->pos_terminal_settings, "changed::" SHORTCUTS_KEY,
+                            G_CALLBACK (on_terminal_shortcuts_changed),
+                            self);
+  on_terminal_shortcuts_changed (self);
+
+  gtk_widget_set_visible (self->osk_layout_prefs, TRUE);
+  ms_osk_layout_prefs_load_osk_layouts (MS_OSK_LAYOUT_PREFS (self->osk_layout_prefs));
+}
+
+
+static void
 ms_osk_panel_init (MsOskPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
@@ -405,35 +440,7 @@ ms_osk_panel_init (MsOskPanel *self)
                                 NULL);
 
   if (is_osk_app () == MS_OSK_APP_POS) {
-    gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
-    self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
-    g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
-                     self->hw_keyboard_switch, "active",
-                     G_SETTINGS_BIND_DEFAULT);
-
-    gtk_widget_set_visible (self->completion_group, TRUE);
-    self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
-    g_signal_connect_swapped (self->pos_settings, "changed::" WORD_COMPLETION_KEY,
-                              G_CALLBACK (on_word_completion_key_changed),
-                              self);
-    on_word_completion_key_changed (self);
-
-    gtk_widget_set_visible (self->terminal_layout_group, TRUE);
-    self->shortcuts = g_list_store_new (GTK_TYPE_STRING_OBJECT);
-    gtk_flow_box_bind_model (GTK_FLOW_BOX (self->shortcuts_box),
-                             G_LIST_MODEL (self->shortcuts),
-                             create_shortcuts_row,
-                             self,
-                             NULL);
-
-    self->pos_terminal_settings = g_settings_new (PHOSH_OSK_TERMINAL_SETTINGS);
-    g_signal_connect_swapped (self->pos_terminal_settings, "changed::" SHORTCUTS_KEY,
-                              G_CALLBACK (on_terminal_shortcuts_changed),
-                              self);
-    on_terminal_shortcuts_changed (self);
-
-    gtk_widget_set_visible (self->osk_layout_prefs, TRUE);
-    ms_osk_layout_prefs_load_osk_layouts (MS_OSK_LAYOUT_PREFS (self->osk_layout_prefs));
+    ms_osk_panel_init_pos (self);
   } else if (is_osk_app () == MS_OSK_APP_SQUEEKBOARD) {
     gboolean found_key_horizontal;
     gboolean found_key_vertical;
