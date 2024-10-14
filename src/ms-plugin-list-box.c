@@ -63,6 +63,7 @@ load_prefs_window (MsPluginListBox *self, const char *name)
   g_return_val_if_fail (ep, NULL);
 
   ext = g_io_extension_point_get_extension_by_name (ep, name);
+  g_return_val_if_fail (ext, NULL);
 
   g_debug ("Loading plugin %s", name);
   type = g_io_extension_get_type (ext);
@@ -96,7 +97,7 @@ open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointe
   g_assert (parent);
 
   prefs = load_prefs_window (self, name);
-  g_return_if_fail (prefs);
+  g_return_if_fail (GTK_IS_WINDOW (prefs));
 
   gtk_window_set_transient_for (GTK_WINDOW (prefs), parent);
   gtk_window_present (GTK_WINDOW (prefs));
