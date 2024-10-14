@@ -239,9 +239,8 @@ ms_plugin_list_box_scan_phosh_plugins (MsPluginListBox *self)
 {
   g_autoptr (GError) err = NULL;
   g_autoptr (GDir) dir = g_dir_open (MOBILE_SETTINGS_PHOSH_PLUGINS_DIR, 0, &err);
-  const char *filename;
   g_auto (GStrv) enabled_plugins = NULL;
-
+  const char *filename;
 
   if (dir == NULL) {
     g_warning ("Failed to read phosh plugins from " MOBILE_SETTINGS_PHOSH_PLUGINS_DIR ": %s",
