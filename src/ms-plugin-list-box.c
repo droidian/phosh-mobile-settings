@@ -6,7 +6,7 @@
  * Author: Guido Günther <agx@sigxcpu.org>
  */
 
-#define G_LOG_DOMAIN "ms-plugin-list_box"
+#define G_LOG_DOMAIN "ms-plugin-list-box"
 
 #include "mobile-settings-config.h"
 
