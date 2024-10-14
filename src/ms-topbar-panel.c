@@ -6,6 +6,8 @@
  * Authors: Gotam Gorabh <gautamy672@gmail.com>
  */
 
+#define G_LOG_DOMAIN "ms-topbar-panel"
+
 #include "ms-topbar-panel.h"
 #include "ms-plugin-list-box.h"
 
