@@ -86,9 +86,6 @@ ms_lockscreen_panel_class_init (MsLockscreenPanelClass *klass)
 static void
 ms_lockscreen_panel_init (MsLockscreenPanel *self)
 {
-  /* Scan prefs plugins */
-  g_io_modules_scan_all_in_directory (MOBILE_SETTINGS_PHOSH_PREFS_DIR);
-
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->settings = g_settings_new (LOCKSCREEN_SCHEMA_ID);

@@ -22,7 +22,7 @@
                   <object class="AdwSwitchRow" id="shell_layout_switch">
                     <property name="title" translatable="yes">Avoid notches</property>
                     <property name="subtitle" translatable="yes">Don't place UI elements beneath notches and display cutouts</property>
-                    <signal name="notify::active" handler="shell_layout_switch_row_cb" object="MsTopbarPanel" swapped="yes"/>
+                    <signal name="notify::active" handler="on_shell_layout_switch_row_activated" object="MsTopbarPanel" swapped="yes"/>
                   </object>
                 </child>
 

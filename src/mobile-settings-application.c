@@ -449,9 +449,9 @@ mobile_settings_application_init (MobileSettingsApplication *self)
   gtk_application_set_accels_for_action (GTK_APPLICATION (self),
                                          "app.quit",
                                          (const char *[]) {
-    "<primary>q",
-    NULL,
-  });
+                                           "<primary>q",
+                                           NULL,
+                                         });
 
   g_application_set_option_context_parameter_string (G_APPLICATION (self),
                                                      PHOSH_MOBILE_SETTINGS_DESCRIPTION);

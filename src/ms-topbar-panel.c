@@ -6,6 +6,8 @@
  * Authors: Gotam Gorabh <gautamy672@gmail.com>
  */
 
+#define G_LOG_DOMAIN "ms-topbar-panel"
+
 #include "ms-topbar-panel.h"
 #include "ms-plugin-list-box.h"
 
@@ -35,7 +37,7 @@ G_DEFINE_TYPE (MsTopbarPanel, ms_topbar_panel, ADW_TYPE_BIN)
 
 
 static void
-shell_layout_switch_row_cb (MsTopbarPanel *self)
+on_shell_layout_switch_row_activated (MsTopbarPanel *self)
 {
   gboolean shell_layout_switch_state;
   gint shell_layout_enums;
@@ -91,7 +93,7 @@ ms_topbar_panel_class_init (MsTopbarPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsTopbarPanel, battery_percentage_switch);
   gtk_widget_class_bind_template_child (widget_class, MsTopbarPanel, shell_layout_switch);
 
-  gtk_widget_class_bind_template_callback (widget_class, shell_layout_switch_row_cb);
+  gtk_widget_class_bind_template_callback (widget_class, on_shell_layout_switch_row_activated);
 }
 
 
