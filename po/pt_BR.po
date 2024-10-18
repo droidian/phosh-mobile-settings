@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-10-09 06:55+0000\n"
-"PO-Revision-Date: 2024-10-09 09:38-0300\n"
+"POT-Creation-Date: 2024-10-18 13:16+0000\n"
+"PO-Revision-Date: 2024-10-18 10:31-0300\n"
 "Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
@@ -158,7 +158,7 @@ msgid "low"
 msgstr "baixo"
 
 #. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "normal"
 
@@ -340,9 +340,7 @@ msgstr "Redução de escala de todos aplicativos"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:110 src/ui/ms-osk-panel.ui:126
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Habilitado"
 
@@ -525,11 +523,11 @@ msgstr "Habilitar teclado _virtual"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Se deve mostrar o teclado na tela quando necessário"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Pressionar longo para aparecer"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -537,73 +535,81 @@ msgstr ""
 "na tela"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "curto"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "longo"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Ignorar teclado de hardware"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Se deve mostrar o teclado na tela quando um teclado físico estiver presente"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:50
 msgid "Keyboard height in portrait mode"
 msgstr "Altura do teclado no modo retrato"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:51
 msgid "When the screen is taller than wide"
 msgstr "Quando a tela é mais alta que larga"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:66
 msgid "Keyboard height in landscape mode"
 msgstr "Altura do teclado no modo paisagem"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:67
 msgid "When the screen is wider than tall"
 msgstr "Quando a tela é mais larga que alta"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Autocompletamento de texto"
 
-#: src/ui/ms-osk-panel.ui:102
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Autocompletamento oportunístico de palavras"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Habilita autocompletamento de palavra quando o aplicativo indicar ser útil"
 
-#: src/ui/ms-osk-panel.ui:118
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Alternar via menu OSK"
 
-#: src/ui/ms-osk-panel.ui:119
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permite alternar o autocompletamento de palavras por meio do botão de menu "
 "do teclado"
 
-#: src/ui/ms-osk-panel.ui:137
+#: src/ui/ms-osk-panel.ui:108
+msgid "Default Completer"
+msgstr "Autocompletamento padrão"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "O padrão a ser usado no mecanismo de autocompletamento"
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Layout do terminal"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Atalhos"
 
-#: src/ui/ms-osk-panel.ui:142
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Os atalhos disponíveis na barra de atalhos"
 
