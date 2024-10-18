@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
 "ngs/-/issues\n"
-"POT-Creation-Date: 2024-10-09 06:55+0000\n"
-"PO-Revision-Date: 2024-10-09 22:09+0300\n"
+"POT-Creation-Date: 2024-10-18 13:16+0000\n"
+"PO-Revision-Date: 2024-10-18 21:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -158,7 +158,7 @@ msgid "low"
 msgstr "низький"
 
 #. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "звичайний"
 
@@ -341,9 +341,7 @@ msgstr "Масштабувати усі програми"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:110 src/ui/ms-osk-panel.ui:126
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Увімкнено"
 
@@ -526,11 +524,11 @@ msgstr "Увімкнути _екранну клавіатуру"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Визначає, чи слід показувати екранну клавіатуру, якщо потрібно"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Розгортання довгим натисканням"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -538,74 +536,83 @@ msgstr ""
 "екранної клавіатури"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "коротко"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "довго"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Ігнорувати апаратну клавіатуру"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Визначає, чи слід показувати екранну клавіатуру, якщо наявна фізична "
 "клавіатура"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:50
 msgid "Keyboard height in portrait mode"
 msgstr "Висота клавіатури у книжковому режимі"
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:51
 msgid "When the screen is taller than wide"
 msgstr "Коли екран вищий, ніж ширший"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:66
 msgid "Keyboard height in landscape mode"
 msgstr "Висота клавіатури у альбомному режимі"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:67
 msgid "When the screen is wider than tall"
 msgstr "Коли екран ширший, ніж вищий"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Завершення тексту"
 
-#: src/ui/ms-osk-panel.ui:102
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Гнучке автоматичне доповнення"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
 
-#: src/ui/ms-osk-panel.ui:118
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Перемикання за меню OSK"
 
-#: src/ui/ms-osk-panel.ui:119
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Уможливити перемикання автодоповнення слів за допомогою кнопки меню "
 "клавіатури"
 
-#: src/ui/ms-osk-panel.ui:137
+#: src/ui/ms-osk-panel.ui:108
+#| msgid "Text Completion"
+msgid "Default Completer"
+msgstr "Типовий доповнювач"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "Типовий рушій автоматичного доповнення"
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Компонування термінала"
 
-#: src/ui/ms-osk-panel.ui:141
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Скорочення"
 
-#: src/ui/ms-osk-panel.ui:142
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Скорочення, якими можна скористатися на панелі скорочень"
 
