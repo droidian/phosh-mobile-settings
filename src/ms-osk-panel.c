@@ -490,6 +490,18 @@ ms_osk_panel_parse_pos_completers (MsOskPanel *self)
 
 
 static void
+on_completer_selected_item_changed (MsOskPanel *self)
+{
+  MsCompleterInfo *info;
+
+  info = adw_combo_row_get_selected_item (self->completer_combo);
+  g_settings_set_string (self->pos_completer_settings,
+                         DEFAULT_COMPLETER_KEY,
+                         ms_completer_info_get_id (info));
+}
+
+
+static void
 ms_osk_panel_init_pos_completer (MsOskPanel *self)
 {
   char *enabled_completer = NULL;
@@ -542,6 +554,10 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
                                G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
                                transform_to_subtitle,
                                NULL, NULL, NULL);
+  /* All set up, now listen for changes */
+  g_signal_connect_swapped (self->completer_combo, "notify::selected-item",
+                            G_CALLBACK (on_completer_selected_item_changed),
+                            self);
 }
 
 
