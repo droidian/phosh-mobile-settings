@@ -6,6 +6,7 @@ src/gtk/help-overlay.ui
 src/mobile-settings-application.c
 src/mobile-settings-window.c
 src/ms-feedback-panel.c
+src/ms-osk-panel.c
 src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c

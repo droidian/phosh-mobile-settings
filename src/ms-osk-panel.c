@@ -423,15 +423,18 @@ transform_to_subtitle (GBinding *binding, const GValue *from, GValue *to, gpoint
   return TRUE;
 }
 
-
-
+/**
+ * ms_osk_panel_parse_pos_completers:
+ * @self: The osk panel
+ *
+ * Parse the completer information provided by p-o-s via the file systems.
+ */
 static void
-ms_osk_panel_init_pos_completer (MsOskPanel *self)
+ms_osk_panel_parse_pos_completers (MsOskPanel *self)
 {
   g_autoptr (GError) err = NULL;
   g_autoptr (GDir) dir = NULL;
   const char *filename;
-  g_autofree char *enabled_completer = NULL;
 
   dir = g_dir_open (MOBILE_SETTINGS_OSK_COMPLETERS_DIR, 0, &err);
   if (!dir) {
@@ -439,7 +442,6 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
                err->message);
   }
 
-  enabled_completer = g_settings_get_string (self->pos_completer_settings, DEFAULT_COMPLETER_KEY);
   while (dir && (filename = g_dir_read_name (dir))) {
     g_autofree char *path = NULL;
     g_autofree char *id = NULL;
@@ -475,9 +477,6 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
     if (comment == NULL)
       continue;
 
-    if (g_strcmp0 (enabled_completer, id) == 0)
-      g_clear_pointer (&enabled_completer, g_free);
-
     g_debug ("Found completer %s, id %s, name: %s", filename, id, name);
     info = g_object_new (MS_TYPE_COMPLETER_INFO,
                          "id", id,
@@ -487,18 +486,56 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
                          NULL);
     g_list_store_append (self->completer_infos, info);
   }
+}
 
-  if (enabled_completer) {
-    /* We didn't find any info for the currently enabled completer so
-     * make the best out of it to not overwrite user preference */
-       MsCompleterInfo *info = g_object_new (MS_TYPE_COMPLETER_INFO,
-                                          "id", enabled_completer,
-                                          "name", enabled_completer,
-                                          NULL);
-    g_list_store_append (self->completer_infos, info);
+
+static void
+ms_osk_panel_init_pos_completer (MsOskPanel *self)
+{
+  char *enabled_completer = NULL;
+  gboolean found = FALSE;
+
+  ms_osk_panel_parse_pos_completers (self);
+  adw_combo_row_set_model (self->completer_combo, G_LIST_MODEL (self->completer_infos));
+
+  enabled_completer = g_settings_get_string (self->pos_completer_settings, DEFAULT_COMPLETER_KEY);
+
+  for (guint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (self->completer_infos)); i++) {
+    g_autoptr (MsCompleterInfo) info = NULL;
+
+    info = g_list_model_get_item (G_LIST_MODEL (self->completer_infos), i);
+    if (g_str_equal (ms_completer_info_get_id (info), enabled_completer)) {
+      g_warning ("Current completer is %s", enabled_completer);
+      adw_combo_row_set_selected (self->completer_combo, i);
+      found = TRUE;
+      break;
+    }
   }
 
-  adw_combo_row_set_model (self->completer_combo, G_LIST_MODEL (self->completer_infos));
+  if (!found) {
+    g_autoptr (MsCompleterInfo) info = NULL;
+    const char *name;
+    const char *description = NULL;
+
+    if (gm_str_is_null_or_empty (enabled_completer)) {
+      /* Translators: The default completer */
+      name = _("Default");
+      description = _("The default completer selected by the OSK");
+    } else {
+      name = enabled_completer;
+      description = _("No information available for this completer");
+      g_warning_once ("Enabled completer %s unknown - please fix", enabled_completer);
+    }
+
+    info = g_object_new (MS_TYPE_COMPLETER_INFO,
+                         "id", enabled_completer,
+                         "name", name,
+                         "description", description,
+                         NULL);
+
+    g_list_store_insert (self->completer_infos, 0, info);
+    adw_combo_row_set_selected (self->completer_combo, 0);
+  }
 
   g_object_bind_property_full (self->completer_combo, "selected-item",
                                self->completer_combo, "subtitle",
