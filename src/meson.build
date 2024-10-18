@@ -20,6 +20,8 @@ mobile_settings_sources = [
   'mobile-settings-debug-info.c',
   'ms-applications-panel.c',
   'ms-applications-panel.h',
+  'ms-completer-info.c',
+  'ms-completer-info.h',
   'ms-compositor-panel.c',
   'ms-compositor-panel.h',
   'ms-convergence-panel.c',

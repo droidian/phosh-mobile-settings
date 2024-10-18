@@ -15,7 +15,7 @@ datadir = prefix / get_option('datadir')
 libdir = prefix / get_option('libdir')
 ms_plugins_dir = prefix / libdir / 'phosh-mobile-settings' / 'plugins'
 
-glib_ver = '2.74'
+glib_ver = '2.76'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.','_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
@@ -146,6 +146,7 @@ config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PLUGINS_DIR',
 config_h.set_quoted('MOBILE_SETTINGS_PHOSH_PREFS_DIR',
 		    phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'))
 config_h.set_quoted('MOBILE_SETTINGS_OSK_LAYOUTS', datadir / 'phosh-osk-stub' / 'layouts.json')
+config_h.set_quoted('MOBILE_SETTINGS_OSK_COMPLETERS_DIR', datadir / 'phosh-osk-stub' / 'completers')
 
 configure_file(
   output: 'mobile-settings-config.h',
