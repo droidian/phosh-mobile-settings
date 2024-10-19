@@ -29,7 +29,7 @@ struct _MsLockscreenPanel {
 
   GSettings *settings;
   GSettings *screensaver_settings;
-  GtkWidget *shuffle_switch;
+  AdwSwitchRow *shuffle_switch;
   GtkWidget *lock_delay_adjustment;
 };
 
@@ -89,11 +89,8 @@ ms_lockscreen_panel_init (MsLockscreenPanel *self)
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->settings = g_settings_new (LOCKSCREEN_SCHEMA_ID);
-  g_settings_bind (self->settings,
-                   LOCKSCREEN_KEY_SHUFFLE_KEYPAD,
-                   self->shuffle_switch,
-                   "active",
-                   G_SETTINGS_BIND_DEFAULT);
+  g_settings_bind (self->settings, LOCKSCREEN_KEY_SHUFFLE_KEYPAD,
+                   self->shuffle_switch, "active", G_SETTINGS_BIND_DEFAULT);
 
   self->screensaver_settings = g_settings_new (SCREENSAVER_SCHEMA_ID);
   g_settings_bind_with_mapping (self->screensaver_settings,

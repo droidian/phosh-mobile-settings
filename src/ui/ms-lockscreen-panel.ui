@@ -25,22 +25,14 @@
                     </property>
                   </object>
                 </child>
+
                 <child>
-                  <object class="AdwActionRow">
+                  <object class="AdwSwitchRow" id="shuffle_switch">
                     <property name="title" translatable="yes">Shuffle keypad</property>
                     <property name="subtitle" translatable="yes">Whether to shuffle the numbers on the keypad</property>
-                    <property name="use-underline">true</property>
-                    <child>
-                      <object class="GtkSwitch" id="shuffle_switch">
-                        <property name="valign">center</property>
-                        <accessibility>
-                          <!-- Translators: setting to shuffle the numbers on the keypad -->
-                          <property name="label" translatable="yes" context="shuffle keypad setting">Enabled</property>
-                        </accessibility>
-                      </object>
-                    </child>
                   </object>
                 </child>
+
               </object>
             </child>
 
