@@ -19,7 +19,7 @@
 
 /* Verbatim from phosh */
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
-#define LOCKSCREEN_KEY_SCALE_TO_FIT "shuffle-keypad"
+#define LOCKSCREEN_KEY_SHUFFLE_KEYPAD "shuffle-keypad"
 
 #define SCREENSAVER_SCHEMA_ID "org.gnome.desktop.screensaver"
 #define SCREENSAVER_KEY_LOCK_DELAY "lock-delay"
@@ -90,7 +90,7 @@ ms_lockscreen_panel_init (MsLockscreenPanel *self)
 
   self->settings = g_settings_new (LOCKSCREEN_SCHEMA_ID);
   g_settings_bind (self->settings,
-                   LOCKSCREEN_KEY_SCALE_TO_FIT,
+                   LOCKSCREEN_KEY_SHUFFLE_KEYPAD,
                    self->shuffle_switch,
                    "active",
                    G_SETTINGS_BIND_DEFAULT);
