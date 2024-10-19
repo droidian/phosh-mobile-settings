@@ -33,6 +33,13 @@
                   </object>
                 </child>
 
+                <child>
+                  <object class="AdwSwitchRow" id="require_unlock_switch">
+                    <property name="title" translatable="yes">Require authentication to unlock</property>
+                    <property name="subtitle" translatable="yes">Require typing PIN or password to unlock the device</property>
+                  </object>
+                </child>
+
               </object>
             </child>
 

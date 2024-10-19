@@ -11,6 +11,7 @@
 #include "mobile-settings-config.h"
 #include "ms-lockscreen-panel.h"
 #include "ms-plugin-row.h"
+#include "ms-util.h"
 
 #include <gio/gdesktopappinfo.h>
 #include <glib/gi18n.h>
@@ -20,6 +21,7 @@
 /* Verbatim from phosh */
 #define LOCKSCREEN_SCHEMA_ID "sm.puri.phosh.lockscreen"
 #define LOCKSCREEN_KEY_SHUFFLE_KEYPAD "shuffle-keypad"
+#define LOCKSCREEN_KEY_REQUIRE_UNLOCK "require-unlock"
 
 #define SCREENSAVER_SCHEMA_ID "org.gnome.desktop.screensaver"
 #define SCREENSAVER_KEY_LOCK_DELAY "lock-delay"
@@ -30,6 +32,7 @@ struct _MsLockscreenPanel {
   GSettings *settings;
   GSettings *screensaver_settings;
   AdwSwitchRow *shuffle_switch;
+  AdwSwitchRow *require_unlock_switch;
   GtkWidget *lock_delay_adjustment;
 };
 
@@ -79,6 +82,7 @@ ms_lockscreen_panel_class_init (MsLockscreenPanelClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/mobi/phosh/MobileSettings/ui/ms-lockscreen-panel.ui");
   gtk_widget_class_bind_template_child (widget_class, MsLockscreenPanel, shuffle_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsLockscreenPanel, require_unlock_switch);
   gtk_widget_class_bind_template_child (widget_class, MsLockscreenPanel, lock_delay_adjustment);
 }
 
@@ -86,11 +90,17 @@ ms_lockscreen_panel_class_init (MsLockscreenPanelClass *klass)
 static void
 ms_lockscreen_panel_init (MsLockscreenPanel *self)
 {
+  gboolean found;
+
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->settings = g_settings_new (LOCKSCREEN_SCHEMA_ID);
   g_settings_bind (self->settings, LOCKSCREEN_KEY_SHUFFLE_KEYPAD,
                    self->shuffle_switch, "active", G_SETTINGS_BIND_DEFAULT);
+  found = ms_schema_bind_property (LOCKSCREEN_SCHEMA_ID, LOCKSCREEN_KEY_REQUIRE_UNLOCK,
+                                   G_OBJECT (self->require_unlock_switch), "active",
+                                   G_SETTINGS_BIND_DEFAULT);
+  gtk_widget_set_visible (GTK_WIDGET (self->require_unlock_switch), found);
 
   self->screensaver_settings = g_settings_new (SCREENSAVER_SCHEMA_ID);
   g_settings_bind_with_mapping (self->screensaver_settings,
