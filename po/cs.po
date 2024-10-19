@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-09-11 10:34+0000\n"
-"PO-Revision-Date: 2024-09-11 13:56+0200\n"
+"POT-Creation-Date: 2024-10-18 13:16+0000\n"
+"PO-Revision-Date: 2024-10-19 23:06+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -156,7 +156,7 @@ msgid "low"
 msgstr "nízké"
 
 #. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "normální"
 
@@ -338,9 +338,7 @@ msgstr "Zmenšení všech aplikací"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Povoleno"
 
@@ -523,11 +521,11 @@ msgstr "Povolit klávesnici na _obrazovce"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Zda v případě potřeby zobrazit klávesnici na obrazovce"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Zobrazení dlouhým stisknutím"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -535,55 +533,79 @@ msgstr ""
 "obrazovce"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "krátce"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "dlouze"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Ignorovat hardwarovou klávesnici"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Zda zobrazovat klávesnici na obrazovce, když je k dispozici fyzická "
 "klávesnice"
 
-#: src/ui/ms-osk-panel.ui:61
+#: src/ui/ms-osk-panel.ui:50
+msgid "Keyboard height in portrait mode"
+msgstr "Výška klávesnice v režimu na výšku"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "When the screen is taller than wide"
+msgstr "Když je výška obrazovky větší než šířka"
+
+#: src/ui/ms-osk-panel.ui:66
+msgid "Keyboard height in landscape mode"
+msgstr "Výška klávesnice v režimu na šířku"
+
+#: src/ui/ms-osk-panel.ui:67
+msgid "When the screen is wider than tall"
+msgstr "Když je šířka obrazovky větší než výška"
+
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Doplňování textu"
 
-#: src/ui/ms-osk-panel.ui:64
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Oportunistické doplňování slov"
 
-#: src/ui/ms-osk-panel.ui:65
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Povolit dokončování slov, když aplikace určí, že je to užitečné"
 
-#: src/ui/ms-osk-panel.ui:80
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Přepínání pomocí nabídky OSK"
 
-#: src/ui/ms-osk-panel.ui:81
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Povolit přepínání dokončování slov pomocí tlačítka nabídky klávesnice"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:108
+msgid "Default Completer"
+msgstr "Výchozí doplňovací nástroj"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "Výchozí nástroj pro doplnění, který se má použít"
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Rozložení terminálu"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Klávesové zkratky"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Zkratky dostupné na panelu zkratek"
 
