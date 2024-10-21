@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-08-11 12:50+0000\n"
-"PO-Revision-Date: 2024-08-19 23:49+0200\n"
+"POT-Creation-Date: 2024-10-18 13:16+0000\n"
+"PO-Revision-Date: 2024-10-20 22:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: Catalan <gnome@llistes.softcatala.org>\n"
 "Language: ca\n"
@@ -23,8 +23,7 @@ msgstr ""
 msgid "Mobile Settings"
 msgstr "Paràmetres del mòbil"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons. The list MUST also end with a semicolon.
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr "Mòbil;Preferències;Paràmetresdelmòbil;"
@@ -117,51 +116,50 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Surt"
 
-#: src/mobile-settings-application.c:32
+#: src/mobile-settings-application.c:34
 msgid "- Manage your mobile settings"
 msgstr "- Gestioneu els paràmetres del mòbil"
 
-#. Translators: Replace "translator-credits" with your names, one name per
-#. line
-#: src/mobile-settings-application.c:403
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:426
 msgid "translator-credits"
 msgstr "poc senderi <pocsenderi@protonmail.com>"
 
-#: src/mobile-settings-window.c:77
+#: src/mobile-settings-window.c:85
 msgid "Device"
 msgstr "Dispositiu"
 
-#: src/ms-feedback-panel.c:138
+#: src/ms-feedback-panel.c:140
 msgid "Sound file does not exist"
 msgstr "El fitxer de so no existeix"
 
-#: src/ms-feedback-panel.c:140
+#: src/ms-feedback-panel.c:142
 msgid "Sound file is corrupt"
 msgstr "El fitxer de so està corromput"
 
-#: src/ms-feedback-panel.c:142
+#: src/ms-feedback-panel.c:144
 msgid "Failed to play sound"
 msgstr "No s'ha pogut reproduir cap so"
 
-#: src/ms-feedback-panel.c:181
+#: src/ms-feedback-panel.c:183
 #, c-format
 msgid "Playing %s"
 msgstr "S'està reproduïnt %s"
 
-#: src/ms-feedback-panel.c:342 src/ms-feedback-panel.c:350
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
 msgid "none"
 msgstr "cap"
 
-#: src/ms-feedback-panel.c:344
+#: src/ms-feedback-panel.c:346
 msgid "low"
 msgstr "baix"
 
 #. 1.0
-#: src/ms-feedback-panel.c:346 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "normal"
 
-#: src/ms-feedback-panel.c:348
+#: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "crític"
 
@@ -339,9 +337,7 @@ msgstr ""
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:67 src/ui/ms-osk-panel.ui:83
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Habilitat"
 
@@ -410,15 +406,14 @@ msgstr "Silencia amb «Vol-»"
 
 #: src/ui/ms-feedback-panel.ui:40
 msgid ""
-"When locked put the phone in silent mode when pressing Vol- on incoming "
-"calls"
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
 msgstr ""
 "Quan està bloquejat, posa el telèfon en mode silenciós en prémer «Vol-» en "
 "les trucades entrants"
 
 #: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
-msgstr ""
+msgstr "Configuració per aplicació"
 
 #: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
@@ -476,6 +471,49 @@ msgstr "Ginys"
 msgid "Additional widgets for the lock screen"
 msgstr "Ginys addicionals per a la pantalla de bloqueig"
 
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Afegeix una disposició de teclat"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Afegeix"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Idioma"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Disposicions de teclat"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "No s'ha configurat cap disposició de teclat"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Més opcions…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Mou amunt"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Mou avall"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Suprimeix"
+
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
 msgstr "_Activa el teclat en pantalla"
@@ -484,82 +522,95 @@ msgstr "_Activa el teclat en pantalla"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Si s'ha de mostrar el teclat a la pantalla quan sigui necessari"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Pulsació llarga per a desplegar"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
-"How long to press the center of the home bar to unfold the on screen "
-"keyboard"
+"How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
 "Quant de temps cal prémer el centre de la barra d'inici per a desplegar el "
 "teclat en pantalla"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "curt"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "llarg"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Ignora el teclat físic"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "Si s'ha de mostrar el teclat en pantalla quan n'hi ha un de físic"
 
-#: src/ui/ms-osk-panel.ui:56
+#: src/ui/ms-osk-panel.ui:50
+msgid "Keyboard height in portrait mode"
+msgstr "Alçada del teclat en mode vertical"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "When the screen is taller than wide"
+msgstr "Quan la pantalla és més alta que no pas ampla"
+
+#: src/ui/ms-osk-panel.ui:66
+msgid "Keyboard height in landscape mode"
+msgstr "Alçada del teclat en mode horitzontal"
+
+#: src/ui/ms-osk-panel.ui:67
+msgid "When the screen is wider than tall"
+msgstr "Quan la pantalla és més ampla que no pas alta"
+
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Compleció de text"
 
-#: src/ui/ms-osk-panel.ui:59
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr ""
 
-#: src/ui/ms-osk-panel.ui:60
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Activa la compleció de paraules quan l'aplicació indiqui que és útil"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Commuta mitjançant el menú OSK"
 
-#: src/ui/ms-osk-panel.ui:76
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permet commutar la compleció de paraules mitjançant el botó de menú del "
 "teclat"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:108
+#, fuzzy
+#| msgid "Text Completion"
+msgid "Default Completer"
+msgstr "Compleció de text"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr ""
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Disposició del terminal"
 
-#: src/ui/ms-osk-panel.ui:98
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Dreceres"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Les dreceres disponibles a la barra de dreceres"
-
-#: src/ui/ms-plugin-row.ui:41
-msgid "More options…"
-msgstr "Més opcions…"
-
-#: src/ui/ms-plugin-row.ui:54
-msgid "Move Up"
-msgstr "Mou amunt"
-
-#: src/ui/ms-plugin-row.ui:58
-msgid "Move Down"
-msgstr "Mou avall"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -567,11 +618,11 @@ msgstr "No s'ha trobat cap sensor"
 
 #: src/ui/ms-sensor-panel.ui:17
 msgid ""
-"Either there are no sensors installed on your device or they are disabled "
-"by a killswitch."
+"Either there are no sensors installed on your device or they are disabled by "
+"a killswitch."
 msgstr ""
-"O bé no hi ha cap sensor instal·lat al dispositiu o bé estan desactivats "
-"per un interruptor."
+"O bé no hi ha cap sensor instal·lat al dispositiu o bé estan desactivats per "
+"un interruptor."
 
 #: src/ui/ms-sensor-panel.ui:32
 msgid "Sensor Readings"
