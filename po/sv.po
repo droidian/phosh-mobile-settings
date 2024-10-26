@@ -2,14 +2,15 @@
 # Copyright © 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Anders Jonsson <anders.jonsson@norsjovallen.se>, 2024.
+# Luna Jernberg <droidbittin@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-09-11 10:34+0000\n"
-"PO-Revision-Date: 2024-09-11 20:39+0200\n"
+"POT-Creation-Date: 2024-10-26 06:56+0000\n"
+"PO-Revision-Date: 2024-10-26 09:42+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -124,7 +125,9 @@ msgstr "- Hantera dina mobilinställningar"
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/mobile-settings-application.c:426
 msgid "translator-credits"
-msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
+msgstr ""
+"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Luna Jernberg <droidbittin@gmail.com>"
 
 #: src/mobile-settings-window.c:85
 msgid "Device"
@@ -156,13 +159,26 @@ msgid "low"
 msgstr "låg"
 
 #. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "normal"
 
 #: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "kritisk"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:534
+msgid "Default"
+msgstr "Standard"
+
+#: src/ms-osk-panel.c:535
+msgid "The default completer selected by the OSK"
+msgstr "Standardkompletteraren vald av tangentbordet"
+
+#: src/ms-osk-panel.c:538
+msgid "No information available for this completer"
+msgstr "Ingen information tillgänglig för denna kompletterare"
 
 #: src/ms-sensor-panel.c:92
 msgid "Normal"
@@ -336,9 +352,7 @@ msgstr "Skala ner alla appar"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Aktiverad"
 
@@ -519,11 +533,11 @@ msgstr "Aktivera s_kärmtangentbord"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Huruvida skärmtangentbordet ska visas när det behövs"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Långtryck för utbredning"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -531,55 +545,79 @@ msgstr ""
 "breda ut sig"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "kort"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "länge"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Ignorera hårdvarutangentbord"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Huruvida skärmtangentbordet ska visas när ett fysiskt tangentbord är "
 "tillgängligt"
 
-#: src/ui/ms-osk-panel.ui:61
+#: src/ui/ms-osk-panel.ui:50
+msgid "Keyboard height in portrait mode"
+msgstr "Tangentbordshöjd i stående läge"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "When the screen is taller than wide"
+msgstr "När skärmen är högre än den är bred"
+
+#: src/ui/ms-osk-panel.ui:66
+msgid "Keyboard height in landscape mode"
+msgstr "Tangentbordshöjd i liggande läge"
+
+#: src/ui/ms-osk-panel.ui:67
+msgid "When the screen is wider than tall"
+msgstr "När skärmen är bredare än den är hög"
+
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Textkomplettering"
 
-#: src/ui/ms-osk-panel.ui:64
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Opportunistisk ordkomplettering"
 
-#: src/ui/ms-osk-panel.ui:65
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Aktivera ordkomplettering när appen indikerar att det är användbart"
 
-#: src/ui/ms-osk-panel.ui:80
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Växla via tangentbordsmeny"
 
-#: src/ui/ms-osk-panel.ui:81
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "Tillåt växling av ordkomplettering via tangentbordets menyknapp"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:108
+msgid "Default Completer"
+msgstr "Standardkompletterare"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "Kompletteringsmotorn att använda som standard"
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Terminallayout"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Kortkommandon"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Kortkommandona som är tillgängliga i kortkommandoraden"
 
