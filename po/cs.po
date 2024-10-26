@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-10-18 13:16+0000\n"
-"PO-Revision-Date: 2024-10-19 23:06+0200\n"
+"POT-Creation-Date: 2024-10-26 06:56+0000\n"
+"PO-Revision-Date: 2024-10-26 11:12+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -163,6 +163,19 @@ msgstr "normální"
 #: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "kritické"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:534
+msgid "Default"
+msgstr "Výchozí"
+
+#: src/ms-osk-panel.c:535
+msgid "The default completer selected by the OSK"
+msgstr "Výchozí nástroj pro doplnění vybraný OSK"
+
+#: src/ms-osk-panel.c:538
+msgid "No information available for this completer"
+msgstr "Pro tento nástroj pro doplnění nejsou k dispozici žádné informace"
 
 #: src/ms-sensor-panel.c:92
 msgid "Normal"
