@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-09-11 10:34+0000\n"
-"PO-Revision-Date: 2024-09-15 12:25+0300\n"
+"POT-Creation-Date: 2024-10-26 06:56+0000\n"
+"PO-Revision-Date: 2024-10-27 13:31+0300\n"
 "Last-Translator: Artur So <arturios2005@mail.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -157,13 +157,26 @@ msgid "low"
 msgstr "низкая"
 
 #. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:36
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
 msgid "normal"
 msgstr "нормальная"
 
 #: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "критическая"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:534
+msgid "Default"
+msgstr "По умолчанию"
+
+#: src/ms-osk-panel.c:535
+msgid "The default completer selected by the OSK"
+msgstr "Завершитель по умолчанию, выбранный OSK"
+
+#: src/ms-osk-panel.c:538
+msgid "No information available for this completer"
+msgstr "Нет информации для этого завершителя"
 
 #: src/ms-sensor-panel.c:92
 msgid "Normal"
@@ -351,9 +364,7 @@ msgstr "Уменьшить масштабирование всех прилож�
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Включено"
 
@@ -538,11 +549,11 @@ msgstr "Включить _экранную клавиатуру"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Показывать экранную клавиатуру при необходимости"
 
-#: src/ui/ms-osk-panel.ui:28
+#: src/ui/ms-osk-panel.ui:19
 msgid "Unfold long-press"
 msgstr "Раскрытие при длительном нажатии"
 
-#: src/ui/ms-osk-panel.ui:29
+#: src/ui/ms-osk-panel.ui:20
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
@@ -550,55 +561,79 @@ msgstr ""
 "экранную клавиатуру"
 
 #. 0.5
-#: src/ui/ms-osk-panel.ui:34
+#: src/ui/ms-osk-panel.ui:25
 msgid "short"
 msgstr "короткая"
 
 #. 2.0
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:29
 msgid "long"
 msgstr "длинная"
 
-#: src/ui/ms-osk-panel.ui:46
+#: src/ui/ms-osk-panel.ui:37
 msgid "Ignore hardware keyboard"
 msgstr "Игнорировать аппаратную клавиатуру"
 
-#: src/ui/ms-osk-panel.ui:47
+#: src/ui/ms-osk-panel.ui:38
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "Показывать экранную клавиатуру при наличии физической клавиатуры"
 
-#: src/ui/ms-osk-panel.ui:61
+#: src/ui/ms-osk-panel.ui:50
+msgid "Keyboard height in portrait mode"
+msgstr "Высота клавиатуры в портретном режиме"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "When the screen is taller than wide"
+msgstr "Когда экран больше в высоту, чем в ширину"
+
+#: src/ui/ms-osk-panel.ui:66
+msgid "Keyboard height in landscape mode"
+msgstr "Высота клавиатуры в ландшафтном режиме"
+
+#: src/ui/ms-osk-panel.ui:67
+msgid "When the screen is wider than tall"
+msgstr "Когда экран больше по ширине, чем по высоте"
+
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Автозавершение текста"
 
-#: src/ui/ms-osk-panel.ui:64
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Условное завершение слов"
 
-#: src/ui/ms-osk-panel.ui:65
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "Включать завершение слов, когда приложение считает это полезным"
 
-#: src/ui/ms-osk-panel.ui:80
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
 msgstr "Переключать через экранную клавиатуру"
 
-#: src/ui/ms-osk-panel.ui:81
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Разрешить переключение завершения слов с помощью кнопки меню экранной "
 "клавиатуры"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:108
+msgid "Default Completer"
+msgstr "Завершитель по умолчанию"
+
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "Используемый по умолчанию механизм завершения"
+
+#: src/ui/ms-osk-panel.ui:120
 msgid "Terminal Layout"
 msgstr "Раскладка терминала"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Комбинации клавиш"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Комбинации клавиш, доступные на соответствующей панели"
 
