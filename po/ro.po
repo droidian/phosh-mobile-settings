@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-10-18 13:16+0000\n"
-"PO-Revision-Date: 2024-10-18 15:26+0200\n"
+"POT-Creation-Date: 2024-10-26 06:56+0000\n"
+"PO-Revision-Date: 2024-10-27 23:00+0100\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -166,6 +166,19 @@ msgstr "normal"
 #: src/ms-feedback-panel.c:350
 msgid "critical"
 msgstr "critic"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:534
+msgid "Default"
+msgstr "Prestabilită"
+
+#: src/ms-osk-panel.c:535
+msgid "The default completer selected by the OSK"
+msgstr "Completarea prestabilită aleasă de tastatura virtuală"
+
+#: src/ms-osk-panel.c:538
+msgid "No information available for this completer"
+msgstr "Nicio informație disponibilă pentru această completare"
 
 #: src/ms-sensor-panel.c:92
 msgid "Normal"
