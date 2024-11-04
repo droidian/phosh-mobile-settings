@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-09-24 14:54+0000\n"
-"PO-Revision-Date: 2024-09-25 08:33+0200\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2024-10-09 06:55+0000\n"
+"PO-Revision-Date: 2024-10-14 19:41+0200\n"
+"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3
 #: src/ui/mobile-settings-window.ui:6
@@ -347,7 +347,7 @@ msgstr "Alle Apps verkleinern"
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
 #: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:72 src/ui/ms-osk-panel.ui:88
+#: src/ui/ms-osk-panel.ui:110 src/ui/ms-osk-panel.ui:126
 #: src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -569,39 +569,55 @@ msgstr ""
 "Legt fest, ob die Bildschirmtastatur angezeigt werden soll, wenn eine "
 "physische Tastatur vorhanden ist"
 
-#: src/ui/ms-osk-panel.ui:61
+#: src/ui/ms-osk-panel.ui:59
+msgid "Keyboard height in portrait mode"
+msgstr "Tastaturhöhe im Hochformat"
+
+#: src/ui/ms-osk-panel.ui:60
+msgid "When the screen is taller than wide"
+msgstr "Wenn der Bildschirm höher als breit ist"
+
+#: src/ui/ms-osk-panel.ui:75
+msgid "Keyboard height in landscape mode"
+msgstr "Tastaturhöhe im Querformat"
+
+#: src/ui/ms-osk-panel.ui:76
+msgid "When the screen is wider than tall"
+msgstr "Wenn der Bildschirm breiter als hoch ist"
+
+#: src/ui/ms-osk-panel.ui:99
 msgid "Text Completion"
 msgstr "Textvervollständigung"
 
-#: src/ui/ms-osk-panel.ui:64
+#: src/ui/ms-osk-panel.ui:102
 msgid "Opportunistic word completion"
 msgstr "Opportunistische Wortvervollständigung"
 
-#: src/ui/ms-osk-panel.ui:65
+#: src/ui/ms-osk-panel.ui:103
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Wortvervollständigung aktivieren, wenn die Anwendung darauf hinweist, dass "
 "sie nützlich ist"
 
 # »OSK« vermutlich »on screen keyboard«, also »Bildschirmtastatur« - ts
-#: src/ui/ms-osk-panel.ui:80
+#: src/ui/ms-osk-panel.ui:118
 msgid "Toggle via OSK menu"
 msgstr "Über BST-Menü umschalten"
 
-#: src/ui/ms-osk-panel.ui:81
+#: src/ui/ms-osk-panel.ui:119
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Umschalten der Wortvervollständigung über den Menüknopf der Tastatur zulassen"
 
-#: src/ui/ms-osk-panel.ui:99
+#: src/ui/ms-osk-panel.ui:137
 msgid "Terminal Layout"
 msgstr "Terminal-Anordnung"
 
-#: src/ui/ms-osk-panel.ui:103
+#: src/ui/ms-osk-panel.ui:141
 msgid "Shortcuts"
 msgstr "Tastenkürzel"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:142
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Die in der Tastenkürzelleiste verfügbaren Tastenkürzel"
 
