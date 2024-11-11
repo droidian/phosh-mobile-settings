@@ -5,10 +5,10 @@
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
 
-  <name>phosh</name>
-  <shortname>phosh-mobile-settings</shortname>
-  <shortdesc>Mobile Settings</shortdesc>
-  <description>A settings up for things that don't fit into GNOME Settings (yet)</description>
+  <name xml:lang="en">Phosh Mobile Settings</name>
+  <shortname xml:lang="en">Mobile Settings</shortname>
+  <shortdesc xml:lang="en">Application to configure various aspects of mobile devices</shortdesc>
+  <description xml:lang="en">Application to configure various aspects of mobile devices</description>
   <homepage rdf:resource="https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/" />
   <license rdf:resource="http://usefulinc.com/doap/licenses/gpl" />
 
