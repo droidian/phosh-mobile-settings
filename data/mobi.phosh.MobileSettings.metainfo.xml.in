@@ -51,8 +51,9 @@
   </screenshots>
 
   <releases>
+
     <release version="0.42.0" date="2024-09-30">
-      <description>
+      <description translate="no">
         <ul>
           <li>Allow to select OSK layouts when OSK supports it</li>
           <li>Open last opened panel on startup</li>
@@ -61,7 +62,7 @@
     </release>
 
     <release version="0.41.0" date="2024-08-15">
-      <description>
+      <description translate="no">
         <ul>
           <li>top-bar: Allow to toggle showing Battery percentage</li>
           <li>feedback: Allow to prefer camera flash as notification LED</li>
@@ -71,7 +72,7 @@
     </release>
 
     <release version="0.40.0" date="2024-04-30">
-      <description>
+      <description translate="no">
         <ul>
           <li>Add more information to the trouble shooting page</li>
           <li>Allow to configure whether to automatically avoid notches</li>
@@ -82,7 +83,7 @@
     </release>
 
     <release version="0.39.0" date="2024-05-15">
-      <description>
+      <description translate="no">
         <ul>
           <li>Allow to manage custom quick settings</li>
           <li>osk panel: Allow to configure whether to ignore hardware keyboards</li>
@@ -91,7 +92,7 @@
     </release>
 
     <release version="0.38.0" date="2024-04-02">
-      <description>
+      <description translate="no">
         <ul>
           <li>Add option to print debug info on the command line</li>
         </ul>
@@ -99,7 +100,7 @@
     </release>
 
     <release version="0.37.0" date="2024-03-01">
-      <description>
+      <description translate="no">
         <ul>
           <li>Improve organizing favorites in the application panel</li>
           <li>Improve sound file selection in feedback panel</li>
@@ -110,7 +111,7 @@
     </release>
 
     <release version="0.36.0" date="2024-02-03">
-      <description>
+      <description translate="no">
         <ul>
           <li>Allow to arrange and reset Phosh's favorites</li>
           <li>Allow to configure Phosh's OSK long press timer</li>
@@ -119,7 +120,7 @@
     </release>
 
     <release version="0.35.0" date="2024-01-01">
-      <description>
+      <description translate="no">
         <ul>
           <li>Improve sound file selection</li>
         </ul>
@@ -127,7 +128,7 @@
     </release>
 
     <release version="0.34.0" date="2023-12-04">
-      <description>
+      <description translate="no">
         <ul>
           <li>Add more information to trouble shooting tab</li>
         </ul>
@@ -135,7 +136,7 @@
     </release>
 
     <release version="0.33.0" date="2023-10-28">
-      <description>
+      <description translate="no">
         <ul>
           <li>Add more information to trouble shooting tab</li>
           <li>Avoid out of place scrollbars on larger screens</li>
@@ -144,7 +145,7 @@
     </release>
 
     <release version="0.32.0" date="2023-10-02">
-      <description>
+      <description translate="no">
         <ul>
           <li>Allow to reorder lockscreen plugins</li>
         </ul>
@@ -152,7 +153,7 @@
     </release>
 
     <release version="0.31.0" date="2023-08-29">
-      <description>
+      <description translate="no">
         <ul>
           <li>Allow to configure notification priority that triggers screen wakup</li>
           <li>More troubleshooting information</li>
@@ -161,7 +162,7 @@
     </release>
 
     <release version="0.30.0" date="2023-08-02">
-      <description>
+      <description translate="no">
         <ul>
           <li>Add troubleshooting tab to about dialog</li>
         </ul>
@@ -169,7 +170,7 @@
     </release>
 
     <release version="0.29.0" date="2023-07-05">
-      <description>
+      <description translate="no">
         <ul>
           <li>New panel for sensor readings</li>
           <li>Allow to enable suspend button in phosh</li>
@@ -178,7 +179,7 @@
     </release>
 
     <release version="0.28.0" date="2023-05-31">
-      <description>
+      <description translate="no">
         <ul>
           <li>New panel to enable experimental features</li>
           <li>Robustness fixes</li>
@@ -187,13 +188,13 @@
     </release>
 
     <release version="0.27.0" date="2023-04-30">
-      <description>
+      <description translate="no">
         <p>Allow to configure sounds for ring tone, SMS and instant messages</p>
       </description>
     </release>
 
     <release version="0.26.0" date="2023-03-30">
-      <description>
+      <description translate="no">
         <ul>
           <li>Styling fixes</li>
         </ul>
@@ -201,7 +202,7 @@
     </release>
 
     <release version="0.25.0" date="2023-02-28">
-      <description>
+      <description translate="no">
         <ul>
           <li>New OSK panel</li>
           <li>Fix translations</li>
@@ -210,35 +211,35 @@
     </release>
 
     <release version="0.24.1" date="2023-02-13">
-      <description><p>Lockscreen Plugin panel bug fixes</p></description>
+      <description translate="no"><p>Lockscreen Plugin panel bug fixes</p></description>
     </release>
 
     <release version="0.24.0" date="2023-01-30">
-      <description><p>Lockscreen Plugin panel bug fixes</p></description>
+      <description translate="no"><p>Lockscreen Plugin panel bug fixes</p></description>
     </release>
 
     <release version="0.23.1" date="2023-01-04">
-      <description><p>Bugfix release</p></description>
+      <description translate="no"><p>Bugfix release</p></description>
     </release>
 
     <release version="0.23.0" date="2022-12-28">
-      <description><p>Allow plugins to have preferences</p></description>
+      <description translate="no"><p>Allow plugins to have preferences</p></description>
     </release>
 
     <release version="0.22.0" date="2022-11-02">
-      <description><p>Support UPERFECT X Mini lapdock</p></description>
+      <description translate="no"><p>Support UPERFECT X Mini lapdock</p></description>
     </release>
 
     <release version="0.21.1" date="2022-09-28">
-      <description><p>Bug fixes release</p></description>
+      <description translate="no"><p>Bug fixes release</p></description>
     </release>
 
     <release version="0.21.0" date="2022-09-01">
-      <description><p>Allow to enable/disable lockscreen widgets and bug fixes</p></description>
+      <description translate="no"><p>Allow to enable/disable lockscreen widgets and bug fixes</p></description>
     </release>
 
     <release version="0.20.0" date="2022-08-08">
-      <description><p>Initial release</p></description>
+      <description translate="no"><p>Initial release</p></description>
     </release>
   </releases>
 </component>
