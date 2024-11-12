@@ -32,6 +32,7 @@
                       <object class="GtkSwitch" id="scale_to_fit_switch">
                         <property name="valign">center</property>
                         <accessibility>
+                          <!-- Translators: the word Enabled implies an active state to scale down all applications setting -->
                           <property name="label" translatable="yes">Enabled</property>
                         </accessibility>
                       </object>
