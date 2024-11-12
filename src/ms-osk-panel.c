@@ -438,7 +438,7 @@ ms_osk_panel_parse_pos_completers (MsOskPanel *self)
 
   dir = g_dir_open (MOBILE_SETTINGS_OSK_COMPLETERS_DIR, 0, &err);
   if (!dir) {
-    g_warning ("Failed to read phosh plugins from " MOBILE_SETTINGS_PHOSH_PLUGINS_DIR ": %s",
+    g_warning ("Failed to load completer info from " MOBILE_SETTINGS_OSK_COMPLETERS_DIR ": %s",
                err->message);
   }
 
