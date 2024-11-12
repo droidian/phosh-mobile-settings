@@ -147,10 +147,13 @@ ms_feedback_profile_to_label (MsFeedbackProfile profile)
 {
   switch (profile) {
   case MS_FEEDBACK_PROFILE_FULL:
+    /* Translators: "Full" represents the feedback profile with maximum haptic, led and sounds */
     return g_strdup (_("Full"));
   case MS_FEEDBACK_PROFILE_QUIET:
+   /* Translators: "Quiet" represents a feedback profile with haptic and LED */
     return g_strdup (_("Quiet"));
   case MS_FEEDBACK_PROFILE_SILENT:
+    /* Translators: "Silent" represents a feedback profile with LED only */
     return g_strdup (_("Silent"));
   default:
     g_return_val_if_reached (NULL);
