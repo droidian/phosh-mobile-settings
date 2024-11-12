@@ -117,3 +117,14 @@ format-check:
   stage: style-checks
   extends: .phosh-format-check
   allow_failure: true
+
+check-markdown:
+  stage: style-checks
+  variables:
+    PHOSH_MARKDOWN_PATHS: "*.md"
+  extends: .phosh-check-markdown
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths:
+          - "*.md"
