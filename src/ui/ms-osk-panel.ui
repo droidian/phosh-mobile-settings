@@ -21,11 +21,11 @@
                     <property name="model">
                       <object class="GtkStringList">
                         <items>
-                          <!-- 0.5 -->
+                          <!-- Translators: abbreviation for less than or equal to 0.5 second interval of time -->
                           <item translatable="yes">short</item>
-                          <!-- 1.0 -->
+                          <!-- Translators: abbreviation for 1 second interval of time -->
                           <item translatable="yes">normal</item>
-                          <!-- 2.0 -->
+                          <!-- Translators: abbreviation for greater than or equal to 1.5 second interval of time -->
                           <item translatable="yes">long</item>
                         </items>
                       </object>
