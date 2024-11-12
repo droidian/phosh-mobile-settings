@@ -124,6 +124,7 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
 
   custom_theme_dir = g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL);
   if (g_strcmp0 (custom_theme_dir, ".")) {
+    /* Translators: "Custom" is the name of a user-defined sound theme */
     g_key_file_set_string (theme_file, "Sound Theme", "Name", _("Custom"));
     if (default_theme != NULL)
       g_key_file_set_string (theme_file, "Sound Theme", "Inherits", g_variant_get_string (default_theme, NULL));
