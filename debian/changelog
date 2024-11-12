@@ -1,3 +1,103 @@
+phosh-mobile-settings (0.43~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ci: Let ci-fairy figure out the target branch.
+    It uses gitlab-ci's CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  * ci: Update to latest ci-fairy
+  * ci: Enable signed-off-by checks
+  * ci: Let ci-fairy run without dependencies
+  * plugin-list-box: Fix indent
+  * topbar-panel: Add log domain.
+    Fixes f012151 ("topbar-panel: Create a new empty top bar panel")
+  * plugin-list-box: Fix log domain
+  * lockscreen-panel: Drop scan.
+    This is done by the plugin-list-box anyway
+  * plugin-list-box: Don't crash when we fail to load the extension.
+    Rather give a hint what went wrong
+  * build: Require glib 2.76.
+    Allows us to use g_string_free_and_steal()
+  * osk: Move p-o-s specific code to separate function
+  * osk: Use AdwSwitchRow. Same functionality, less code.
+  * osk-panel: Allow text completer selection.
+    If a recent enough p-o-s provides the necessary data the user can select
+    the used completer. If no such data is provided by the OSK we at least
+    show the currently selected completer.
+  * packaging: Drop unused file
+  * osk-panel: Better handle the default completer.
+    The default completer is indicated via the empty string (''). Make sure
+    we provide some meaningful information.
+    We do that here (rather than via the OSK) as for the case of a user
+    selection we can then drop the confusing default entry.
+    At some point we will enforce minimal completers on the OSK side and
+    then this entry will just not be shown anymore.
+  * osk-panel: Update completer when combo row changes
+
+  [ MoonlightWave-12 ]
+  * util: Fix typo
+  * osk-panel: Add horizontal and vertical size-settings for Squeekboard.
+    This makes it easier to adjust the keyboard to a convenient size,
+    or work around scaling-issues.
+
+  [ Stefan Hansson ]
+  * gmobile: Update to 0.2.1
+  * panel-switcher: Make scrollable.
+    This allows the switcher to be scolled if the height of the program is
+    too small to display all options, which can happen if a device like the
+    Librem 5 is viewing the program in landscape mode. It might also help
+    devices with shorter screen if users have chosen a large text font.
+    Additionally, it faciliates adding more options to the list in the
+    future.
+  * doap: Fix name, shortname, shortdesc and a typo.
+    This project is not called Phosh, so let's set it to the real name.
+    Makes for a slightly less confusing experience when selecting project in
+    GNOME Builder.
+    Additionally, make the shortdesc something unique.
+    And, finally, fix a typo in descrption (up -> app).
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Jordi Mas i Hernandez ]
+  * Update Catalan translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Nathan Follens ]
+  * Add Dutch translation
+
+  [ Jürgen Benvenuti ]
+  * Update German translation
+
+  [ Bruce Cowan ]
+  * Update British English translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 11 Nov 2024 20:30:19 +0100
+
 phosh-mobile-settings (0.42.0) experimental; urgency=medium
 
   [ Guido Günther ]

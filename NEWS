@@ -1,3 +1,30 @@
+phosh-mobile-settings 0.43~rc1
+------------------------------
+Released November 2024
+* osk panel: Allow to set horizontal and vertical size when using squeekboard
+* osk panel: Allow completion engine selection when using phosh-osk-stub
+* Make the panel switcher scrollable
+* More cleanups and fixes
+* Contributors:
+    * Guido Günther
+    * MoonlightWave-12
+    * Stefan Hansson
+* UI translations:
+    * Anders Jonsson (sv)
+    * Antonio Marin (ro)
+    * Artur S0 (ru)
+    * Bruce Cowan (en_GB)
+    * Danial Behzadi (fa)
+    * Daniel Rusek (cs)
+    * Ekaterine Papava (ka)
+    * Jordi Mas i Hernandez (ca)
+    * Juliano de Souza Camargo (pt_BR)
+    * Jürgen Benvenuti (de)
+    * Martin (sl)
+    * Nathan Follens (nl)
+    * Yaron Shahrabani (he)
+    * Yuri Chornoivan (uk)
+
 phosh-mobile-settings 0.42.0
 ----------------------------
 Released September 2024
