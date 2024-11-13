@@ -341,14 +341,19 @@ on_notifications_urgency (AdwEnumListItem *item,
 {
   switch (adw_enum_list_item_get_value (item)) {
   case MS_PHOSH_NOTIFICATION_NONE:
+    /* Translators: "none" categorizes notifications with no importance */
     return g_strdup (_("none"));
   case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
+    /* Translators: "low" categorizes notifications with minor importance */
     return g_strdup (_("low"));
   case MS_PHOSH_NOTIFICATION_URGENCY_NORMAL:
+    /* Translators: "normal" categorizes notifications with standard importance */
     return g_strdup (_("normal"));
   case MS_PHOSH_NOTIFICATION_URGENCY_CRITICAL:
+    /* Translators: "critical" categorizes notifications with urgent importance */
     return g_strdup (_("critical"));
   default:
+    /* Translators: "none" is the default for notifications with no specified importance */
     return g_strdup (_("none"));
   }
 }

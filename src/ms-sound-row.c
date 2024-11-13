@@ -119,11 +119,12 @@ ms_sound_row_set_custom_sound_theme (MsSoundRow *self)
   theme_file = g_key_file_new ();
   if (!g_key_file_load_from_file (theme_file, theme_path, G_KEY_FILE_KEEP_COMMENTS, &load_error)) {
     if (!g_error_matches (load_error, G_FILE_ERROR, G_FILE_ERROR_NOENT))
-        g_printerr ("Failed to load theme file %s: %s", theme_path, load_error->message);
+      g_printerr ("Failed to load theme file %s: %s", theme_path, load_error->message);
   }
 
   custom_theme_dir = g_key_file_get_string (theme_file, "Sound Theme", "Directories", NULL);
   if (g_strcmp0 (custom_theme_dir, ".")) {
+    /* Translators: "Custom" is the name of a user-defined sound theme */
     g_key_file_set_string (theme_file, "Sound Theme", "Name", _("Custom"));
     if (default_theme != NULL)
       g_key_file_set_string (theme_file, "Sound Theme", "Inherits", g_variant_get_string (default_theme, NULL));

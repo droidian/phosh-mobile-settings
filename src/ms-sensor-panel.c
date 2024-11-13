@@ -89,14 +89,19 @@ orientation_string_transform (GBinding     *binding,
   const char *orientation = g_value_get_string (from_value);
 
   if (g_strcmp0 (orientation, "normal") == 0)
+    /* Translators: "Normal" represents the standard or default orientation */
     g_value_set_string (to_value, _("Normal"));
   else if (g_strcmp0 (orientation, "bottom-up") == 0)
+    /* Translators: "Bottom up" indicates the orientation is flipped vertically */
     g_value_set_string (to_value, _("Bottom up"));
   else if (g_strcmp0 (orientation, "left-up") == 0)
+    /* Translators: "Left up" indicates the orientation of a device with left side up */
     g_value_set_string (to_value, _("Left up"));
   else if (g_strcmp0 (orientation, "right-up") == 0)
+    /* Translators: "Right up" indicates the orientation of a device with right side up */
     g_value_set_string (to_value, _("Right up"));
   else
+    /* Translators: "Undefined" is shown when the orientation of the device is not recognized */
     g_value_set_string (to_value, _("Undefined"));
 
   return TRUE;
@@ -130,6 +135,8 @@ proximity_near_to_string_transform (GBinding     *binding,
                                     GValue       *to_value,
                                     gpointer      unused)
 {
+  /* Translators: "Near" indicates proximity close to the sensor
+   * "Far" indicates some distance from the sensor */
   g_value_set_string (to_value,
                       g_value_get_boolean (from_value) ?
                       _("Near") : _("Far"));
@@ -266,8 +273,11 @@ update_panel_sensors (MsSensorPanel *self)
   self->n_sensors = 0;
   gtk_stack_set_visible_child_name (self->stack, "no-sensors");
 
+  /* Translators: "Not available" indicates that the proximity sensor data is unavailable */
   gtk_label_set_label (self->proximity_label, _("Not available"));
+  /* Translators: "Not available" indicates that the light sensor data is unavailable */
   gtk_label_set_label (self->light_label, _("Not available"));
+  /* Translators: "Not available" indicates that the accelerometer sensor data is unavailable */
   gtk_label_set_label (self->accelerometer_label, _("Not available"));
 
   if (!self->proxy)
