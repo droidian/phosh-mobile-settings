@@ -20,8 +20,8 @@
                       <object class="GtkSwitch" id="emergency_calls_enabled_switch">
                         <property name="valign">center</property>
                         <accessibility>
-                          <!-- Translators: the word Enabled implies an active state to enable emergency calls feature -->
-                          <property name="label" translatable="yes">Enabled</property>
+                          <!-- Translators: setting to enable emergency calls -->
+                          <property name="label" translatable="yes" context="emergency calls setting">Enabled</property>
                         </accessibility>
                       </object>
                     </child>
@@ -36,8 +36,8 @@
                       <object class="GtkSwitch" id="manual_suspend_switch">
                         <property name="valign">center</property>
                         <accessibility>
-                          <!-- Translators: the word Enabled implies an active state to enable suspend via the system menu feature -->
-                          <property name="label" translatable="yes">Enabled</property>
+                          <!-- Translators: setting to enable suspend via the system menu -->
+                          <property name="label" translatable="yes" context="suspend setting">Enabled</property>
                         </accessibility>
                         <style>
                           <class name="destructive-action"/>
