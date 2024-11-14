@@ -340,9 +340,6 @@ on_notifications_urgency (AdwEnumListItem *item,
                           gpointer         user_data)
 {
   switch (adw_enum_list_item_get_value (item)) {
-  case MS_PHOSH_NOTIFICATION_NONE:
-    /* Translators: "none" categorizes notifications with no importance */
-    return g_strdup (_("none"));
   case MS_PHOSH_NOTIFICATION_URGENCY_LOW:
     /* Translators: "low" categorizes notifications with minor importance */
     return g_strdup (_("low"));
@@ -353,6 +350,7 @@ on_notifications_urgency (AdwEnumListItem *item,
     /* Translators: "critical" categorizes notifications with urgent importance */
     return g_strdup (_("critical"));
   default:
+  case MS_PHOSH_NOTIFICATION_NONE:
     /* Translators: "none" is the default for notifications with no specified importance */
     return g_strdup (_("none"));
   }
@@ -592,3 +590,4 @@ ms_feedback_panel_new (void)
 {
   return MS_FEEDBACK_PANEL (g_object_new (MS_TYPE_FEEDBACK_PANEL, NULL));
 }
+
