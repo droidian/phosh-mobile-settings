@@ -2,7 +2,8 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="MsPluginLibrem5Panel" parent="MsPluginPanel">
-    <property name="title">Librem 5</property>
+    <!-- Translators "Librem 5" is a smartphone model, usually no need to translate it -->
+    <property name="title" translatable="yes">Librem 5</property>
     <child>
       <object class="AdwClamp">
         <child>
@@ -12,7 +13,8 @@
                 <child>
 
 	          <object class="AdwPreferencesGroup">
-                    <property name="title">Librem 5</property>
+	            <!-- Translators "Librem 5" is a smartphone model, usually no need to translate it -->
+                    <property name="title" translatable="yes">Librem 5</property>
 	            <child>
 	              <object class="AdwActionRow">
                         <!-- translators: U-boot is the brand of a bootloader -->
@@ -33,7 +35,7 @@
                         <property name="subtitle" translatable="yes">Suspend is experimental</property>
                         <child>
                           <object class="GtkButton" id="suspend_button">
-		            <property name="label">suspend now</property>
+		            <property name="label" translatable="yes">suspend now</property>
 		            <property name="valign">center</property>
                             <signal name="clicked" handler="on_suspend_clicked" swapped="yes"/>
                             <style>
