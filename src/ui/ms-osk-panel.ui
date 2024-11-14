@@ -9,9 +9,10 @@
             <child>
               <object class="AdwPreferencesGroup">
                 <child>
-                  <object class="AdwSwitchRow"  id="osk_enable_switch">
+                  <object class="AdwSwitchRow" id="osk_enable_switch">
                     <property name="title" translatable="yes">Enable _On Screen Keyboard</property>
                     <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when needed</property>
+                    <property name="use-underline">True</property>
                   </object>
                 </child>
                 <child>
