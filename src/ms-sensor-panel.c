@@ -135,10 +135,10 @@ proximity_near_to_string_transform (GBinding     *binding,
                                     GValue       *to_value,
                                     gpointer      unused)
 {
-  /* Translators: "Near" indicates proximity close to the sensor
-   * "Far" indicates some distance from the sensor */
   g_value_set_string (to_value,
                       g_value_get_boolean (from_value) ?
+                      /* Translators: "Near" indicates proximity close to the sensor
+                       * "Far" indicates some distance from the sensor */
                       _("Near") : _("Far"));
 
   return TRUE;
@@ -274,11 +274,11 @@ update_panel_sensors (MsSensorPanel *self)
   gtk_stack_set_visible_child_name (self->stack, "no-sensors");
 
   /* Translators: "Not available" indicates that the proximity sensor data is unavailable */
-  gtk_label_set_label (self->proximity_label, _("Not available"));
+  gtk_label_set_label (self->proximity_label, C_("proximity sensor data", "Not available"));
   /* Translators: "Not available" indicates that the light sensor data is unavailable */
-  gtk_label_set_label (self->light_label, _("Not available"));
+  gtk_label_set_label (self->light_label, C_("light sensor data", "Not available"));
   /* Translators: "Not available" indicates that the accelerometer sensor data is unavailable */
-  gtk_label_set_label (self->accelerometer_label, _("Not available"));
+  gtk_label_set_label (self->accelerometer_label, C_("accelerometer sensor data", "Not available"));
 
   if (!self->proxy)
     return;
