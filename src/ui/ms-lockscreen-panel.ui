@@ -34,8 +34,8 @@
                       <object class="GtkSwitch" id="shuffle_switch">
                         <property name="valign">center</property>
                         <accessibility>
-                          <!-- Translators: the word Enabled implies an active state to shuffle the numbers on the keypad -->
-                          <property name="label" translatable="yes">Enabled</property>
+                          <!-- Translators: setting to shuffle the numbers on the keypad -->
+                          <property name="label" translatable="yes" context="shuffle keypad setting">Enabled</property>
                         </accessibility>
                       </object>
                     </child>
