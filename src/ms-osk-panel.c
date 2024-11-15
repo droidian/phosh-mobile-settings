@@ -263,6 +263,17 @@ is_osk_app (void)
   g_autofree char *proc_path = NULL;
   g_autofree char *exe = NULL;
   guint32 pid;
+  const char *forced_osk;
+
+  forced_osk = g_getenv ("MS_FORCE_OSK");
+  if (forced_osk) {
+    if (g_str_equal (forced_osk, "pos"))
+      return MS_OSK_APP_POS;
+    else if (g_str_equal (forced_osk, "squeekboard"))
+      return MS_OSK_APP_SQUEEKBOARD;
+    else
+      return MS_OSK_APP_UNKNOWN;
+  }
 
   proxy =  g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
                                           G_DBUS_PROXY_FLAGS_NONE,
@@ -438,7 +449,7 @@ ms_osk_panel_parse_pos_completers (MsOskPanel *self)
 
   dir = g_dir_open (MOBILE_SETTINGS_OSK_COMPLETERS_DIR, 0, &err);
   if (!dir) {
-    g_warning ("Failed to read phosh plugins from " MOBILE_SETTINGS_PHOSH_PLUGINS_DIR ": %s",
+    g_warning ("Failed to load completer info from " MOBILE_SETTINGS_OSK_COMPLETERS_DIR ": %s",
                err->message);
   }
 

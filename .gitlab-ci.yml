@@ -1,6 +1,6 @@
 include:
  - project: 'guidog/meta-phosh'
-   ref: 'ebb7aef58c96e3d586157f265e14d386ad8766fc'
+   ref: '2c115683e25dfc458d3b462df3759e1ace2196f7'
    file: '/ci/phosh-common-jobs.yml'
  - remote: 'https://gitlab.freedesktop.org/freedesktop/ci-templates/-/raw/6a40df92957c8ce9ee741aaccc5daaaf70545b1e/templates/ci-fairy.yml'
 
@@ -117,3 +117,14 @@ format-check:
   stage: style-checks
   extends: .phosh-format-check
   allow_failure: true
+
+check-markdown:
+  stage: style-checks
+  variables:
+    PHOSH_MARKDOWN_PATHS: "*.md"
+  extends: .phosh-check-markdown
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        paths:
+          - "*.md"
