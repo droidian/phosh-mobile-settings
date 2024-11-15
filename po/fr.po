@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Alexandre Iooss <erdnaxe@crans.org>, 2023.
+# Vincent Chatelain <vincent_chatelain@proton.me>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-13 20:12+0100\n"
-"PO-Revision-Date: 2023-12-23 08:39+0100\n"
-"Last-Translator: Alexandre Iooss <erdnaxe@crans.org>\n"
-"Language-Team: French <none>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
+"settings/-/issues\n"
+"POT-Creation-Date: 2024-11-06 18:10+0000\n"
+"PO-Revision-Date: 2024-11-11 12:34+0100\n"
+"Last-Translator: Vincent Chatelain <vincent_chatelain@proton.me>\n"
+"Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,9 +25,10 @@ msgstr ""
 msgid "Mobile Settings"
 msgstr "Paramètres du mobile"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:12
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/mobi.phosh.MobileSettings.desktop.in:13
 msgid "Mobile;Preferences;MobileSettings;"
-msgstr "Mobile;Preferences;MobileSettings;"
+msgstr "mobile;préférences;paramètres;"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:4
 msgid "Phosh Mobile Settings"
@@ -38,23 +40,68 @@ msgid ""
 "require command line usage."
 msgstr ""
 "Cette application vous permet de configurer certains aspects de Phosh qui "
-"nécessiteraient autrement l'utilisation de lignes de commande."
+"nécessiteraient autrement l’utilisation de lignes de commande."
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
 msgstr "Paramètres avancés pour les appareils mobiles utilisant Phosh"
 
-#: data/mobi.phosh.MobileSettings.metainfo.xml.in:36
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
 msgstr "Panneaux disponibles"
 
-#: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
 msgid "Compositor panel"
 msgstr "Panneau du compositeur"
 
-#: data/mobi.phosh.MobileSettings.metainfo.xml.in:44
+#: data/mobi.phosh.MobileSettings.metainfo.xml.in:48
 msgid "Feedback panel"
 msgstr "Panneau des réactions"
+
+#: plugins/librem5/ms-plugin-librem5-panel.c:214
+#, c-format
+msgid "Critical temperature is %.2f°C"
+msgstr "La température critique est %.2f°C"
+
+#. translators: U-boot is the brand of a bootloader
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+msgid "U-Boot"
+msgstr "U-Boot"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+msgid "Suspend device"
+msgstr "Mettre en veille l’appareil"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+msgid "Suspend is experimental"
+msgstr "La mise en veille est expérimentale"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+msgid "Temperatures"
+msgstr "Températures"
+
+#. translators: The central processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+msgid "CPU"
+msgstr "CPU"
+
+#. translators: The graphics processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+msgid "GPU"
+msgstr "GPU"
+
+#. translators: The video processing unit of a smart phone
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+msgid "VPU"
+msgstr "VPU"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+msgid "Fuel Gauge"
+msgstr "Niveau de charge"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+msgid "Battery"
+msgstr "Batterie"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -71,73 +118,238 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/ui/mobile-settings-window.ui:74
+#: src/mobile-settings-application.c:34
+msgid "- Manage your mobile settings"
+msgstr "- Gérer les paramètres de votre mobile"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/mobile-settings-application.c:426
+msgid "translator-credits"
+msgstr ""
+"Alexandre Iooss <erdnaxe@crans.org>, 2023\n"
+"Vincent Chatelain <vincent_chatelain@proton.me>, 2024"
+
+#: src/mobile-settings-window.c:85
+msgid "Device"
+msgstr "Appareil"
+
+#: src/ms-feedback-panel.c:140
+msgid "Sound file does not exist"
+msgstr "Le fichier audio n’existe pas"
+
+#: src/ms-feedback-panel.c:142
+msgid "Sound file is corrupt"
+msgstr "Le fichier audio est corrompu"
+
+#: src/ms-feedback-panel.c:144
+msgid "Failed to play sound"
+msgstr "Échec de lecture de l’audio"
+
+#: src/ms-feedback-panel.c:183
+#, c-format
+msgid "Playing %s"
+msgstr "Lecture de %s"
+
+#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
+msgid "none"
+msgstr "aucun"
+
+#: src/ms-feedback-panel.c:346
+msgid "low"
+msgstr "faible"
+
+#. 1.0
+#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
+msgid "normal"
+msgstr "normal"
+
+#: src/ms-feedback-panel.c:350
+msgid "critical"
+msgstr "critique"
+
+#. Translators: The default completer
+#: src/ms-osk-panel.c:534
+msgid "Default"
+msgstr "Défaut"
+
+#: src/ms-osk-panel.c:535
+msgid "The default completer selected by the OSK"
+msgstr "Le compléteur par défaut sélectionné par le clavier visuel"
+
+#: src/ms-osk-panel.c:538
+msgid "No information available for this completer"
+msgstr "Aucune information disponible pour ce compléteur"
+
+#: src/ms-sensor-panel.c:92
+msgid "Normal"
+msgstr "Normal"
+
+#: src/ms-sensor-panel.c:94
+msgid "Bottom up"
+msgstr "Retourné"
+
+#: src/ms-sensor-panel.c:96
+msgid "Left up"
+msgstr "Pivoté sur la droite"
+
+#: src/ms-sensor-panel.c:98
+msgid "Right up"
+msgstr "Pivoté sur la gauche"
+
+#: src/ms-sensor-panel.c:100
+msgid "Undefined"
+msgstr "Non défini"
+
+#: src/ms-sensor-panel.c:135
+msgid "Near"
+msgstr "Proche"
+
+#: src/ms-sensor-panel.c:135
+msgid "Far"
+msgstr "Loin"
+
+#: src/ms-sensor-panel.c:253
+msgid "Updating…"
+msgstr "Mise à jour…"
+
+#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
+#: src/ms-sensor-panel.c:271
+msgid "Not available"
+msgstr "Non disponible"
+
+#: src/ms-sound-row.c:127
+msgid "Custom"
+msgstr "Personnalisé"
+
+#: src/ms-sound-row.c:308
+msgid "Choose sound file"
+msgstr "Choisir un fichier audio"
+
+#: src/ms-util.c:150
+msgid "Full"
+msgstr "Complet"
+
+#: src/ms-util.c:152
+msgid "Quiet"
+msgstr "Discret"
+
+#: src/ms-util.c:154
+msgid "Silent"
+msgstr "Silencieux"
+
+#: src/ui/mobile-settings-window.ui:80
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: src/ui/mobile-settings-window.ui:80
+#: src/ui/mobile-settings-window.ui:86
 msgid "Welcome to Mobile Settings"
 msgstr "Bienvenue dans les paramètres du mobile"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:87
 msgid "Tweak advanced mobile settings"
 msgstr "Modifier les paramètres avancés du mobile"
 
-#: src/ui/mobile-settings-window.ui:89
+#: src/ui/mobile-settings-window.ui:95
+msgid "Top Bar"
+msgstr "Barre supérieure"
+
+#: src/ui/mobile-settings-window.ui:106
+msgid "Applications"
+msgstr "Applications"
+
+#: src/ui/mobile-settings-window.ui:117
 msgid "Feedback"
 msgstr "Réactions"
 
-#: src/ui/mobile-settings-window.ui:100
+#: src/ui/mobile-settings-window.ui:128
 msgid "Compositor"
 msgstr "Compositeur"
 
-#: src/ui/mobile-settings-window.ui:111
+#: src/ui/mobile-settings-window.ui:139
 msgid "Lockscreen"
 msgstr "Écran de verrouillage"
 
-#: src/ui/mobile-settings-window.ui:122
+#: src/ui/mobile-settings-window.ui:150
 msgid "Convergence"
 msgstr "Convergence"
 
-#: src/ui/mobile-settings-window.ui:133
+#: src/ui/mobile-settings-window.ui:161
 msgid "On Screen Keyboard"
-msgstr "Clavier virtuel"
+msgstr "Clavier visuel"
 
-#: src/ui/mobile-settings-window.ui:144 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:172 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Capteurs"
 
-#: src/ui/mobile-settings-window.ui:155
+#: src/ui/mobile-settings-window.ui:183
 msgid "Experimental features"
 msgstr "Fonctionnalités expérimentales"
 
-#: src/ui/mobile-settings-window.ui:179
+#: src/ui/mobile-settings-window.ui:207
 msgid "_Keyboard Shortcuts"
 msgstr "_Raccourcis clavier"
 
-#: src/ui/mobile-settings-window.ui:183
+#: src/ui/mobile-settings-window.ui:211
 msgid "_About Mobile Settings"
-msgstr "_À propos de Paramètres du mobile"
+msgstr "À _propos de Paramètres du mobile"
+
+#: src/ui/ms-applications-panel.ui:11
+msgid "Favorites"
+msgstr "Favoris"
+
+#: src/ui/ms-applications-panel.ui:20
+msgid "Organize Favorites"
+msgstr "Organiser les favoris"
+
+#: src/ui/ms-applications-panel.ui:21
+msgid "Drag and drop the apps below to rearrange your favorite apps"
+msgstr ""
+"Glisser-déposer les application ci-dessous pour réarrange vos applications "
+"préférées"
+
+#: src/ui/ms-applications-panel.ui:46
+msgid "Reset Favorites"
+msgstr "Réinitialiser les favoris"
+
+#: src/ui/ms-applications-panel.ui:47
+msgid "Set list of favorite apps back to the default"
+msgstr "Définir la liste des applications préférées à sa valeur par défaut"
+
+#: src/ui/ms-applications-panel.ui:51
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: src/ui/ms-applications-panel.ui:62
+msgid "Mobile App Filtering"
+msgstr "Filtrage des applications du mobile"
+
+#: src/ui/ms-applications-panel.ui:65
+msgid "Set Application Filter Mode"
+msgstr "Définir le mode de filtrage des applications"
+
+#: src/ui/ms-applications-panel.ui:66
+msgid "Show only mobile apps in the overview"
+msgstr "N’afficher que les applications mobile dans la vue d’ensemble"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
-msgstr "Réduction d'échelle des applications en cours d'exécution"
+msgstr "Réduction d’échelle des applications en cours d’exécution"
 
 #: src/ui/ms-compositor-panel.ui:12
 msgid "Only enable this for broken apps that don't fit the screen"
 msgstr ""
-"N'activez cette fonction que pour les applications défectueuses qui ne "
-"s'adaptent pas à l'écran"
+"N’activez cette fonction que pour les applications défectueuses qui ne "
+"s’adaptent pas à l’écran"
 
 #: src/ui/ms-compositor-panel.ui:25
 msgid "Scale down all applications"
-msgstr "Réduction d'échelle de toutes les applications"
+msgstr "Réduction d’échelle de toutes les applications"
 
 #: src/ui/ms-compositor-panel.ui:26
 msgid "Forcibly scale down all applications. Only use this as a last resort."
 msgstr ""
-"Réduction forcée de l'échelle de toutes les applications. N'utilisez cette "
-"solution qu'en dernier recours."
+"Réduction forcée de l’échelle de toutes les applications. N’utilisez cette "
+"solution qu’en dernier recours."
 
 #: src/ui/ms-compositor-panel.ui:29
 msgid "Scale down all apps"
@@ -145,19 +357,17 @@ msgstr "Réduire toutes les applications"
 
 #: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
 #: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:21 src/ui/ms-osk-panel.ui:20
-#: src/ui/ms-osk-panel.ui:43 src/ui/ms-osk-panel.ui:59
-#: src/ui/ms-scale-to-fit-row.ui:11
+#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
 msgid "Enabled"
 msgstr "Activé"
 
 #: src/ui/ms-convergence-panel.ui:15
 msgid "No known docks detected"
-msgstr "Aucun dock connu n'a été détecté"
+msgstr "Aucune station d’accueil connue détectée"
 
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
-msgstr "Cartographier l'écran tactile intégré"
+msgstr "Cartographier l’écran tactile intégré"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
@@ -170,19 +380,27 @@ msgstr ""
 
 #: src/ui/ms-features-panel.ui:16
 msgid "Emergency Calls"
-msgstr "Appels d'urgence"
+msgstr "Appels d’urgence"
 
 #: src/ui/ms-features-panel.ui:17
 msgid ""
 "Enable emergency calls. Please only enable this if you safely can ensure "
 "that it's working with your provider."
 msgstr ""
-"Activer les appels d'urgence. N'activez cette option que si vous pouvez vous "
-"assurer en toute sécurité qu'elle fonctionne avec votre opérateur."
+"Activer les appels d’urgence. N’activez cette option que si vous pouvez vous "
+"assurer en toute sécurité qu’elle fonctionne avec votre opérateur."
 
 #: src/ui/ms-features-panel.ui:31
 msgid "Enable suspend via the system menu"
 msgstr "Activer la mise en veille via le menu système"
+
+#: src/ui/ms-features-panel.ui:33
+msgid ""
+"Please only enable this if you're aware of the limitations like data "
+"connection loss or missed alarms"
+msgstr ""
+"Veuillez activer ceci seulement si vous êtes conscient des contraintes comme "
+"la perte de connexion aux données ou les alarmes ratées"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -192,111 +410,228 @@ msgstr "Profil de réaction"
 msgid "The global maximum feedback profile"
 msgstr "Le profil global de réaction maximal"
 
+#: src/ui/ms-feedback-panel.ui:32
+msgid "Prefer flash"
+msgstr "Préférer le flash"
+
 #: src/ui/ms-feedback-panel.ui:33
+msgid "Prefer camera flash over status LED when available"
+msgstr ""
+"Préférer le flash de la caméra s’il est disponible à la lumière de statut"
+
+#. Translators: Vol- means the 'Lower Volume' key
+#: src/ui/ms-feedback-panel.ui:39
+msgid "Silence on Vol-"
+msgstr "Silence sur Vol-"
+
+#: src/ui/ms-feedback-panel.ui:40
+msgid ""
+"When locked put the phone in silent mode when pressing Vol- on incoming calls"
+msgstr ""
+"Lorsque verrouillé, mettre le téléphone en mode silencieux en appuyant sur "
+"Vol- pendant les appels entrants"
+
+#: src/ui/ms-feedback-panel.ui:48
 msgid "Per Application settings"
 msgstr "Paramètres par application"
 
-#: src/ui/ms-feedback-panel.ui:46
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Sounds"
 msgstr "Sons"
 
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:62
 msgid "The sound to use for certain events"
-msgstr "Le son à utiliser pour certains événements"
+msgstr "Le son à utiliser pour certains évènements"
 
-#: src/ui/ms-feedback-panel.ui:55
+#: src/ui/ms-feedback-panel.ui:70
 msgid "Phone Calls"
 msgstr "Appels téléphoniques"
 
-#: src/ui/ms-feedback-panel.ui:61
+#: src/ui/ms-feedback-panel.ui:76
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:82
 msgid "Instant messages"
 msgstr "Messages instantanés"
 
-#: src/ui/ms-feedback-panel.ui:78
+#: src/ui/ms-feedback-panel.ui:93
 msgid "Screen Wakeup"
-msgstr "Réveil de l'écran"
+msgstr "Réveil de l’écran"
 
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:96
 msgid "Notification urgency that lights up the screen"
-msgstr "Niveau d'urgence de notification qui illumine l'écran"
+msgstr "Niveau d’urgence de notification qui illumine l’écran"
 
-#: src/ui/ms-lockscreen-panel.ui:11
-msgid "Unlocking"
-msgstr "Déverrouillage"
+#: src/ui/ms-lockscreen-panel.ui:12
+msgid "Locking and unlocking"
+msgstr "Verrouillage et déverrouillage"
 
-#: src/ui/ms-lockscreen-panel.ui:14
+#: src/ui/ms-lockscreen-panel.ui:15
+msgid "Automatic screen lock delay"
+msgstr "Délai de verrouillage automatique de l’écran"
+
+#: src/ui/ms-lockscreen-panel.ui:16
+msgid "Seconds from screen blank to screen lock"
+msgstr "Secondes entre l’extinction de l’écran et le verrouillage"
+
+#: src/ui/ms-lockscreen-panel.ui:30
 msgid "Shuffle keypad"
 msgstr "Mélange du pavé numérique"
 
-#: src/ui/ms-lockscreen-panel.ui:15
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Whether to shuffle the numbers on the keypad"
-msgstr "Permet de mélanger ou non les chiffres du pavé numérique"
+msgstr "Indique s’il faut mélanger les chiffres du pavé numérique"
 
-#: src/ui/ms-lockscreen-panel.ui:32
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
-msgstr "Widgets"
+msgstr "Composants graphiques"
 
-#: src/ui/ms-lockscreen-panel.ui:33
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
-msgstr "Widgets supplémentaires pour l'écran de verrouillage"
+msgstr "Composants supplémentaires pour l’écran de verrouillage"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
+msgctxt "on screen keyboard"
+msgid "Add Layout"
+msgstr "Ajouter une disposition"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:13
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:19
+msgid "Add"
+msgstr "Ajouter"
+
+#: src/ui/ms-osk-add-layout-dialog.ui:39
+msgid "Language"
+msgstr "Langue"
+
+#: src/ui/ms-osk-layout-prefs.ui:5
+msgctxt "on screen keyboard"
+msgid "Layouts"
+msgstr "Dispositions"
+
+#: src/ui/ms-osk-layout-prefs.ui:28
+msgctxt "on screen keyboard"
+msgid "No Layouts configured"
+msgstr "Aucune disposition configurée"
+
+#: src/ui/ms-osk-layout-row.ui:26 src/ui/ms-plugin-row.ui:41
+msgid "More options…"
+msgstr "Plus d’options…"
+
+#: src/ui/ms-osk-layout-row.ui:39 src/ui/ms-plugin-row.ui:54
+msgid "Move Up"
+msgstr "Monter"
+
+#: src/ui/ms-osk-layout-row.ui:43 src/ui/ms-plugin-row.ui:58
+msgid "Move Down"
+msgstr "Descendre"
+
+#: src/ui/ms-osk-layout-row.ui:49
+msgid "Remove"
+msgstr "Supprimer"
 
 #: src/ui/ms-osk-panel.ui:13
 msgid "Enable _On Screen Keyboard"
-msgstr "Activer le _clavier virtuel"
+msgstr "Activer le _clavier visuel"
 
 #: src/ui/ms-osk-panel.ui:14
 msgid "Whether to show the on screen keyboard when needed"
-msgstr "Afficher ou non le clavier à l'écran lorsque c'est nécessaire"
+msgstr ""
+"Indique s’il faut afficher le clavier à l’écran lorsque c’est nécessaire"
 
-#: src/ui/ms-osk-panel.ui:32
+#: src/ui/ms-osk-panel.ui:19
+msgid "Unfold long-press"
+msgstr "Dérouler sur appui long"
+
+#: src/ui/ms-osk-panel.ui:20
+msgid ""
+"How long to press the center of the home bar to unfold the on screen keyboard"
+msgstr ""
+"Durée d’appui sur le centre de la barre d’accueil pour dérouler le clavier "
+"visuel"
+
+#. 0.5
+#: src/ui/ms-osk-panel.ui:25
+msgid "short"
+msgstr "court"
+
+#. 2.0
+#: src/ui/ms-osk-panel.ui:29
+msgid "long"
+msgstr "long"
+
+#: src/ui/ms-osk-panel.ui:37
+msgid "Ignore hardware keyboard"
+msgstr "Ignorer les claviers physiques"
+
+#: src/ui/ms-osk-panel.ui:38
+msgid ""
+"Whether to show the on screen keyboard when a physical keyboard is present"
+msgstr ""
+"Indique s’il faut afficher le clavier visuel lorsqu’un clavier physique est "
+"présent"
+
+#: src/ui/ms-osk-panel.ui:50
+msgid "Keyboard height in portrait mode"
+msgstr "Hauteur du clavier en mode portrait"
+
+#: src/ui/ms-osk-panel.ui:51
+msgid "When the screen is taller than wide"
+msgstr "Lorsque le screen est plus haut que large"
+
+#: src/ui/ms-osk-panel.ui:66
+msgid "Keyboard height in landscape mode"
+msgstr "Hauteur du clavier en mode paysage"
+
+#: src/ui/ms-osk-panel.ui:67
+msgid "When the screen is wider than tall"
+msgstr "Lorsque l’écran est plus large que haut"
+
+#: src/ui/ms-osk-panel.ui:90
 msgid "Text Completion"
 msgstr "Complétion du texte"
 
-#: src/ui/ms-osk-panel.ui:35
+#: src/ui/ms-osk-panel.ui:93
 msgid "Opportunistic word completion"
 msgstr "Complétion opportuniste des mots"
 
-#: src/ui/ms-osk-panel.ui:36
+#: src/ui/ms-osk-panel.ui:94
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
-"Activer la complétion de mots lorsque l'application indique que c'est utile"
+"Activer la complétion de mots lorsque l’application indique que c’est utile"
 
-#: src/ui/ms-osk-panel.ui:51
+#: src/ui/ms-osk-panel.ui:101
 msgid "Toggle via OSK menu"
-msgstr "Basculer via le menu du clavier virtuel"
+msgstr "Basculer via le menu du clavier visuel"
 
-#: src/ui/ms-osk-panel.ui:52
+#: src/ui/ms-osk-panel.ui:102
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permettre de basculer la complétion des mots via le bouton de menu du clavier"
 
-#: src/ui/ms-osk-panel.ui:70
-msgid "Terminal Layout"
-msgstr "Disposition de la console"
+#: src/ui/ms-osk-panel.ui:108
+msgid "Default Completer"
+msgstr "Compléteur par défaut"
 
-#: src/ui/ms-osk-panel.ui:74
+#: src/ui/ms-osk-panel.ui:109
+msgid "The default completion engine to use"
+msgstr "Le moteur de complétion par défaut à utiliser"
+
+#: src/ui/ms-osk-panel.ui:120
+msgid "Terminal Layout"
+msgstr "Disposition du terminal"
+
+#: src/ui/ms-osk-panel.ui:124
 msgid "Shortcuts"
 msgstr "Raccourcis"
 
-#: src/ui/ms-osk-panel.ui:75
+#: src/ui/ms-osk-panel.ui:125
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Les raccourcis disponibles dans la barre de raccourcis"
-
-#: src/ui/ms-plugin-row.ui:33
-msgid "More options…"
-msgstr "Plus d'options…"
-
-#: src/ui/ms-plugin-row.ui:46
-msgid "Move Up"
-msgstr "Monter"
-
-#: src/ui/ms-plugin-row.ui:50
-msgid "Move Down"
-msgstr "Descendre"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
@@ -307,7 +642,7 @@ msgid ""
 "Either there are no sensors installed on your device or they are disabled by "
 "a killswitch."
 msgstr ""
-"Soit il n'y a pas de capteurs installés sur votre appareil, soit ils sont "
+"Soit il n’y a pas de capteurs installés sur votre appareil, soit ils sont "
 "désactivés par un interrupteur."
 
 #: src/ui/ms-sensor-panel.ui:32
@@ -340,12 +675,42 @@ msgstr "Contrôlé par le capture de luminosité ambiante"
 
 #: src/ui/ms-sensor-panel.ui:84
 msgid "Light intensity threshold"
-msgstr "Seuil d'intensité lumineuse"
+msgstr "Seuil d’intensité lumineuse"
 
 #: src/ui/ms-sensor-panel.ui:85
 msgid "Theme will switch to high contrast above the threshold"
 msgstr "Le thème passe en contraste élevé au-dessus du seuil"
 
-#: src/ui/ms-sound-row.ui:53
+#: src/ui/ms-sound-row.ui:54
 msgid "Sound files (ogg)"
 msgstr "Fichiers audio (.ogg)"
+
+#: src/ui/ms-topbar-panel.ui:12
+msgid "UI Elements"
+msgstr "Éléments graphiques"
+
+#: src/ui/ms-topbar-panel.ui:16
+msgid "Show battery percentage"
+msgstr "Afficher le pourcentage de batterie"
+
+#: src/ui/ms-topbar-panel.ui:17
+msgid "Show exact charge level in the top bar"
+msgstr "Afficher le niveau de charge exacte dans la barre supérieure"
+
+#: src/ui/ms-topbar-panel.ui:23
+msgid "Avoid notches"
+msgstr "Éviter les encoches"
+
+#: src/ui/ms-topbar-panel.ui:24
+msgid "Don't place UI elements beneath notches and display cutouts"
+msgstr ""
+"Ne pas placer d’éléments graphiques en-dessous des encoches et des découpes "
+"de l’écran"
+
+#: src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Paramètres rapides"
+
+#: src/ui/ms-topbar-panel.ui:35
+msgid "Organize your additional Quick Settings"
+msgstr "Organiser vos paramètres rapides supplémentaires"
