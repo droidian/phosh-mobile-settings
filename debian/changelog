@@ -1,3 +1,18 @@
+phosh-mobile-settings (0.43.0) experimental; urgency=medium
+
+  [ Gotam Gorabh ]
+  * Add translator comments to clarify meaning and purpose of translatable
+    strings.
+
+  [ Guido Günther ]
+  * metainfo: Mark release notes as translate=no.
+    Let's save translator effort
+  * osk-panel: Set use-underline. Otherwise we get a superfluous `_`
+    Fixes 171ee26 ("osk: Use AdwSwitchRow")
+    Fix an additional whitespace while at that.
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 15 Nov 2024 11:25:44 +0100
+
 phosh-mobile-settings (0.43~rc1) experimental; urgency=medium
 
   [ Guido Günther ]

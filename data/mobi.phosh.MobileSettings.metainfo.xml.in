@@ -52,6 +52,16 @@
 
   <releases>
 
+    <release version="0.43.0" date="2024-11-15">
+      <description translate="no">
+        <ul>
+          <li>osk panel: Allow to set horizontal and vertical size when using squeekboard</li>
+          <li>osk panel: Allow completion engine selection when using phosh-osk-stub</li>
+          <li>Make the panel switcher scrollable</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="0.42.0" date="2024-09-30">
       <description translate="no">
         <ul>
