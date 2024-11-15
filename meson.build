@@ -1,5 +1,5 @@
 project('phosh-mobile-settings', 'c',
-          version: '0.43.rc1',
+          version: '0.43.0',
     meson_version: '>= 1.0.0',
   default_options: [ 'warning_level=2',
                      'werror=false',
