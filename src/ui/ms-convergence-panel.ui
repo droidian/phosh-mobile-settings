@@ -32,8 +32,8 @@
                               <object class="GtkSwitch" id="map_touch_screen_switch">
                                 <property name="valign">center</property>
                                 <accessibility>
-                                  <!-- Translators: the word Enabled implies an active state of a Map built-in touch screen setting -->
-                                  <property name="label" translatable="yes">Enabled</property>
+                                  <!-- Translators: setting to map built-in touch screen -->
+                                  <property name="label" translatable="yes" context="touch setting">Enabled</property>
                                 </accessibility>
                               </object>
                             </child>

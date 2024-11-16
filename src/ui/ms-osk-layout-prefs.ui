@@ -10,7 +10,8 @@
         <property name="child">
           <object class="AdwButtonContent">
             <property name="icon-name">list-add-symbolic</property>
-            <property name="label" translatable="yes" context="on screen keyboard">Add Layout</property>
+            <!-- Translators: Label for a button that allows the user to add a new keyboard layout -->
+            <property name="label" translatable="yes">Add Layout</property>
           </object>
         </property>
         <style>
@@ -25,7 +26,8 @@
           <object class="GtkLabel">
             <property name="margin-top">12</property>
             <property name="margin-bottom">12</property>
-            <property name="label" translatable="yes" context="on screen keyboard">No Layouts configured</property>
+            <!-- Translators: Message displayed when there are no keyboard layouts configured -->
+            <property name="label" translatable="yes">No Layouts configured</property>
           </object>
         </child>
         <style>

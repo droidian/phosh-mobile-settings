@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="MsOskAddLayoutDialog" parent="AdwDialog">
-    <property name="title" translatable="yes" context="on screen keyboard">Add Layout</property>
+    <!-- Translators: Title for a dialog to add a new on-screen keyboard layout -->
+    <property name="title" translatable="yes">Add Layout</property>
     <property name="child">
       <object class="AdwToolbarView">
         <child type="top">

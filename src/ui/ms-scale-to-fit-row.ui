@@ -2,14 +2,14 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="MsScaleToFitRow" parent="AdwActionRow">
-    <property name="title">Application</property>
+    <property name="title" translatable="yes">Application</property>
     <property name="use-underline">true</property>
     <child>
       <object class="GtkSwitch" id="scale_to_fit_switch">
         <property name="valign">center</property>
         <accessibility>
-          <!-- Translators: the word Enabled implies an active state for a scale-to-fit setting -->
-          <property name="label" translatable="yes">Enabled</property>
+          <!-- Translators: setting to scale down a single application -->
+          <property name="label" translatable="yes" context="scale to fit setting">Enabled</property>
         </accessibility>
       </object>
     </child>
