@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
-"ngs/-/issues\n"
-"POT-Creation-Date: 2024-10-26 06:56+0000\n"
-"PO-Revision-Date: 2024-10-26 18:31+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settin"
+"gs/-/issues\n"
+"POT-Creation-Date: 2024-11-16 20:16+0000\n"
+"PO-Revision-Date: 2024-11-17 08:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -44,8 +44,7 @@ msgstr ""
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
-msgstr ""
-"Додаткові параметри для мобільних пристроїв, де використовується Phosh"
+msgstr "Додаткові параметри для мобільних пристроїв, де використовується Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
@@ -64,43 +63,53 @@ msgstr "Панель зворотного зв'язку"
 msgid "Critical temperature is %.2f°C"
 msgstr "Критичною температурою є %.2f°C"
 
+#. Translators "Librem 5" is a smartphone model, usually no need to translate it
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+msgid "Librem 5"
+msgstr "Librem 5"
+
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
 msgid "Suspend device"
 msgstr "Приспати пристрій"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
 msgid "Suspend is experimental"
 msgstr "Присипляння є експериментальним"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+msgid "suspend now"
+msgstr "призупинити зараз"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
 msgid "Temperatures"
 msgstr "Температури"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
 msgid "CPU"
 msgstr "Процесор"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
 msgid "GPU"
 msgstr "ГП"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
 msgid "VPU"
 msgstr "ПМЗ"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
 msgid "Fuel Gauge"
 msgstr "Датчик палива"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
 msgid "Battery"
 msgstr "Акумулятор"
 
@@ -149,147 +158,176 @@ msgstr "Не вдалося відтворити звук"
 msgid "Playing %s"
 msgstr "Граємо у гру %s"
 
-#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
-msgid "none"
-msgstr "немає"
-
-#: src/ms-feedback-panel.c:346
+#. Translators: "low" categorizes notifications with minor importance
+#: src/ms-feedback-panel.c:345
 msgid "low"
 msgstr "низький"
 
-#. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
+#. Translators: "normal" categorizes notifications with standard importance
+#: src/ms-feedback-panel.c:348
 msgid "normal"
 msgstr "звичайний"
 
-#: src/ms-feedback-panel.c:350
+#. Translators: "critical" categorizes notifications with urgent importance
+#: src/ms-feedback-panel.c:351
 msgid "critical"
 msgstr "критичний"
 
+#. Translators: "none" is the default for notifications with no specified importance
+#: src/ms-feedback-panel.c:355
+msgid "none"
+msgstr "немає"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:534
+#: src/ms-osk-panel.c:545
 msgid "Default"
 msgstr "Типовий"
 
-#: src/ms-osk-panel.c:535
-#| msgid "The default completion engine to use"
+#: src/ms-osk-panel.c:546
 msgid "The default completer selected by the OSK"
 msgstr "Типовий засіб доповнення, який вибрано OSK"
 
-#: src/ms-osk-panel.c:538
+#: src/ms-osk-panel.c:549
 msgid "No information available for this completer"
 msgstr "Немає даних для цього засобу доповнення"
 
-#: src/ms-sensor-panel.c:92
+#. Translators: "Normal" represents the standard or default orientation
+#: src/ms-sensor-panel.c:93
 msgid "Normal"
 msgstr "Звичайний"
 
-#: src/ms-sensor-panel.c:94
+#. Translators: "Bottom up" indicates the orientation is flipped vertically
+#: src/ms-sensor-panel.c:96
 msgid "Bottom up"
 msgstr "Знизу-вгору"
 
-#: src/ms-sensor-panel.c:96
+#. Translators: "Left up" indicates the orientation of a device with left side up
+#: src/ms-sensor-panel.c:99
 msgid "Left up"
 msgstr "Зліва-вгору"
 
-#: src/ms-sensor-panel.c:98
+#. Translators: "Right up" indicates the orientation of a device with right side up
+#: src/ms-sensor-panel.c:102
 msgid "Right up"
 msgstr "Справа-внору"
 
-#: src/ms-sensor-panel.c:100
+#. Translators: "Undefined" is shown when the orientation of the device is not recognized
+#: src/ms-sensor-panel.c:105
 msgid "Undefined"
 msgstr "Не визначено"
 
-#: src/ms-sensor-panel.c:135
+#. Translators: "Near" indicates proximity close to the sensor
+#. * "Far" indicates some distance from the sensor
+#: src/ms-sensor-panel.c:142
 msgid "Near"
 msgstr "Близько"
 
-#: src/ms-sensor-panel.c:135
+#: src/ms-sensor-panel.c:142
 msgid "Far"
 msgstr "Далеко"
 
-#: src/ms-sensor-panel.c:253
+#: src/ms-sensor-panel.c:260
 msgid "Updating…"
 msgstr "Оновлення…"
 
-#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
-#: src/ms-sensor-panel.c:271
+#. Translators: "Not available" indicates that the proximity sensor data is unavailable
+#: src/ms-sensor-panel.c:277
+#| msgid "Not available"
+msgctxt "proximity sensor data"
 msgid "Not available"
 msgstr "Немає доступу"
 
-#: src/ms-sound-row.c:127
+#. Translators: "Not available" indicates that the light sensor data is unavailable
+#: src/ms-sensor-panel.c:279
+#| msgid "Not available"
+msgctxt "light sensor data"
+msgid "Not available"
+msgstr "Немає доступу"
+
+#. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
+#: src/ms-sensor-panel.c:281
+#| msgid "Not available"
+msgctxt "accelerometer sensor data"
+msgid "Not available"
+msgstr "Немає доступу"
+
+#. Translators: "Custom" is the name of a user-defined sound theme
+#: src/ms-sound-row.c:128
 msgid "Custom"
 msgstr "Нетиповий"
 
-#: src/ms-sound-row.c:308
+#: src/ms-sound-row.c:309
 msgid "Choose sound file"
 msgstr "Виберіть звуковий файл"
 
-#: src/ms-util.c:150
+#. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
+#: src/ms-util.c:151
 msgid "Full"
 msgstr "Повний"
 
-#: src/ms-util.c:152
+#. Translators: "Quiet" represents a feedback profile with haptic and LED
+#: src/ms-util.c:154
 msgid "Quiet"
 msgstr "Тихо"
 
-#: src/ms-util.c:154
+#. Translators: "Silent" represents a feedback profile with LED only
+#: src/ms-util.c:157
 msgid "Silent"
 msgstr "Беззвучно"
 
-#: src/ui/mobile-settings-window.ui:75
+#: src/ui/mobile-settings-window.ui:79
 msgid "Welcome"
 msgstr "Вітаємо"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:85
 msgid "Welcome to Mobile Settings"
 msgstr "Вітаємо у «Мобільних параметрах»"
 
-#: src/ui/mobile-settings-window.ui:82
+#: src/ui/mobile-settings-window.ui:86
 msgid "Tweak advanced mobile settings"
 msgstr "Коригування додаткових налаштувань мобільного"
 
-#: src/ui/mobile-settings-window.ui:90
+#: src/ui/mobile-settings-window.ui:94
 msgid "Top Bar"
 msgstr "Верхня панель"
 
-#: src/ui/mobile-settings-window.ui:101
+#: src/ui/mobile-settings-window.ui:105
 msgid "Applications"
 msgstr "Програми"
 
-#: src/ui/mobile-settings-window.ui:112
+#: src/ui/mobile-settings-window.ui:116
 msgid "Feedback"
 msgstr "Зворотний зв'язок"
 
-#: src/ui/mobile-settings-window.ui:123
+#: src/ui/mobile-settings-window.ui:127
 msgid "Compositor"
 msgstr "Засіб композиції"
 
-#: src/ui/mobile-settings-window.ui:134
+#: src/ui/mobile-settings-window.ui:138
 msgid "Lockscreen"
 msgstr "Вікно блокування"
 
-#: src/ui/mobile-settings-window.ui:145
+#: src/ui/mobile-settings-window.ui:149
 msgid "Convergence"
 msgstr "Збіжність"
 
-#: src/ui/mobile-settings-window.ui:156
+#: src/ui/mobile-settings-window.ui:160
 msgid "On Screen Keyboard"
 msgstr "Екранна клавіатура"
 
-#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:171 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Датчики"
 
-#: src/ui/mobile-settings-window.ui:178
+#: src/ui/mobile-settings-window.ui:182
 msgid "Experimental features"
 msgstr "Експериментальні можливості"
 
-#: src/ui/mobile-settings-window.ui:202
+#: src/ui/mobile-settings-window.ui:206
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: src/ui/mobile-settings-window.ui:206
+#: src/ui/mobile-settings-window.ui:210
 msgid "_About Mobile Settings"
 msgstr "_Про «Мобільні параметри»"
 
@@ -353,9 +391,11 @@ msgstr ""
 msgid "Scale down all apps"
 msgstr "Масштабувати усі програми"
 
-#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
-#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
+#. Translators: setting to scale down all applications
+#. Translators: setting to scale down a single application
+#: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
+#| msgid "Enabled"
+msgctxt "scale to fit setting"
 msgid "Enabled"
 msgstr "Увімкнено"
 
@@ -366,6 +406,13 @@ msgstr "Не виявлено відомих док-станцій"
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
 msgstr "Прив'язка вбудованого сенсорного екрана"
+
+#. Translators: setting to map built-in touch screen
+#: src/ui/ms-convergence-panel.ui:36
+#| msgid "Enabled"
+msgctxt "touch setting"
+msgid "Enabled"
+msgstr "Увімкнено"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
@@ -387,17 +434,31 @@ msgstr ""
 "Увімкнути термінові виклики. Будь ласка, вмикайте це, лише якщо ви безпечно "
 "можете бути певні, що це працює для вашого надавача послуг."
 
-#: src/ui/ms-features-panel.ui:31
+#. Translators: setting to enable emergency calls
+#: src/ui/ms-features-panel.ui:24
+#| msgid "Enabled"
+msgctxt "emergency calls setting"
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: src/ui/ms-features-panel.ui:32
 msgid "Enable suspend via the system menu"
 msgstr "Увімкнути присипляння за допомогою системного меню"
 
-#: src/ui/ms-features-panel.ui:33
+#: src/ui/ms-features-panel.ui:34
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
 msgstr ""
 "Будь ласка, вмикайте, лише якщо ви приймаєте обмеження, зокрема втрату даних "
 "або пропущені сигнали"
+
+#. Translators: setting to enable suspend via the system menu
+#: src/ui/ms-features-panel.ui:40
+#| msgid "Enabled"
+msgctxt "suspend setting"
+msgid "Enabled"
+msgstr "Увімкнено"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -479,28 +540,38 @@ msgstr "Перемішати цифрову панель"
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Визначає, чи слід пересунути числа на цифровій панелі"
 
-#: src/ui/ms-lockscreen-panel.ui:48
+#. Translators: setting to shuffle the numbers on the keypad
+#: src/ui/ms-lockscreen-panel.ui:38
+#| msgid "Enabled"
+msgctxt "shuffle keypad setting"
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Widgets"
 msgstr "Віджети"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:50
 msgid "Additional widgets for the lock screen"
 msgstr "Додаткові віджети для екрана блокування"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
-msgctxt "on screen keyboard"
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
+#| msgctxt "on screen keyboard"
+#| msgid "Add Layout"
 msgid "Add Layout"
 msgstr "Додати компонування"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:13
+#: src/ui/ms-osk-add-layout-dialog.ui:14
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:19
+#: src/ui/ms-osk-add-layout-dialog.ui:20
 msgid "Add"
 msgstr "Додати"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:39
+#: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "Мова"
 
@@ -509,8 +580,10 @@ msgctxt "on screen keyboard"
 msgid "Layouts"
 msgstr "Компонування"
 
-#: src/ui/ms-osk-layout-prefs.ui:28
-msgctxt "on screen keyboard"
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: src/ui/ms-osk-layout-prefs.ui:30
+#| msgctxt "on screen keyboard"
+#| msgid "No Layouts configured"
 msgid "No Layouts configured"
 msgstr "Компонувань не налаштовано"
 
@@ -538,96 +611,107 @@ msgstr "Увімкнути _екранну клавіатуру"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "Визначає, чи слід показувати екранну клавіатуру, якщо потрібно"
 
-#: src/ui/ms-osk-panel.ui:19
+#: src/ui/ms-osk-panel.ui:20
 msgid "Unfold long-press"
 msgstr "Розгортання довгим натисканням"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:21
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr ""
 "Наскільки довго слід тиснути на центр панелі домівки для розгортання "
 "екранної клавіатури"
 
-#. 0.5
-#: src/ui/ms-osk-panel.ui:25
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
+#: src/ui/ms-osk-panel.ui:26
 msgid "short"
 msgstr "коротко"
 
-#. 2.0
-#: src/ui/ms-osk-panel.ui:29
+#. Translators: abbreviation for 1 second interval of time
+#: src/ui/ms-osk-panel.ui:28
+#| msgid "normal"
+msgctxt "press interval"
+msgid "normal"
+msgstr "звичайний"
+
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
+#: src/ui/ms-osk-panel.ui:30
 msgid "long"
 msgstr "довго"
 
-#: src/ui/ms-osk-panel.ui:37
+#: src/ui/ms-osk-panel.ui:38
 msgid "Ignore hardware keyboard"
 msgstr "Ігнорувати апаратну клавіатуру"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:39
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr ""
 "Визначає, чи слід показувати екранну клавіатуру, якщо наявна фізична "
 "клавіатура"
 
-#: src/ui/ms-osk-panel.ui:50
+#: src/ui/ms-osk-panel.ui:51
 msgid "Keyboard height in portrait mode"
 msgstr "Висота клавіатури у книжковому режимі"
 
-#: src/ui/ms-osk-panel.ui:51
+#: src/ui/ms-osk-panel.ui:52
 msgid "When the screen is taller than wide"
 msgstr "Коли екран вищий, ніж ширший"
 
-#: src/ui/ms-osk-panel.ui:66
+#: src/ui/ms-osk-panel.ui:67
 msgid "Keyboard height in landscape mode"
 msgstr "Висота клавіатури у альбомному режимі"
 
-#: src/ui/ms-osk-panel.ui:67
+#: src/ui/ms-osk-panel.ui:68
 msgid "When the screen is wider than tall"
 msgstr "Коли екран ширший, ніж вищий"
 
-#: src/ui/ms-osk-panel.ui:90
+#: src/ui/ms-osk-panel.ui:91
 msgid "Text Completion"
 msgstr "Завершення тексту"
 
-#: src/ui/ms-osk-panel.ui:93
+#: src/ui/ms-osk-panel.ui:94
 msgid "Opportunistic word completion"
 msgstr "Гнучке автоматичне доповнення"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:95
 msgid "Enable word completion when the app indicates it is useful"
-msgstr ""
-"Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
+msgstr "Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
 
-#: src/ui/ms-osk-panel.ui:101
+#: src/ui/ms-osk-panel.ui:102
 msgid "Toggle via OSK menu"
 msgstr "Перемикання за меню OSK"
 
-#: src/ui/ms-osk-panel.ui:102
+#: src/ui/ms-osk-panel.ui:103
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Уможливити перемикання автодоповнення слів за допомогою кнопки меню "
 "клавіатури"
 
-#: src/ui/ms-osk-panel.ui:108
+#: src/ui/ms-osk-panel.ui:109
 msgid "Default Completer"
 msgstr "Типовий доповнювач"
 
-#: src/ui/ms-osk-panel.ui:109
+#: src/ui/ms-osk-panel.ui:110
 msgid "The default completion engine to use"
 msgstr "Типовий рушій автоматичного доповнення"
 
-#: src/ui/ms-osk-panel.ui:120
+#: src/ui/ms-osk-panel.ui:121
 msgid "Terminal Layout"
 msgstr "Компонування термінала"
 
-#: src/ui/ms-osk-panel.ui:124
+#: src/ui/ms-osk-panel.ui:125
 msgid "Shortcuts"
 msgstr "Скорочення"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:126
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Скорочення, якими можна скористатися на панелі скорочень"
+
+#: src/ui/ms-scale-to-fit-row.ui:5
+#| msgid "Applications"
+msgid "Application"
+msgstr "Програма"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
