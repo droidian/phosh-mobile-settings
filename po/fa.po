@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-10-26 06:56+0000\n"
-"PO-Revision-Date: 2024-10-27 12:29+0330\n"
+"POT-Creation-Date: 2024-11-16 20:16+0000\n"
+"PO-Revision-Date: 2024-11-20 18:45+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/mobi.phosh.MobileSettings.desktop.in:3 src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
@@ -60,43 +60,53 @@ msgstr "تابلوی بازخورد"
 msgid "Critical temperature is %.2f°C"
 msgstr "دمای بحرانی ‪%I.2f°C‬ است"
 
+#. Translators "Librem 5" is a smartphone model, usually no need to translate it
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+msgid "Librem 5"
+msgstr "لیبرم ۵"
+
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
 msgid "U-Boot"
 msgstr "یو-بوت"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
 msgid "Suspend device"
 msgstr "تعلیق افزاره"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
 msgid "Suspend is experimental"
 msgstr "تعلیق آزمایشیست"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+msgid "suspend now"
+msgstr "اکنون معلّق شود"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
 msgid "Temperatures"
 msgstr "دماها"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
 msgid "CPU"
 msgstr "پردازنده"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
 msgid "GPU"
 msgstr "شتاب‌دهندهٔ گرافیکی"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
 msgid "VPU"
 msgstr "پردازشگر ویدیویی"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
 msgid "Fuel Gauge"
 msgstr "عقربهٔ سوخت"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
 msgid "Battery"
 msgstr "باتری"
 
@@ -145,145 +155,173 @@ msgstr "شکست در پخش صد"
 msgid "Playing %s"
 msgstr "پخش کردن %s"
 
-#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
-msgid "none"
-msgstr "هیچ"
-
-#: src/ms-feedback-panel.c:346
+#. Translators: "low" categorizes notifications with minor importance
+#: src/ms-feedback-panel.c:345
 msgid "low"
 msgstr "کم"
 
-#. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
+#. Translators: "normal" categorizes notifications with standard importance
+#: src/ms-feedback-panel.c:348
 msgid "normal"
 msgstr "معمولی"
 
-#: src/ms-feedback-panel.c:350
+#. Translators: "critical" categorizes notifications with urgent importance
+#: src/ms-feedback-panel.c:351
 msgid "critical"
 msgstr "بحرانی"
 
+#. Translators: "none" is the default for notifications with no specified importance
+#: src/ms-feedback-panel.c:355
+msgid "none"
+msgstr "هیچ"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:534
+#: src/ms-osk-panel.c:545
 msgid "Default"
 msgstr "پیش‌گزیده"
 
-#: src/ms-osk-panel.c:535
+#: src/ms-osk-panel.c:546
 msgid "The default completer selected by the OSK"
 msgstr "تکمیلگر پیش‌گزیده به دست صفحعه‌کلید مجازی"
 
-#: src/ms-osk-panel.c:538
+#: src/ms-osk-panel.c:549
 msgid "No information available for this completer"
 msgstr "هیچ اطّلاعاتی از این رایانه موجود نیست"
 
-#: src/ms-sensor-panel.c:92
+#. Translators: "Normal" represents the standard or default orientation
+#: src/ms-sensor-panel.c:93
 msgid "Normal"
 msgstr "معمولی"
 
-#: src/ms-sensor-panel.c:94
+#. Translators: "Bottom up" indicates the orientation is flipped vertically
+#: src/ms-sensor-panel.c:96
 msgid "Bottom up"
 msgstr "پایین بالا"
 
-#: src/ms-sensor-panel.c:96
+#. Translators: "Left up" indicates the orientation of a device with left side up
+#: src/ms-sensor-panel.c:99
 msgid "Left up"
 msgstr "چپ بالا"
 
-#: src/ms-sensor-panel.c:98
+#. Translators: "Right up" indicates the orientation of a device with right side up
+#: src/ms-sensor-panel.c:102
 msgid "Right up"
 msgstr "راست بالا"
 
-#: src/ms-sensor-panel.c:100
+#. Translators: "Undefined" is shown when the orientation of the device is not recognized
+#: src/ms-sensor-panel.c:105
 msgid "Undefined"
 msgstr "تعریف نشده"
 
-#: src/ms-sensor-panel.c:135
+#. Translators: "Near" indicates proximity close to the sensor
+#. * "Far" indicates some distance from the sensor
+#: src/ms-sensor-panel.c:142
 msgid "Near"
 msgstr "نزدیک"
 
-#: src/ms-sensor-panel.c:135
+#: src/ms-sensor-panel.c:142
 msgid "Far"
 msgstr "دور"
 
-#: src/ms-sensor-panel.c:253
+#: src/ms-sensor-panel.c:260
 msgid "Updating…"
 msgstr "در حال به‌روز رسانی…"
 
-#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270 src/ms-sensor-panel.c:271
+#. Translators: "Not available" indicates that the proximity sensor data is unavailable
+#: src/ms-sensor-panel.c:277
+msgctxt "proximity sensor data"
 msgid "Not available"
-msgstr "در دسترس نیست"
+msgstr "ناموجود"
 
-#: src/ms-sound-row.c:127
+#. Translators: "Not available" indicates that the light sensor data is unavailable
+#: src/ms-sensor-panel.c:279
+msgctxt "light sensor data"
+msgid "Not available"
+msgstr "ناموجود"
+
+#. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
+#: src/ms-sensor-panel.c:281
+msgctxt "accelerometer sensor data"
+msgid "Not available"
+msgstr "ناموجود"
+
+#. Translators: "Custom" is the name of a user-defined sound theme
+#: src/ms-sound-row.c:128
 msgid "Custom"
 msgstr "سفارشی"
 
-#: src/ms-sound-row.c:308
+#: src/ms-sound-row.c:309
 msgid "Choose sound file"
 msgstr "گزینش پروندهٔ صدا"
 
-#: src/ms-util.c:150
+#. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
+#: src/ms-util.c:151
 msgid "Full"
-msgstr "پر"
+msgstr "کامل"
 
-#: src/ms-util.c:152
+#. Translators: "Quiet" represents a feedback profile with haptic and LED
+#: src/ms-util.c:154
 msgid "Quiet"
 msgstr "کم‌صدا"
 
-#: src/ms-util.c:154
+#. Translators: "Silent" represents a feedback profile with LED only
+#: src/ms-util.c:157
 msgid "Silent"
 msgstr "بی‌صدا"
 
-#: src/ui/mobile-settings-window.ui:75
+#: src/ui/mobile-settings-window.ui:79
 msgid "Welcome"
 msgstr "خوش آمدید"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:85
 msgid "Welcome to Mobile Settings"
 msgstr "به تنظیمات همراه خوش آمدید"
 
-#: src/ui/mobile-settings-window.ui:82
+#: src/ui/mobile-settings-window.ui:86
 msgid "Tweak advanced mobile settings"
 msgstr "سیخونک به تنظیمات همراه پیش‌رفته"
 
-#: src/ui/mobile-settings-window.ui:90
+#: src/ui/mobile-settings-window.ui:94
 msgid "Top Bar"
 msgstr "نوار بالا"
 
-#: src/ui/mobile-settings-window.ui:101
+#: src/ui/mobile-settings-window.ui:105
 msgid "Applications"
 msgstr "برنامه‌ها"
 
-#: src/ui/mobile-settings-window.ui:112
+#: src/ui/mobile-settings-window.ui:116
 msgid "Feedback"
 msgstr "بازخورد"
 
-#: src/ui/mobile-settings-window.ui:123
+#: src/ui/mobile-settings-window.ui:127
 msgid "Compositor"
 msgstr "ترکیب‌بند"
 
-#: src/ui/mobile-settings-window.ui:134
+#: src/ui/mobile-settings-window.ui:138
 msgid "Lockscreen"
 msgstr "صفحهٔ قفل"
 
-#: src/ui/mobile-settings-window.ui:145
+#: src/ui/mobile-settings-window.ui:149
 msgid "Convergence"
 msgstr "یکپارچگی"
 
-#: src/ui/mobile-settings-window.ui:156
+#: src/ui/mobile-settings-window.ui:160
 msgid "On Screen Keyboard"
 msgstr "صفحه‌کلید مجازی"
 
-#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:171 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "حسگرها"
 
-#: src/ui/mobile-settings-window.ui:178
+#: src/ui/mobile-settings-window.ui:182
 msgid "Experimental features"
 msgstr "ویژگی‌های آزمایشی"
 
-#: src/ui/mobile-settings-window.ui:202
+#: src/ui/mobile-settings-window.ui:206
 msgid "_Keyboard Shortcuts"
 msgstr "_میان‌برهای صفحه‌کلید"
 
-#: src/ui/mobile-settings-window.ui:206
+#: src/ui/mobile-settings-window.ui:210
 msgid "_About Mobile Settings"
 msgstr "_دربارهٔ تنظیمات همراه"
 
@@ -343,9 +381,10 @@ msgstr "کوچک کردن اجباری مقیاس همهٔ برنامه‌ها. 
 msgid "Scale down all apps"
 msgstr "کوچک کردن مقیاس همهٔ کاره‌ها"
 
-#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
-#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
+#. Translators: setting to scale down all applications
+#. Translators: setting to scale down a single application
+#: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
+msgctxt "scale to fit setting"
 msgid "Enabled"
 msgstr "به کار افتاده"
 
@@ -357,13 +396,19 @@ msgstr "هیچ دک شناخته شده‌ای پیدا نشد"
 msgid "Map built-in touch screen"
 msgstr "نگاشت صفحهٔ لمسی توکار"
 
+#. Translators: setting to map built-in touch screen
+#: src/ui/ms-convergence-panel.ui:36
+msgctxt "touch setting"
+msgid "Enabled"
+msgstr "به کار افتاده"
+
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
 msgstr "ویژگی‌های آزمایشی"
 
 #: src/ui/ms-features-panel.ui:12
 msgid "Features not yet deemed fully stable"
-msgstr "ویژگی‌هایی که هنوز کاملاً‌پایدار نیستند"
+msgstr "ویژگی‌هایی که هنوز کاملاً پایدار نیستند"
 
 #: src/ui/ms-features-panel.ui:16
 msgid "Emergency Calls"
@@ -377,17 +422,29 @@ msgstr ""
 "به کار انداختن تماس‌های اضطراری. لطفاً فقط در صورت اطمینان از کار کردنش با "
 "اوپراتورتان به کارش بیندازید."
 
-#: src/ui/ms-features-panel.ui:31
+#. Translators: setting to enable emergency calls
+#: src/ui/ms-features-panel.ui:24
+msgctxt "emergency calls setting"
+msgid "Enabled"
+msgstr "به کار افتاده"
+
+#: src/ui/ms-features-panel.ui:32
 msgid "Enable suspend via the system menu"
 msgstr "به کار انداختن تعلیق از فهرست سامانه"
 
-#: src/ui/ms-features-panel.ui:33
+#: src/ui/ms-features-panel.ui:34
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
 msgstr ""
 "لطفاً فقط در صورت آگاهیتان از محدودیت‌هایی چون قطع اتّصال داده و از دست دادن "
 "هشدارها به کارش بیندازید"
+
+#. Translators: setting to enable suspend via the system menu
+#: src/ui/ms-features-panel.ui:40
+msgctxt "suspend setting"
+msgid "Enabled"
+msgstr "به کار افتاده"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -469,28 +526,35 @@ msgstr "در هم ریختن شماره‌ها"
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "این که رقم‌های روی صفحه در هم ریخته شوند یا نه"
 
-#: src/ui/ms-lockscreen-panel.ui:48
+#. Translators: setting to shuffle the numbers on the keypad
+#: src/ui/ms-lockscreen-panel.ui:38
+msgctxt "shuffle keypad setting"
+msgid "Enabled"
+msgstr "به کار افتاده"
+
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Widgets"
 msgstr "ابزارک‌ها"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:50
 msgid "Additional widgets for the lock screen"
 msgstr "ابزارک‌های اضافی برای صفحهٔ قفل"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
-msgctxt "on screen keyboard"
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
 msgid "Add Layout"
 msgstr "افزودن چینش"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:13
+#: src/ui/ms-osk-add-layout-dialog.ui:14
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:19
+#: src/ui/ms-osk-add-layout-dialog.ui:20
 msgid "Add"
 msgstr "افزودن"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:39
+#: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "زبان"
 
@@ -499,8 +563,8 @@ msgctxt "on screen keyboard"
 msgid "Layouts"
 msgstr "چینش‌ها"
 
-#: src/ui/ms-osk-layout-prefs.ui:28
-msgctxt "on screen keyboard"
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: src/ui/ms-osk-layout-prefs.ui:30
 msgid "No Layouts configured"
 msgstr "هیچ چینشی پیکربندی نشده"
 
@@ -528,89 +592,99 @@ msgstr "به کار انداختن صفحه‌کلید مجازی"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "این که صفحه‌کلید مجازی هنگام نیاز نشان داده شود یا نه"
 
-#: src/ui/ms-osk-panel.ui:19
+#: src/ui/ms-osk-panel.ui:20
 msgid "Unfold long-press"
 msgstr "نگه داشتتن برای جمع کردن"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:21
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr "چه قدر باید مرکز نوار خانه نگه داشته شود تا صفحه‌کلید مجازی جمع شود"
 
-#. 0.5
-#: src/ui/ms-osk-panel.ui:25
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
+#: src/ui/ms-osk-panel.ui:26
 msgid "short"
 msgstr "کوتاه"
 
-#. 2.0
-#: src/ui/ms-osk-panel.ui:29
+#. Translators: abbreviation for 1 second interval of time
+#: src/ui/ms-osk-panel.ui:28
+msgctxt "press interval"
+msgid "normal"
+msgstr "عادی"
+
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
+#: src/ui/ms-osk-panel.ui:30
 msgid "long"
 msgstr "بلند"
 
-#: src/ui/ms-osk-panel.ui:37
+#: src/ui/ms-osk-panel.ui:38
 msgid "Ignore hardware keyboard"
 msgstr "چشم‌پوشی از صفحه‌کلید سخت‌افزاری"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:39
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "این که هنگام وجود صفحه‌کلید سخت‌افزاری، صفحه‌کلید مجازی نشان داده شود یا نه"
 
-#: src/ui/ms-osk-panel.ui:50
+#: src/ui/ms-osk-panel.ui:51
 msgid "Keyboard height in portrait mode"
 msgstr "بلندای صفحه‌کلید در حالت عمودی"
 
-#: src/ui/ms-osk-panel.ui:51
+#: src/ui/ms-osk-panel.ui:52
 msgid "When the screen is taller than wide"
 msgstr "هنگامی که صفحه بلندتر از پهناست"
 
-#: src/ui/ms-osk-panel.ui:66
+#: src/ui/ms-osk-panel.ui:67
 msgid "Keyboard height in landscape mode"
 msgstr "بلندای صفحه‌کلید در حالت افقی"
 
-#: src/ui/ms-osk-panel.ui:67
+#: src/ui/ms-osk-panel.ui:68
 msgid "When the screen is wider than tall"
 msgstr "هنگامی که صفحه پهن‌تر از بلنداست"
 
-#: src/ui/ms-osk-panel.ui:90
+#: src/ui/ms-osk-panel.ui:91
 msgid "Text Completion"
 msgstr "کامل کردن متن"
 
-#: src/ui/ms-osk-panel.ui:93
+#: src/ui/ms-osk-panel.ui:94
 msgid "Opportunistic word completion"
 msgstr "کامل کردن متن خوشبینانه"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:95
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "به کار انداختن کامل کردن متن هنگامی که کاره مفید بودنش را مشخّص کند"
 
-#: src/ui/ms-osk-panel.ui:101
+#: src/ui/ms-osk-panel.ui:102
 msgid "Toggle via OSK menu"
 msgstr "تغییر وضعیت با فهرست"
 
-#: src/ui/ms-osk-panel.ui:102
+#: src/ui/ms-osk-panel.ui:103
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "اجازه به تغییر وضعیت کامل کردن متن با دکمهٔ فهرست صفحه‌کلید"
 
-#: src/ui/ms-osk-panel.ui:108
+#: src/ui/ms-osk-panel.ui:109
 msgid "Default Completer"
 msgstr "کامل کنندهٔ پیش‌گزیده"
 
-#: src/ui/ms-osk-panel.ui:109
+#: src/ui/ms-osk-panel.ui:110
 msgid "The default completion engine to use"
 msgstr "موتور تکمیل پیش‌گزیده برای استفاده"
 
-#: src/ui/ms-osk-panel.ui:120
+#: src/ui/ms-osk-panel.ui:121
 msgid "Terminal Layout"
 msgstr "چینش پایانه"
 
-#: src/ui/ms-osk-panel.ui:124
+#: src/ui/ms-osk-panel.ui:125
 msgid "Shortcuts"
 msgstr "میان‌برها"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:126
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "میان‌برهای موجود در نوار میان‌برها"
+
+#: src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "برنامه"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
