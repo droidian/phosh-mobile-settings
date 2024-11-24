@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-10-26 06:56+0000\n"
-"PO-Revision-Date: 2024-10-26 10:02+0300\n"
+"POT-Creation-Date: 2024-11-16 20:16+0000\n"
+"PO-Revision-Date: 2024-11-24 08:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
 "Language: he\n"
@@ -63,43 +63,53 @@ msgstr "לוח משוב"
 msgid "Critical temperature is %.2f°C"
 msgstr "הטמפרטורה הקיצונית היא ‎%.2f°C‎"
 
+#. Translators "Librem 5" is a smartphone model, usually no need to translate it
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:6
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:17
+msgid "Librem 5"
+msgstr "Librem 5"
+
 #. translators: U-boot is the brand of a bootloader
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:19
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:21
 msgid "U-Boot"
 msgstr "U-Boot"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:31
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
 msgid "Suspend device"
 msgstr "השהיית מכשיר"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:33
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:35
 msgid "Suspend is experimental"
 msgstr "השהייה היא ניסיונית"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:51
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:38
+msgid "suspend now"
+msgstr "להשהות כעת"
+
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:53
 msgid "Temperatures"
 msgstr "טמפרטורות"
 
 #. translators: The central processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:55
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:57
 msgid "CPU"
 msgstr "מעבד"
 
 #. translators: The graphics processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:74
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:76
 msgid "GPU"
 msgstr "מעבד גרפי"
 
 #. translators: The video processing unit of a smart phone
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:93
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:95
 msgid "VPU"
 msgstr "מעבד וידאו"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:111
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:113
 msgid "Fuel Gauge"
 msgstr "מד דלק"
 
-#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:129
+#: plugins/librem5/ui/ms-plugin-librem5-panel.ui:131
 msgid "Battery"
 msgstr "סוללה"
 
@@ -151,146 +161,173 @@ msgstr "השמעת הצליל נכשלה"
 msgid "Playing %s"
 msgstr "‫%s מתנגן"
 
-#: src/ms-feedback-panel.c:344 src/ms-feedback-panel.c:352
-msgid "none"
-msgstr "ללא"
-
-#: src/ms-feedback-panel.c:346
+#. Translators: "low" categorizes notifications with minor importance
+#: src/ms-feedback-panel.c:345
 msgid "low"
 msgstr "נמוך"
 
-#. 1.0
-#: src/ms-feedback-panel.c:348 src/ui/ms-osk-panel.ui:27
+#. Translators: "normal" categorizes notifications with standard importance
+#: src/ms-feedback-panel.c:348
 msgid "normal"
 msgstr "רגיל"
 
-#: src/ms-feedback-panel.c:350
+#. Translators: "critical" categorizes notifications with urgent importance
+#: src/ms-feedback-panel.c:351
 msgid "critical"
 msgstr "קיצוני"
 
+#. Translators: "none" is the default for notifications with no specified importance
+#: src/ms-feedback-panel.c:355
+msgid "none"
+msgstr "ללא"
+
 #. Translators: The default completer
-#: src/ms-osk-panel.c:534
+#: src/ms-osk-panel.c:545
 msgid "Default"
 msgstr "ברירת מחדל"
 
-#: src/ms-osk-panel.c:535
+#: src/ms-osk-panel.c:546
 msgid "The default completer selected by the OSK"
 msgstr "משלים ברירת המחדל שנבחר על ידי המקלדת על גבי המסך"
 
-#: src/ms-osk-panel.c:538
+#: src/ms-osk-panel.c:549
 msgid "No information available for this completer"
 msgstr "אין מידע זמין על המשלים הזה"
 
-#: src/ms-sensor-panel.c:92
+#. Translators: "Normal" represents the standard or default orientation
+#: src/ms-sensor-panel.c:93
 msgid "Normal"
 msgstr "רגיל"
 
-#: src/ms-sensor-panel.c:94
+#. Translators: "Bottom up" indicates the orientation is flipped vertically
+#: src/ms-sensor-panel.c:96
 msgid "Bottom up"
 msgstr "מלמטה למעלה"
 
-#: src/ms-sensor-panel.c:96
+#. Translators: "Left up" indicates the orientation of a device with left side up
+#: src/ms-sensor-panel.c:99
 msgid "Left up"
 msgstr "משמאל למעלה"
 
-#: src/ms-sensor-panel.c:98
+#. Translators: "Right up" indicates the orientation of a device with right side up
+#: src/ms-sensor-panel.c:102
 msgid "Right up"
 msgstr "מימין למעלה"
 
-#: src/ms-sensor-panel.c:100
+#. Translators: "Undefined" is shown when the orientation of the device is not recognized
+#: src/ms-sensor-panel.c:105
 msgid "Undefined"
 msgstr "לא מוגדר"
 
-#: src/ms-sensor-panel.c:135
+#. Translators: "Near" indicates proximity close to the sensor
+#. * "Far" indicates some distance from the sensor
+#: src/ms-sensor-panel.c:142
 msgid "Near"
 msgstr "קרוב"
 
-#: src/ms-sensor-panel.c:135
+#: src/ms-sensor-panel.c:142
 msgid "Far"
 msgstr "רחוק"
 
-#: src/ms-sensor-panel.c:253
+#: src/ms-sensor-panel.c:260
 msgid "Updating…"
 msgstr "מתעדכן…"
 
-#: src/ms-sensor-panel.c:269 src/ms-sensor-panel.c:270
-#: src/ms-sensor-panel.c:271
+#. Translators: "Not available" indicates that the proximity sensor data is unavailable
+#: src/ms-sensor-panel.c:277
+msgctxt "proximity sensor data"
 msgid "Not available"
 msgstr "לא זמין"
 
-#: src/ms-sound-row.c:127
+#. Translators: "Not available" indicates that the light sensor data is unavailable
+#: src/ms-sensor-panel.c:279
+msgctxt "light sensor data"
+msgid "Not available"
+msgstr "לא זמין"
+
+#. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
+#: src/ms-sensor-panel.c:281
+msgctxt "accelerometer sensor data"
+msgid "Not available"
+msgstr "לא זמין"
+
+#. Translators: "Custom" is the name of a user-defined sound theme
+#: src/ms-sound-row.c:128
 msgid "Custom"
 msgstr "מותאם אישית"
 
-#: src/ms-sound-row.c:308
+#: src/ms-sound-row.c:309
 msgid "Choose sound file"
 msgstr "בחירת קובץ שמע"
 
-#: src/ms-util.c:150
+#. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
+#: src/ms-util.c:151
 msgid "Full"
 msgstr "מלאה"
 
-#: src/ms-util.c:152
+#. Translators: "Quiet" represents a feedback profile with haptic and LED
+#: src/ms-util.c:154
 msgid "Quiet"
 msgstr "שקטה"
 
-#: src/ms-util.c:154
+#. Translators: "Silent" represents a feedback profile with LED only
+#: src/ms-util.c:157
 msgid "Silent"
 msgstr "חרישית"
 
-#: src/ui/mobile-settings-window.ui:75
+#: src/ui/mobile-settings-window.ui:79
 msgid "Welcome"
 msgstr "ברוך בואך"
 
-#: src/ui/mobile-settings-window.ui:81
+#: src/ui/mobile-settings-window.ui:85
 msgid "Welcome to Mobile Settings"
 msgstr "ברוך בואך להגדרות הנייד"
 
-#: src/ui/mobile-settings-window.ui:82
+#: src/ui/mobile-settings-window.ui:86
 msgid "Tweak advanced mobile settings"
 msgstr "כוונון הגדרות מתקדמות במכשיר"
 
-#: src/ui/mobile-settings-window.ui:90
+#: src/ui/mobile-settings-window.ui:94
 msgid "Top Bar"
 msgstr "סרגל עליון"
 
-#: src/ui/mobile-settings-window.ui:101
+#: src/ui/mobile-settings-window.ui:105
 msgid "Applications"
 msgstr "יישומים"
 
-#: src/ui/mobile-settings-window.ui:112
+#: src/ui/mobile-settings-window.ui:116
 msgid "Feedback"
 msgstr "משוב"
 
-#: src/ui/mobile-settings-window.ui:123
+#: src/ui/mobile-settings-window.ui:127
 msgid "Compositor"
 msgstr "ניהול חלונאי"
 
-#: src/ui/mobile-settings-window.ui:134
+#: src/ui/mobile-settings-window.ui:138
 msgid "Lockscreen"
 msgstr "מסך נעילה"
 
-#: src/ui/mobile-settings-window.ui:145
+#: src/ui/mobile-settings-window.ui:149
 msgid "Convergence"
 msgstr "התלכדות"
 
-#: src/ui/mobile-settings-window.ui:156
+#: src/ui/mobile-settings-window.ui:160
 msgid "On Screen Keyboard"
 msgstr "מקלדת מסך"
 
-#: src/ui/mobile-settings-window.ui:167 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:171 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "חיישנים"
 
-#: src/ui/mobile-settings-window.ui:178
+#: src/ui/mobile-settings-window.ui:182
 msgid "Experimental features"
 msgstr "יכולות ניסיוניות"
 
-#: src/ui/mobile-settings-window.ui:202
+#: src/ui/mobile-settings-window.ui:206
 msgid "_Keyboard Shortcuts"
 msgstr "_קיצורים"
 
-#: src/ui/mobile-settings-window.ui:206
+#: src/ui/mobile-settings-window.ui:210
 msgid "_About Mobile Settings"
 msgstr "_על הגדרות נייד"
 
@@ -350,9 +387,10 @@ msgstr "כפיית הקטנת כל היישומים. יש להפעיל את זה
 msgid "Scale down all apps"
 msgstr "הקטנת כל היישומים"
 
-#: src/ui/ms-compositor-panel.ui:35 src/ui/ms-convergence-panel.ui:35
-#: src/ui/ms-features-panel.ui:23 src/ui/ms-features-panel.ui:38
-#: src/ui/ms-lockscreen-panel.ui:37 src/ui/ms-scale-to-fit-row.ui:11
+#. Translators: setting to scale down all applications
+#. Translators: setting to scale down a single application
+#: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
+msgctxt "scale to fit setting"
 msgid "Enabled"
 msgstr "פעיל"
 
@@ -363,6 +401,12 @@ msgstr "לא זוהו מעגנים מוכרים"
 #: src/ui/ms-convergence-panel.ui:29
 msgid "Map built-in touch screen"
 msgstr "מיפוי מסך מגע מובנה"
+
+#. Translators: setting to map built-in touch screen
+#: src/ui/ms-convergence-panel.ui:36
+msgctxt "touch setting"
+msgid "Enabled"
+msgstr "פעיל"
 
 #: src/ui/ms-features-panel.ui:11
 msgid "Experimental Features"
@@ -384,17 +428,29 @@ msgstr ""
 "הפעלת שיחות חירום. נא להפעיל רק אם אפשר לוודא בצורה בטוחה שהן תקפות לספק "
 "התקשורת שלך."
 
-#: src/ui/ms-features-panel.ui:31
+#. Translators: setting to enable emergency calls
+#: src/ui/ms-features-panel.ui:24
+msgctxt "emergency calls setting"
+msgid "Enabled"
+msgstr "פעיל"
+
+#: src/ui/ms-features-panel.ui:32
 msgid "Enable suspend via the system menu"
 msgstr "הפעלת השהיה דרך תפריט המערכת"
 
-#: src/ui/ms-features-panel.ui:33
+#: src/ui/ms-features-panel.ui:34
 msgid ""
 "Please only enable this if you're aware of the limitations like data "
 "connection loss or missed alarms"
 msgstr ""
 "נא להפעיל את זה רק אם ברורות לך המגבלות כגון אובדן חיבור נתונים או התראות "
 "שהוחמצו"
+
+#. Translators: setting to enable suspend via the system menu
+#: src/ui/ms-features-panel.ui:40
+msgctxt "suspend setting"
+msgid "Enabled"
+msgstr "פעיל"
 
 #: src/ui/ms-feedback-panel.ui:16
 msgid "Feedback profile"
@@ -476,28 +532,35 @@ msgstr "ערבוב ספרות בלוח המקשים"
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "האם לערבב את הספרות בלוח המקשים"
 
-#: src/ui/ms-lockscreen-panel.ui:48
+#. Translators: setting to shuffle the numbers on the keypad
+#: src/ui/ms-lockscreen-panel.ui:38
+msgctxt "shuffle keypad setting"
+msgid "Enabled"
+msgstr "פעיל"
+
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Widgets"
 msgstr "יישומונים"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:50
 msgid "Additional widgets for the lock screen"
 msgstr "יישומונים נוספים למסך הנעילה"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:4 src/ui/ms-osk-layout-prefs.ui:13
-msgctxt "on screen keyboard"
+#. Translators: Title for a dialog to add a new on-screen keyboard layout
+#. Translators: Label for a button that allows the user to add a new keyboard layout
+#: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
 msgid "Add Layout"
 msgstr "הוספת פריסה"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:13
+#: src/ui/ms-osk-add-layout-dialog.ui:14
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:19
+#: src/ui/ms-osk-add-layout-dialog.ui:20
 msgid "Add"
 msgstr "הוספה"
 
-#: src/ui/ms-osk-add-layout-dialog.ui:39
+#: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "שפה"
 
@@ -506,8 +569,8 @@ msgctxt "on screen keyboard"
 msgid "Layouts"
 msgstr "פריסות"
 
-#: src/ui/ms-osk-layout-prefs.ui:28
-msgctxt "on screen keyboard"
+#. Translators: Message displayed when there are no keyboard layouts configured
+#: src/ui/ms-osk-layout-prefs.ui:30
 msgid "No Layouts configured"
 msgstr "לא מוגדרות פריסות"
 
@@ -535,89 +598,99 @@ msgstr "הפעלת מקלדת מ_סך"
 msgid "Whether to show the on screen keyboard when needed"
 msgstr "האם להציג מקלדת על המסך בעת הצורך"
 
-#: src/ui/ms-osk-panel.ui:19
+#: src/ui/ms-osk-panel.ui:20
 msgid "Unfold long-press"
 msgstr "הצגה בלחיצה ארוכה"
 
-#: src/ui/ms-osk-panel.ui:20
+#: src/ui/ms-osk-panel.ui:21
 msgid ""
 "How long to press the center of the home bar to unfold the on screen keyboard"
 msgstr "מה יהיה משך זמן הלחיצה על סרגל הבית להצגת מקלדת המסך"
 
-#. 0.5
-#: src/ui/ms-osk-panel.ui:25
+#. Translators: abbreviation for less than or equal to 0.5 second interval of time
+#: src/ui/ms-osk-panel.ui:26
 msgid "short"
 msgstr "קצר"
 
-#. 2.0
-#: src/ui/ms-osk-panel.ui:29
+#. Translators: abbreviation for 1 second interval of time
+#: src/ui/ms-osk-panel.ui:28
+msgctxt "press interval"
+msgid "normal"
+msgstr "רגיל"
+
+#. Translators: abbreviation for greater than or equal to 1.5 second interval of time
+#: src/ui/ms-osk-panel.ui:30
 msgid "long"
 msgstr "ארוך"
 
-#: src/ui/ms-osk-panel.ui:37
+#: src/ui/ms-osk-panel.ui:38
 msgid "Ignore hardware keyboard"
 msgstr "התעלמות ממקלדת חומרה"
 
-#: src/ui/ms-osk-panel.ui:38
+#: src/ui/ms-osk-panel.ui:39
 msgid ""
 "Whether to show the on screen keyboard when a physical keyboard is present"
 msgstr "האם להציג מקלדת מסך גם כשמקלדת פיזית מחוברת"
 
-#: src/ui/ms-osk-panel.ui:50
+#: src/ui/ms-osk-panel.ui:51
 msgid "Keyboard height in portrait mode"
 msgstr "גובה המקלדת במצב לאורך"
 
-#: src/ui/ms-osk-panel.ui:51
+#: src/ui/ms-osk-panel.ui:52
 msgid "When the screen is taller than wide"
 msgstr "כאשר המסך יותר גבוה מרחב"
 
-#: src/ui/ms-osk-panel.ui:66
+#: src/ui/ms-osk-panel.ui:67
 msgid "Keyboard height in landscape mode"
 msgstr "גובה המקלדת במצב לרוחב"
 
-#: src/ui/ms-osk-panel.ui:67
+#: src/ui/ms-osk-panel.ui:68
 msgid "When the screen is wider than tall"
 msgstr "כאשר המסך יותר רחב מארוך"
 
-#: src/ui/ms-osk-panel.ui:90
+#: src/ui/ms-osk-panel.ui:91
 msgid "Text Completion"
 msgstr "השלמת טקסט"
 
-#: src/ui/ms-osk-panel.ui:93
+#: src/ui/ms-osk-panel.ui:94
 msgid "Opportunistic word completion"
 msgstr "השלמת מילים שאפתנית"
 
-#: src/ui/ms-osk-panel.ui:94
+#: src/ui/ms-osk-panel.ui:95
 msgid "Enable word completion when the app indicates it is useful"
 msgstr "הפעלת השלמת מילים כשהיישומון מציין שזה שימושי"
 
-#: src/ui/ms-osk-panel.ui:101
+#: src/ui/ms-osk-panel.ui:102
 msgid "Toggle via OSK menu"
 msgstr "החלפת מצב דרך תפריט מקלדת מסך"
 
-#: src/ui/ms-osk-panel.ui:102
+#: src/ui/ms-osk-panel.ui:103
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr "לאפשר החלפת מצב השלמת מילים דרך כפתור התפריט של המקלדת"
 
-#: src/ui/ms-osk-panel.ui:108
+#: src/ui/ms-osk-panel.ui:109
 msgid "Default Completer"
 msgstr "משלים ברירת מחדל"
 
-#: src/ui/ms-osk-panel.ui:109
+#: src/ui/ms-osk-panel.ui:110
 msgid "The default completion engine to use"
 msgstr "מנוע ההשלמה לשימוש כברירת מחדל"
 
-#: src/ui/ms-osk-panel.ui:120
+#: src/ui/ms-osk-panel.ui:121
 msgid "Terminal Layout"
 msgstr "פריסת מסוף"
 
-#: src/ui/ms-osk-panel.ui:124
+#: src/ui/ms-osk-panel.ui:125
 msgid "Shortcuts"
 msgstr "קיצורים"
 
-#: src/ui/ms-osk-panel.ui:125
+#: src/ui/ms-osk-panel.ui:126
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "הקיצורים הזמינים מסרגל הקיצורים"
+
+#: src/ui/ms-scale-to-fit-row.ui:5
+msgid "Application"
+msgstr "יישומונים"
 
 #: src/ui/ms-sensor-panel.ui:16
 msgid "No Sensors found"
