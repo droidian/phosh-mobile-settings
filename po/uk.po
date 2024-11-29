@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settin"
-"gs/-/issues\n"
-"POT-Creation-Date: 2024-11-16 20:16+0000\n"
-"PO-Revision-Date: 2024-11-17 08:56+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-setti"
+"ngs/-/issues\n"
+"POT-Creation-Date: 2024-11-29 11:19+0000\n"
+"PO-Revision-Date: 2024-11-29 18:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -44,7 +44,8 @@ msgstr ""
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:13
 msgid "Advanced settings for Mobile devices using Phosh"
-msgstr "Додаткові параметри для мобільних пристроїв, де використовується Phosh"
+msgstr ""
+"Додаткові параметри для мобільних пристроїв, де використовується Phosh"
 
 #: data/mobi.phosh.MobileSettings.metainfo.xml.in:40
 msgid "Available panels"
@@ -232,21 +233,18 @@ msgstr "Оновлення…"
 
 #. Translators: "Not available" indicates that the proximity sensor data is unavailable
 #: src/ms-sensor-panel.c:277
-#| msgid "Not available"
 msgctxt "proximity sensor data"
 msgid "Not available"
 msgstr "Немає доступу"
 
 #. Translators: "Not available" indicates that the light sensor data is unavailable
 #: src/ms-sensor-panel.c:279
-#| msgid "Not available"
 msgctxt "light sensor data"
 msgid "Not available"
 msgstr "Немає доступу"
 
 #. Translators: "Not available" indicates that the accelerometer sensor data is unavailable
 #: src/ms-sensor-panel.c:281
-#| msgid "Not available"
 msgctxt "accelerometer sensor data"
 msgid "Not available"
 msgstr "Немає доступу"
@@ -394,7 +392,6 @@ msgstr "Масштабувати усі програми"
 #. Translators: setting to scale down all applications
 #. Translators: setting to scale down a single application
 #: src/ui/ms-compositor-panel.ui:36 src/ui/ms-scale-to-fit-row.ui:12
-#| msgid "Enabled"
 msgctxt "scale to fit setting"
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -409,7 +406,6 @@ msgstr "Прив'язка вбудованого сенсорного екран
 
 #. Translators: setting to map built-in touch screen
 #: src/ui/ms-convergence-panel.ui:36
-#| msgid "Enabled"
 msgctxt "touch setting"
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -436,7 +432,6 @@ msgstr ""
 
 #. Translators: setting to enable emergency calls
 #: src/ui/ms-features-panel.ui:24
-#| msgid "Enabled"
 msgctxt "emergency calls setting"
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -455,7 +450,6 @@ msgstr ""
 
 #. Translators: setting to enable suspend via the system menu
 #: src/ui/ms-features-panel.ui:40
-#| msgid "Enabled"
 msgctxt "suspend setting"
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -532,34 +526,33 @@ msgstr "Затримка автоматичного блокування екр�
 msgid "Seconds from screen blank to screen lock"
 msgstr "К-ть секунд від спорожнення до блокування екрана"
 
-#: src/ui/ms-lockscreen-panel.ui:30
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Shuffle keypad"
 msgstr "Перемішати цифрову панель"
 
-#: src/ui/ms-lockscreen-panel.ui:31
+#: src/ui/ms-lockscreen-panel.ui:32
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Визначає, чи слід пересунути числа на цифровій панелі"
 
-#. Translators: setting to shuffle the numbers on the keypad
 #: src/ui/ms-lockscreen-panel.ui:38
-#| msgid "Enabled"
-msgctxt "shuffle keypad setting"
-msgid "Enabled"
-msgstr "Увімкнено"
+msgid "Require authentication to unlock"
+msgstr "Вимагати розпізнавання для розблокування"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:39
+msgid "Require typing PIN or password to unlock the device"
+msgstr "Вимагати введення PIN-коду або пароля для розблокування пристрою"
+
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Віджети"
 
-#: src/ui/ms-lockscreen-panel.ui:50
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Додаткові віджети для екрана блокування"
 
 #. Translators: Title for a dialog to add a new on-screen keyboard layout
 #. Translators: Label for a button that allows the user to add a new keyboard layout
 #: src/ui/ms-osk-add-layout-dialog.ui:5 src/ui/ms-osk-layout-prefs.ui:14
-#| msgctxt "on screen keyboard"
-#| msgid "Add Layout"
 msgid "Add Layout"
 msgstr "Додати компонування"
 
@@ -582,8 +575,6 @@ msgstr "Компонування"
 
 #. Translators: Message displayed when there are no keyboard layouts configured
 #: src/ui/ms-osk-layout-prefs.ui:30
-#| msgctxt "on screen keyboard"
-#| msgid "No Layouts configured"
 msgid "No Layouts configured"
 msgstr "Компонувань не налаштовано"
 
@@ -629,7 +620,6 @@ msgstr "коротко"
 
 #. Translators: abbreviation for 1 second interval of time
 #: src/ui/ms-osk-panel.ui:28
-#| msgid "normal"
 msgctxt "press interval"
 msgid "normal"
 msgstr "звичайний"
@@ -676,7 +666,8 @@ msgstr "Гнучке автоматичне доповнення"
 
 #: src/ui/ms-osk-panel.ui:95
 msgid "Enable word completion when the app indicates it is useful"
-msgstr "Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
+msgstr ""
+"Увімкнути автодоповнення слів, якщо програма вказує на його корисність"
 
 #: src/ui/ms-osk-panel.ui:102
 msgid "Toggle via OSK menu"
@@ -709,7 +700,6 @@ msgid "The shortcuts available in the shortcuts bar"
 msgstr "Скорочення, якими можна скористатися на панелі скорочень"
 
 #: src/ui/ms-scale-to-fit-row.ui:5
-#| msgid "Applications"
 msgid "Application"
 msgstr "Програма"
 
@@ -794,6 +784,11 @@ msgstr "Швидкі параметри"
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Упорядковування ваших додаткових швидких параметрів"
+
+#~| msgid "Enabled"
+#~ msgctxt "shuffle keypad setting"
+#~ msgid "Enabled"
+#~ msgstr "Увімкнено"
 
 #~ msgid "Unlocking"
 #~ msgstr "Розблокування"
