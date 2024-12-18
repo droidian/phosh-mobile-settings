@@ -1,3 +1,89 @@
+phosh-mobile-settings (0.44~dev) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ci: Update shared scripts to 2c11568
+  * docs: Cleanup markdown. Makes mdl happy
+  * ci: Check markdown
+  * osk-panel: Fix error message. We're looking at completer info here.
+  * osk-panel: Allow to force OSK.
+    This is useful for testing as we're not dependent on the OSK installed
+    on the system.
+  * tests: Force an unknown OSK.
+    This ensures tests like listing the panels don't depend on schema
+    or files from the OSK.
+  * ci: Update image. This speeds up ci builds.
+  * packaging: Conflict with older phosh-plugins.
+    Conflict with plugins that don't use AdwPreferencesDialog yet
+
+  [ Gotam Gorabh ]
+  * ms-compositor-panel: Add translators context.
+  * ms-convergence-panel: Add translators context.
+  * ms-features-panel: Add translators context.
+  * ms-feedback-panel: Refactor notification urgency case
+    consolidate 'none' urgency with default case for unified
+    handling of unspecified notifications
+  * ms-locksreen-panel: Add translators context.
+  * ms-osk-panel: Add translators context.
+  * ms-scale-to-fit-row: Add translators context.
+    Helps: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/71
+  * ms-sensor-panel: Add translators context.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/69
+  * osk: Remove useless contexts.
+    Drop the useless contexts instead add translators comments.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/70
+  * mobile-settings-window: Remove content title string.
+    Removing as It is never shown.
+  * ms-plugin-librem5-panel: Mark missing string translatable.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/71
+  * ms-osk-add-layout-dialog: Update translators comments
+  * ms-plugin-list-box: Switch MsPluginListbox to AdwPreferencesDialog.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/64
+
+  [ Teemu Ikonen ]
+  * locksreen-panel: Rename constant for 'shuffle-keypad' setting
+  * lockscreen-panel: Use AdwSwitchRow for shuffle_switch
+  * lockscreen-panel: Add a switch row for 'require-unlock' setting.
+    Uses ms_schema_bind_property() for binding since the setting might not
+    exist in the schema yet.
+
+  [ Alexandre Franke ]
+  * Update French translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Pierre Michel Augustin ]
+  * Add Haitian Creole translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Sabri Ünal ]
+  * Update Turkish translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 18 Dec 2024 23:23:56 +0100
+
 phosh-mobile-settings (0.43.0) experimental; urgency=medium
 
   [ Gotam Gorabh ]
