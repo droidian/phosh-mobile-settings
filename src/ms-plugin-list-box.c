@@ -52,7 +52,7 @@ G_DEFINE_TYPE (MsPluginListBox, ms_plugin_list_box, ADW_TYPE_BIN)
 
 
 
-static AdwPreferencesWindow *
+static AdwPreferencesDialog *
 load_prefs_window (MsPluginListBox *self, const char *name)
 {
   GIOExtensionPoint *ep;
@@ -75,7 +75,7 @@ static void
 open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointer data)
 {
   MsPluginListBox *self = MS_PLUGIN_LIST_BOX (data);
-  AdwPreferencesWindow *prefs;
+  AdwPreferencesDialog *prefs;
   GtkWindow *parent;
   g_autoptr (GError) error = NULL;
   g_autoptr (GKeyFile) keyfile = g_key_file_new ();
@@ -97,10 +97,9 @@ open_plugin_prefs_activated (GSimpleAction *action, GVariant *parameter, gpointe
   g_assert (parent);
 
   prefs = load_prefs_window (self, name);
-  g_return_if_fail (GTK_IS_WINDOW (prefs));
+  g_return_if_fail (ADW_IS_DIALOG (prefs));
 
-  gtk_window_set_transient_for (GTK_WINDOW (prefs), parent);
-  gtk_window_present (GTK_WINDOW (prefs));
+  adw_dialog_present (ADW_DIALOG (prefs), GTK_WIDGET (parent));
 }
 
 
