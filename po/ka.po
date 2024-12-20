@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-11-16 20:16+0000\n"
-"PO-Revision-Date: 2024-11-19 05:02+0100\n"
+"POT-Creation-Date: 2024-11-29 11:19+0000\n"
+"PO-Revision-Date: 2024-12-20 05:32+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -521,25 +521,27 @@ msgstr "ეკრანის ავტომატური დაბლოკ�
 msgid "Seconds from screen blank to screen lock"
 msgstr "ეკრანის დასაბლოკად მისი დაბნელების დრო"
 
-#: src/ui/ms-lockscreen-panel.ui:30
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Shuffle keypad"
 msgstr "ციფრული კლავიატურის არევა"
 
-#: src/ui/ms-lockscreen-panel.ui:31
+#: src/ui/ms-lockscreen-panel.ui:32
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "არის თუ არა ციფრულ კლავიატურაზე რიცხვები არეული"
 
-#. Translators: setting to shuffle the numbers on the keypad
 #: src/ui/ms-lockscreen-panel.ui:38
-msgctxt "shuffle keypad setting"
-msgid "Enabled"
-msgstr "ჩართულია"
+msgid "Require authentication to unlock"
+msgstr "ავთენტიკაციის მოთხოვნა განსაბლოკად"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:39
+msgid "Require typing PIN or password to unlock the device"
+msgstr "PIN-კოდის ან პაროლის მოთხოვნა მოწყობილობის განსაბლოკად"
+
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "ვიჯეტები"
 
-#: src/ui/ms-lockscreen-panel.ui:50
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "დამატებითი ვიჯეტები დაბლოკვის ეკრანისთვის"
 
@@ -772,6 +774,10 @@ msgstr "სწრაფი მორგება"
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "მოირგეთ თქვენი დამატებითი სწრაფი პარამეტრები"
+
+#~ msgctxt "shuffle keypad setting"
+#~ msgid "Enabled"
+#~ msgstr "ჩართულია"
 
 #~ msgid "Unlocking"
 #~ msgstr "განბლოკვა"
