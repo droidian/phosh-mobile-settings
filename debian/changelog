@@ -1,4 +1,4 @@
-phosh-mobile-settings (0.44~dev) experimental; urgency=medium
+phosh-mobile-settings (0.44~rc1) experimental; urgency=medium
 
   [ Guido Günther ]
   * ci: Update shared scripts to 2c11568
@@ -40,7 +40,7 @@ phosh-mobile-settings (0.44~dev) experimental; urgency=medium
     Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/64
 
   [ Teemu Ikonen ]
-  * locksreen-panel: Rename constant for 'shuffle-keypad' setting
+  * lockscreen-panel: Rename constant for 'shuffle-keypad' setting
   * lockscreen-panel: Use AdwSwitchRow for shuffle_switch
   * lockscreen-panel: Add a switch row for 'require-unlock' setting.
     Uses ms_schema_bind_property() for binding since the setting might not
