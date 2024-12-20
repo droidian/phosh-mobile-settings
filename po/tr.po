@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2024-11-16 20:16+0000\n"
-"PO-Revision-Date: 2024-11-03 19:56+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2024-11-29 11:19+0000\n"
+"PO-Revision-Date: 2024-12-01 01:21+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -528,25 +528,27 @@ msgstr "Kendiliğinden ekran kilidi gecikmesi"
 msgid "Seconds from screen blank to screen lock"
 msgstr "Boş ekrandan ekran kilidine dek geçen saniye"
 
-#: src/ui/ms-lockscreen-panel.ui:30
+#: src/ui/ms-lockscreen-panel.ui:31
 msgid "Shuffle keypad"
 msgstr "Tuş takımını karıştır"
 
-#: src/ui/ms-lockscreen-panel.ui:31
+#: src/ui/ms-lockscreen-panel.ui:32
 msgid "Whether to shuffle the numbers on the keypad"
 msgstr "Tuş takımındaki sayıların karıştırılma durumu"
 
-#. Translators: setting to shuffle the numbers on the keypad
 #: src/ui/ms-lockscreen-panel.ui:38
-msgctxt "shuffle keypad setting"
-msgid "Enabled"
-msgstr "Etkin"
+msgid "Require authentication to unlock"
+msgstr "Kilidi açmak için kimlik doğrulama gerektir"
 
-#: src/ui/ms-lockscreen-panel.ui:49
+#: src/ui/ms-lockscreen-panel.ui:39
+msgid "Require typing PIN or password to unlock the device"
+msgstr "Aygıtın kilidini açmak için PIN ya da parola yazma gerektir"
+
+#: src/ui/ms-lockscreen-panel.ui:48
 msgid "Widgets"
 msgstr "Parçacıklar"
 
-#: src/ui/ms-lockscreen-panel.ui:50
+#: src/ui/ms-lockscreen-panel.ui:49
 msgid "Additional widgets for the lock screen"
 msgstr "Kilit ekranı için ek parçacıklar"
 
@@ -780,3 +782,7 @@ msgstr "Hızlı Ayarlar"
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"
 msgstr "Ek Hızlı Ayarlar’ınızı düzenleyin"
+
+#~ msgctxt "shuffle keypad setting"
+#~ msgid "Enabled"
+#~ msgstr "Etkin"
