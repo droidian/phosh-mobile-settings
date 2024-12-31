@@ -1,7 +1,7 @@
-phosh-mobile-settings 0.44~rc1
-------------------------------
-Released Dezember 2024
-* lockscreen: NewRequi-lock setting
+phosh-mobile-settings 0.44.0
+----------------------------
+Released December 2024
+* lockscreen: New "require lock" setting
 * Phosh's plugin prefs now use AdwPreferencesDialog
 * Contributors:
     * Gotam Gorabh
@@ -9,6 +9,7 @@ Released Dezember 2024
     * Teemu Ikonen
 * UI translations:
     * Alexandre Franke (fr)
+    * Anders Jonsson (sv)
     * Antonio Marin (ro)
     * Artur S0 (ru)
     * Danial Behzadi (fa)
@@ -20,6 +21,7 @@ Released Dezember 2024
     * Sabri Ünal (tr)
     * Yaron Shahrabani (he)
     * Yuri Chornoivan (uk)
+    * twlvnn kraftwerk (bg)
 
 phosh-mobile-settings 0.43.0
 ----------------------------

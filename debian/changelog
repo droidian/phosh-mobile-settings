@@ -1,3 +1,13 @@
+phosh-mobile-settings (0.44.0) experimental; urgency=medium
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ twlvnn kraftwerk ]
+  * Add Bulgarian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 21 Dec 2024 16:41:38 +0100
+
 phosh-mobile-settings (0.44~rc1) experimental; urgency=medium
 
   [ Guido Günther ]
