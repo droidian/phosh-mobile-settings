@@ -129,7 +129,7 @@ save_plugin_store (MsPluginListBox *self)
   guint n_plugins = g_list_model_get_n_items (G_LIST_MODEL (self->store));
 
   for (guint i = 0; i < n_plugins; i++) {
-    MsPluginRow *plugin_row = g_list_model_get_item (G_LIST_MODEL (self->store), i);
+    g_autoptr (MsPluginRow) plugin_row = g_list_model_get_item (G_LIST_MODEL (self->store), i);
     gboolean enabled = ms_plugin_row_get_enabled (plugin_row);
     const char *name = ms_plugin_row_get_name (plugin_row);
 
@@ -222,7 +222,7 @@ sort_plugins_store (MsPluginListBox *self)
 
   for (guint i = 0; i < g_strv_length (plugins_order); i++) {
     for (guint j = 0; j < g_list_model_get_n_items (G_LIST_MODEL (self->store)); j++) {
-      MsPluginRow *plugin_row = g_list_model_get_item (G_LIST_MODEL (self->store), j);
+      g_autoptr (MsPluginRow) plugin_row = g_list_model_get_item (G_LIST_MODEL (self->store), j);
 
       if (g_strcmp0 (plugins_order[i], ms_plugin_row_get_name (plugin_row)) == 0) {
         g_list_store_remove (self->store, j);
@@ -384,13 +384,22 @@ ms_plugin_list_box_get_property (GObject    *object,
 
 
 static void
-ms_plugin_list_box_finalize (GObject *object)
+ms_plugin_list_box_dispose (GObject *object)
 {
   MsPluginListBox *self = MS_PLUGIN_LIST_BOX (object);
 
   g_clear_object (&self->settings);
   g_clear_object (&self->store);
   g_clear_object (&self->action_group);
+
+  G_OBJECT_CLASS (ms_plugin_list_box_parent_class)->dispose (object);
+}
+
+
+static void
+ms_plugin_list_box_finalize (GObject *object)
+{
+  MsPluginListBox *self = MS_PLUGIN_LIST_BOX (object);
 
   g_clear_pointer (&self->prefs_extension_point, g_free);
   g_clear_pointer (&self->settings_key, g_free);
@@ -407,6 +416,7 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
 
   object_class->get_property = ms_plugin_list_box_get_property;
   object_class->set_property = ms_plugin_list_box_set_property;
+  object_class->dispose = ms_plugin_list_box_dispose;
   object_class->finalize = ms_plugin_list_box_finalize;
 
   /**
@@ -444,6 +454,9 @@ ms_plugin_list_box_class_init (MsPluginListBoxClass *klass)
 static GtkWidget *
 create_row (gpointer object, gpointer user_data)
 {
+  /* Make sure all refs are non floating as mixing floating refs from
+   * creating rows and non-floating from sorting rows would leak */
+  g_object_ref_sink (object);
   return GTK_WIDGET (object);
 }
 

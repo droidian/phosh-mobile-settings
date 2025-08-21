@@ -1,8 +1,10 @@
 include:
  - project: 'guidog/meta-phosh'
-   ref: '0ed15edd821f8afacbf7a9c0f2a6266873289115'
+   ref: '47c1f6429850295f62e6b9b213f4819a8b252aa7'
    file: '/ci/phosh-common-jobs.yml'
- - remote: 'https://gitlab.gnome.org/Infrastructure/Mirrors/lorry-mirrors/gitlab_freedesktop_org/freedesktop/ci-templates/-/raw/d03cddbcff35f26861429fc816c00323f48e99af/templates/ci-fairy.yml'   
+ - project: 'Infrastructure/freedesktop-ci-templates'
+   ref: 'd03cddbcff35f26861429fc816c00323f48e99af'
+   file: '/templates/ci-fairy.yml'
 
 stages:
  - build
@@ -35,8 +37,9 @@ workflow:
 variables:
   # For ci-fairy
   FDO_UPSTREAM_REPO: World/Phosh/phosh-mobile-settings
-  DEBIAN_IMAGE: $CI_REGISTRY/guidog/phosh-osk-stub/debian:v0.0.2024-10-21
+  DEBIAN_IMAGE: $CI_REGISTRY/world/phosh/phosh-mobile-settings/debian:v0.0.2025-06-16
   COMMON_BUILD_OPTS: --werror -Db_coverage=true
+  PHOSH_ADDITIONAL_EXPERIMENTAL_PKGS: libgmobile-dev phoc
 
 .trixie_vars: &trixie_vars
   variables:
@@ -51,11 +54,13 @@ variables:
 
 .test_step: &test_step
   script:
+    - !reference [.phosh-prepare-apt]
     - dbus-run-session meson test --print-errorlogs -C _build
-    - ninja -C _build coverage-html
+    - ninja -C _build coverage-html || true
 
 .before: &before
   before_script:
+    - !reference [.phosh-prepare-apt]
     - apt-get -y update
     - apt-get -y build-dep .
 
@@ -101,6 +106,17 @@ test:native-debian-trixie:
   except:
     variables:
       - $PKG_ONLY == '1'
+
+asan-test-native-debian-trixie:
+  stage: test
+  image: ${DEBIAN_IMAGE}
+  tags: [asan]
+  needs: []
+  <<: *before
+  script:
+    - meson setup -Db_sanitize=address _build-asan
+    - dbus-run-session meson test --print-errorlogs -C _build-asan
+  allow_failure: true
 
 check-po:
   stage: test

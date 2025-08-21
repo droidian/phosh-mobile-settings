@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_TOPBAR_PANEL (ms_topbar_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsTopbarPanel, ms_topbar_panel, MS, TOPBAR_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsTopbarPanel, ms_topbar_panel, MS, TOPBAR_PANEL, MsPanel)
 
 G_END_DECLS

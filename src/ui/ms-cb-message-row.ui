@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsCbMessageRow" parent="AdwExpanderRow">
+    <property name="title">Subject of the CBM</property>
+    <property name="subtitle">2025-01-01 00:42</property>
+    <child type="prefix">
+      <object class="GtkImage" id="icon">
+        <property name="pixel-size">16</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="description">
+        <property name="halign">start</property>
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+        <property name="wrap">1</property>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_CONVERGENCE_PANEL (ms_convergence_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsConvergencePanel, ms_convergence_panel, MS, CONVERGENCE_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsConvergencePanel, ms_convergence_panel, MS, CONVERGENCE_PANEL, MsPanel)
 
 MsConvergencePanel *ms_convergence_panel_new (void);
 

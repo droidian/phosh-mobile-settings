@@ -31,4 +31,21 @@ typedef enum {
   MS_PHOSH_NOTIFICATION_URGENCY_CRITICAL,
 } MsPhoshNotificationUrgency;
 
+
+/* TODO: Use headers from libcbd once that is released or usable as subproject */
+typedef enum {
+  MS_CHANNEL_MODE_NONE  = 0,
+  MS_CHANNEL_MODE_COUNTRY  = 1,
+} MsChannelMode;
+
+typedef enum {
+  MS_CHANNEL_LEVEL_UNKNOWN        = 0,
+  MS_CHANNEL_LEVEL_PRESIDENTIAL   = (1 << 0),
+  MS_CHANNEL_LEVEL_EXTREME        = (1 << 1),
+  MS_CHANNEL_LEVEL_SEVERE         = (1 << 2),
+  MS_CHANNEL_LEVEL_PUBLIC_SAFETY  = (1 << 3),
+  MS_CHANNEL_LEVEL_AMBER          = (1 << 4),
+  MS_CHANNEL_LEVEL_TEST           = (1 << 5),
+} MsChannelLevel;
+
 G_END_DECLS

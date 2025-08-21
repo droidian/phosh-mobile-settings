@@ -16,6 +16,19 @@
 #include <gtk/gtk.h>
 #include <adwaita.h>
 
+/* Combining diacritical mark?
+ *  Basic range: [0x0300,0x036F]
+ *  Supplement:  [0x1DC0,0x1DFF]
+ *  For Symbols: [0x20D0,0x20FF]
+ *  Half marks:  [0xFE20,0xFE2F]
+ */
+#define IS_CDM_UCS4(c) (((c) >= 0x0300 && (c) <= 0x036F)  || \
+                        ((c) >= 0x1DC0 && (c) <= 0x1DFF)  || \
+                        ((c) >= 0x20D0 && (c) <= 0x20FF)  || \
+                        ((c) >= 0xFE20 && (c) <= 0xFE2F))
+
+#define IS_SOFT_HYPHEN(c) ((c) == 0x00AD)
+
 /**
  * ms_munge_app_id:
  * @app_id: the app_id
@@ -324,4 +337,85 @@ ms_bool_to_picture_mode (const GValue *in_value, const GVariantType *out_type, g
   mode = active ? "zoom" : "none";
 
   return g_variant_new_string (mode);
+}
+
+
+/* Copied from gnome-control-center/panels/common/cc-util.c under the GPL
+ *
+ * Originally written by Aleksander Morgado <aleksander@gnu.org>
+ */
+char *
+ms_normalize_casefold_and_unaccent (const char *str)
+{
+  g_autofree char *normalized = NULL;
+  char *tmp;
+  int i = 0, j = 0, ilen;
+
+  if (str == NULL)
+    return NULL;
+
+  normalized = g_utf8_normalize (str, -1, G_NORMALIZE_NFKD);
+  tmp = g_utf8_casefold (normalized, -1);
+
+  ilen = strlen (tmp);
+
+  while (i < ilen) {
+    gunichar unichar;
+    char *next_utf8;
+    int utf8_len;
+
+    /* Get next character of the word as UCS4 */
+    unichar = g_utf8_get_char_validated (&tmp[i], -1);
+
+    /* Invalid UTF-8 character or end of original string. */
+    if (unichar == (gunichar) -1 || unichar == (gunichar) -2)
+      break;
+
+    /* Find next UTF-8 character */
+    next_utf8 = g_utf8_next_char (&tmp[i]);
+    utf8_len = next_utf8 - &tmp[i];
+
+    if (IS_CDM_UCS4 (unichar) || IS_SOFT_HYPHEN (unichar)) {
+      /* If the given unichar is a combining diacritical mark,
+       * just update the original index, not the output one */
+      i += utf8_len;
+      continue;
+    }
+
+    /* If already found a previous combining
+     * diacritical mark, indexes are different so
+     * need to copy characters. As output and input
+     * buffers may overlap, need to use memmove
+     * instead of memcpy */
+    if (i != j)
+      memmove (&tmp[j], &tmp[i], utf8_len);
+
+    /* Update both indexes */
+    i += utf8_len;
+    j += utf8_len;
+  }
+
+  /* Force proper string end */
+  tmp[j] = '\0';
+
+  return tmp;
+}
+
+
+GtkStringList *
+ms_get_casefolded_string_list (GtkStringList *strlist)
+{
+  GtkStringList *casefolded_strlist;
+
+  g_assert (GTK_IS_STRING_LIST (strlist));
+
+  casefolded_strlist = gtk_string_list_new (NULL);
+
+  for (uint i = 0; i < g_list_model_get_n_items (G_LIST_MODEL (strlist)); ++i) {
+    const char *keyword = gtk_string_list_get_string (strlist, i);
+
+    gtk_string_list_take (casefolded_strlist, ms_normalize_casefold_and_unaccent (keyword));
+  }
+
+  return casefolded_strlist;
 }

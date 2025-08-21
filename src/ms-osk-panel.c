@@ -13,6 +13,7 @@
 #include "ms-completer-info.h"
 #include "ms-enum-types.h"
 #include "ms-osk-layout-prefs.h"
+#include "ms-osk-add-shortcut-dialog.h"
 #include "ms-osk-panel.h"
 #include "ms-util.h"
 
@@ -31,6 +32,8 @@
 #define PHOSH_OSK_SETTINGS           "sm.puri.phosh.osk"
 #define WORD_COMPLETION_KEY          "completion-mode"
 #define HW_KEYBOARD_KEY              "ignore-hw-keyboards"
+#define OSK_FEATURES_KEY             "osk-features"
+#define OSK_SCALING_KEY              "scaling"
 
 #define PHOSH_OSK_COMPLETER_SETTINGS "sm.puri.phosh.osk.Completers"
 #define DEFAULT_COMPLETER_KEY        "default"
@@ -43,12 +46,26 @@
 #define SCALE_WHEN_HORIZONTAL_KEY    "scale-in-horizontal-screen-orientation"
 #define SCALE_WHEN_VERTICAL_KEY      "scale-in-vertical-screen-orientation"
 
-/* From phosh osk-stub */
+/* From stevia */
 typedef enum {
   PHOSH_OSK_COMPLETION_MODE_NONE   = 0,
   PHOSH_OSK_COMPLETION_MODE_MANUAL = (1 << 0),
   PHOSH_OSK_COMPLETION_MODE_HINT   = (1 << 1),
 } CompletionMode;
+
+
+typedef enum {
+  PHOSH_OSK_SCALING_NONE = 0,
+  PHOSH_OSK_SCALING_AUTO_PORTRAIT = (1 << 0),
+  PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE = (1 << 2),
+} PhoshOskScalingFlags;
+
+
+typedef enum {
+  PHOSH_OSK_FEATURE_DEFAULT  = 0,
+  PHOSH_OSK_FEATURE_KEY_DRAG = (1 << 0),
+  PHOSH_OSK_FEATURE_KEY_INDICATOR = (1 << 1),
+} OskFeatures;
 
 
 typedef enum {
@@ -59,7 +76,7 @@ typedef enum {
 
 
 struct _MsOskPanel {
-  AdwBin            parent;
+  MsPanel           parent;
 
   GSettings        *a11y_settings;
   GtkWidget        *osk_enable_switch;
@@ -67,6 +84,8 @@ struct _MsOskPanel {
 
   GSettings        *phosh_settings;
   GtkWidget        *long_press_combo;
+
+  AdwSwitchRow     *key_indicator_switch;
 
   /* Word completion */
   GSettings        *pos_settings;
@@ -87,12 +106,19 @@ struct _MsOskPanel {
   GListStore       *shortcuts;
   gboolean          shortcuts_updating;
 
+  /* Automatic scaling */
+  AdwPreferencesGroup *osk_scaling_group;
+  AdwSwitchRow        *osk_scaling_auto_portrait_switch;
+  AdwSwitchRow        *osk_scaling_bottom_dead_zone_switch;
+  PhoshOskScalingFlags scaling;
+
+  /* Squeekboard scaling */
   GtkWidget        *keyboard_height_prefs;
   GtkWidget        *scale_in_horizontal_orientation;
   GtkWidget        *scale_in_vertical_orientation;
 };
 
-G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsOskPanel, ms_osk_panel, MS_TYPE_PANEL)
 
 
 static void
@@ -166,30 +192,109 @@ on_drop (GtkDropTarget *drop_target, const GValue  *value, double x, double y, g
 }
 
 
+struct ShortcutData {
+  MsOskPanel *self;
+  char *shortcut_string;
+};
+
+
+static void
+shortcut_data_free (struct ShortcutData *data)
+{
+  if (!data)
+    return;
+  g_object_unref (data->self);
+  g_free (data->shortcut_string);
+  g_free (data);
+}
+
+
+static GStrv
+shortcut_remove (const char *const *shortcuts, const char *shortcut)
+{
+  g_autoptr (GStrvBuilder) builder = g_strv_builder_new ();
+
+  if (!shortcuts)
+    return NULL;
+
+  for (int i = 0; shortcuts[i]; i++) {
+    if (g_str_equal (shortcut, shortcuts[i]))
+      continue;
+    g_strv_builder_add (builder, shortcuts[i]);
+  }
+
+  return g_strv_builder_end (builder);
+}
+
+
+static void
+on_remove_button_clicked (gpointer user_data)
+{
+  struct ShortcutData *data = user_data;
+  MsOskPanel *self = MS_OSK_PANEL (data->self);
+  g_auto (GStrv) pos_terminal_shortcuts = NULL;
+  g_auto (GStrv) shortcuts = NULL;
+
+  pos_terminal_shortcuts = g_settings_get_strv (self->pos_terminal_settings, SHORTCUTS_KEY);
+  shortcuts = shortcut_remove ((const char * const *) pos_terminal_shortcuts, data->shortcut_string);
+
+  g_settings_set_strv (self->pos_terminal_settings, SHORTCUTS_KEY, (const char * const *)shortcuts);
+
+  shortcut_data_free (data);
+}
+
+
 static GtkWidget *
 create_shortcuts_row (gpointer item, gpointer user_data)
 {
   MsOskPanel *self = MS_OSK_PANEL (user_data);
   GtkStringObject *string = GTK_STRING_OBJECT (item);
-  GtkWidget *label = gtk_shortcut_label_new (gtk_string_object_get_string (string));
-  GtkDragSource *drag_source = gtk_drag_source_new ();
-  GdkContentProvider *type = gdk_content_provider_new_typed (GTK_TYPE_STRING_OBJECT, string);
-  GtkDropTarget *target = gtk_drop_target_new (G_TYPE_INVALID, GDK_ACTION_COPY);
-  GType targets[] = { GTK_TYPE_STRING_OBJECT };
+  const char *shortcut_string = gtk_string_object_get_string (string);
+  GtkWidget *label = gtk_shortcut_label_new (shortcut_string);
 
+  GtkWidget *row_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+  GtkWidget *remove_btn = gtk_button_new_from_icon_name ("window-close-symbolic");
+
+  GType targets[] = { GTK_TYPE_STRING_OBJECT };
+  g_autoptr (GdkContentProvider) type = NULL;
+  GtkDragSource *drag_source;
+  GtkDropTarget *target;
+  struct ShortcutData *data;
+
+  data = g_new (struct ShortcutData, 1);
+  data->self = g_object_ref (self);
+  data->shortcut_string = g_strdup (shortcut_string);
+
+  gtk_widget_add_css_class (row_box, "shortcut-row");
+
+  gtk_box_append (GTK_BOX (row_box), label);
+  gtk_widget_add_css_class (remove_btn, "flat");
+  gtk_widget_add_css_class (remove_btn, "circular");
+
+  gtk_widget_set_hexpand (remove_btn, TRUE);
+  gtk_widget_set_halign (remove_btn, GTK_ALIGN_END);
+
+  gtk_box_append (GTK_BOX (row_box), remove_btn);
+
+  g_signal_connect_swapped (remove_btn, "clicked", G_CALLBACK (on_remove_button_clicked), data);
+
+  drag_source = gtk_drag_source_new ();
+  target = gtk_drop_target_new (G_TYPE_INVALID, GDK_ACTION_COPY);
+
+  type = gdk_content_provider_new_typed (GTK_TYPE_STRING_OBJECT, string);
   /* drag */
   gtk_drag_source_set_content (drag_source, type);
-  g_signal_connect (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), label);
-  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (drag_source));
+  g_signal_connect (drag_source, "drag-begin", G_CALLBACK (on_drag_begin), row_box);
+  gtk_widget_add_controller (row_box, GTK_EVENT_CONTROLLER (drag_source));
 
   /* drop */
   gtk_drop_target_set_gtypes (target, targets, G_N_ELEMENTS (targets));
   g_signal_connect (target, "drop", G_CALLBACK (on_drop), self);
   /* No ref as we just use it for string comparison */
   g_object_set_data (G_OBJECT (target), "ms-str", string);
-  gtk_widget_add_controller (label, GTK_EVENT_CONTROLLER (target));
+  gtk_widget_add_controller (row_box, GTK_EVENT_CONTROLLER (target));
 
-  return label;
+  return row_box;
 }
 
 
@@ -209,6 +314,37 @@ on_terminal_shortcuts_changed (MsOskPanel *self)
 
     g_list_store_append (self->shortcuts, shortcut);
   }
+}
+
+
+static void
+on_osk_features_key_changed (MsOskPanel *self)
+{
+  OskFeatures feature;
+  gboolean active;
+
+  feature = g_settings_get_flags (self->pos_settings, OSK_FEATURES_KEY);
+  active = !!(feature & PHOSH_OSK_FEATURE_KEY_INDICATOR);
+
+  adw_switch_row_set_active (self->key_indicator_switch, active);
+}
+
+
+static void
+on_key_indicator_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, AdwSwitchRow *switch_)
+{
+  OskFeatures feature_flags;
+  gboolean switch_state;
+
+  switch_state = adw_switch_row_get_active (switch_);
+  feature_flags = g_settings_get_flags (self->pos_settings, OSK_FEATURES_KEY);
+
+  if (switch_state)
+    feature_flags |= PHOSH_OSK_FEATURE_KEY_INDICATOR;
+  else
+    feature_flags &= ~PHOSH_OSK_FEATURE_KEY_INDICATOR;
+
+  g_settings_set_flags (self->pos_settings, OSK_FEATURES_KEY, feature_flags);
 }
 
 
@@ -251,6 +387,48 @@ on_completion_switch_activate_changed (MsOskPanel *self, GParamSpec *spec, AdwSw
     self->mode ^= flag;
 
   g_settings_set_flags (self->pos_settings, WORD_COMPLETION_KEY, self->mode);
+}
+
+
+static void
+on_osk_scaling_key_changed (MsOskPanel *self)
+{
+  self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
+  self->updating_flags = TRUE;
+
+  adw_switch_row_set_active (self->osk_scaling_auto_portrait_switch,
+                             self->scaling & PHOSH_OSK_SCALING_AUTO_PORTRAIT);
+  adw_switch_row_set_active (self->osk_scaling_bottom_dead_zone_switch,
+                             self->scaling & PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE);
+  self->updating_flags = FALSE;
+}
+
+
+static void
+on_osk_scaling_switch_changed (MsOskPanel *self, GParamSpec *spec, AdwSwitchRow *switch_)
+{
+  PhoshOskScalingFlags flag;
+  gboolean active;
+
+  if (self->updating_flags)
+    return;
+
+  if (switch_ == self->osk_scaling_auto_portrait_switch) {
+    flag = PHOSH_OSK_SCALING_AUTO_PORTRAIT;
+  } else if (switch_ == self->osk_scaling_bottom_dead_zone_switch) {
+    flag = PHOSH_OSK_SCALING_BOTTOM_DEAD_ZONE;
+  } else {
+    g_critical ("Unknown scaling switch");
+    return;
+  }
+
+  active = adw_switch_row_get_active (switch_);
+  if (active)
+    self->scaling |= flag;
+  else
+    self->scaling ^= flag;
+
+  g_settings_set_flags (self->pos_settings, OSK_SCALING_KEY, self->scaling);
 }
 
 
@@ -309,12 +487,25 @@ is_osk_app (void)
     return MS_OSK_APP_UNKNOWN;
   }
 
-  if (g_str_has_suffix (exe, "/phosh-osk-stub"))
+  if (g_str_has_suffix (exe, "/phosh-osk-stevia") ||
+      g_str_has_suffix (exe, "/phosh-osk-stevia (deleted)")) {
     return MS_OSK_APP_POS;
-  if (g_str_has_suffix (exe, "/squeekboard"))
+  } else if (g_str_has_suffix (exe, "/squeekboard") ||
+             g_str_has_suffix (exe, "/squeekboard (deleted)")) {
     return MS_OSK_APP_SQUEEKBOARD;
+  }
 
   return MS_OSK_APP_UNKNOWN;
+}
+
+
+static void
+on_new_shortcut_clicked (MsOskPanel *self)
+{
+  GtkWidget *dialog;
+
+  dialog = ms_osk_add_shortcut_dialog_new ();
+  adw_dialog_present (ADW_DIALOG (dialog), GTK_WIDGET (self));
 }
 
 
@@ -348,6 +539,8 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, hw_keyboard_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_enable_switch);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_layout_prefs);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, key_indicator_switch);
+  gtk_widget_class_bind_template_callback (widget_class, on_key_indicator_switch_activate_changed);
 
   /* OSK handling */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, long_press_combo);
@@ -362,8 +555,16 @@ ms_osk_panel_class_init (MsOskPanelClass *klass)
   /* Terminal layout group */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, terminal_layout_group);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, shortcuts_box);
+  gtk_widget_class_bind_template_callback (widget_class, on_new_shortcut_clicked);
 
-  /* Squeekboard panel-size */
+  /* Stevia scaling */
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel, osk_scaling_group);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel,
+                                        osk_scaling_auto_portrait_switch);
+  gtk_widget_class_bind_template_child (widget_class, MsOskPanel,
+                                        osk_scaling_bottom_dead_zone_switch);
+  gtk_widget_class_bind_template_callback (widget_class, on_osk_scaling_switch_changed);
+  /* Squeekboard scaling */
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, keyboard_height_prefs);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_horizontal_orientation);
   gtk_widget_class_bind_template_child (widget_class, MsOskPanel, scale_in_vertical_orientation);
@@ -515,7 +716,7 @@ on_completer_selected_item_changed (MsOskPanel *self)
 static void
 ms_osk_panel_init_pos_completer (MsOskPanel *self)
 {
-  char *enabled_completer = NULL;
+  g_autofree char *enabled_completer = NULL;
   gboolean found = FALSE;
 
   ms_osk_panel_parse_pos_completers (self);
@@ -528,7 +729,7 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
 
     info = g_list_model_get_item (G_LIST_MODEL (self->completer_infos), i);
     if (g_str_equal (ms_completer_info_get_id (info), enabled_completer)) {
-      g_warning ("Current completer is %s", enabled_completer);
+      g_debug ("Current completer is %s", enabled_completer);
       adw_combo_row_set_selected (self->completer_combo, i);
       found = TRUE;
       break;
@@ -575,9 +776,10 @@ ms_osk_panel_init_pos_completer (MsOskPanel *self)
 static gboolean
 completer_combo_sensitive_mapping (GValue *value, GVariant *variant, gpointer user_data)
 {
-  const char *const *flags = g_variant_get_strv (variant, NULL);
+  const char **flags = g_variant_get_strv (variant, NULL);
 
   g_value_set_boolean (value, !gm_strv_is_null_or_empty (flags));
+  g_free (flags);
 
   return TRUE;
 }
@@ -586,11 +788,19 @@ completer_combo_sensitive_mapping (GValue *value, GVariant *variant, gpointer us
 static void
 ms_osk_panel_init_pos (MsOskPanel *self)
 {
+  GSettingsSchemaSource *source = g_settings_schema_source_get_default ();
+  g_autoptr (GSettingsSchema) schema = NULL;
+
   gtk_widget_set_visible (self->hw_keyboard_switch, TRUE);
   self->pos_settings = g_settings_new (PHOSH_OSK_SETTINGS);
   g_settings_bind (self->pos_settings, HW_KEYBOARD_KEY,
                    self->hw_keyboard_switch, "active",
                    G_SETTINGS_BIND_DEFAULT);
+
+  gtk_widget_set_visible (GTK_WIDGET (self->key_indicator_switch), TRUE);
+  g_signal_connect_swapped (self->pos_settings, "changed::" OSK_FEATURES_KEY,
+                            G_CALLBACK (on_osk_features_key_changed), self);
+  on_osk_features_key_changed (self);
 
   gtk_widget_set_visible (self->completion_group, TRUE);
   self->mode = g_settings_get_flags (self->pos_settings, WORD_COMPLETION_KEY);
@@ -623,6 +833,17 @@ ms_osk_panel_init_pos (MsOskPanel *self)
 
   self->pos_completer_settings = g_settings_new (PHOSH_OSK_COMPLETER_SETTINGS);
   ms_osk_panel_init_pos_completer (self);
+
+  schema = g_settings_schema_source_lookup (source, PHOSH_OSK_SETTINGS, TRUE);
+  if (g_settings_schema_has_key (schema, OSK_SCALING_KEY)) {
+    gtk_widget_set_visible (GTK_WIDGET (self->osk_scaling_group), TRUE);
+
+    self->scaling = g_settings_get_flags (self->pos_settings, OSK_SCALING_KEY);
+    g_signal_connect_swapped (self->pos_settings, "changed::" OSK_SCALING_KEY,
+                              G_CALLBACK (on_osk_scaling_key_changed),
+                              self);
+    on_osk_scaling_key_changed (self);
+  }
 }
 
 

@@ -20,7 +20,7 @@
 /**
  * MsAudioDeviceRow:
  *
- * A widget intended to be stored in a `GtkListBox` to represent and audio device.
+ * A widget intended to be stored in a `GtkListBox` to represent an audio device.
  */
 
 enum {

@@ -17,5 +17,7 @@ G_DECLARE_FINAL_TYPE (MsPanelSwitcher, ms_panel_switcher, MS, PANEL_SWITCHER, Ad
 MsPanelSwitcher *ms_panel_switcher_new (void);
 void             ms_panel_switcher_set_stack (MsPanelSwitcher *self, GtkStack *stack);
 gboolean         ms_panel_switcher_set_active_panel_name (MsPanelSwitcher *self, const char *panel);
+gboolean         ms_panel_switcher_set_active_panel_index (MsPanelSwitcher *self, uint idx);
+void             ms_panel_switcher_set_search_query (MsPanelSwitcher *self, const char *query);
 
 G_END_DECLS

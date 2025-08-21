@@ -25,10 +25,29 @@
               <object class="AdwToolbarView">
                 <child type="top">
                   <object class="AdwHeaderBar">
+                    <child>
+                      <object class="GtkToggleButton" id="search_button">
+                        <property name="icon-name">edit-find-symbolic</property>
+                        <property name="tooltip-text" translatable="yes" comments="Translators: this is a verb.">Search</property>
+                      </object>
+                    </child>
                     <child type="end">
                       <object class="GtkMenuButton">
                         <property name="menu-model">primary_menu</property>
                         <property name="icon-name">open-menu-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="top">
+                  <object class="GtkSearchBar" id="search_bar">
+                    <property name="search-mode-enabled" bind-source="search_button" bind-property="active" bind-flags="sync-create|bidirectional" />
+                    <child>
+                      <object class="GtkSearchEntry" id="search_entry">
+                        <property name="hexpand">True</property>
+                        <property name="placeholder-text" translatable="yes">Search settings</property>
+                        <signal name="activate" handler="on_search_entry_activated" swapped="no" />
+                        <signal name="changed" handler="on_search_entry_changed" swapped="no" />
                       </object>
                     </child>
                   </object>
@@ -95,7 +114,16 @@
                         <property name="name">topbar</property>
                         <property name="icon-name">focus-top-bar-symbolic</property>
                         <property name="child">
-                          <object class="MsTopbarPanel" id="topbar_page"/>
+                          <object class="MsTopbarPanel" id="topbar_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Quick Settings</item>
+                                  <item translatable="yes">Notches</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -106,7 +134,17 @@
                         <property name="name">overview</property>
                         <property name="icon-name">applications-symbolic</property>
                         <property name="child">
-                          <object class="MsOverviewPanel" id="overview_page"/>
+                          <object class="MsOverviewPanel" id="overview_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Favorites</item>
+                                  <item translatable="yes">Filter</item>
+                                  <item translatable="yes">Wallpaper</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -117,7 +155,20 @@
                         <property name="name">feedback</property>
                         <property name="icon-name">feedback-quiet-symbolic</property>
                         <property name="child">
-                          <object class="MsFeedbackPanel"/>
+                          <object class="MsFeedbackPanel">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Feedback</item>
+                                  <item translatable="yes">Sounds</item>
+                                  <item translatable="yes">Wakeup</item>
+                                  <item translatable="yes">Vibra</item>
+                                  <item translatable="yes">Haptic</item>
+                                  <item translatable="yes">LED</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -128,7 +179,15 @@
                         <property name="name">compositor</property>
                         <property name="icon-name">phone-docked-symbolic</property>
                         <property name="child">
-                          <object class="MsCompositorPanel" id="compositor_page"/>
+                          <object class="MsCompositorPanel" id="compositor_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Scaling</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -139,7 +198,18 @@
                         <property name="name">lockscreen</property>
                         <property name="icon-name">padlock-symbolic</property>
                         <property name="child">
-                          <object class="MsLockscreenPanel" id="lockscreen_page"/>
+                          <object class="MsLockscreenPanel" id="lockscreen_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Wallpaper</item>
+                                  <item translatable="yes">Shuffle</item>
+                                  <item translatable="yes">Widgets</item>
+                                  <item translatable="yes">Password</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -150,7 +220,14 @@
                         <property name="name">convergence</property>
                         <property name="icon-name">phonelink2-symbolic</property>
                         <property name="child">
-                          <object class="MsConvergencePanel" id="convergence_page"/>
+                          <object class="MsConvergencePanel" id="convergence_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -161,7 +238,39 @@
                         <property name="name">osk</property>
                         <property name="icon-name">input-keyboard-symbolic</property>
                         <property name="child">
-                          <object class="MsOskPanel" id="osk_page"/>
+                          <object class="MsOskPanel" id="osk_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Keyboard</item>
+                                  <item translatable="yes">Unfold</item>
+                                  <item translatable="yes">OSK</item>
+                                  <item translatable="yes">Word Completion</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="title" translatable="yes">Emergency Alerts</property>
+                        <property name="name">alerts</property>
+                        <property name="icon-name">dialog-warning-symbolic</property>
+                        <property name="child">
+                          <object class="MsAlertsPanel">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Emergency</item>
+                                  <item translatable="yes">Cell Broadcast</item>
+                                  <item translatable="yes">Danger</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -172,7 +281,15 @@
                         <property name="name">sensors</property>
                         <property name="icon-name">computer-chip-symbolic</property>
                         <property name="child">
-                          <object class="MsSensorPanel" id="sensor_page"/>
+                          <object class="MsSensorPanel" id="sensor_page">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">High Contrast</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>
@@ -183,7 +300,17 @@
                         <property name="name">features</property>
                         <property name="icon-name">applications-science-symbolic</property>
                         <property name="child">
-                          <object class="MsFeaturesPanel"/>
+                          <object class="MsFeaturesPanel">
+                            <property name="keywords">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="yes">Emergency</item>
+                                  <item translatable="yes">Suspend</item>
+                                  <item translatable="yes">Experimental</item>
+                                </items>
+                              </object>
+                            </property>
+                          </object>
                         </property>
                       </object>
                     </child>

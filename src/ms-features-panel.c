@@ -13,15 +13,15 @@
 #include <glib/gi18n.h>
 
 struct _MsFeaturesPanel {
-  AdwBin            parent;
+  MsPanel        parent;
 
-  GSettings        *emergency_calls_settings;
-  GSettings        *phosh_settings;
-  GtkWidget        *emergency_calls_enabled_switch;
-  GtkWidget        *manual_suspend_switch;
+  GSettings     *emergency_calls_settings;
+  GSettings     *phosh_settings;
+  GtkWidget     *emergency_calls_enabled_switch;
+  GtkWidget     *manual_suspend_switch;
 };
 
-G_DEFINE_TYPE (MsFeaturesPanel, ms_features_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsFeaturesPanel, ms_features_panel, MS_TYPE_PANEL)
 
 
 static void

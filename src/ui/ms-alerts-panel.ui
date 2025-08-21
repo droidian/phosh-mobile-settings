@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MsAlertsPanel" parent="MsPanel">
+    <child>
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <child>
+          <object class="GtkScrolledWindow">
+            <child>
+              <object class="GtkStack" id="stack">
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">empty</property>
+                    <property name="child">
+                      <object class="AdwStatusPage">
+                        <property name="icon-name">network-cellular-disabled-symbolic</property>
+                        <property name="title" translatable="yes">Unable To Receive Alerts</property>
+                        <property name="description" translatable="yes">Cannot receive Emergency Alerts on this device as no usable cellular modem is detected.</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">alerts</property>
+                    <property name="child">
+                      <object class="AdwPreferencesPage">
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <property name="title" translatable="yes">Emergency and Governmental Alerts</property>
+                            <child>
+                              <object class="AdwSwitchRow" id="extreme_alerts">
+                                <property name="title" translatable="yes">Extreme Threat Alerts</property>
+                                <property name="use-underline">true</property>
+                                <property name="subtitle" translatable="yes">Display alerts for extreme threats to life and safety</property>
+                                <signal name="notify::active" handler="on_switch_active_changed" swapped="true"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwSwitchRow" id="severe_alerts">
+                                <property name="title" translatable="yes">Severe Threat Alerts</property>
+                                <property name="use-underline">true</property>
+                                <property name="subtitle" translatable="yes">Display alerts for severe threats to life and safety</property>
+                                <signal name="notify::active" handler="on_switch_active_changed" swapped="true"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwSwitchRow" id="public_safety_alerts">
+                                <property name="title" translatable="yes">Public Safety Alerts</property>
+                                <property name="use-underline">true</property>
+                                <property name="subtitle" translatable="yes">Show recommended actions to take in situations with a risk to safety</property>
+                                <signal name="notify::active" handler="on_switch_active_changed" swapped="true"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwSwitchRow" id="test_alerts">
+                                <property name="title" translatable="yes">Test alerts</property>
+                                <property name="use-underline">true</property>
+                                <property name="subtitle" translatable="yes">Show periodic messages to test the alert system</property>
+                                <signal name="notify::active" handler="on_switch_active_changed" swapped="true"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwSwitchRow" id="amber_alerts">
+                                <property name="title" translatable="yes">Amber alerts</property>
+                                <property name="use-underline">true</property>
+                                <property name="subtitle" translatable="yes">Show messages about child abduction emergencies</property>
+                                <signal name="notify::active" handler="on_switch_active_changed" swapped="true"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <!-- -->
+                        <child>
+                          <object class="AdwPreferencesGroup" id="message_group">
+                            <property name="title" translatable="yes">History of Emergency and Governmental Alerts</property>
+                            <child>
+                              <object class="GtkListBox" id="message_list">
+                                <property name="selection-mode">none</property>
+                                <child type="placeholder">
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">No emergency alerts yet</property >
+                                    <property name="margin-start">12</property>
+                                    <property name="margin-end">12</property>
+                                    <property name="margin-top">12</property>
+                                    <property name="margin-bottom">12</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

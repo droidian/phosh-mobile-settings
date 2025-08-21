@@ -1,3 +1,337 @@
+phosh-mobile-settings (0.49.0) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * build: Link statically against libcellbroadcast subproject.
+    Otherwise installing in parallel with cellbroadcastd
+    or the shared lib becomes cumbersome. This only affects
+    the subproject build.
+  * osk-add-shortcut-dialog: Drop unused modifier enum
+  * osk-add-shortcut-dialog: Don't leak string
+  * osk-add-shortcut-dialog: Don't mark allocated string as const
+  * osk-add-shortcut-dialog: Don't select clicked items.
+    We then don't have to unselect them.
+  * osk-add-shortcut-dialog: Simplify activated signal.
+    Selection is something different so rename it and also use
+    a swapped signal as we do with other callbacks
+  * osk-add-shortcut-dialog: Be more careful when choosing a shortcut.
+    When the user clicks on a shortcut in the "choose shortcut" field
+    preserve the current modifiers and replace any non-modifiers with
+    the clicked one. This avoids "invalid modifiers" on every 2nd click.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/78
+  * osk-add-shortcut-dialog: Properly extract modifiers.
+    When toggling modifiers properly extract the current ones.
+    The current code would result in "invalid modifier" if a
+    non-modifier is already selected.
+  * osk-add-shortcut-dialog: Use update_shortcut
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Stefan Hansson ]
+  * pmos-tweaks: Improve compare_by_weight ()
+    Previously, it would report that A and B were equal if B was bigger than
+    A. With this, all three cases are handled properly.
+  * tests: Fix hash and equal functions in test_sort_settings_by_weight ()
+    This hash table only contains pointers, not strings. Potentially, this
+    could result in more hash collisions and invalid equality. Fix it by
+    using the right types for pointers.
+    Tested on a real s390x machine and confirmed to fix the failure in the
+    tweaks-parser unit test.
+    Closes https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/79
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 15 Aug 2025 10:17:57 +0200
+
+phosh-mobile-settings (0.49~rc1) experimental; urgency=medium
+
+  [ Stefan Hansson ]
+  * ci: Guard coverage with || true.
+    The coverage fails for no apparent reason, so guard it with `|| true` as
+    to not fail the entire test check over this.
+  * pmos-tweaks: Add initial UI code parts.
+    Based on the original postmarketOS Tweaks:
+    https://gitlab.postmarketos.org/postmarketOS/postmarketos-tweaks
+    Split off from:
+    https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/merge_requests/193
+  * tests: Add tests for tweaks widget construction and utilities
+  * pmos-tweaks: Properly map data from backends
+  * pmos-tweaks: Properly map data going into backends
+  * tests: Add tests for mappings and associated utilities
+  * pmos-tweaks: Add initial documentation.
+    Will be expanded in future patches.
+  * tests: Disable Xwayland in Phoc tests.
+    Xwayland cannot launch in certain environments, such as Distrobox
+    containers. While it's possible that this could be fixed with additional
+    configuration, there is no need to have Xwayland running for these
+    tests, so just disable it.
+    Also pull in Phoc from Debian experimental so that we get a new enough
+    version for this.
+
+  [ Evangelos Ribeiro Tzaras ]
+  * audio-device-row: Fix typo
+  * alerts-panel: Use cancellable for GDBusProxy.
+    And delay accessing self until after checking whether
+    the Cancellable has been cancelled.
+  * build: Bump gmobile dependency and disable more options.
+    We need gmobile 0.4.0-dev for setting the channels in libcellbroadcast,
+    which is about to be introduced.
+  * d/control: Add mobile-broadband-provider-info and libmm-glib-dev.
+    Needed for libcellbroadcast (and new enough gmobile).
+    This can be reverted once a cellbroadcastd package is available.
+  * build: Add libcellbroadcast as a subproject.
+    It provides access to the cell broadcast message store
+    which we want to display in p-m-s.
+  * packaging: Skip installing gmobile and libcellbroadcast
+  * ms-cb-message-row: Introduce rows for cell broadcast messages
+  * ms-alerts-panel: Add cell broadcast history.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/75
+  * ms-alerts-panel: Style cellbroadcast list box properly.
+    And bump the required libadwaita version to 1.6,
+    which introduced `adw_preferences_group_get_separate_rows()`
+  * alerts-panel: Add placeholder when there are no cbm yet
+  * alerts-panel: Add toast to indicate failure retrieving CBMs
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Guido Günther ]
+  * ci: Update shared scripts to 47c1f64
+  * ci: Use gmobile from experimental.
+    We want 0.4.0
+  * packaging: Bump gmobile build dependency.
+    We don't have libcellbroadcast yet but let's
+    avoid this fallback at least.
+  * packaging: Ignore more daemon related files
+  * packaging: Install libcellbroadcast until it's in distributions
+  * osk-layout-prefs: Fix row removal.
+    The signature was wrong causing a crash when removing layouts.
+    Fixes: 4ac327d ("osk-panel: Allow to configure OSK layouts")
+  * feedback-panel: Drop schema check.
+    We can depend on feedbackd 0.8.0 and do so since 0.46 already.
+  * osk-panel: Allow to configure automatic scaling properties
+  * cb-message-row: Wrap message body.
+    Otherwise the panel overflows to the right.
+    Fixes: 8539dd1 ("ms-cb-message-row: Introduce rows for cell broadcast messages")
+  * alerts-panel: Set `none` selection mode.
+    Otherwise the messages highlight when unfolding
+    Fixes: 1824e0f ("ms-alerts-panel: Add cell broadcast history")
+  * message-row: Strip whitespace.
+    Some messages (e.g. Vodafone test messages) have excessive
+    whitespace at the end of the message, strip that.
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Álvaro Burns ]
+  * Update Brazilian Portuguese translation
+
+  [ Rudra Pratap Singh ]
+  * utils: Add API to normalize, casefold and unaccent string
+  * utils: Add API for getting a casefolded GtkStringList
+  * ms-panel: Create base class for standard panels.
+    A new base class will make it easier for example
+    to set common properties/signals.
+  * alerts-panel: Derive from MsPanel class
+  * compositor-panel: Derive from MsPanel class
+  * convergence-panel: Derive from MsPanel class
+  * features-panel: Derive from MsPanel class
+  * feedback-panel: Derive from MsPanel class
+  * lockscreen-panel: Derive from MsPanel class
+  * osk-panel: Derive from MsPanel class
+  * overview-panel: Derive from MsPanel class
+  * sensor-panel: Derive from MsPanel class
+  * topbar-panel: Derive from MsPanel class
+  * panel-switcher: Allow filtering the panels listbox via search query
+  * panel-switcher: Add API to set active panel by index
+  * settings-window: Add SearchBar widget for searching panels
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Gotam Gorabh ]
+  * ms-osk-panel: Allow to add/remove a shortcut.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/63
+  * ms-osk-add-shortcut-dialog: Align key_flowbox's shortcut label to the center.
+    Align the selection focus of shortcut key to center.
+    Fixes: 7d5f2832 ("ms-osk-panel: Allow to add/remove a shortcut")
+  * ms-osk-add-shortcut-dialog: Unselect shortcut key on clear or invalid shortcut.
+    Ensure the shortcut key selection is cleared when the user either:
+    - performs a clear operation, or
+    - enters an invalid shortcut that cannot be accepted.
+    Fixes: 7d5f2832 ("ms-osk-panel: Allow to add/remove a shortcut")
+  * ms-osk-add-shortcut-dialog: Enable content-based sizing.
+    Set `follows-content-size` to `True` to ensure the dialog
+    takes up enough vertical space to fit its content.
+    Fixes: 7d5f2832 ("ms-osk-panel: Allow to add/remove a shortcut")
+
+  [ twlvnn kraftwerk ]
+  * Update Bulgarian translation
+
+  [ Alexander Alexandrov Shopov ]
+  * Update Bulgarian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 08 Aug 2025 19:53:39 +0200
+
+phosh-mobile-settings (0.48.0) experimental; urgency=medium
+
+  [ Gotam Gorabh ]
+  * osk-panel: Allow to enable/disable popover osk-feature.
+    Add a switch to enable/disable the key indicator popover.
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/74
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Daniel Rusek ]
+  * Update Czech translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+  * Update Romanian translation
+
+  [ Anders Jonsson ]
+  * Update Swedish translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 30 Jun 2025 08:47:06 +0200
+
+phosh-mobile-settings (0.48~rc1) experimental; urgency=medium
+
+  [ Guido Günther ]
+  * ci: Update image.
+    The repo moved and we want to use a newer image anyway
+  * ci: Include templates directly.
+    This should avoid the 429 errors
+  * ci: Update shared scripts to a7ec897.
+    This makes us catch misformated meson files automatically.
+  * alerts-panel: New panel for Cell Broadcast.
+    This can also be used for other alert systems we want to support in the future like CAP.
+  * ms-alerts-panel: Detect Cell Broadcast service availability.
+    Show the empty state when we cbd doesn't indicate proper support.
+  * osk-panel: Handle deleted binaries.
+    On package upgrade when the old OSK binary is still running the executable has as `(deleted)`
+    suffix, handle that.
+  * osk-panel: Switch to stevia.
+    Follow the OSK rename. We just handle osk-stub as "unknown keyboard" so there's no fallback
+    necessary.
+  * application: Don't leak debug info.
+    It's harmless as the programm quits afterwards but lets make
+    running under ASAN simpler.
+    Fixes: 6187ea1 ("application: Add local option to print debug info")
+  * feedback-panel: Don't leak categories.
+    We need to free the old value
+    Fixes 5a26621 ("feedback-panel: Allow to enable notification categories")
+  * build: Ensure p-m-s gets rebuilt when running the test.
+    Otherwise we might test an outdated binary
+  * tests: Simplify using ASAN.
+    This ensures we get proper backtraces and suppress adwaita and
+    fontconfig caches.
+  * osk-panel: Silence debug message
+  * osk-layout-prefs: Don't print error when operation got cancelled.
+    Otherwise `--list` might print a pointless warning.
+  * data: Add more suppressions.
+    There's more fontconfig things and we also leak the loaded modules.
+  * feedback-panel: Don't leak audio devices
+  * application: Don't leak window
+  * osk-panel: Don't leak content provider
+  * plugin-list-box: Don't leak rows.
+    We're using widgets in the list model which are floating so make
+    sure we deal with non-floating refs everywhere.
+  * osk-panel: Don't leak enabled completer
+  * osk-panel: Don't leak flags.
+    We need to free the container but not the strings
+  * overview-panel: Don't leak app-info.
+    We already have a ref, no need for another one
+  * plugin-row: Don't leak subtitle
+  * tests: Depend on compiled schemas.
+    Otherwise they're not here when we run the tests
+  * data: Suppress leak in libgallium.
+    This is triggered by gdk_gl_context_create_egl_context so use
+    that so we don't need to pull in mesa symbols too (or ignore
+    the whole library)
+  * ci: Add and use p-m-s CI images.
+    We add the dbgsym packges so the ASAN tests can match the symbols.
+  * ci: Add asan test
+
+  [ Stefan Hansson ]
+  * build: Use static library for building executable.
+    This will later be used in some tests.
+  * build: Fix formatting.
+
+  [ Suraj Kumar Mahto ]
+  * feedback-panel: Allow to enable notification categories.
+    This commit adds switches to toggle categories that can wakeup the screen
+    Closes: https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings/-/issues/29
+
+  [ Martin ]
+  * Update Slovenian translation
+
+  [ Antonio Marin ]
+  * Update Romanian translation
+
+  [ Juliano de Souza Camargo ]
+  * Update Brazilian Portuguese translation
+
+  [ Ekaterine Papava ]
+  * Update Georgian translation
+
+  [ Danial Behzadi ]
+  * Update Persian translation
+
+  [ Yuri Chornoivan ]
+  * Update Ukrainian translation
+
+  [ Emin Tufan Çetin ]
+  * Update Turkish translation
+
+  [ Álvaro Burns ]
+  * Update Brazilian Portuguese translation
+
+  [ Artur S0 ]
+  * Update Russian translation
+
+  [ Yaron Shahrabani ]
+  * Update Hebrew translation
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 21 Jun 2025 12:25:37 +0200
+
 phosh-mobile-settings (0.47.0) experimental; urgency=medium
 
   [ Tomi Lähteenmäki ]

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="MsOskAddShortcutDialog" parent="AdwDialog">
+    <!-- Translators: Title for a dialog to add a new on-screen keyboard shortcut -->
+    <property name="title" translatable="yes">Add Shortcut</property>
+    <property name="follows-content-size">True</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="show-start-title-buttons">False</property>
+            <property name="show-end-title-buttons">False</property>
+            <child type="start">
+              <object class="GtkButton" id="cancel">
+                <property name="label" translatable="yes">Cancel</property>
+                <signal name="clicked" handler="adw_dialog_close" swapped="yes"/>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="add_button">
+                <property name="label" translatable="yes">Add</property>
+                <property name="receives-default">True</property>
+                <property name="sensitive">False</property>
+                <signal name="clicked" handler="on_add_clicked" swapped="yes"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="AdwToastOverlay" id="toast_overlay">
+            <property name="child">
+              <object class="GtkScrolledWindow">
+                <property name="propagate-natural-height">True</property>
+                <property name="propagate-natural-width">True</property>
+                <child>
+                  <object class="AdwPreferencesPage">
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Choose Shortcut Modifiers</property>
+                        <child>
+                          <object class="AdwPreferencesRow">
+                            <property name="activatable">False</property>
+                            <property name="focusable">False</property>
+                            <child>
+                              <object class="AdwClamp">
+                                <property name="maximum-size">400</property>
+                                <property name="tightening-threshold">300</property>
+                                <child>
+                                  <object class="GtkGrid">
+                                    <property name="column-homogeneous">True</property>
+                                    <property name="column-spacing">24</property>
+                                    <property name="row-spacing">12</property>
+                                    <property name="margin-start">12</property>
+                                    <property name="margin-end">12</property>
+                                    <property name="margin-top">18</property>
+                                    <property name="margin-bottom">12</property>
+                                    <property name="hexpand">True</property>
+                                    <child>
+                                      <object class="GtkCheckButton" id="ctrl_modifier">
+                                        <property name="child">
+                                          <object class="GtkShortcutLabel">
+                                            <property name="accelerator">&lt;ctrl&gt;</property>
+                                          </object>
+                                        </property>
+                                        <signal name="toggled" handler="on_modifiers_toggled" swapped="yes"/>
+                                        <layout>
+                                          <property name="column">0</property>
+                                          <property name="row">0</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkCheckButton" id="alt_modifier">
+                                        <property name="child">
+                                          <object class="GtkShortcutLabel">
+                                            <property name="accelerator">&lt;alt&gt;</property>
+                                          </object>
+                                        </property>
+                                        <signal name="toggled" handler="on_modifiers_toggled" swapped="yes"/>
+                                        <layout>
+                                          <property name="column">1</property>
+                                          <property name="row">0</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkCheckButton" id="shift_modifier">
+                                        <property name="child">
+                                          <object class="GtkShortcutLabel">
+                                            <property name="accelerator">&lt;shift&gt;</property>
+                                          </object>
+                                        </property>
+                                        <signal name="toggled" handler="on_modifiers_toggled" swapped="yes"/>
+                                        <layout>
+                                          <property name="column">0</property>
+                                          <property name="row">1</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkCheckButton" id="super_modifier">
+                                        <property name="child">
+                                          <object class="GtkShortcutLabel">
+                                            <property name="accelerator">&lt;super&gt;</property>
+                                          </object>
+                                        </property>
+                                        <signal name="toggled" handler="on_modifiers_toggled" swapped="yes"/>
+                                        <layout>
+                                          <property name="column">1</property>
+                                          <property name="row">1</property>
+                                        </layout>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Choose Shortcut Key</property>
+                        <child>
+                          <object class="GtkFlowBox" id="key_flowbox">
+                            <property name="selection-mode">none</property>
+                            <signal name="child-activated" handler="on_key_activated" swapped="yes"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Enter Shortcut Key</property>
+                        <property name="description" translatable="yes">Type a key such as letters (like C or V), etc.</property>
+                        <child>
+                          <object class="AdwEntryRow" id="shortcut_key_entry">
+                            <property name="title" translatable="yes">_Shortcut Key</property>
+                            <property name="use-underline">True</property>
+                            <property name="show-apply-button">True</property>
+                            <signal name="apply" handler="on_shortcut_key_apply" object="MsOskAddShortcutDialog" swapped="yes"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <property name="title" translatable="yes">Shortcut Preview</property>
+                        <child type="header-suffix">
+                          <object class="GtkButton">
+                            <property name="child">
+                              <object class="AdwButtonContent">
+                                <property name="icon-name">edit-clear-symbolic</property>
+                              </object>
+                            </property>
+                            <signal name="clicked" handler="on_preview_clear_clicked" swapped="yes" />
+                            <style>
+                              <class name="flat"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkFlowBox" id="preview_flowbox"/>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

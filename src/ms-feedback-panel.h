@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 #include <gsound.h>
 
 
@@ -14,7 +14,7 @@ G_BEGIN_DECLS
 
 #define MS_TYPE_FEEDBACK_PANEL (ms_feedback_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsFeedbackPanel, ms_feedback_panel, MS, FEEDBACK_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsFeedbackPanel, ms_feedback_panel, MS, FEEDBACK_PANEL, MsPanel)
 
 MsFeedbackPanel *ms_feedback_panel_new (void);
 void             ms_feedback_panel_play_sound_file (MsFeedbackPanel *self, const char *file);

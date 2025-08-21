@@ -1,0 +1,5 @@
+[wrap-git]
+directory=libcellbroadcast
+url=https://gitlab.freedesktop.org/devrtz/cellbroadcastd.git
+revision=v0.0.2
+depth=1

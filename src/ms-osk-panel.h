@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_OSK_PANEL (ms_osk_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsOskPanel, ms_osk_panel, MS, OSK_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsOskPanel, ms_osk_panel, MS, OSK_PANEL, MsPanel)
 
 MsOskPanel *ms_osk_panel_new (void);
 

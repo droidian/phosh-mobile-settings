@@ -5,7 +5,9 @@ plugins/librem5/ui/ms-plugin-librem5-panel.ui
 src/gtk/help-overlay.ui
 src/mobile-settings-application.c
 src/mobile-settings-window.c
+src/ms-alerts-panel.c
 src/ms-audio-devices.c
+src/ms-cb-message-row.c
 src/ms-feedback-panel.c
 src/ms-lockscreen-panel.c
 src/ms-osk-panel.c
@@ -14,6 +16,7 @@ src/ms-sensor-panel.c
 src/ms-sound-row.c
 src/ms-util.c
 src/ui/mobile-settings-window.ui
+src/ui/ms-alerts-panel.ui
 src/ui/ms-audio-device-row.ui
 src/ui/ms-compositor-panel.ui
 src/ui/ms-convergence-panel.ui
@@ -21,6 +24,7 @@ src/ui/ms-features-panel.ui
 src/ui/ms-feedback-panel.ui
 src/ui/ms-lockscreen-panel.ui
 src/ui/ms-osk-add-layout-dialog.ui
+src/ui/ms-osk-add-shortcut-dialog.ui
 src/ui/ms-osk-layout-prefs.ui
 src/ui/ms-osk-layout-row.ui
 src/ui/ms-osk-panel.ui

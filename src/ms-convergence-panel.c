@@ -20,7 +20,6 @@
 #define TOUCH_MAPPING_PATH_PREFIX "/org/gnome/desktop/peripherals/touchscreens/"
 #define TOUCH_MAPPING_KEY "output"
 
-
 typedef struct {
   char *name;
 
@@ -34,21 +33,20 @@ typedef struct {
 
 
 struct _MsConvergencePanel {
-  AdwBin     parent;
+  MsPanel              parent;
 
-  const MsDock *dock;
+  const MsDock        *dock;
   AdwPreferencesGroup *dock_pref_group;
-  GtkStack  *dock_stack;
-  GSettings *touch_settings;
-  GtkListBox *docks_listbox;
-  AdwActionRow *map_touch_screen_row;
-  GtkWidget *map_touch_screen_switch;
+  GtkStack            *dock_stack;
+  GSettings           *touch_settings;
+  GtkListBox          *docks_listbox;
+  AdwActionRow        *map_touch_screen_row;
+  GtkWidget           *map_touch_screen_switch;
 
-
-  MsHeadTracker *tracker;
+  MsHeadTracker       *tracker;
 };
 
-G_DEFINE_TYPE (MsConvergencePanel, ms_convergence_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsConvergencePanel, ms_convergence_panel, MS_TYPE_PANEL)
 
 
 /*

@@ -1,0 +1,15 @@
+# Loaded modules
+leak:g_io_modules_scan_all_in_directory_with_scope
+# Adwaita style manager singleton
+leak:adw_style_manager_ensure
+# GTK (only triggeres with `GTK_A11Y=none`, needs investigation in GTK)
+leak:gtk_widget_list_mnemonic_labels
+# Actually leaks in mesa
+leak:gdk_gl_context_create_egl_context
+# Fontconfig
+leak:FcConfigValues
+leak:FcParsePattern
+leak:FcPatternObjectInsertElt
+leak:FcPatternObjectInsertElt2
+leak:FcValueListCreate
+leak:FcValueSave

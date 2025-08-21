@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_COMPOSITOR_PANEL (ms_compositor_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsCompositorPanel, ms_compositor_panel, MS, COMPOSITOR_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsCompositorPanel, ms_compositor_panel, MS, COMPOSITOR_PANEL, MsPanel)
 
 MsCompositorPanel *ms_compositor_panel_new (void);
 

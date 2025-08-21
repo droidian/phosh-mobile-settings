@@ -54,7 +54,7 @@ typedef struct {
 } Sensor;
 
 struct _MsSensorPanel {
-  AdwBin             parent;
+  MsPanel            parent;
 
   guint              bus_watch_id;
   GCancellable      *cancel;
@@ -77,7 +77,7 @@ struct _MsSensorPanel {
   guint              n_sensors;
 };
 
-G_DEFINE_TYPE (MsSensorPanel, ms_sensor_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsSensorPanel, ms_sensor_panel, MS_TYPE_PANEL)
 
 
 static gboolean

@@ -31,7 +31,7 @@
 #define BACKGROUND_KEY_PICTURE_OPTIONS "picture-options"
 
 struct _MsOverviewPanel {
-  AdwBin                   parent;
+  MsPanel                  parent;
 
   GSettings               *settings;
   GSettings               *background_settings;
@@ -50,7 +50,7 @@ struct _MsOverviewPanel {
   AdwToast                *toast;
 };
 
-G_DEFINE_TYPE (MsOverviewPanel, ms_overview_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsOverviewPanel, ms_overview_panel, MS_TYPE_PANEL)
 
 
 static void
@@ -282,7 +282,6 @@ create_fav_app (gpointer item, gpointer user_data)
   add_drop_target (app, self);
 
   g_object_set_data_full (G_OBJECT (app), "app-info", app_info, g_object_unref);
-  g_object_ref (app_info);
 
   return app;
 }

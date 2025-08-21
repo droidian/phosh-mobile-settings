@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_OVERVIEW_PANEL (ms_overview_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsOverviewPanel, ms_overview_panel, MS, OVERVIEW_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsOverviewPanel, ms_overview_panel, MS, OVERVIEW_PANEL, MsPanel)
 
 MsOverviewPanel *ms_overview_panel_new (void);
 

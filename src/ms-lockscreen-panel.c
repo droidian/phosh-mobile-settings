@@ -31,7 +31,7 @@
 #define SCREENSAVER_KEY_PICTURE_OPTIONS "picture-options"
 
 struct _MsLockscreenPanel {
-  AdwBin           parent;
+  MsPanel          parent;
 
   GSettings       *settings;
   GSettings       *screensaver_settings;
@@ -44,7 +44,7 @@ struct _MsLockscreenPanel {
   AdwToast        *toast;
 };
 
-G_DEFINE_TYPE (MsLockscreenPanel, ms_lockscreen_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsLockscreenPanel, ms_lockscreen_panel, MS_TYPE_PANEL)
 
 
 static void

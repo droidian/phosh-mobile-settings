@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="MsOverviewPanel" parent="AdwBin">
+  <template class="MsOverviewPanel" parent="MsPanel">
     <child>
       <object class="AdwToastOverlay" id="toast_overlay">
         <property name="child">

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="MsFeedbackPanel" parent="AdwBin">
+  <template class="MsFeedbackPanel" parent="MsPanel">
     <child>
       <object class="AdwToastOverlay" id="toast_overlay">
         <child>
-
            <object class="GtkScrolledWindow">
              <child>
                <object class="AdwPreferencesPage">
@@ -56,96 +55,150 @@
                        </object>
                      </child>
 
-                     <child>
-                       <object class="AdwSpinRow" id="haptic_strenth_row">
-                         <property name="visible">0</property>
-                         <property name="title" translatable="yes" comments="Translators: Strength of the haptic motor">Haptic strength</property>
-                         <property name="subtitle" translatable="yes">Maximum haptic feedback strength percentage</property>
-                         <property name="snap-to-ticks">1</property>
-                         <property name="wrap">1</property>
-                         <property name="numeric">1</property>
-                         <property name="adjustment">
-                           <object class="GtkAdjustment"  id="haptic_strenth_adj">
-                             <property name="lower">0</property>
-                             <property name="upper">100</property>
-                             <property name="step-increment">10</property>
-                             <property name="page-increment">25</property>
-                           </object>
-                         </property>
-                       </object>
-                     </child>
+                    <child>
+                      <object class="AdwSpinRow" id="haptic_strenth_row">
+                        <property name="title" translatable="yes" comments="Translators: Strength of the haptic motor">Haptic strength</property>
+                        <property name="subtitle" translatable="yes">Maximum haptic feedback strength percentage</property>
+                        <property name="snap-to-ticks">1</property>
+                        <property name="wrap">1</property>
+                        <property name="numeric">1</property>
+                        <property name="adjustment">
+                          <object class="GtkAdjustment"  id="haptic_strenth_adj">
+                            <property name="lower">0</property>
+                            <property name="upper">100</property>
+                            <property name="step-increment">10</property>
+                            <property name="page-increment">25</property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
 
-                   </object>
-                 </child>
-                 <child>
-                   <object class="AdwPreferencesGroup">
-                     <property name="title" translatable="yes">Per Application settings</property>
-                     <child>
-                       <object class="GtkListBox" id="app_listbox">
-                         <style>
-                           <class name="boxed-list"/>
-                         </style>
-                       </object>
-                     </child>
-                   </object>
-                 </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Per Application settings</property>
+                    <child>
+                      <object class="GtkListBox" id="app_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
 
-                 <child>
-                   <object class="AdwPreferencesGroup">
-                     <property name="title" translatable="yes">Sounds</property>
-                     <property name="description" translatable="yes">The sound to use for certain events</property>
-                     <child>
-                       <object class="GtkListBox" id="sounds_listbox">
-                         <style>
-                           <class name="boxed-list"/>
-                         </style>
-                         <child>
-                           <object class="MsSoundRow">
-                             <property name="title" translatable="yes">Phone Calls</property>
-                             <property name="effect-name">phone-incoming-call</property>
-                           </object>
-                         </child>
-                         <child>
-                           <object class="MsSoundRow">
-                             <property name="title" translatable="yes">SMS</property>
-                             <property name="effect-name">message-new-sms</property>
-                           </object>
-                         </child>
-                         <child>
-                           <object class="MsSoundRow">
-                             <property name="title" translatable="yes">Instant messages</property>
-                             <property name="effect-name">message-new-instant</property>
-                           </object>
-                         </child>
-                       </object>
-                     </child>
-                   </object>
-                 </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Sounds</property>
+                    <property name="description" translatable="yes">The sound to use for certain events</property>
+                    <child>
+                      <object class="GtkListBox" id="sounds_listbox">
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <child>
+                          <object class="MsSoundRow">
+                            <property name="title" translatable="yes">Phone Calls</property>
+                            <property name="effect-name">phone-incoming-call</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="MsSoundRow">
+                            <property name="title" translatable="yes">SMS</property>
+                            <property name="effect-name">message-new-sms</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="MsSoundRow">
+                            <property name="title" translatable="yes">Instant messages</property>
+                            <property name="effect-name">message-new-instant</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
 
-                 <child>
-                   <object class="AdwPreferencesGroup">
-                     <property name="title" translatable="yes">Screen Wakeup</property>
-                     <child>
-                       <object class="AdwComboRow" id="notificationssettings_row">
-                         <property name="title" translatable="yes">Notification urgency that lights up the screen</property>
-                         <property name="use_underline">True</property>
-                         <signal name="notify::selected-item" handler="change_notifications_settings" object="MsFeedbackPanel" swapped="yes"/>
-                         <property name="model">
-                           <object class="AdwEnumListModel">
-                             <property name="enum-type">MsPhoshNotificationUrgency</property>
-                           </object>
-                         </property>
-                         <property name="expression">
-                           <closure type="gchararray" function="on_notifications_urgency"/>
-                         </property>
-                       </object>
-                     </child>
-                   </object>
-                 </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Screen Wakeup</property>
+                    <child>
+                      <object class="AdwComboRow" id="notificationssettings_row">
+                        <property name="title" translatable="yes">Notification urgency that lights up the screen</property>
+                        <property name="use_underline">True</property>
+                        <signal name="notify::selected-item" handler="change_notifications_settings" object="MsFeedbackPanel" swapped="yes"/>
+                        <property name="model">
+                          <object class="AdwEnumListModel">
+                            <property name="enum-type">MsPhoshNotificationUrgency</property>
+                          </object>
+                        </property>
+                        <property name="expression">
+                          <closure type="gchararray" function="on_notifications_urgency"/>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
 
-               </object>
-             </child>
-           </object>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="description" translatable="yes">Notification categories that wake up the screen independent from their urgency</property>
+                    <child>
+                      <object class="AdwSwitchRow" id="call_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Calls</property>
+                        <property name="subtitle" translatable="yes">A generic audio or video call notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="device_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Device events</property>
+                        <property name="subtitle" translatable="yes">A generic device-related notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="email_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Emails</property>
+                        <property name="subtitle" translatable="yes">A generic e-mail-related notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="im_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Instant Messages</property>
+                        <property name="subtitle" translatable="yes">A generic instant message-related notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="network_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Network events</property>
+                        <property name="subtitle" translatable="yes">A generic network notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="presence_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">Presence changes</property>
+                        <property name="subtitle" translatable="yes">A generic presence change notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="transfer_notifications_wakeup_switch">
+                        <property name="title" translatable="yes">File transfers</property>
+                        <property name="subtitle" translatable="yes">A generic file transfer or download notification</property>
+                        <signal name="notify::active" handler="on_notification_category_activate_changed" swapped="true"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>

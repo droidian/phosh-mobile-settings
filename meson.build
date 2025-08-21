@@ -1,7 +1,7 @@
 project(
   'phosh-mobile-settings',
   'c',
-  version: '0.47.0',
+  version: '0.49.0',
   meson_version: '>= 1.0.0',
   default_options: ['warning_level=2', 'werror=false', 'c_std=gnu11'],
 )
@@ -20,12 +20,12 @@ glib_ver = '2.76'
 glib_ver_str = 'GLIB_VERSION_@0@'.format(glib_ver.replace('.', '_'))
 glib_ver_cmp = '>=@0@'.format(glib_ver)
 
-gtk_ver = '4.12.5'
+gtk_ver = '4.18.0'
 gtk_ver_arr = gtk_ver.split('.')
 gtk_ver_str = 'GDK_VERSION_@0@_@1@'.format(gtk_ver_arr[0], gtk_ver_arr[1])
 gtk_ver_cmp = '>=@0@'.format(gtk_ver)
 
-adw_ver = '1.5'
+adw_ver = '1.6'
 adw_ver_str = 'ADW_VERSION_@0@'.format(adw_ver.replace('.', '_'))
 adw_ver_cmp = '>=@0@'.format(adw_ver)
 
@@ -35,9 +35,16 @@ gio_unix_dep = dependency('gio-unix-2.0', version: glib_ver_cmp)
 gmodule_dep = dependency('gmodule-2.0', version: glib_ver_cmp)
 gmobile_dep = dependency(
   'gmobile',
-  version: '>= 0.2.0',
+  version: '>= 0.4.0',
   fallback: ['gmobile', 'gmobile_dep'],
-  default_options: ['examples=false', 'introspection=false', 'gtk_doc=false', 'tests=false'],
+  default_options: [
+    'examples=false',
+    'introspection=false',
+    'gtk_doc=false',
+    'tests=false',
+    'vapi=false',
+    'hwdb=false',
+  ],
 )
 gnome_desktop_dep = dependency('gnome-desktop-4', version: '>= 44')
 gsound_dep = dependency('gsound')
@@ -58,7 +65,7 @@ libgvc_dep = libgvc.get_variable('libgvc_dep')
 gtk_dep = dependency('gtk4', version: gtk_ver_cmp)
 gtk_wayland_dep = dependency('gtk4-wayland', version: gtk_ver_cmp)
 json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.2')
-libfeedback_dep = dependency('libfeedback-0.0', version: '>= 0.7.0')
+libfeedback_dep = dependency('libfeedback-0.0', version: '>= 0.8.0')
 libportal_dep = dependency('libportal', version: '>= 0.9.1')
 libportal_gtk4_dep = dependency('libportal-gtk4', version: '>= 0.9.1')
 phosh_plugins_dep = dependency('phosh-plugins', version: '>= 0.23.0')
@@ -71,6 +78,13 @@ adwaita_dep = dependency(
   version: adw_ver_cmp,
   fallback: ['libadwaita', 'adwaita_dep'],
   default_options: ['examples=false', 'introspection=disabled', 'tests=false'],
+)
+
+libcbd_dep = dependency(
+  'libcellbroadcast-0.0',
+  version: '>= 0.0.2',
+  fallback: ['libcellbroadcast', 'libcellbroadcast_static_dep'],
+  default_options: ['daemon=false', 'introspection=disabled', 'tests=false'],
 )
 
 i18n = import('i18n')
@@ -158,8 +172,11 @@ config_h.set_quoted(
   'MOBILE_SETTINGS_PHOSH_PREFS_DIR',
   phosh_plugins_dep.get_variable(pkgconfig: 'lockscreen_prefs_dir'),
 )
-config_h.set_quoted('MOBILE_SETTINGS_OSK_LAYOUTS', datadir / 'phosh-osk-stub' / 'layouts.json')
-config_h.set_quoted('MOBILE_SETTINGS_OSK_COMPLETERS_DIR', datadir / 'phosh-osk-stub' / 'completers')
+config_h.set_quoted('MOBILE_SETTINGS_OSK_LAYOUTS', datadir / 'phosh-osk-stevia' / 'layouts.json')
+config_h.set_quoted(
+  'MOBILE_SETTINGS_OSK_COMPLETERS_DIR',
+  datadir / 'phosh-osk-stevia' / 'completers',
+)
 
 configure_file(output: 'mobile-settings-config.h', configuration: config_h)
 add_project_arguments(['-I' + meson.project_build_root()], language: 'c')

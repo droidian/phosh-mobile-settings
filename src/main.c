@@ -10,6 +10,7 @@
 
 #include "mobile-settings-config.h"
 #include "mobile-settings-application.h"
+#include "ms-main.h"
 
 
 int
@@ -23,8 +24,12 @@ main (int argc, char *argv[])
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+  ms_init ();
+
   app = mobile_settings_application_new (MOBILE_SETTINGS_APP_ID);
   ret = g_application_run (G_APPLICATION (app), argc, argv);
+
+  ms_uninit ();
 
   return ret;
 }

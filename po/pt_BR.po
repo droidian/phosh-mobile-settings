@@ -2,18 +2,18 @@
 # Copyright (C) 2024 phosh-mobile-settings's COPYRIGHT HOLDER
 # This file is distributed under the same license as the phosh-mobile-settings package.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024.
-# Juliano de Souza Camargo <julianosc@pm.me>, 2024.
 # Álvaro Burns <>, 2025.
+# Juliano de Souza Camargo <julianosc@pm.me>, 2024-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phosh-mobile-settings main\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Phosh/phosh-mobile-"
 "settings/-/issues\n"
-"POT-Creation-Date: 2025-05-04 01:19+0000\n"
-"PO-Revision-Date: 2025-05-05 20:17-0300\n"
-"Last-Translator: Álvaro Burns <>\n"
-"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
+"POT-Creation-Date: 2025-08-03 01:20+0000\n"
+"PO-Revision-Date: 2025-08-05 08:48-0300\n"
+"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: data/mobi.phosh.MobileSettings.desktop.in:3
+#: data/mobi.phosh.MobileSettings.desktop.in:2
 #: src/ui/mobile-settings-window.ui:6
 msgid "Mobile Settings"
 msgstr "Configurações móveis"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/mobi.phosh.MobileSettings.desktop.in:13
+#: data/mobi.phosh.MobileSettings.desktop.in:12
 msgid "Mobile;Preferences;MobileSettings;"
 msgstr ""
 "Mobile;Preferences;MobileSettings;Móvel;Preferências;ConfiguraçõesMóveis;"
@@ -135,65 +135,103 @@ msgid "- Manage your mobile settings"
 msgstr "- Gerencia suas configurações móveis"
 
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/mobile-settings-application.c:443
+#: src/mobile-settings-application.c:447
 msgid "translator-credits"
-msgstr "Rafael Fontenelle <rafaelff@gnome.org>"
+msgstr ""
+"Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Juliano de Souza Camargo <julianosc@pm.me>"
 
-#: src/mobile-settings-window.c:85
+#: src/mobile-settings-window.c:135
 msgid "Device"
 msgstr "Dispositivo"
 
-#: src/ms-feedback-panel.c:165
+#: src/ms-alerts-panel.c:242
+msgid "Could not get list of cell broadcast messages"
+msgstr "Não pôde obter a lista de mensagens de transmissão celular"
+
+#: src/ms-audio-devices.c:178
+msgid "Media Volume"
+msgstr "Volume da mídia"
+
+#: src/ms-audio-devices.c:180
+msgid "Notification Volume"
+msgstr "Volume da notificação"
+
+#: src/ms-audio-devices.c:182
+msgid "Ring Tone Volume"
+msgstr "Volume da campainha"
+
+#: src/ms-audio-devices.c:184
+msgid "Call volume"
+msgstr "Volume da ligação"
+
+#: src/ms-audio-devices.c:186
+msgid "Alarm Volume"
+msgstr "Volume do alarme"
+
+#: src/ms-audio-devices.c:188
+msgid "Emergency Alerts Volume"
+msgstr "Volume dos alertas de emergência"
+
+#: src/ms-cb-message-row.c:98
+msgid "Message of unknown severity"
+msgstr "Mensagem de gravidade desconhecida"
+
+#: src/ms-feedback-panel.c:212
 msgid "Sound file does not exist"
 msgstr "Arquivo de som não existe"
 
-#: src/ms-feedback-panel.c:167
+#: src/ms-feedback-panel.c:214
 msgid "Sound file is corrupt"
 msgstr "Arquivo de som corrompido"
 
-#: src/ms-feedback-panel.c:169
+#: src/ms-feedback-panel.c:216
 msgid "Failed to play sound"
 msgstr "Falha ao reproduzir o som"
 
-#: src/ms-feedback-panel.c:208
+#: src/ms-feedback-panel.c:255
 #, c-format
 msgid "Playing %s"
 msgstr "Reproduzindo %s"
 
 #. Translators: "low" categorizes notifications with minor importance
-#: src/ms-feedback-panel.c:370
+#: src/ms-feedback-panel.c:416
 msgid "low"
 msgstr "baixo"
 
 #. Translators: "normal" categorizes notifications with standard importance
-#: src/ms-feedback-panel.c:373
+#: src/ms-feedback-panel.c:419
 msgid "normal"
 msgstr "normal"
 
 #. Translators: "critical" categorizes notifications with urgent importance
-#: src/ms-feedback-panel.c:376
+#: src/ms-feedback-panel.c:422
 msgid "critical"
 msgstr "crítico"
 
 #. Translators: "none" is the default for notifications with no specified importance
-#: src/ms-feedback-panel.c:380
+#: src/ms-feedback-panel.c:426
 msgid "none"
 msgstr "nada"
+
+#: src/ms-feedback-panel.c:806
+msgid "Mobile Settings Volume Control"
+msgstr "Configurações móveis do controle de volume"
 
 #: src/ms-lockscreen-panel.c:62
 msgid "Failed to set lockscreen wallpaper"
 msgstr "Falha ao configurar papel de parede da tela de bloqueio"
 
 #. Translators: The default completer
-#: src/ms-osk-panel.c:545
+#: src/ms-osk-panel.c:746
 msgid "Default"
 msgstr "Padrão"
 
-#: src/ms-osk-panel.c:546
+#: src/ms-osk-panel.c:747
 msgid "The default completer selected by the OSK"
 msgstr "O padrão de autocompletamento selecionado pelo OSK"
 
-#: src/ms-osk-panel.c:549
+#: src/ms-osk-panel.c:750
 msgid "No information available for this completer"
 msgstr "Nenhuma informação disponível para este autocompletamento"
 
@@ -213,7 +251,7 @@ msgstr "_Cancelar"
 msgid "_Reset"
 msgstr "_Redefinir"
 
-#: src/ms-overview-panel.c:332
+#: src/ms-overview-panel.c:331
 msgid "Failed to set wallpaper for overview"
 msgstr "Falha ao configurar papel de parede da visão geral"
 
@@ -284,79 +322,256 @@ msgid "Choose sound file"
 msgstr "Escolha o arquivo de som"
 
 #. Translators: "Full" represents the feedback profile with maximum haptic, led and sounds
-#: src/ms-util.c:157
+#: src/ms-util.c:170
 msgid "Full"
 msgstr "Completo"
 
 #. Translators: "Quiet" represents a feedback profile with haptic and LED
-#: src/ms-util.c:160
+#: src/ms-util.c:173
 msgid "Quiet"
 msgstr "Quieto"
 
 #. Translators: "Silent" represents a feedback profile with LED only
-#: src/ms-util.c:163
+#: src/ms-util.c:176
 msgid "Silent"
 msgstr "Silencioso"
 
-#: src/ms-util.c:279
+#: src/ms-util.c:292
 msgid "Choose Wallpaper"
 msgstr "Escolha papel de parede"
 
-#: src/ui/mobile-settings-window.ui:79
+#. Translators: this is a verb.
+#: src/ui/mobile-settings-window.ui:31
+msgid "Search"
+msgstr "Pesquisar"
+
+#: src/ui/mobile-settings-window.ui:48
+msgid "Search settings"
+msgstr "Configurações da pesquisa"
+
+#: src/ui/mobile-settings-window.ui:98
 msgid "Welcome"
 msgstr "Boas vindas"
 
-#: src/ui/mobile-settings-window.ui:85
+#: src/ui/mobile-settings-window.ui:104
 msgid "Welcome to Mobile Settings"
 msgstr "Boas-vindas a Configurações Móveis"
 
-#: src/ui/mobile-settings-window.ui:86
+#: src/ui/mobile-settings-window.ui:105
 msgid "Tweak advanced mobile settings"
 msgstr "Ajuste configurações móveis avançadas"
 
-#: src/ui/mobile-settings-window.ui:94
+#: src/ui/mobile-settings-window.ui:113
 msgid "Top Bar"
 msgstr "Barra superior"
 
-#: src/ui/mobile-settings-window.ui:105
+#: src/ui/mobile-settings-window.ui:121 src/ui/ms-topbar-panel.ui:34
+msgid "Quick Settings"
+msgstr "Configurações rápidas"
+
+#: src/ui/mobile-settings-window.ui:122
+msgid "Notches"
+msgstr "Notches"
+
+#: src/ui/mobile-settings-window.ui:133
 msgid "Overview"
 msgstr "Visão geral"
 
-#: src/ui/mobile-settings-window.ui:116
+#: src/ui/mobile-settings-window.ui:141 src/ui/ms-overview-panel.ui:13
+msgid "Favorites"
+msgstr "Favoritos"
+
+#: src/ui/mobile-settings-window.ui:142
+msgid "Filter"
+msgstr "Filtrar"
+
+#: src/ui/mobile-settings-window.ui:143 src/ui/mobile-settings-window.ui:205
+msgid "Wallpaper"
+msgstr "Papel de parede"
+
+#: src/ui/mobile-settings-window.ui:154 src/ui/mobile-settings-window.ui:162
 msgid "Feedback"
 msgstr "Feedback"
 
-#: src/ui/mobile-settings-window.ui:127
+#: src/ui/mobile-settings-window.ui:163 src/ui/ms-feedback-panel.ui:93
+msgid "Sounds"
+msgstr "Sons"
+
+#: src/ui/mobile-settings-window.ui:164
+msgid "Wakeup"
+msgstr "Acordar"
+
+#: src/ui/mobile-settings-window.ui:165
+msgid "Vibra"
+msgstr "Vibra"
+
+#: src/ui/mobile-settings-window.ui:166
+msgid "Haptic"
+msgstr "Haptic"
+
+#: src/ui/mobile-settings-window.ui:167
+msgid "LED"
+msgstr "LED"
+
+#: src/ui/mobile-settings-window.ui:178
 msgid "Compositor"
 msgstr "Compositor"
 
-#: src/ui/mobile-settings-window.ui:138
+#: src/ui/mobile-settings-window.ui:186 src/ui/ms-osk-panel.ui:101
+msgid "Scaling"
+msgstr "Tamanho"
+
+#: src/ui/mobile-settings-window.ui:197
 msgid "Lockscreen"
 msgstr "Tela de bloqueio"
 
-#: src/ui/mobile-settings-window.ui:149
+#: src/ui/mobile-settings-window.ui:206
+msgid "Shuffle"
+msgstr "Aleatório"
+
+#: src/ui/mobile-settings-window.ui:207 src/ui/ms-lockscreen-panel.ui:79
+msgid "Widgets"
+msgstr "Widgets"
+
+#: src/ui/mobile-settings-window.ui:208
+msgid "Password"
+msgstr "Senha"
+
+#: src/ui/mobile-settings-window.ui:219
 msgid "Convergence"
 msgstr "Convergência"
 
-#: src/ui/mobile-settings-window.ui:160
+#: src/ui/mobile-settings-window.ui:237
 msgid "On Screen Keyboard"
 msgstr "Teclado virtual"
 
-#: src/ui/mobile-settings-window.ui:171 src/ui/ms-sensor-panel.ui:28
+#: src/ui/mobile-settings-window.ui:245
+msgid "Keyboard"
+msgstr "Teclado"
+
+#: src/ui/mobile-settings-window.ui:246
+msgid "Unfold"
+msgstr "Desdobrar"
+
+#: src/ui/mobile-settings-window.ui:247
+msgid "OSK"
+msgstr "OSK"
+
+#: src/ui/mobile-settings-window.ui:248
+msgid "Word Completion"
+msgstr "Autocompletamento de texto"
+
+#: src/ui/mobile-settings-window.ui:259
+msgid "Emergency Alerts"
+msgstr "Alertas de emergência"
+
+#: src/ui/mobile-settings-window.ui:267 src/ui/mobile-settings-window.ui:307
+msgid "Emergency"
+msgstr "Emergência"
+
+#: src/ui/mobile-settings-window.ui:268
+msgid "Cell Broadcast"
+msgstr "Transmissão de célula"
+
+#: src/ui/mobile-settings-window.ui:269
+msgid "Danger"
+msgstr "Perigo"
+
+#: src/ui/mobile-settings-window.ui:280 src/ui/ms-sensor-panel.ui:28
 msgid "Sensors"
 msgstr "Sensores"
 
-#: src/ui/mobile-settings-window.ui:182
+#: src/ui/mobile-settings-window.ui:288 src/ui/ms-sensor-panel.ui:69
+msgid "High Contrast"
+msgstr "Alto contraste"
+
+#: src/ui/mobile-settings-window.ui:299
 msgid "Experimental features"
 msgstr "Recursos experimentais"
 
-#: src/ui/mobile-settings-window.ui:206
+#: src/ui/mobile-settings-window.ui:308
+msgid "Suspend"
+msgstr "Suspender"
+
+#: src/ui/mobile-settings-window.ui:309
+msgid "Experimental"
+msgstr "Experimental"
+
+#: src/ui/mobile-settings-window.ui:333
 msgid "_Keyboard Shortcuts"
 msgstr "Atalhos de _teclado"
 
-#: src/ui/mobile-settings-window.ui:210
+#: src/ui/mobile-settings-window.ui:337
 msgid "_About Mobile Settings"
 msgstr "_Sobre o Configurações Móveis"
+
+#: src/ui/ms-alerts-panel.ui:17
+msgid "Unable To Receive Alerts"
+msgstr "Não é possível receber alertas"
+
+#: src/ui/ms-alerts-panel.ui:18
+msgid ""
+"Cannot receive Emergency Alerts on this device as no usable cellular modem "
+"is detected."
+msgstr ""
+"Não pode receber alertas de emergência neste aparelho pois nenhum modem foi "
+"detectado."
+
+#: src/ui/ms-alerts-panel.ui:30
+msgid "Emergency and Governmental Alerts"
+msgstr "Emergência e alerta governamental"
+
+#: src/ui/ms-alerts-panel.ui:33
+msgid "Extreme Threat Alerts"
+msgstr "Alerta de ameaça extrema"
+
+#: src/ui/ms-alerts-panel.ui:35
+msgid "Display alerts for extreme threats to life and safety"
+msgstr "Apresenta alertas para ameaças extremas à vida e segurança"
+
+#: src/ui/ms-alerts-panel.ui:41
+msgid "Severe Threat Alerts"
+msgstr "Alerta de ameaça severa"
+
+#: src/ui/ms-alerts-panel.ui:43
+msgid "Display alerts for severe threats to life and safety"
+msgstr "Apresenta alertas para ameaças severas à vida e segurança"
+
+#: src/ui/ms-alerts-panel.ui:49
+msgid "Public Safety Alerts"
+msgstr "Alerta de segurança pública"
+
+#: src/ui/ms-alerts-panel.ui:51
+msgid "Show recommended actions to take in situations with a risk to safety"
+msgstr "Mostra ações recomendadas para situações de risco à segurança"
+
+#: src/ui/ms-alerts-panel.ui:57
+msgid "Test alerts"
+msgstr "Alertas de teste"
+
+#: src/ui/ms-alerts-panel.ui:59
+msgid "Show periodic messages to test the alert system"
+msgstr "Mostra mensagens periódicas para testar o sistema de alerta"
+
+#: src/ui/ms-alerts-panel.ui:65
+msgid "Amber alerts"
+msgstr "Alerta Amber"
+
+#: src/ui/ms-alerts-panel.ui:67
+msgid "Show messages about child abduction emergencies"
+msgstr "Mostra mensagens sobre emergências de rapto de crianças"
+
+#: src/ui/ms-alerts-panel.ui:76
+msgid "History of Emergency and Governmental Alerts"
+msgstr "Histórico de alertas de emergência e governamentais"
+
+#: src/ui/ms-alerts-panel.ui:81
+msgid "No emergency alerts yet"
+msgstr "Nenhum alerta de emergência ainda"
+
+#: src/ui/ms-audio-device-row.ui:32
+msgid "Volume"
+msgstr "Volume"
 
 #: src/ui/ms-compositor-panel.ui:11
 msgid "Scaling down of running applications"
@@ -444,28 +659,36 @@ msgctxt "suspend setting"
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: src/ui/ms-feedback-panel.ui:16
+#: src/ui/ms-feedback-panel.ui:13
+msgid "Sound Settings"
+msgstr "Configurações de som"
+
+#: src/ui/ms-feedback-panel.ui:27
+msgid "Feedback Settings"
+msgstr "Configurações de feedback"
+
+#: src/ui/ms-feedback-panel.ui:30
 msgid "Feedback profile"
 msgstr "Perfil de feedback"
 
-#: src/ui/ms-feedback-panel.ui:17
+#: src/ui/ms-feedback-panel.ui:31
 msgid "The global maximum feedback profile"
 msgstr "O perfil de feedback máximo global"
 
-#: src/ui/ms-feedback-panel.ui:32
+#: src/ui/ms-feedback-panel.ui:46
 msgid "Prefer flash"
 msgstr "Preferir flash"
 
-#: src/ui/ms-feedback-panel.ui:33
+#: src/ui/ms-feedback-panel.ui:47
 msgid "Prefer camera flash over status LED when available"
 msgstr "Prefere o flash da câmera ao LED de status quando disponível"
 
 #. Translators: Vol- means the 'Lower Volume' key
-#: src/ui/ms-feedback-panel.ui:39
+#: src/ui/ms-feedback-panel.ui:53
 msgid "Silence on Vol-"
 msgstr "Silencia ao usar Vol-"
 
-#: src/ui/ms-feedback-panel.ui:40
+#: src/ui/ms-feedback-panel.ui:54
 msgid ""
 "When locked put the phone in silent mode when pressing Vol- on incoming calls"
 msgstr ""
@@ -473,45 +696,104 @@ msgstr ""
 "em chamadas recebidas"
 
 #. Translators: Strength of the haptic motor
-#: src/ui/ms-feedback-panel.ui:47
+#: src/ui/ms-feedback-panel.ui:60
 msgid "Haptic strength"
 msgstr "Força de vibração"
 
-#: src/ui/ms-feedback-panel.ui:48
+#: src/ui/ms-feedback-panel.ui:61
 msgid "Maximum haptic feedback strength percentage"
 msgstr "Porcentagem máxima de força de vibração"
 
-#: src/ui/ms-feedback-panel.ui:67
+#: src/ui/ms-feedback-panel.ui:80
 msgid "Per Application settings"
 msgstr "Configurações por aplicativo"
 
-#: src/ui/ms-feedback-panel.ui:80
-msgid "Sounds"
-msgstr "Sons"
-
-#: src/ui/ms-feedback-panel.ui:81
+#: src/ui/ms-feedback-panel.ui:94
 msgid "The sound to use for certain events"
 msgstr "O som a ser usado em determinados eventos"
 
-#: src/ui/ms-feedback-panel.ui:89
+#: src/ui/ms-feedback-panel.ui:102
 msgid "Phone Calls"
 msgstr "Chamadas telefônicas"
 
-#: src/ui/ms-feedback-panel.ui:95
+#: src/ui/ms-feedback-panel.ui:108
 msgid "SMS"
 msgstr "SMS"
 
-#: src/ui/ms-feedback-panel.ui:101
+#: src/ui/ms-feedback-panel.ui:114
 msgid "Instant messages"
 msgstr "Mensagens instantâneas"
 
-#: src/ui/ms-feedback-panel.ui:112
+#: src/ui/ms-feedback-panel.ui:125
 msgid "Screen Wakeup"
 msgstr "Acender tela"
 
-#: src/ui/ms-feedback-panel.ui:115
+#: src/ui/ms-feedback-panel.ui:128
 msgid "Notification urgency that lights up the screen"
 msgstr "Urgência de notificação que ilumina a tela"
+
+#: src/ui/ms-feedback-panel.ui:146
+msgid ""
+"Notification categories that wake up the screen independent from their "
+"urgency"
+msgstr ""
+"Categoria de notificações que ligam a tela independentemente da urgência"
+
+#: src/ui/ms-feedback-panel.ui:149
+msgid "Calls"
+msgstr "Chamadas"
+
+#: src/ui/ms-feedback-panel.ui:150
+msgid "A generic audio or video call notification"
+msgstr "Um áudio genérico ou notificação de videochamada"
+
+#: src/ui/ms-feedback-panel.ui:156
+msgid "Device events"
+msgstr "Eventos do dispositivo"
+
+#: src/ui/ms-feedback-panel.ui:157
+msgid "A generic device-related notification"
+msgstr "Uma notificação genérica relacionada ao dispositivo"
+
+#: src/ui/ms-feedback-panel.ui:163
+msgid "Emails"
+msgstr "E-mails"
+
+#: src/ui/ms-feedback-panel.ui:164
+msgid "A generic e-mail-related notification"
+msgstr "Uma notificação genérica relacionada ao e-mail"
+
+#: src/ui/ms-feedback-panel.ui:170
+msgid "Instant Messages"
+msgstr "Mensagens instantâneas"
+
+#: src/ui/ms-feedback-panel.ui:171
+msgid "A generic instant message-related notification"
+msgstr "Uma notificação genérica relacionado às mensagens instantâneas"
+
+#: src/ui/ms-feedback-panel.ui:177
+msgid "Network events"
+msgstr "Eventos de rede"
+
+#: src/ui/ms-feedback-panel.ui:178
+msgid "A generic network notification"
+msgstr "Uma notificação genérica de rede"
+
+#: src/ui/ms-feedback-panel.ui:184
+msgid "Presence changes"
+msgstr "Mudanças presentes"
+
+#: src/ui/ms-feedback-panel.ui:185
+msgid "A generic presence change notification"
+msgstr "Uma notificação genérica de mudança presente"
+
+#: src/ui/ms-feedback-panel.ui:191
+msgid "File transfers"
+msgstr "Transferência de arquivos"
+
+#: src/ui/ms-feedback-panel.ui:192
+msgid "A generic file transfer or download notification"
+msgstr "Uma notificação genérica de download ou transferência de arquivos"
 
 #: src/ui/ms-lockscreen-panel.ui:14
 msgid "Locking and unlocking"
@@ -557,10 +839,6 @@ msgstr "Usar papel de parede"
 msgid "Whether to show a colorful wallpaper"
 msgstr "Se deve mostrar papel de parede colorido"
 
-#: src/ui/ms-lockscreen-panel.ui:79
-msgid "Widgets"
-msgstr "Widgets"
-
 #: src/ui/ms-lockscreen-panel.ui:80
 msgid "Additional widgets for the lock screen"
 msgstr "Widgets adicionais para a tela de bloqueio"
@@ -572,16 +850,48 @@ msgid "Add Layout"
 msgstr "Adicionar leiaute"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:14
+#: src/ui/ms-osk-add-shortcut-dialog.ui:16
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:20
+#: src/ui/ms-osk-add-shortcut-dialog.ui:22
 msgid "Add"
 msgstr "Adicionar"
 
 #: src/ui/ms-osk-add-layout-dialog.ui:40
 msgid "Language"
 msgstr "Idioma"
+
+#. Translators: Title for a dialog to add a new on-screen keyboard shortcut
+#. Translators: Label for a button that allows the user to add a new keyboard shortcut
+#: src/ui/ms-osk-add-shortcut-dialog.ui:7 src/ui/ms-osk-panel.ui:160
+msgid "Add Shortcut"
+msgstr "Adicionar atalho"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:43
+msgid "Choose Shortcut Modifiers"
+msgstr "Escolha os modificadores de atalho"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:128
+msgid "Choose Shortcut Key"
+msgstr "Escolha a tecla do atalho"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:139
+msgid "Enter Shortcut Key"
+msgstr "Digite a tecla de atalho"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:140
+msgid "Type a key such as letters (like C or V), etc."
+msgstr "Digite uma tecla como letras (C ou V), etc."
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:143
+msgid "_Shortcut Key"
+msgstr "Te_cla de atalho"
+
+#: src/ui/ms-osk-add-shortcut-dialog.ui:153
+msgid "Shortcut Preview"
+msgstr "Prévia do atalho"
 
 #: src/ui/ms-osk-layout-prefs.ui:5
 msgctxt "on screen keyboard"
@@ -654,68 +964,92 @@ msgid ""
 msgstr ""
 "Se deve mostrar o teclado na tela quando um teclado físico estiver presente"
 
-#: src/ui/ms-osk-panel.ui:51
+#: src/ui/ms-osk-panel.ui:46
+msgid "Key indicator popup"
+msgstr "Janela instantânea de indicação de tecla"
+
+#: src/ui/ms-osk-panel.ui:47
+msgid "Whether to show a popover indicating the currently pressed key"
+msgstr ""
+"Se deve mostrar uma janela instantânea indicando a tecla pressionada "
+"atualmente"
+
+#: src/ui/ms-osk-panel.ui:59
 msgid "Keyboard height in portrait mode"
 msgstr "Altura do teclado no modo retrato"
 
-#: src/ui/ms-osk-panel.ui:52
+#: src/ui/ms-osk-panel.ui:60
 msgid "When the screen is taller than wide"
 msgstr "Quando a tela é mais alta que larga"
 
-#: src/ui/ms-osk-panel.ui:68
+#: src/ui/ms-osk-panel.ui:76
 msgid "Keyboard height in landscape mode"
 msgstr "Altura do teclado no modo paisagem"
 
-#: src/ui/ms-osk-panel.ui:69
+#: src/ui/ms-osk-panel.ui:77
 msgid "When the screen is wider than tall"
 msgstr "Quando a tela é mais larga que alta"
 
-#: src/ui/ms-osk-panel.ui:93
+#: src/ui/ms-osk-panel.ui:104
+msgid "Keep physical size constant"
+msgstr "Mantenha o tamanho físico constante"
+
+#: src/ui/ms-osk-panel.ui:105
+msgid "Whether to keep the OSK's size constant in portrait mode"
+msgstr "Se deve manter o tamanho constante do OSK em modo retrato"
+
+#: src/ui/ms-osk-panel.ui:111
+msgid "Add empty space below keys"
+msgstr "Adiciona um espaço vazio abaixo das teclas"
+
+#: src/ui/ms-osk-panel.ui:112
+msgid "Whether to add an empty area below the OSK's keys to shift it upward."
+msgstr ""
+"Se deve adicionar um espaço vazio abaixo das teclas OSK para deslocar para "
+"cima."
+
+#: src/ui/ms-osk-panel.ui:122
 msgid "Text Completion"
 msgstr "Autocompletamento de texto"
 
-#: src/ui/ms-osk-panel.ui:96
+#: src/ui/ms-osk-panel.ui:125
 msgid "Opportunistic word completion"
 msgstr "Autocompletamento oportunístico de palavras"
 
-#: src/ui/ms-osk-panel.ui:97
+#: src/ui/ms-osk-panel.ui:126
 msgid "Enable word completion when the app indicates it is useful"
 msgstr ""
 "Habilita autocompletamento de palavra quando o aplicativo indicar ser útil"
 
-#: src/ui/ms-osk-panel.ui:104
+#: src/ui/ms-osk-panel.ui:133
 msgid "Toggle via OSK menu"
 msgstr "Alternar via menu OSK"
 
-#: src/ui/ms-osk-panel.ui:105
+#: src/ui/ms-osk-panel.ui:134
 msgid "Allow to toggle word completion via the keyboard's menu button"
 msgstr ""
 "Permite alternar o autocompletamento de palavras por meio do botão de menu "
 "do teclado"
 
-#: src/ui/ms-osk-panel.ui:111
+#: src/ui/ms-osk-panel.ui:140
 msgid "Default Completer"
 msgstr "Autocompletamento padrão"
 
-#: src/ui/ms-osk-panel.ui:112
+#: src/ui/ms-osk-panel.ui:141
 msgid "The default completion engine to use"
 msgstr "O padrão a ser usado no mecanismo de autocompletamento"
 
-#: src/ui/ms-osk-panel.ui:123
+#: src/ui/ms-osk-panel.ui:152
 msgid "Terminal Layout"
 msgstr "Layout do terminal"
 
-#: src/ui/ms-osk-panel.ui:127
+#: src/ui/ms-osk-panel.ui:171
 msgid "Shortcuts"
 msgstr "Atalhos"
 
-#: src/ui/ms-osk-panel.ui:128
+#: src/ui/ms-osk-panel.ui:172
 msgid "The shortcuts available in the shortcuts bar"
 msgstr "Os atalhos disponíveis na barra de atalhos"
-
-#: src/ui/ms-overview-panel.ui:13
-msgid "Favorites"
-msgstr "Favoritos"
 
 #: src/ui/ms-overview-panel.ui:22
 msgid "Organize Favorites"
@@ -783,10 +1117,6 @@ msgstr "Luz"
 msgid "Orientation"
 msgstr "Orientação"
 
-#: src/ui/ms-sensor-panel.ui:69
-msgid "High Contrast"
-msgstr "Alto contraste"
-
 #: src/ui/ms-sensor-panel.ui:72
 msgid "Automatic High Contrast"
 msgstr "Alto contraste automático"
@@ -828,10 +1158,6 @@ msgid "Don't place UI elements beneath notches and display cutouts"
 msgstr ""
 "Não coloca elementos da interface de usuário abaixo de notches e recortes de "
 "exibição"
-
-#: src/ui/ms-topbar-panel.ui:34
-msgid "Quick Settings"
-msgstr "Configurações rápidas"
 
 #: src/ui/ms-topbar-panel.ui:35
 msgid "Organize your additional Quick Settings"

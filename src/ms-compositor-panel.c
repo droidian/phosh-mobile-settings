@@ -13,24 +13,24 @@
 #include "mobile-settings-application.h"
 #include "ms-compositor-panel.h"
 #include "ms-scale-to-fit-row.h"
+#include "ms-util.h"
 
 /* Verbatim from compositor */
 #define COMPOSITOR_SCHEMA_ID "sm.puri.phoc"
 #define COMPOSITOR_KEY_SCALE_TO_FIT "scale-to-fit"
 
-
 struct _MsCompositorPanel {
-  AdwBin     parent;
+  MsPanel           parent;
 
-  GSettings *settings;
-  GtkWidget *scale_to_fit_switch;
+  GSettings        *settings;
+  GtkWidget        *scale_to_fit_switch;
 
-  GtkListBox *running_apps_listbox;
-  GListStore *running_apps_rows;
+  GtkListBox        *running_apps_listbox;
+  GListStore        *running_apps_rows;
   MsToplevelTracker *tracker;
 };
 
-G_DEFINE_TYPE (MsCompositorPanel, ms_compositor_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsCompositorPanel, ms_compositor_panel, MS_TYPE_PANEL)
 
 
 static void

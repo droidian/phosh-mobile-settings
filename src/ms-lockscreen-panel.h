@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_LOCKSCREEN_PANEL (ms_lockscreen_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsLockscreenPanel, ms_lockscreen_panel, MS, LOCKSCREEN_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsLockscreenPanel, ms_lockscreen_panel, MS, LOCKSCREEN_PANEL, MsPanel)
 
 MsLockscreenPanel *ms_lockscreen_panel_new (void);
 

@@ -199,6 +199,7 @@ print_version (void)
 static void
 print_system_information (GApplication *app)
 {
+  g_autofree char *debug_info = NULL;
   MobileSettingsApplication *self = MOBILE_SETTINGS_APPLICATION (app);
 
   /* We need this to init components and generate debug info */
@@ -209,7 +210,8 @@ print_system_information (GApplication *app)
   wl_display_roundtrip (self->wl_display);
   wl_display_dispatch (self->wl_display);
 
-  g_print ("Debugging information:\n%s", mobile_settings_generate_debug_info ());
+  debug_info = mobile_settings_generate_debug_info ();
+  g_print ("Debugging information:\n%s", debug_info);
 }
 
 
@@ -221,7 +223,7 @@ list_available_panels (GApplication *app)
   g_autoptr (GtkStackPage) page = NULL;
   const char *name;
 
-  // Since we're in the local instance, just get us a window
+  /* Since we're in the local instance, just get us a window */
   adw_init ();
 
   window = g_object_new (MOBILE_SETTINGS_TYPE_WINDOW, NULL);
@@ -235,6 +237,8 @@ list_available_panels (GApplication *app)
 
     g_print ("- %s\n", name);
   }
+
+  gtk_window_destroy (GTK_WINDOW (window));
 }
 
 

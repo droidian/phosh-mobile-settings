@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="MsOskPanel" parent="AdwBin">
+  <template class="MsOskPanel" parent="MsPanel">
     <child>
       <object class="GtkScrolledWindow">
         <child>
@@ -38,6 +38,14 @@
                     <property name="title" translatable="yes">Ignore hardware keyboard</property>
                     <property name="subtitle" translatable="yes">Whether to show the on screen keyboard when a physical keyboard is present</property>
                     <property name="visible">False</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSwitchRow" id="key_indicator_switch">
+                    <property name="visible">False</property>
+                    <property name="title" translatable="yes">Key indicator popup</property>
+                    <property name="subtitle" translatable="yes">Whether to show a popover indicating the currently pressed key</property>
+                    <signal name="notify::active" handler="on_key_indicator_switch_activate_changed" swapped="true"/>
                   </object>
                 </child>
               </object>
@@ -88,6 +96,27 @@
             </child>
 
             <child>
+              <object class="AdwPreferencesGroup" id="osk_scaling_group">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">Scaling</property>
+                <child>
+                  <object class="AdwSwitchRow" id="osk_scaling_auto_portrait_switch">
+                    <property name="title" translatable="yes">Keep physical size constant</property>
+                    <property name="subtitle" translatable="yes">Whether to keep the OSK's size constant in portrait mode</property>
+                    <signal name="notify::active" handler="on_osk_scaling_switch_changed" swapped="true"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSwitchRow" id="osk_scaling_bottom_dead_zone_switch">
+                    <property name="title" translatable="yes">Add empty space below keys</property>
+                    <property name="subtitle" translatable="yes">Whether to add an empty area below the OSK's keys to shift it upward.</property>
+                    <signal name="notify::active" handler="on_osk_scaling_switch_changed" swapped="true"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
               <object class="AdwPreferencesGroup" id="completion_group">
                 <property name="visible">False</property>
                 <property name="title" translatable="yes">Text Completion</property>
@@ -122,6 +151,21 @@
               <object class="AdwPreferencesGroup" id="terminal_layout_group">
                 <property name="title" translatable="yes">Terminal Layout</property>
                 <property name="visible">False</property>
+                <child type="header-suffix">
+                  <object class="GtkButton">
+                    <property name="child">
+                      <object class="AdwButtonContent">
+                        <property name="icon-name">list-add-symbolic</property>
+                        <!-- Translators: Label for a button that allows the user to add a new keyboard shortcut -->
+                        <property name="label" translatable="yes">Add Shortcut</property>
+                      </object>
+                    </property>
+                    <signal name="clicked" handler="on_new_shortcut_clicked" swapped="yes" />
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                  </object>
+                </child>
                 <child>
                   <object class="AdwActionRow">
                     <property name="title" translatable="yes">Shortcuts</property>

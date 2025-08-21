@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "ms-panel.h"
 
 G_BEGIN_DECLS
 
 #define MS_TYPE_FEATURES_PANEL (ms_features_panel_get_type ())
 
-G_DECLARE_FINAL_TYPE (MsFeaturesPanel, ms_features_panel, MS, FEATURES_PANEL, AdwBin)
+G_DECLARE_FINAL_TYPE (MsFeaturesPanel, ms_features_panel, MS, FEATURES_PANEL, MsPanel)
 
 MsFeaturesPanel *ms_features_panel_new (void);
 

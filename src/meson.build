@@ -1,4 +1,5 @@
 subdir('dbus')
+subdir('pmos-tweaks')
 
 mobile_settings_enum_sources = gnome.mkenums_simple(
   'ms-enum-types',
@@ -13,19 +14,22 @@ mobile_settings_plugin_sources = [
 ]
 
 mobile_settings_sources = [
-  'main.c',
   'mobile-settings-window.h',
   'mobile-settings-window.c',
   'mobile-settings-application.h',
   'mobile-settings-application.c',
   'mobile-settings-debug-info.h',
   'mobile-settings-debug-info.c',
+  'ms-alerts-panel.c',
+  'ms-alerts-panel.h',
   'ms-audio-device.c',
   'ms-audio-device.h',
   'ms-audio-device-row.c',
   'ms-audio-device-row.h',
   'ms-audio-devices.c',
   'ms-audio-devices.h',
+  'ms-cb-message-row.c',
+  'ms-cb-message-row.h',
   'ms-completer-info.c',
   'ms-completer-info.h',
   'ms-compositor-panel.c',
@@ -42,8 +46,12 @@ mobile_settings_sources = [
   'ms-head-tracker.h',
   'ms-lockscreen-panel.c',
   'ms-lockscreen-panel.h',
+  'ms-main.c',
+  'ms-main.h',
   'ms-osk-add-layout-dialog.c',
   'ms-osk-add-layout-dialog.h',
+  'ms-osk-add-shortcut-dialog.c',
+  'ms-osk-add-shortcut-dialog.h',
   'ms-osk-layout.c',
   'ms-osk-layout.h',
   'ms-osk-layout-prefs.c',
@@ -54,6 +62,8 @@ mobile_settings_sources = [
   'ms-osk-panel.h',
   'ms-overview-panel.c',
   'ms-overview-panel.h',
+  'ms-panel.c',
+  'ms-panel.h',
   'ms-panel-switcher.c',
   'ms-panel-switcher.h',
   'ms-plugin-loader.h',
@@ -75,16 +85,12 @@ mobile_settings_sources = [
   'ms-toplevel-tracker.h',
   'ms-util.c',
   'ms-util.h',
-  generated_dbus_sources,
-  mobile_settings_enum_sources,
-  mobile_settings_plugin_sources,
-  wl_proto_headers,
-  wl_proto_sources,
 ]
 
 mobile_settings_deps = [
   adwaita_dep,
   libfeedback_dep,
+  libcbd_dep,
   gio_dep,
   gio_unix_dep,
   glib_dep,
@@ -106,18 +112,38 @@ mobile_settings_deps = [
 
 gnome = import('gnome')
 
-mobile_settings_sources += gnome.compile_resources(
+mobile_settings_resources = gnome.compile_resources(
   'mobile-settings-resources',
   'mobile-settings.gresource.xml',
+  extra_args: '--manual-register',
   c_name: 'mobile_settings',
 )
 
-executable(
-  'phosh-mobile-settings',
+mobile_settings_generated_sources = [
+  generated_dbus_sources,
+  mobile_settings_enum_sources,
+  mobile_settings_plugin_sources,
+  mobile_settings_resources,
+  wl_proto_headers,
+  wl_proto_sources,
+]
+
+ms_lib = static_library(
+  'ms',
   mobile_settings_sources,
+  pmos_tweaks_sources,
+  mobile_settings_generated_sources,
   dependencies: mobile_settings_deps,
-  install: true,
+  install: false,
 )
+
+libms_dep = declare_dependency(
+  sources: mobile_settings_generated_sources,
+  link_with: ms_lib,
+  dependencies: mobile_settings_deps,
+)
+
+pms = executable('phosh-mobile-settings', 'main.c', install: true, dependencies: libms_dep)
 
 
 # Helpers for plugins */

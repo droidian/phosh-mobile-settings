@@ -24,7 +24,7 @@
 
 
 struct _MsTopbarPanel {
-  AdwBin        parent;
+  MsPanel       parent;
 
   GSettings    *settings;
   GSettings    *interface_settings;
@@ -33,7 +33,7 @@ struct _MsTopbarPanel {
   AdwSwitchRow *shell_layout_switch;
 };
 
-G_DEFINE_TYPE (MsTopbarPanel, ms_topbar_panel, ADW_TYPE_BIN)
+G_DEFINE_TYPE (MsTopbarPanel, ms_topbar_panel, MS_TYPE_PANEL)
 
 
 static void
